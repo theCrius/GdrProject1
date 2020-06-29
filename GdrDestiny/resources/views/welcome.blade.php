@@ -8,7 +8,10 @@
 
 <body>
     <section>
+    <div class='imgEntra'>
         <img id='welcomeImg' src='/img/imgHomeEsterna/index_sfondo.jpg'>
+        <span id='entraText'><a href="{{route('welcome')}}">ENTRA</a></span>
+        </div>
     </section>
 </body>
 

@@ -7,4 +7,57 @@ section{
     align-content: space-around;
     
 }
+.imgEntra{
+    position: relative;
+    height: 100vh;
+}
+#welcomeImg{
+    height: inherit;
+}
+  
+
+#entraText{
+    color:white;
+    font-family: fontTitle;
+    position: absolute;
+    top: 29%;
+    left: 46.25%;
+    font-size: 5vh;
+
+    a{
+        text-decoration: none;
+        color:inherit;
+    }
+    &:hover{
+        font-family : fontTitleGothamUltra;
+
+    }
+}
+
+
+
+
+@media only screen and (max-width: 500px){
+    #welcomeImg{
+        height: 60vh;
+    }
+
+}
+
+
+
+/* font used */
+@font-face {
+    font-family: fontTitle;
+    src: url(../font/FullStopLucca-ExtraboldItalic.ttf);
+  }
+
+@font-face {
+    font-family: fontTitleGotham;
+    src: url(../font/Gotham_Ultra.otf);
+  }
+  @font-face {
+    font-family: fontTitleGothamUltra;
+    src: url(../font/Gotham_Rounded_Light.otf);
+  }
 
