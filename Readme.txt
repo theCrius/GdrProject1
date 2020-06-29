@@ -1,1 +1,0 @@
-Iniziamo con la homepage

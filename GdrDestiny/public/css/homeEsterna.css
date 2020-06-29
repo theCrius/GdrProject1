@@ -1,0 +1,14 @@
+html, body {
+  background-color: black;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+/*# sourceMappingURL=homeEsterna.css.map */
