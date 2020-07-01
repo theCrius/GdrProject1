@@ -9,8 +9,8 @@
 <body>
     <section>
     <div class='imgEntra'>
-        <img id='welcomeImg' src='/img/imgHomeEsterna/index_sfondo.jpg'>
-        <span id='entraText'><a href="{{route('welcome')}}">ENTRA</a></span>
+        <img id='welcomeImg' src='/img/imgHomeEsterna/index_sfondo.png'>
+        <a href="{{route('welcome')}}"><img id='entraText' src="/img/imgHomeEsterna/entrahome.png" alt=""></a>
         </div>
     </section>
 </body>
