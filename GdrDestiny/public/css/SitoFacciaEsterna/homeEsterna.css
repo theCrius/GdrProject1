@@ -1,5 +1,6 @@
 html, body {
   background-color: black;
+  height: 97%;
 }
 
 section {
@@ -12,7 +13,7 @@ section {
 
 .imgEntra {
   position: relative;
-  height: 100vh;
+  height: 99vh;
 }
 
 #welcomeImg {

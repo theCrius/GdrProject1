@@ -19,7 +19,7 @@ Route::get('/', function () {
 //home esterna
 Route::get('/welcome', function () {
     return view('welcome2');
-})->name('welcome');
+})->name('welcome2');
 
 Auth::routes();
 
