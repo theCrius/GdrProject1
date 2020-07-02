@@ -7,9 +7,27 @@
 </head>
 
 <body>
-<section>
-   <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt=""> 
-</section>
+    <section>
+        <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt="">
+        <div class="title">
+            <img src="/img/imgHomeEsterna/titleHome.png" alt="">
+        </div>
+        <div class="SezioniHome titoloSinistra">
+            <img src="/img/imgHomeEsterna/iscrizione.png" alt="">
+        </div>
+        <div class="SezioniHome titoloDestra">
+            <img src="/img/imgHomeEsterna/ambientazione.png" alt="">
+        </div>
+        <div class="ContainerSinistra">
+            <img src="/img/imgHomeEsterna/sxpg.png" alt="">
+        </div>
+        <div class="ContainerCentrale">
+            <img src="/img/imgHomeEsterna/centralpg.png" alt="">
+        </div>
+        <div class="ContainerDestra">
+            <img src="/img/imgHomeEsterna/dxpg.png" alt="">
+        </div>
+    </section>
 </body>
 
 </html>

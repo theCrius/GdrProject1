@@ -3,7 +3,55 @@
 margin:0;
 padding:0;
 }
+section{
+    position: relative;
+}
 #sfondo{
     height: 100%;
     width: 100%;
+}
+.ContainerSinistra , .ContainerDestra , .ContainerCentrale{
+    position: absolute;
+    bottom:0;
+}
+
+.ContainerSinistra{
+    left:9vh;
+    
+}
+
+.ContainerCentrale , .title{
+
+    left:0;
+    right: 0;
+    text-align: center;
+}
+.ContainerCentrale img{
+    height: 58vh;
+}
+
+.ContainerDestra img , .ContainerSinistra img{
+    height: 37vh;
+}
+.ContainerDestra{
+    right: 0;
+}
+
+.title{
+    position: absolute;
+    top:0;    
+}
+.title img{
+    height: 11vh;
+}
+
+.SezioniHome{
+    position: absolute;
+    top: 13%;
+}
+.SezioniHome img{
+    height: 4vh;
+}
+.titoloDestra{
+    right:0;
 }
