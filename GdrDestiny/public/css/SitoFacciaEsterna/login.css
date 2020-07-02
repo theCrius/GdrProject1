@@ -18,7 +18,7 @@ section {
 }
 
 .ContainerSinistra {
-  left: 9vh;
+  left: 3vh;
 }
 
 .ContainerCentrale, .title {
@@ -28,7 +28,17 @@ section {
 }
 
 .ContainerCentrale img {
+  opacity: 0.9;
+}
+
+#personaggioCentrale {
   height: 58vh;
+}
+
+#loginText {
+  height: 5vh;
+  position: relative;
+  bottom: 2vh;
 }
 
 .ContainerDestra img, .ContainerSinistra img {
@@ -51,6 +61,8 @@ section {
 .SezioniHome {
   position: absolute;
   top: 13%;
+  padding-left: 18%;
+  padding-right: 18%;
 }
 
 .SezioniHome img {
@@ -59,5 +71,38 @@ section {
 
 .titoloDestra {
   right: 0;
+  text-align: end;
+}
+
+.circonferenzaBlu {
+  position: relative;
+  top: 49vh;
+}
+
+.circonferenzaBlu img {
+  height: 80vh;
+}
+
+.symbol {
+  height: 30vh !important;
+  display: block;
+}
+
+@media only screen and (max-width: 800px) {
+  .circonferenzaBlu {
+    position: relative;
+    top: 20vh;
+  }
+  .circonferenzaBlu img {
+    height: 40vh;
+  }
+  .ContainerCentrale img {
+    height: 50vh;
+    opacity: 0.9;
+  }
+  .SezioniHome {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }
 /*# sourceMappingURL=login.css.map */
