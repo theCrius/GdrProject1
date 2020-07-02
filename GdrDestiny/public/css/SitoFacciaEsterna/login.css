@@ -1,5 +1,10 @@
-html {
-  background: url("/img/imgHomeEsterna/sfondopulito.png") no-repeat center top;
-  max-width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#sfondo {
+  height: 100%;
+  width: 100%;
 }
 /*# sourceMappingURL=login.css.map */

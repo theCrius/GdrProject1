@@ -8,7 +8,7 @@
 
 <body>
 <section>
-   <!--  <img src="/img/imgHomeEsterna/romboscritte.png" alt=""> -->
+   <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt=""> 
 </section>
 </body>
 
