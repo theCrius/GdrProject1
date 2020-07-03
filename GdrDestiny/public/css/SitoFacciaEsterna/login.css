@@ -49,6 +49,10 @@ section {
   right: 0;
 }
 
+.ContainerSinistra, .ContainerDestra {
+  text-align: center;
+}
+
 .title {
   position: absolute;
   top: 0;
@@ -83,8 +87,16 @@ section {
   height: 80vh;
 }
 
-.symbol {
+.symbol_alti {
   height: 30vh !important;
+  display: block;
+}
+
+.symbol_bassi {
+  height: 4vh !important;
+}
+
+.personaggi {
   display: block;
 }
 
@@ -103,6 +115,30 @@ section {
   .SezioniHome {
     padding-left: 10%;
     padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .SezioniHome {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .symbol_alti {
+    visibility: hidden;
+  }
+  .SezioniHome {
+    padding-left: 0;
+    padding-top: 0;
+    top: -13%;
+  }
+  #personaggioCentrale {
+    height: 50vh;
+  }
+  .ContainerDestra img, .ContainerSinistra img {
+    height: 30vh;
   }
 }
 /*# sourceMappingURL=login.css.map */

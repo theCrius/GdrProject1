@@ -9,35 +9,35 @@
 <body>
     <section>
         <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt="">
-        
+
         <div class="title">
             <img src="/img/imgHomeEsterna/titleHome.png" alt="">
         </div>
         <div class="SezioniHome titoloSinistra">
-            <img src="/img/imgHomeEsterna/sxsimbolo.png" class='symbol' alt="">
-            <img src="/img/imgHomeEsterna/iscrizione.png" alt="">
+            <img src="/img/imgHomeEsterna/sxsimbolo.png" class='symbol_alti' alt="">
+           <a href="http://"><img src="/img/imgHomeEsterna/iscrizione.png"></a>
         </div>
         <div class="SezioniHome titoloDestra">
-            <img src="/img/imgHomeEsterna/dxtsimbolo.png" class='symbol'alt="">
-            <img src="/img/imgHomeEsterna/ambientazione.png" alt="">
+            <img src="/img/imgHomeEsterna/dxtsimbolo.png" class='symbol_alti' alt="">
+            <a href=""><img src="/img/imgHomeEsterna/ambientazione.png" alt=""></a>
         </div>
         <div class="ContainerSinistra">
-            <img src="/img/imgHomeEsterna/regolamento.png" alt="">
-            <img src="/img/imgHomeEsterna/sxpg.png" alt="">
+            <img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'>
+            <img src="/img/imgHomeEsterna/sxpg.png" alt="" class='personaggi'>
         </div>
         <div class="ContainerCentrale">
-        <div class="circonferenzaBlu">
-            <img src="/img/imgHomeEsterna/circonferenza.png" alt="">
+            <div class="circonferenzaBlu">
+                <img src="/img/imgHomeEsterna/circonferenza.png" alt="">
             </div>
             <div class="loginButton">
-            <img id='loginText' src="/img/imgHomeEsterna/login.png" alt="">
+                <a href=""><img id='loginText' src="/img/imgHomeEsterna/login.png" alt=""></a>
             </div>
             <img id='PersonaggioCentrale' src="/img/imgHomeEsterna/centralpg.png" alt="">
-            
+
         </div>
         <div class="ContainerDestra">
-            <img src="/img/imgHomeEsterna/credits.png" alt="">
-            <img src="/img/imgHomeEsterna/dxpg.png" alt="">
+            <a href=""> <img src="/img/imgHomeEsterna/credits.png" alt="" class='symbol_bassi'></a>
+            <img src="/img/imgHomeEsterna/dxpg.png" alt="" class='personaggi'>
         </div>
     </section>
 </body>
