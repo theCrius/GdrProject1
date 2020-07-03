@@ -22,7 +22,7 @@
             <a href=""><img src="/img/imgHomeEsterna/ambientazione.png" alt=""></a>
         </div>
         <div class="ContainerSinistra">
-            <img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'>
+           <a href="http://"><img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'></a> 
             <img src="/img/imgHomeEsterna/sxpg.png" alt="" class='personaggi'>
         </div>
         <div class="ContainerCentrale">
