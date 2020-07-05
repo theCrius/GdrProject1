@@ -9,7 +9,16 @@
 <body>
     <section>
         <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt="">
+        <div class="ContainerCentrale">
+            <div class="circonferenzaBlu">
+                <img src="/img/imgHomeEsterna/circonferenza.png" alt="">
+            </div>
+            <div class="loginButton">
+                <a href=""><img id='loginText' src="/img/imgHomeEsterna/login.png" alt=""></a>
+            </div>
+            <img id='PersonaggioCentrale' src="/img/imgHomeEsterna/centralpg.png" alt="">
 
+        </div>
         <div class="title">
             <img src="/img/imgHomeEsterna/titleHome.png" alt="">
         </div>
@@ -25,16 +34,7 @@
            <a href="http://"><img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'></a> 
             <img src="/img/imgHomeEsterna/sxpg.png" alt="" class='personaggi'>
         </div>
-        <div class="ContainerCentrale">
-            <div class="circonferenzaBlu">
-                <img src="/img/imgHomeEsterna/circonferenza.png" alt="">
-            </div>
-            <div class="loginButton">
-                <a href=""><img id='loginText' src="/img/imgHomeEsterna/login.png" alt=""></a>
-            </div>
-            <img id='PersonaggioCentrale' src="/img/imgHomeEsterna/centralpg.png" alt="">
-
-        </div>
+        
         <div class="ContainerDestra">
             <a href=""> <img src="/img/imgHomeEsterna/credits.png" alt="" class='symbol_bassi'></a>
             <img src="/img/imgHomeEsterna/dxpg.png" alt="" class='personaggi'>
