@@ -24,7 +24,7 @@
         </div>
         <div class="SezioniHome titoloSinistra">
             <img src="/img/imgHomeEsterna/sxsimbolo.png" class='symbol_alti' alt="">
-           <a href="{{route('register')}}"><img src="/img/imgHomeEsterna/iscrizione.png"></a>
+           <a href="{{route('registrati1')}}"><img src="/img/imgHomeEsterna/iscrizione.png"></a>
         </div>
         <div class="SezioniHome titoloDestra">
             <img src="/img/imgHomeEsterna/dxtsimbolo.png" class='symbol_alti' alt="">

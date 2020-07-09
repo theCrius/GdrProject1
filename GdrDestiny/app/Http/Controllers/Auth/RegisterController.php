@@ -41,6 +41,27 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function primoStep(){
+            $toselect=[
+                'id',
+                'name',
+                'forza',
+                'destrezza',
+                'resistenza',
+                'prontezza',
+                'percezione',
+                'intelligenza',
+                'punti_mente',
+                'punti_corpo',
+                'descrizione',
+            ];
+            $breeds=\App\Breed::select($toselect)->get() ?? '';
+            return view('auth.register-principal',[
+                'breeds' => $breeds
+            ]);
+    
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *

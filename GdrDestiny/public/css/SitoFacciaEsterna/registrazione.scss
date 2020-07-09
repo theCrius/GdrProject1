@@ -1,0 +1,42 @@
+html{
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.razzaDiv{
+    position: relative;
+    height: 90vh;
+    width: fit-content;
+    margin: auto;
+}
+#sfondoRazze{
+    height: inherit;
+}
+form{
+    text-align: center;
+}
+#razzaCentrale, #razzaSinistra , #razzaDestra{
+    position: absolute;
+    height: 41.9vh;
+    opacity: 0.7;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+
+#razzaCentrale{
+    left:32.9%;
+    top:30%;
+}
+#razzaSinistra{
+    left: 21.6%;
+    top: 26%;
+}
+#razzaDestra{
+    right: 34%;
+    top: 25.9%;
+}
