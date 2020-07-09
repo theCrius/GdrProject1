@@ -2,15 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/SitoFacciaEsterna/registrazione.css">
+
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{ route('register') }}">
-                        @csrf
-                        'ok'
-                {{$ok}}
+<img src="/img/imgHomeEsterna/imgIscrizione/Emisferoscelta.png" alt="">
 
-                
-    </form>
 </body>
 </html>

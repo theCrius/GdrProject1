@@ -55,11 +55,15 @@ class RegisterController extends Controller
                 'punti_corpo',
                 'descrizione',
             ];
-            $breeds=\App\Breed::select($toselect)->get() ?? '';
+
+            $breeds=\App\Breed::select($toselect)->get();
             return view('auth.register-principal',[
                 'breeds' => $breeds
             ]);
     
+    }
+    public function secondoStep($id_razza){
+        
     }
 
     /**
