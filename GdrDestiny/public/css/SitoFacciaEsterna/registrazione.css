@@ -15,7 +15,7 @@ html {
   margin: auto;
 }
 
-#sfondoRazze {
+.sfondoRegistrazione1 {
   height: inherit;
 }
 
@@ -46,5 +46,30 @@ form {
 #razzaDestra {
   right: 34%;
   top: 25.9%;
+}
+
+#emisferodestro, #emisferosinistro {
+  position: absolute;
+  top: 26%;
+  height: 45vh;
+  opacity: 0.7;
+}
+
+#emisferodestro:hover, #emisferosinistro:hover {
+  opacity: 1;
+}
+
+#emisferodestro {
+  right: 36%;
+}
+
+#emisferosinistro {
+  left: 25%;
+}
+
+.inputTextRegistrazione {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 /*# sourceMappingURL=registrazione.css.map */

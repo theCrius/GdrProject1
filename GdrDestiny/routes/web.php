@@ -26,10 +26,9 @@ Auth::routes();
 
 //registrazione
 Route::get('registrati/razza','Auth\RegisterController@primoStep')->name('registrati1');
-Route::get('registrati/generalità/{nameRazza}',function(Request $request ){
-    return view('auth.register-secondary', [
-        'ok' => $request->test,
-    ]);
-})->name('registrati2');
+Route::get('registrati/generalità/{idRazza}','Auth\RegisterController@secondoStep')->name('registrati2');
+Route::get('registrati/{idRazza}/{idEmisfero}','Auth\RegisterController@terzoStep')->name('registrati3');
+
+Route::get('registrati/{idRazza}/{idEmisfero}/Confermato','Auth\RegisterController@register')->name('register');
 
 Route::get('/home', 'HomeController@index')->name('home');

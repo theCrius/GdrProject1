@@ -63,7 +63,19 @@ class RegisterController extends Controller
     
     }
     public function secondoStep($id_razza){
-        
+        $hemisperes=\App\Hemispere::select('name','id','descrizione')->get();
+        return view('auth.register-secondary',[
+            'razza' => $id_razza,
+            'hemisperes' => $hemisperes
+    
+
+        ]);
+    }
+    public function terzoStep($id_razza,$id_emisfero){
+        return view('auth.last-register',[
+            'RazzaId' => $id_razza,
+            'EmisferoId' => $id_emisfero
+        ]);
     }
 
     /**

@@ -12,7 +12,7 @@
 
     <div class="razzaDiv">
     
-        <img id='sfondoRazze' src="/img/imgHomeEsterna/imgIscrizione/razzescelta.png" alt="">
+        <img class='sfondoRegistrazione1' src="/img/imgHomeEsterna/imgIscrizione/razzescelta.png" alt="">
         <a href="{{route('registrati2',$breeds[0]->id)}}"><img id='razzaDestra'
                 src="/img/imgHomeEsterna/imgIscrizione/exo.png" alt=""></a>
         <a href="{{route('registrati2',$breeds[1]->id)}}"><img id='razzaSinistra'
