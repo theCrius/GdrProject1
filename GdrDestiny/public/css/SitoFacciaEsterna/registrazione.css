@@ -67,9 +67,34 @@ form {
   left: 25%;
 }
 
+/* Last registrazione */
 .inputTextRegistrazione {
   position: absolute;
-  top: 0;
-  left: 0;
+  background-color: transparent;
+  border-color: transparent;
+  width: 18.5vh;
+  color: white;
+}
+
+#firstChild {
+  top: 29.5%;
+  left: 7.5%;
+}
+
+#secondChild {
+  top: 41%;
+  left: 6.5%;
+}
+
+#thirdChild {
+  top: 17.5%;
+  right: 2.5%;
+  width: 24vh;
+}
+
+#fourthChild {
+  top: 26%;
+  right: 3.5%;
+  width: 20vh;
 }
 /*# sourceMappingURL=registrazione.css.map */
