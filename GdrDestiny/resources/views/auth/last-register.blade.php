@@ -11,6 +11,7 @@
  <input type="text" name="cognome" class='inputTextRegistrazione' id='secondChild'>
  <input type="text" name="email" class='inputTextRegistrazione' id='thirdChild'>
 <input type="text" name="nazionalità" class='inputTextRegistrazione' id='fourthChild'>
+<a href=""><img id='entra' src="/img/imgHomeEsterna/imgIscrizione/siclick.png" alt=""></a>
 </div>
 </body>
 </html>

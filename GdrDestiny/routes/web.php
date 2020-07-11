@@ -26,8 +26,9 @@ Auth::routes();
 
 //registrazione
 Route::get('registrati/razza','Auth\RegisterController@primoStep')->name('registrati1');
-Route::get('registrati/generalità/{idRazza}','Auth\RegisterController@secondoStep')->name('registrati2');
-Route::get('registrati/{idRazza}/{idEmisfero}','Auth\RegisterController@terzoStep')->name('registrati3');
+Route::get('registrati/{idRazza}/emisfero','Auth\RegisterController@secondoStep')->name('registrati2');
+Route::get('registrati/{idRazza}/{idEmisfero}/sesso','Auth\RegisterController@terzoStep')->name('registrati3');
+Route::get('registrati/{idRazza}/{idEmisfero}/{sesso}','Auth\RegisterController@quartoStep')->name('registrati4');
 
 Route::get('registrati/{idRazza}/{idEmisfero}/Confermato','Auth\RegisterController@register')->name('register');
 

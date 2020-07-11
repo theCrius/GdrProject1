@@ -41,6 +41,7 @@ form{
     top: 25.9%;
 }
 
+/* emisfero */
 #emisferodestro , #emisferosinistro{
     position: absolute;
     top:26%;
@@ -56,6 +57,21 @@ form{
 #emisferosinistro{
     left:25%;
 }
+/* Registrazzione sesso maschile o femminile */
+#maschio ,#femmina{
+    position: absolute;
+    height: 43vh;
+
+}
+#femmina{
+    top: 26.5%;
+    left: 22%;
+}
+#maschio{
+    top: 27.5%;
+    right: 32%;
+}
+
 
 /* Last registrazione */
 .inputTextRegistrazione{
@@ -83,5 +99,15 @@ form{
     top: 26%;
     right: 3.5%;
     width: 20vh;
+
+}
+#entra{
+    &:hover{
+        content: url('/img/imgHomeEsterna/imgIscrizione/noclick.png');
+    }
+    position: absolute;
+    bottom: 5%;
+    right: 27%;
+    height: 8.5vh;
 
 }
