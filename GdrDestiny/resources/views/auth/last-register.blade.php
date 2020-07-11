@@ -10,7 +10,7 @@
    @csrf
     <div class="razzaDiv">
     <img class='sfondoRegistrazione1' src="/img/imgHomeEsterna/imgIscrizione/Fase1.png" alt="">
- <input type="text" name="nome" class='inputTextRegistrazione' id='firstChild'>
+ <input type="text" name="name" class='inputTextRegistrazione' id='firstChild'>
  <input type="text" name="cognome" class='inputTextRegistrazione' id='secondChild'>
  <input type="text" name="email" class='inputTextRegistrazione' id='thirdChild'>
 <input type="text" name="nazionalità" class='inputTextRegistrazione' id='fourthChild'>

@@ -23,7 +23,8 @@ Route::get('/welcome', function () {
 })->name('welcome2');
 
 Auth::routes();
-
+//logout
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //registrazione
 Route::get('registrati/razza','Auth\RegisterController@primoStep')->name('registrati1');
 Route::get('registrati/{idRazza}/emisfero','Auth\RegisterController@secondoStep')->name('registrati2');

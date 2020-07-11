@@ -94,16 +94,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {   
-        dd($data);
         return Validator::make($data, [
-            'nome' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255','unique:users'],
             'cognome' => ['required', 'string', 'max:255'],
             'nazionalità' => ['required', 'string', 'max:255'],
-            'razza' => ['required', 'int'],
-            'emisfero' => ['required','int'],
+            'razza' => ['required', 'string','max:1'],
+            'emisfero' => ['required','string','max:1'],
             'sesso' => ['required','string',':max:1'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
         ]);
     }
 
@@ -115,10 +113,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $limitRazze= \App\Breed::all()->count();
+        $limitEmisfero= \App\Hemispere::all()->count();
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['name'])),
+            'surname' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['cognome'])),
+            'nazionalità' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['nazionalità'])),
+            'id_razza' => \htmlspecialchars(preg_replace("/[^0-". $limitRazze ."\-\']/", '1', $data['razza'])),
+            'email' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9@\-\']/", '', $data['email'])),
+            'id_emisfero' => \htmlspecialchars(preg_replace("/[^0-". $limitEmisfero ."\-\']/", '1', $data['emisfero'])),
+            'sesso' => $data['sesso'] === 'f' || $data['sesso'] === 'm' ? $data['sesso'] : 'm',
+            'password' => Hash::make(\Str::random(8)),
+            'indirizzo_ip' => \Request::ip(),
+            'last_activity' => now()
+
+            
+
         ]);
     }
 }

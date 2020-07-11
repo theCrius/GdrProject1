@@ -36,7 +36,7 @@
         </div>
         
         <div class="ContainerDestra">
-            <a href=""> <img src="/img/imgHomeEsterna/credits.png" alt="" class='symbol_bassi'></a>
+            <a href="{{ route('logout') }}"> <img src="/img/imgHomeEsterna/credits.png" alt="" class='symbol_bassi'></a>
             <img src="/img/imgHomeEsterna/dxpg.png" alt="" class='personaggi'>
         </div>
     </section>

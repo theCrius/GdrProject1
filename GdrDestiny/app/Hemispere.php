@@ -13,12 +13,12 @@ class Hemispere extends Model
         $ok=\App\Hemispere::insert([
             'name' => 'emisfero destro',
             'descrizione' =>'okfokdfkokdf',
-            'immagini' => null,           
+            'immagini' => 'ok',           
             ]);
             $ok=\App\Hemispere::insert([
-                'name' => 'emisfero sinsitro',
+                'name' => 'emisfero sinistro',
                 'descrizione' =>'okfokdfkokdf',
-                'immagini' => null,           
+                'immagini' => 'ok',           
                 ]);
     }
 }
