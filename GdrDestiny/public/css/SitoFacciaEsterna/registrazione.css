@@ -72,6 +72,11 @@ form {
 #maschio, #femmina {
   position: absolute;
   height: 43vh;
+  opacity: 0.7;
+}
+
+#maschio:hover, #femmina:hover {
+  opacity: 1;
 }
 
 #femmina {
@@ -119,10 +124,17 @@ form {
   position: absolute;
   bottom: 5%;
   right: 27%;
-  height: 8.5vh;
+  height: 8vh;
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
 }
 
-#entra:hover {
+#entra img {
+  height: inherit;
+}
+
+#entra img:hover {
   content: url("/img/imgHomeEsterna/imgIscrizione/noclick.png");
 }
 /*# sourceMappingURL=registrazione.css.map */
