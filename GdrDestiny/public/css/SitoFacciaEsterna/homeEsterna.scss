@@ -15,8 +15,25 @@ section{
 }
 #welcomeImg{
     height: inherit;
+    
 }
-  
+
+.pegiBottomDiv{
+    bottom: 2%;
+    left: 32.5%;
+    position: absolute;
+    width: 50%;
+    img{
+       
+        height: 10vh;
+        padding: 0.5%;
+            
+            
+        
+    }
+}
+
+
 
 #entraText{
     position: absolute;
@@ -28,6 +45,8 @@ section{
         opacity:1;
     }
 }
+
+
    
 
 /* welcome 2 css */

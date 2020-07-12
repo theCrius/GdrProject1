@@ -31,5 +31,7 @@ Route::get('registrati/{idRazza}/emisfero','Auth\RegisterController@secondoStep'
 Route::get('registrati/{idRazza}/{idEmisfero}/sesso','Auth\RegisterController@terzoStep')->name('registrati3');
 Route::get('registrati/{idRazza}/{idEmisfero}/{sesso}','Auth\RegisterController@quartoStep')->name('registrati4');
 
+Route::get('ambientazione','GuidaController@indexAmbientazione')->name('ambientazione');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

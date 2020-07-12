@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/SitoFacciaEsterna/login.css">
+    <link rel="stylesheet" href="/css/SitoFacciaEsterna/welcome2.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         </div>
         <div class="SezioniHome titoloDestra">
             <img src="/img/imgHomeEsterna/dxtsimbolo.png" class='symbol_alti' alt="">
-            <a href=""><img src="/img/imgHomeEsterna/ambientazione.png" alt=""></a>
+            <a href="{{ route('ambientazione') }}"><img src="/img/imgHomeEsterna/ambientazione.png" alt=""></a>
         </div>
         <div class="ContainerSinistra">
            <a href="http://"><img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'></a> 

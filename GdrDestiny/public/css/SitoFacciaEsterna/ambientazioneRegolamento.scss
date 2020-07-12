@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+section{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    height:  45vw;
+    position: relative;
+}
+.sfondo{
+    height: inherit;
+}
+.body{
+    position: absolute;
+    right: 8%;
+    top: 18%;
+}
+.right {
+    img{
+        height: 27vw;
+    }
+}
+
+@media only screen and (max-width:750px){
+    .container{
+        height: 55vw;
+    }
+    .right{
+        img{
+            height: 20vw;
+        }
+    }
+}
