@@ -83,6 +83,10 @@ section {
   font-size: 25px;
 }
 
+.left p {
+  white-space: pre-line;
+}
+
 .lista {
   position: absolute;
   top: 7%;

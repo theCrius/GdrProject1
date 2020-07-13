@@ -5,20 +5,41 @@
     <div class="body">
     <div class="left">
             <h1>Test</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis minima, provident culpa, recusandae eaque reprehenderit aut quam sit non eum illum accusantium, voluptas tempora temporibus quod perferendis earum maxime rem! Lorem ipsum dolor sit amet consectetur, adipisicing elit. At error, in a ducimus architecto quae nobis! Expedita dolores error fugit voluptas! Cupiditate esse voluptatibus fuga quisquam! Quae in minus rerum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nam veritatis optio possimus, sequi, harum voluptas eaque labore explicabo obcaecati atque velit quas odit officia amet totam animi magnam molestias.
-            Amet cupidatat voluptate do ipsum laboris proident ad eu minim nostrud sunt consequat excepteur. Excepteur sunt tempor nisi in aliquip ea sint ad. Incididunt occaecat mollit eu consectetur. Proident amet minim magna id ullamco sunt minim. Aliqua magna enim ad ex ad amet.
-
-Fugiat mollit anim sunt veniam cupidatat voluptate mollit Lorem aliquip. Sint cupidatat minim officia excepteur. Aute cupidatat veniam ullamco minim deserunt cupidatat ut labore ea ea mollit cupidatat exercitation. Nostrud consequat qui nulla aute sit dolore voluptate est velit. Laborum amet voluptate fugiat eiusmod proident cupidatat laboris dolore culpa.
-
-Incididunt nisi tempor quis labore. Nulla ea pariatur commodo sit. Esse aliqua laborum esse et aliqua pariatur non commodo cillum consectetur. Ex ullamco do nisi esse. Ea duis laboris duis nostrud consectetur labore Lorem deserunt enim tempor nostrud deserunt elit.
-
-Ex esse anim non sint minim non proident adipisicing consequat quis duis occaecat. In minim et commodo aute nisi enim ad aliquip commodo Lorem consectetur. Lorem dolor et fugiat minim irure et sit. Ut veniam incididunt occaecat eu.
-
-Magna ex pariatur veniam excepteur esse irure non nostrud aliqua cupidatat fugiat tempor aliqua. Commodo cupidatat dolor aute sit. Veniam nisi ut anim occaecat qui officia cupidatat cillum non sunt qui irure. Velit consequat ut officia pariatur et esse minim ut. Anim cillum veniam consequat do veniam reprehenderit mollit velit.
-
-Reprehenderit in nostrud aliquip culpa ullamco nisi id. Aliqua do ipsum incididunt magna quis et eu tempor ipsum mollit magna quis elit eu. Aliquip aliqua aute culpa sint ad quis.
-</p>  </div>
+            <p>
+ Oh, Terra... 
+Vorrei tanto poter dire che questa è ancora la nostra amata Terra… 
+Ho capito che le nazioni non esistono senza le persone. 
+E qui non si può certo dire che siano rimaste molte persone. 
+No amici miei, questa è la terra dei mostri. 
+È incredibile come tutto possa precipitare così in fretta nel caos totale. 
+Ma perché io sono ancora vivo mentre la maggior parte delle persone sono passate a miglior vita?
+Ah, amici miei, tutta fortuna. 
+Molta fortuna. 
+Nel 2013 sembrava che, finalmente, le battaglie contro i kaiju avessero avuto una svolta grazie alla Breccia che era stata eroicamente chiusa dai nostri formidabili piloti di Jaeger. 
+Ricordo ancora i titoloni che parlavano del sacrificio degli americani e della volontà del mondo di ripartire ricordandoli come degli eroi, ma quelle bestie sono molto difficili a morire e sapete cosa è successo?
+Sono tornate e per farlo hanno sfruttato la nostra tecnologia. 
+Non si era mai capito bene cosa volessero e, ahimè, un intero pianeta di cervelloni ci è arrivato troppo tardi per riuscire a fermarli. 
+Un Kaiju di Categoria 3 ha fatto un bel tuffo nel monte Fuji e si può dire che in quel momento tutto abbia finito per finire ed iniziare. 
+Chi è sopravvissuto ricorda bene dove si trova, io lo ricordo? 
+Certo!
+Ero a Klimovsk, cosa ci facevo?
+Non penso che vi riguardi, comunque ero lì con la mia squadra, i miei buon vecchi compagni di scorribande. 
+La prima cosa che abbiamo sentito? 
+Il silenzio, improvvisamente è calato un silenzio che ha annientato qualsiasi suono. 
+Un lampo blu, accecante e che ha finito per friggere le retini di Ash, l’ho sentito cadere a terra vicino a me poco prima che un boato annientasse completamente il nostro udito. 
+Non sapevamo cosa era accaduto, nessuno sapeva niente. 
+Siamo rimasti per terra agonizzanti nella neve per parecchio, era giorno nell’ultimo dei nostri ricordi, mentre quando i nostri occhi sono ritornati a vedere hanno incontrato un cielo buio sebbene strano. 
+Nessuna stella ed una coltre grigia a coprirlo totalmente. 
+Ah, ma non era la cosa più strana!
+Eh no!
+Guardando sopra la nostra testa ci siamo accorti di essere all’interno di una cupola rossa, enorme e di cui non vedevamo la fine a perdita d’occhio, ma qualcosa che aveva tutta l’aria di essere una cupola. 
+Abbiamo iniziato a camminare incontrando gente confusa quanto noi, tutti parlavano di un’enorme catastrofe, ma nessuno sapeva spiegare cosa fosse realmente accaduto. 
+Le comunicazioni erano andate, tutto era andato e non c’era verso di sapere cosa stesse accadendo nel mondo. 
+Potrei parlarti del soggiorno a Klimovsk tra gente confusa ed altri che dicevano che eravamo gli unici sopravvissuti alla furia dei kaiju, ma credo che passerò direttamente a ciò che vuoi sentirti dire. 
+Giusto? 
+Tu vuoi sapere cosa è accaduto nel mondo ed è ciò che ti dirò 
+Tieniti forte, allaccia le cinture ed apri bene le tue orecchie perchè scoprirai quanto la Terra sia passata da regno dell’uomo a regno dei kaiju invertendo i ruoli tra razzia in estinzione e dominante.
+            </p>  </div>
         <div class="right">
             <img src="/img/imgHomeEsterna/finestradxiscri.png" alt="">
 
