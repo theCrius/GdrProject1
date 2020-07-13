@@ -24,6 +24,8 @@ html, body {
   background-color: black;
   margin: 0;
   padding: 0;
+  scrollbar-color: #03fcf6 #0d3342;
+  scrollbar-width: thin;
 }
 
 section {
