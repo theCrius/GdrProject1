@@ -7,14 +7,36 @@ use Illuminate\Http\Request;
 
 class GuidaController extends Controller
 {
+    public function getFileData($nameFolder){
+        $filesToOpen=\Storage::files('/homeesterna/'.$nameFolder);
+        $title=[];
+        $text=[];
+        natsort($filesToOpen); /* sort the array in the right way */
+        if(!$filesToOpen) throw new \Exception('Errore, cartella o files non trovati');
+        foreach($filesToOpen as $file){
+            $text[]=\Storage::get($file); 
+            $title[]=str_replace(['/','.txt'],'',substr($file,\strripos($file,'/')));
+        }
+        
+        return [
+            'text' =>$text,
+            'title' => $title];
+       
+
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function indexAmbientazione()
-    {
-        return view('ambientazione');
+    {   
+       $ambientazione=$this->getFileData('Ambientazione');
+     
+        return view('ambientazione',[
+            'ambientazioneText' => $ambientazione['text'],
+            'ambientazioneTitle' => $ambientazione['title']
+        ]);
     }
 
     public function indexRegolamento(){

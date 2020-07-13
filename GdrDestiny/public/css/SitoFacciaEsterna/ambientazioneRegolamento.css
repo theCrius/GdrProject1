@@ -81,6 +81,7 @@ section {
 
 .left h1 {
   font-size: 25px;
+  padding-top: 0.2em;
 }
 
 .left p {
@@ -100,10 +101,16 @@ section {
 
 .lista ul li {
   cursor: pointer;
+  padding-bottom: 0.5em;
 }
 
 .lista ul li:hover {
   background-color: #092933;
+}
+
+.lista ul li a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .lista #listPrincipale {
