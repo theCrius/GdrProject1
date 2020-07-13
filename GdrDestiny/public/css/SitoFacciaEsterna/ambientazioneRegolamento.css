@@ -1,12 +1,29 @@
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0d3342;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #03fcf6;
+}
+
 * {
   margin: 0;
-  padding: 0;
 }
 
 html, body {
   height: 100%;
   width: 100%;
   background-color: black;
+  margin: 0;
+  padding: 0;
 }
 
 section {
@@ -34,17 +51,80 @@ section {
 
 .body {
   position: absolute;
-  right: 8%;
+  right: 6%;
   top: 18%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 88%;
+  height: 70%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #bff4fe;
+}
+
+.right {
+  position: relative;
 }
 
 .right img {
-  height: 27vw;
+  height: 30vw;
+}
+
+.left {
+  width: 55%;
+  overflow-y: scroll;
+  text-align: justify;
+  font-size: 12px;
+}
+
+.left h1 {
+  font-size: 25px;
+}
+
+.lista {
+  position: absolute;
+  top: 7%;
+  left: 10%;
+  font-size: 11px;
+}
+
+.lista ul {
+  list-style: none;
+}
+
+.lista ul li {
+  cursor: pointer;
+}
+
+.lista ul li:hover {
+  background-color: #092933;
+}
+
+.lista #listPrincipale {
+  padding: 0;
 }
 
 @media only screen and (max-width: 750px) {
   .container {
     height: 55vw;
+  }
+  .right img {
+    height: 35vw;
+  }
+  .lista {
+    font-size: 10.5px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    height: 97vw;
+  }
+  .container img {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
   .right img {
     height: 20vw;
