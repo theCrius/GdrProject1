@@ -79,6 +79,7 @@ section {
   overflow-y: scroll;
   text-align: justify;
   font-size: 12px;
+  text-align: left;
 }
 
 .left h1 {
@@ -95,6 +96,9 @@ section {
   top: 7%;
   left: 10%;
   font-size: 11px;
+  overflow-y: scroll;
+  height: 76%;
+  width: 80%;
 }
 
 .lista ul {
@@ -107,7 +111,7 @@ section {
 }
 
 .lista ul li:hover {
-  background-color: #092933;
+  color: #F6E8EA;
 }
 
 .lista ul li a {
@@ -128,6 +132,9 @@ section {
   }
   .lista {
     font-size: 10.5px;
+  }
+  .left h1 {
+    font-size: 20px;
   }
 }
 

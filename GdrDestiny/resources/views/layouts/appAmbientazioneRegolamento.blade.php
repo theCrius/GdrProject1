@@ -11,7 +11,7 @@
     <img src="/img/imgHomeEsterna/imgIscrizione/sfondoiscrizifine.png" alt="" class='sfondo'>
     <div class="body">
         <div class="left">
-           yield('leftBox')
+           @yield('leftBox')
         </div>
         <div class="right">
             <img src="/img/imgHomeEsterna/finestradxiscri.png" alt="">

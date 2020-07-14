@@ -56,6 +56,8 @@ class RegisterController extends Controller
                 'descrizione',
             ];
 
+            $textModal=\GuidaController::getFileData('Regolamento','razze');
+
             $breeds=\App\Breed::select($toselect)->get();
             return view('auth.register-principal',[
                 'breeds' => $breeds

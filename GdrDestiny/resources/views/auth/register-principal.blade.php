@@ -11,3 +11,7 @@
             src="/img/imgHomeEsterna/imgIscrizione/umani.png" alt=""></a>
 </div>
 @endsection
+
+@section('contentModal')
+<p> ok</p>
+@endsection

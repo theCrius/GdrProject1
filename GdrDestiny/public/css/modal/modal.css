@@ -46,4 +46,49 @@ html body {
 #sfondoModal {
   height: 55vh;
 }
+
+.content {
+  height: 81%;
+  width: 88%;
+  position: absolute;
+  top: 10%;
+  left: 6%;
+  margin: 0;
+  text-align: center;
+  color: #bff4fe;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content button {
+  background: transparent;
+  border-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: 5vh;
+}
+
+.content button img:hover {
+  content: url("/img/imgHomeEsterna/confermanoclick.png");
+  height: inherit;
+}
+
+.content .title h1, .content .text p {
+  margin: 0;
+  padding-top: 5px;
+}
+
+.content .title h1 {
+  font-size: 25px;
+}
+
+.content .text p {
+  font-size: 13px;
+}
+
+.content .text {
+  height: 70%;
+  text-align: left;
+  width: 85%;
+  margin: auto;
+}
 /*# sourceMappingURL=modal.css.map */

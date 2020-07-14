@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class GuidaController extends Controller
 {
-    public function getFileData($nameFolder){
+    public static function getFileData($nameFolder){
         $filesToOpen=\Storage::files('/homeesterna/'.$nameFolder);
         $title=[];
         $text=[];
@@ -24,6 +24,15 @@ class GuidaController extends Controller
        
 
     }
+
+    public static function getSpecifData($pathOfFolder,$nameFile){
+        $fileopened=\Storage::allFiles($pathOfFolder);
+        if(!$fileopened) throw new Exception("Cartella non trovata", 1);
+        foreach($fileopened as $file){
+            if(stristr($file )
+        }
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +40,7 @@ class GuidaController extends Controller
      */
     public function indexAmbientazione()
     {   
-       $ambientazione=$this->getFileData('Ambientazione');
+       $ambientazione=self::getFileData('Ambientazione');
      
         return view('ambientazione',[
             'ambientazioneText' => $ambientazione['text'],
@@ -40,8 +49,15 @@ class GuidaController extends Controller
     }
 
     public function  indexRegolamento(){
-        $regolamento=$this->getFileData('Regolamento');
-        return view('regolamento');
+        $regolamentoPath='/Regolamento/';
+
+        $regolamentoOn=self::getFileData($regolamentoPath.'RegolamentoON');
+        $regolamentoOff=self::getFileData($regolamentoPath.'RegolamentoOFF');
+        
+        return view('regolamento',[
+            'regolamentoText' => array_merge($regolamentoOn['text'],$regolamentoOff['text']),
+            'regolamentoTitle' => array_merge($regolamentoOn['title'],$regolamentoOff['title'])
+        ]);
     }
 
     /**

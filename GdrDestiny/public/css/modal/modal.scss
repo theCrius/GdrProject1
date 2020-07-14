@@ -38,3 +38,47 @@ html body{
     height: 55vh;
     
 }
+
+.content{
+    height: 81%;
+    width: 88%;
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    margin:0;
+    text-align: center;
+    color:#bff4fe;
+    font-family: Arial, Helvetica, sans-serif;
+    button{
+        background: transparent;
+        border-color: transparent;
+        border:0;
+        cursor: pointer;
+        height: 5vh;
+        img:hover{
+            content: url('/img/imgHomeEsterna/confermanoclick.png');
+            
+            height: inherit;
+        }        
+    }
+    .title h1, .text p{
+        margin:0;
+        padding-top: 5px;
+    
+    }
+    .title h1{
+        font-size: 25px;
+    }
+    .text p{
+        font-size: 13px;
+    }
+    .text{
+        height: 70%;
+        text-align: left;
+        width: 85%;
+        margin: auto;
+
+}
+    
+}
+
