@@ -2,10 +2,10 @@
 
 @section('leftBox')
 
-            @for($i=0;$i < count($ambientazioneText); $i++) 
+            @for($i=0;$i < count($ambientazioneText ?? ''); $i++) 
             <h1 id='{{ $ambientazioneTitle[$i] }}'>{{ $ambientazioneTitle[$i] }}</h1>
                 <p>
-                    {{$ambientazioneText[$i]}}
+                    {{$ambientazioneText ?? ''[$i]}}
                 </p>
                 @endfor
 @endsection

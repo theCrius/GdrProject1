@@ -32,6 +32,7 @@ Route::get('registrati/{idRazza}/{idEmisfero}/sesso','Auth\RegisterController@te
 Route::get('registrati/{idRazza}/{idEmisfero}/{sesso}','Auth\RegisterController@quartoStep')->name('registrati4');
 
 Route::get('ambientazione','GuidaController@indexAmbientazione')->name('ambientazione');
+Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

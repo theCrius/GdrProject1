@@ -39,8 +39,9 @@ class GuidaController extends Controller
         ]);
     }
 
-    public function indexRegolamento(){
-
+    public function  indexRegolamento(){
+        $regolamento=$this->getFileData('Regolamento');
+        return view('regolamento');
     }
 
     /**

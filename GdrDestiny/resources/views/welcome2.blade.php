@@ -31,7 +31,7 @@
             <a href="{{ route('ambientazione') }}"><img src="/img/imgHomeEsterna/ambientazione.png" alt=""></a>
         </div>
         <div class="ContainerSinistra">
-           <a href="http://"><img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'></a> 
+           <a href="{{ route('regolamento') }}"><img src="/img/imgHomeEsterna/regolamento.png" alt="" class='symbol_bassi'></a> 
             <img src="/img/imgHomeEsterna/sxpg.png" alt="" class='personaggi'>
         </div>
         
