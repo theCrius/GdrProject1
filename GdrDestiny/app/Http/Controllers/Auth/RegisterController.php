@@ -85,11 +85,13 @@ class RegisterController extends Controller
 
     }
     public function quartoStep($id_razza,$id_emisfero,$sesso){
+        
         return view('auth.last-register',[
             'RazzaId' => $id_razza,
             'EmisferoId' => $id_emisfero,
             'Sesso' => $sesso,
-            'statiOptions' => explode("\n",GuidaController::getSpecifData('','stati'))
+            'statiOptions' => explode("\n",GuidaController::getSpecifData('','stati')),
+            'textModal' => GuidaController::getSpecifData('','avvertenza')
         ]);
     }
 

@@ -13,29 +13,8 @@
     <section>
         @yield('content')
     </section>
-
-    <div class="modal">
-        <div class="modal_body">
-            <img src="/img/imgHomeEsterna/imgIscrizione/sfondoiscrizifine.png" alt="" id='sfondoModal'>
-            <div class="closeModal"><button>&times</button></div>
-
-
-            <div class="content">
-                <div class="title">
-                    <h1>@yield('titleModal')</h1>
-                </div>
-                <div class="text"> @yield('contentModal')</div>
-                <button type="submit" id='buttonSubmit'><img src="/img/imgHomeEsterna/coonfermasiclick.png" alt=""></button>
-                @yield('buttonDeclina')
-            </div>
-        </div>
-    </div>
-
-    @yield('footer')
+    @yield('modal')
 </body>
 
-<script>
-    new Finestra()
-</script>
 
 </html>

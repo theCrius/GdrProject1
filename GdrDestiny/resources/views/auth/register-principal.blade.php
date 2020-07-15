@@ -12,14 +12,3 @@
 </div>
 @endsection
 
-@section('titleModal')
-
-Razze Disponibili
-
-@endsection
-
-@section('contentModal')
-<p>
-{{ $textModal }}
-</p>
-@endsection
