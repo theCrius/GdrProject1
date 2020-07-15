@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\GuidaController;
 
 class RegisterController extends Controller
 {
@@ -56,19 +57,22 @@ class RegisterController extends Controller
                 'descrizione',
             ];
 
-            $textModal=\GuidaController::getFileData('Regolamento','razze');
-
+            $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','razze');
+           
             $breeds=\App\Breed::select($toselect)->get();
             return view('auth.register-principal',[
-                'breeds' => $breeds
+                'breeds' => $breeds,
+                'textModal' => $textModal
             ]);
     
     }
     public function secondoStep($id_razza){
         $hemisperes=\App\Hemispere::select('name','id','descrizione')->get();
+        $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','emisferi');
         return view('auth.register-secondary',[
             'razza' => $id_razza,
-            'hemisperes' => $hemisperes
+            'hemisperes' => $hemisperes,
+            'textModal' => $textModal
     
 
         ]);

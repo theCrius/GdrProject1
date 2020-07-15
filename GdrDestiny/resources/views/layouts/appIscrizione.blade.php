@@ -22,10 +22,11 @@
 
             <div class="content">
                 <div class="title">
-                    <h1>okokdo</h1>
+                    <h1>@yield('titleModal')</h1>
                 </div>
                 <div class="text"> @yield('contentModal')</div>
-                <button type="submit"><img src="/img/imgHomeEsterna/coonfermasiclick.png" alt=""></button>
+                <button type="submit" id='buttonSubmit'><img src="/img/imgHomeEsterna/coonfermasiclick.png" alt=""></button>
+                @yield('buttonDeclina')
             </div>
         </div>
     </div>

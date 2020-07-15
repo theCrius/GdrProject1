@@ -26,11 +26,15 @@ class GuidaController extends Controller
     }
 
     public static function getSpecifData($pathOfFolder,$nameFile){
-        $fileopened=\Storage::allFiles($pathOfFolder);
-        if(!$fileopened) throw new Exception("Cartella non trovata", 1);
-        foreach($fileopened as $file){
-            if(stristr($file )
+    
+        $filesOfFolderOpened=\Storage::allFiles('/homeesterna/'.$pathOfFolder);
+        foreach($filesOfFolderOpened as $file){
+            
+            if(stristr($file , $nameFile)){
+                return $fileOpened=\Storage::get($file);
+            }
         }
+        return 'file non trovato o cartella errata';
         
     }
     /**

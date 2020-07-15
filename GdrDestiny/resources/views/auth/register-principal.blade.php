@@ -12,6 +12,14 @@
 </div>
 @endsection
 
+@section('titleModal')
+
+Razze Disponibili
+
+@endsection
+
 @section('contentModal')
-<p> ok</p>
+<p>
+{{ $textModal }}
+</p>
 @endsection

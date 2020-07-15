@@ -16,13 +16,16 @@ class Finestra{
 
     addEventCloseButton(){
         function closeModal(event){
-            
-            event.target.parentElement.parentElement.parentElement.className='off'
+            let modalObject=document.querySelector('.modal');
+            modalObject.className='off';
            
         }
         
         let closeButton= this.modalBody.querySelector('.closeModal')
+        let confermaButton=this.modalBody.querySelector('#buttonSubmit')
+        console.log(confermaButton)
         closeButton.addEventListener('click',closeModal)
+        confermaButton.addEventListener('click',closeModal)
 
         
     }

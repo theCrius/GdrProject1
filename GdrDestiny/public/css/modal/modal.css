@@ -1,7 +1,25 @@
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0d3342;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #03fcf6;
+}
+
 html body {
   height: 100%;
   margin: 0;
   padding: 0;
+  scrollbar-color: #03fcf6 #0d3342;
+  scrollbar-width: thin;
 }
 
 .modal {
@@ -90,5 +108,6 @@ html body {
   text-align: left;
   width: 85%;
   margin: auto;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=modal.css.map */
