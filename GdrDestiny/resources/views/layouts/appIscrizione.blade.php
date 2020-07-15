@@ -30,12 +30,12 @@
             </div>
         </div>
     </div>
+
+    @yield('footer')
 </body>
 
-
-</body>
 <script>
-new Finestra()
+    new Finestra()
 </script>
 
 </html>

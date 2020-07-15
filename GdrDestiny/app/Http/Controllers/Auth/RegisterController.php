@@ -88,7 +88,8 @@ class RegisterController extends Controller
         return view('auth.last-register',[
             'RazzaId' => $id_razza,
             'EmisferoId' => $id_emisfero,
-            'Sesso' => $sesso
+            'Sesso' => $sesso,
+            'statiOptions' => explode("\n",GuidaController::getSpecifData('','stati'))
         ]);
     }
 

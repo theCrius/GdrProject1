@@ -120,6 +120,10 @@ form {
   width: 20vh;
 }
 
+#fourthChild option {
+  background-color: #8c9594;
+}
+
 #entra {
   position: absolute;
   bottom: 5%;
@@ -134,7 +138,7 @@ form {
   height: inherit;
 }
 
-#entra img:hover {
+#entra span:hover {
   content: url("/img/imgHomeEsterna/imgIscrizione/noclick.png");
 }
 /*# sourceMappingURL=registrazione.css.map */

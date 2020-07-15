@@ -104,7 +104,10 @@ form{
     top: 26%;
     right: 3.5%;
     width: 20vh;
-
+    option{
+        background-color: #8c9594;
+       
+    }
 }
 #entra{
     
@@ -117,9 +120,13 @@ form{
     cursor: pointer;
     img{
         height: inherit;
-        &:hover{
+        
+    }
+    span:hover{
+
             content: url('/img/imgHomeEsterna/imgIscrizione/noclick.png');
-        }
+            
     }
 
 }
+

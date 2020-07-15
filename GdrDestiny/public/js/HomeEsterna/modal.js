@@ -1,10 +1,12 @@
 class Finestra{
     
-    modalPrincipale=document.querySelector('.modal')
-    modalBody=document.querySelector('.modal_body');
+
 
 
     constructor(){
+        this.modalPrincipale=document.querySelector('.modal')
+        this.modalBody=document.querySelector('.modal_body');
+
         this.checkModal()
         this.addEventCloseButton()
 
@@ -23,7 +25,6 @@ class Finestra{
         
         let closeButton= this.modalBody.querySelector('.closeModal')
         let confermaButton=this.modalBody.querySelector('#buttonSubmit')
-        console.log(confermaButton)
         closeButton.addEventListener('click',closeModal)
         confermaButton.addEventListener('click',closeModal)
 
