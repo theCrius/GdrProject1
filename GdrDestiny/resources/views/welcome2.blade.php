@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/SitoFacciaEsterna/welcome2.css">
+    <link rel="stylesheet" href="/css/SitoFacciaEsterna/loginWelcome2.css">
+    <script src="/js/HomeEsterna/poupUp.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
                 <img src="/img/imgHomeEsterna/circonferenza.png" alt="">
             </div>
             <div class="loginButton">
-                <a href=""><img id='loginText' src="/img/imgHomeEsterna/login.png" alt=""></a>
+                <img id='loginText' src="/img/imgHomeEsterna/login.png" alt="" onclick="poupUp.createWindowPoupUp('{{ route('login') }}')">
             </div>
             <img id='PersonaggioCentrale' src="/img/imgHomeEsterna/centralpg.png" alt="">
 

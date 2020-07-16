@@ -41,6 +41,7 @@ section{
     height: 5vh;
    position: relative;
    bottom: 2vh;
+   cursor: pointer;
 }
 .ContainerDestra img , .ContainerSinistra img{
     height: 37vh;
@@ -93,6 +94,37 @@ section{
 }
 .personaggi{
     display: block;
+}
+
+/* LOGIN */ 
+.login{
+    top:0 !important;
+    display: inline-block;
+    #sferaRossa{
+        height: 94vh !important;
+        position:relative
+    }
+}
+
+.loginImages{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 24%;
+    left: 18%;
+    text-align: center;
+    button{
+        border: transparent;
+        background: transparent;
+        height: 12vh;
+    }
+    img{
+        height: 12vh !important;
+        
+       
+        
+        
+    }
 }
 
 @media only screen and (max-width: 800px){

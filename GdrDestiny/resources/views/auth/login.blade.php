@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/SitoFacciaEsterna/login.css">
-</head>
+    <link rel="stylesheet" href="/css/SitoFacciaEsterna/loginWelcome2.css">
+
+
 
 <body>
-<section>
+    <section>
+
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt="">
+            <div class="ContainerCentrale login">
+                <div class="circonferenzaBlu login">
+                    <img src="/img/imgHomeEsterna/login/loginprovarw.png" id='sferaRossa' alt="">
+                    <div class="loginImages">
+                        <img src="/img/imgHomeEsterna/login/nomelogin.png" alt="">
+                        <img src="/img/imgHomeEsterna/login/pswriga.png" alt="">
+                        <button type='submit'><img src="/img/imgHomeEsterna/login/loginconferma.png" alt="" class='buttonLogin'></button>
+                        <button><img src="/img/imgHomeEsterna/login/recuperopass.png" alt="" class='buttonLogin'></button>
+                        
+                    </div>
+                </div>
 
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-    </form>
-</section>
+            </div>
+        </form>
+    </section>
 </body>
 
 </html>

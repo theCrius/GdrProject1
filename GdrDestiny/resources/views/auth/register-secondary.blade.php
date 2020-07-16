@@ -7,14 +7,9 @@
     <a href="{{route('registrati3',[$razza,$hemisperes[1]->id])}}"><img id='emisferodestro'src="/img/imgHomeEsterna/imgIscrizione/emisferox.png" alt=""></a>
 </div>
 @endsection
-@section('titleModal')
+@section('modal')
+<script>
 
-Scegli il tuo emisfero
-
-@endsection
-
-@section('contentModal')
-<p>
-{{ $textModal }}
-</p>
+new Finestra('{{ json_encode($textModal) }}',true, 'Scegli l\'emisfero')
+</script>
 @endsection

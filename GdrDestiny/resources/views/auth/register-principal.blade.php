@@ -11,4 +11,9 @@
             src="/img/imgHomeEsterna/imgIscrizione/umani.png" alt=""></a>
 </div>
 @endsection
+@section('modal')
+<script>
 
+new Finestra('{{ json_encode($textModal) }}',true, 'Scegli la tua razza')
+</script>
+@endsection

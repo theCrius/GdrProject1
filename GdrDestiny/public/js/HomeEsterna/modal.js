@@ -83,7 +83,7 @@ class Finestra{
     getError(text){
    
         let errors=text.split('.')
-        let stringsToPrint=[]
+        let stringsToPrint=''
         let pOpen='<p>', pClose='</p>'
   
 
@@ -92,7 +92,7 @@ class Finestra{
             let wordToPrint=error.slice(error.lastIndexOf(';')+1)
             
             if(wordToPrint == ']') break;
-            stringsToPrint.push(pOpen + wordToPrint + pClose)
+            stringsToPrint+=pOpen + wordToPrint + pClose
             
             
         }
