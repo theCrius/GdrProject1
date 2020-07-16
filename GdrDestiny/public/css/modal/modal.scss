@@ -79,19 +79,20 @@ html body{
             height: inherit;
         }        
     }
-    .title h1, .text p{
+    .title h1, .text{
         margin:0;
-        padding-top: 1em
+        padding-top: 0.5em
     
     }
+
     .title h1{
         font-size: 25px;
     }
-    .text p{
+    .text {
         font-size: 13px;
     }
     .text{
-        height: 70%;
+        height: 65%;
         text-align: left;
         width: 85%;
         margin: auto;

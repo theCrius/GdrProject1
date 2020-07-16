@@ -90,21 +90,21 @@ html body {
   height: inherit;
 }
 
-.content .title h1, .content .text p {
+.content .title h1, .content .text {
   margin: 0;
-  padding-top: 1em;
+  padding-top: 0.5em;
 }
 
 .content .title h1 {
   font-size: 25px;
 }
 
-.content .text p {
+.content .text {
   font-size: 13px;
 }
 
 .content .text {
-  height: 70%;
+  height: 65%;
   text-align: left;
   width: 85%;
   margin: auto;

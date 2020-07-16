@@ -48,7 +48,7 @@ class Finestra{
 
         this.textOfModal=document.createElement('p')
         this.textOfModal.className='text'
-        this.textOfModal.innerHTML=text
+        this.textOfModal.innerHTML=errore ? text: this.getError(text)
         this.divContentModal.append(this.textOfModal)
 
         this.buttonSubmit=document.createElement('button')
@@ -79,6 +79,27 @@ class Finestra{
 
         
         
+    }
+    getError(text){
+   
+        let errors=text.split('.')
+        let stringsToPrint=[]
+        let pOpen='<p>', pClose='</p>'
+  
+
+        for(let error of errors){
+         
+            let wordToPrint=error.slice(error.lastIndexOf(';')+1)
+            
+            if(wordToPrint == ']') break;
+            stringsToPrint.push(pOpen + wordToPrint + pClose)
+            
+            
+        }
+    
+    
+        return stringsToPrint || 'riprova, attento a non utilizzare caratteri particolari'
+
     }
 
 

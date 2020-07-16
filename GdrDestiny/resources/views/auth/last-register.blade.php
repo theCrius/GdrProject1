@@ -22,10 +22,10 @@
 
 @section('modal')
 <script>
-@if($errors - > any())
-new Finestra(true, 'Accetta le condizioni', '{{ json_encode($textModal) }}')
+@if(!$errors->any())
+new Finestra('{{ json_encode($textModal) }}',true, 'Accetta le condizioni')
 @else
-new Finestra('{{ json_encode($errors->all()) }}')
+new Finestra('{{  json_encode($errors->all()) }}')
 @endif
 </script>
 @endsection
