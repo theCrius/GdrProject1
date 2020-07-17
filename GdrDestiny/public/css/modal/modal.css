@@ -90,12 +90,12 @@ html body {
   height: inherit;
 }
 
-.content .title h1, .content .text {
+.content .titleModal h1, .content .text {
   margin: 0;
   padding-top: 0.5em;
 }
 
-.content .title h1 {
+.content .titleModal h1 {
   font-size: 25px;
 }
 

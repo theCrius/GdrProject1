@@ -39,7 +39,7 @@ class Finestra{
         this.modalBody.append(this.divContentModal)
 
         this.contentTitle=document.createElement('div')
-        this.contentTitle.className='title'
+        this.contentTitle.className='titleModal'
         this.divContentModal.append(this.contentTitle)
 
         this.h1Title=document.createElement('h1')
