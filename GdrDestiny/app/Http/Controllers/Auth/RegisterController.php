@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\GuidaController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\newUser;
 
 class RegisterController extends Controller
 {
@@ -124,15 +126,20 @@ class RegisterController extends Controller
     {
         $limitRazze= \App\Breed::all()->count();
         $limitEmisfero= \App\Hemispere::all()->count();
+        $email=\htmlspecialchars(preg_replace("/[^A-Za-z0-9@\-\.\']/", '', $data['email']));
+        $name=\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['name']));
+        $password=\Str::random(8);
+
+        Mail::to($email)->send(new NewUser($name,$password));
         return User::create([
-            'name' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['name'])),
+            'name' => $name,
             'surname' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['cognome'])),
             'nazionalità' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['nazionalità'])),
             'id_razza' => \htmlspecialchars(preg_replace("/[^0-". $limitRazze ."\-\']/", '1', $data['razza'])),
-            'email' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9@\-\']/", '', $data['email'])),
+            'email' => $email,
             'id_emisfero' => \htmlspecialchars(preg_replace("/[^0-". $limitEmisfero ."\-\']/", '1', $data['emisfero'])),
             'sesso' => $data['sesso'] === 'f' || $data['sesso'] === 'm' ? $data['sesso'] : 'm',
-            'password' => Hash::make(\Str::random(8)),
+            'password' => Hash::make($password),
             'indirizzo_ip' => \Request::ip(),
             'last_activity' => now()
 

@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 //logo
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 //home esterna
 Route::get('/welcome', function () {
     return view('welcome2');
