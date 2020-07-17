@@ -132,8 +132,31 @@ section {
   height: 12vh;
 }
 
+.loginImages button img {
+  cursor: pointer;
+}
+
 .loginImages img {
   height: 12vh !important;
+}
+
+.loginInput {
+  position: absolute;
+  height: 4vh;
+  width: 34vh;
+  background: transparent;
+  border: transparent;
+}
+
+.name {
+  top: 10%;
+  left: 33%;
+  padding-bottom: 0.2em;
+}
+
+.password {
+  top: 32%;
+  left: 31%;
 }
 
 @media only screen and (max-width: 800px) {

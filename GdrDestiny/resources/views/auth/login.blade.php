@@ -17,8 +17,8 @@
                 <div class="circonferenzaBlu login">
                     <img src="/img/imgHomeEsterna/login/loginprovarw.png" id='sferaRossa' alt="">
                     <div class="loginImages">
-                        <img src="/img/imgHomeEsterna/login/nomelogin.png" alt="">
-                        <img src="/img/imgHomeEsterna/login/pswriga.png" alt="">
+                        <img src="/img/imgHomeEsterna/login/nomelogin.png" alt=""><input type="text" name="name" class="LoginInput name">
+                        <img src="/img/imgHomeEsterna/login/pswriga.png" alt=""><input type="password" name="password" class="LoginInput password">
                         <button type='submit'><img src="/img/imgHomeEsterna/login/loginconferma.png" alt="" class='buttonLogin'></button>
                         <button><img src="/img/imgHomeEsterna/login/recuperopass.png" alt="" class='buttonLogin'></button>
                         
