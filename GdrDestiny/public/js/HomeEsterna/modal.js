@@ -85,7 +85,7 @@ class Finestra{
         let errors=text.split('.')
         let stringsToPrint=''
         let pOpen='<p>', pClose='</p>'
-  
+      
 
         for(let error of errors){
          
