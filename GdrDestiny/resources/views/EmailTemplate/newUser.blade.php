@@ -4,9 +4,9 @@
 Benvenuto dallo staff dello GDR , ti auguriamo buona permanenza
 <br>Qui ti ricordiamo le tue credenziali
 <br>
-    Name: {{ $NameUser }}
+    Name: {{ $NameUser ?? '' }}
     <br>
-    Password: {{ $PasswordGenerata }}
+    Password: {{ $PasswordGenerata ?? '' }}
 
 @component('mail::button', ['url' => route('welcome')])
 Inizia a giocare

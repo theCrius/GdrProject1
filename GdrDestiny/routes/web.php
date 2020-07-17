@@ -35,4 +35,5 @@ Route::get('ambientazione','GuidaController@indexAmbientazione')->name('ambienta
 Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento');
 
 
+
 Route::get('/home', 'HomeController@index')->name('home');
