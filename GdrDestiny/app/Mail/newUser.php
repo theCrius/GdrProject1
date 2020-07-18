@@ -39,6 +39,6 @@ class newUser extends Mailable
                     ->with([
                         'NameUser' => $this->name,
                         'PasswordGenerata' => $this->password
-                    ]);
+                    ])->subject('Benvenuto Nel GDR');
     }
 }

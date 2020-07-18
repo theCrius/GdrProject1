@@ -26,7 +26,7 @@ Buon Gioco
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-© {{ date('Y') }} {{ Destiny Rim }}
+© {{ date('Y') }} Destiny Rim
 @endcomponent
 @endslot
 @endcomponent
