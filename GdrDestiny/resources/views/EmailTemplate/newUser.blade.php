@@ -1,17 +1,32 @@
-@component('mail::message')
-#  Registrazione Avvenuta
+@component('mail::layout')
+{{-- Header --}}
+@slot('header')
+@component('mail::header', ['url' => config('app.url')])
+Header Title
+@endcomponent
+@endslot
 
-Benvenuto dallo staff dello GDR , ti auguriamo buona permanenza
-<br>Qui ti ricordiamo le tue credenziali
+{{-- Body --}}
+# Registrazione Avvenuta
+
+<br>Grazie per esserti iscritto a Destiny Rim, di seguito troverai i dati necessari per poter entrare all interno della
+land:
 <br>
-    Name: {{ $NameUser ?? '' }}
-    <br>
-    Password: {{ $PasswordGenerata ?? '' }}
-
+Name: {{ $NameUser ?? '' }}
+<br>
+Password: {{ $PasswordGenerata ?? '' }}
 @component('mail::button', ['url' => route('welcome')])
 Inizia a giocare
 @endcomponent
+<br>
+Una volta fatto il primo accesso potrai cambiare la password. 
+<br>
+Buon Gioco
 
-Thanks,<br>
-Staff di Destiny Rim
+{{-- Footer --}}
+@slot('footer')
+@component('mail::footer')
+© {{ date('Y') }} {{ Destiny Rim }}
+@endcomponent
+@endslot
 @endcomponent
