@@ -1,47 +1,38 @@
-@extends('layouts.app')
+<html lang="it">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/SitoFacciaEsterna/loginWelcome2.css">
+    <link rel="stylesheet" href="/css/modal/modal.css">
+    
+    <script src="/js/HomeEsterna/modal.js"></script>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+<body>
+    <section>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+        <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+            <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt="">
+            <div class="ContainerCentrale login">
+                <div class="circonferenzaBlu login">
+                    <img src="/img/imgHomeEsterna/login/loginprovarw.png" id='sferaRossa' alt="">
+                    <div class="loginImages">
+                       <input type="email" name='email'>
+                    </div>
                 </div>
+
+
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+        </form>
+    </section>
+    <script>
+@if($errors->any())
+
+new Finestra("{{ json_encode($errors->all()) }}",null, 'Errore Durante il recupero password')
+@endif
+</script>
+</body>
+
+</html>

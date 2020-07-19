@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding:0;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+.menuTop{
+    width: 100%;
+    padding-top:1.5%;
+    ul{
+        list-style: none;
+        display:flex;
+        flex-direction: row;
+        height: 18.5vh;
+        width:70%;
+        margin: auto;
+        align-items: center;
+        li{
+        
+            
+            img{
+                height: 6vh;
+
+            }
+
+    }
+    #ghost{
+        img{
+        height: 8vh;
+        }
+        padding:0 1em 0 1em;
+}
+}}

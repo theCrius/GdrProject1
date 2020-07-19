@@ -22,7 +22,7 @@
                         <img src="/img/imgHomeEsterna/login/nomelogin.png" alt=""><input type="text" name="name" class="LoginInput name">
                         <img src="/img/imgHomeEsterna/login/pswriga.png" alt=""><input type="password" name="password" class="LoginInput password">
                         <button type='submit'><img src="/img/imgHomeEsterna/login/loginconferma.png" alt="" class='buttonLogin'></button>
-                        <button><img src="/img/imgHomeEsterna/login/recuperopass.png" alt="" class='buttonLogin'></button>
+                          <a href="{{ route('password.request') }}">  <img src="/img/imgHomeEsterna/login/recuperopass.png" alt="" class='buttonLogin'></a>
                         
                     </div>
                 </div>

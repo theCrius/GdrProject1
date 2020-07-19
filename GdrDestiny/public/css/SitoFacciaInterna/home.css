@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.menuTop {
+  width: 100%;
+  padding-top: 1.5%;
+}
+
+.menuTop ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 18.5vh;
+  width: 70%;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menuTop ul li img {
+  height: 6vh;
+}
+
+.menuTop ul #ghost {
+  padding: 0 1em 0 1em;
+}
+
+.menuTop ul #ghost img {
+  height: 8vh;
+}
+/*# sourceMappingURL=home.css.map */
