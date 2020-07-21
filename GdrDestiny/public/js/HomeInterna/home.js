@@ -5,13 +5,34 @@ function changeGhostHome(){
         let ghostId=document.querySelector('#ghost')
         let numberOfLi=event.target.dataset.number
         if(!numberOfLi) return;
-        event.target.src='/img/imgHomeInterna/home/senzapunt.png'
-        if(numberOfLi > 0 && numberOfLi < 4) return ghostId.children[0].src='/img/imgHomeInterna/home/ghostsx.png';
+
+        let classRightOrLeft=event.target.parentElement.parentElement.parentElement;
+        for(let child of classRightOrLeft.children){
+            child.children[0].children[0].src='/img/imgHomeInterna/home/senzapunt.png'
+         
+        }
+
+        if(classRightOrLeft.className === 'buttonLeft') return ghostId.children[0].src='/img/imgHomeInterna/home/ghostsx.png';
         ghostId.children[0].src='/img/imgHomeInterna/home/ghostdx.png'
+
+
+    }
+    function returnGhost(event){
+        
+        let classRightOrLeft=event.target.parentElement.parentElement.parentElement;
+        if(classRightOrLeft.className !== 'buttonRight' && classRightOrLeft.className !== 'buttonLeft') return;
+        let ghostId=document.querySelector('#ghost')
+        let linkMenu = (classRightOrLeft.className === 'buttonLeft') ? ['archivi.png','presenti.png','rimnet.png'] : ['schedapg.png','rymzody.png','logouttuttodx.png']
+        for(let i=0; i < classRightOrLeft.children.length; i++){
+            classRightOrLeft.children[i].children[0].children[0].src="/img/imgHomeInterna/home/"+linkMenu[i];
+        }
+        ghostId.children[0].src='/img/imgHomeInterna/home/ghost.png'
+ 
 
 
     }
     let menuTop=document.querySelector('.listMenu');
     menuTop.addEventListener('mouseover',changeGhost)
+    menuTop.addEventListener('mouseout',returnGhost)
 
 }

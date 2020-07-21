@@ -10,7 +10,7 @@ html , body{
 .menuTop{
     width: 100%;
     padding-top:1.5%;
-    ul{
+    .buttonLeft, .buttonRight , ul{
 
         list-style: none;
         display:flex;
@@ -73,7 +73,7 @@ html , body{
         height:50vh;
     }
     .menuTop{
-        ul{
+        .buttonLeft, .buttonRight,ul{
             li{
             
                 

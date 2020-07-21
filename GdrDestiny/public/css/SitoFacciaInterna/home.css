@@ -14,7 +14,7 @@ html, body {
   padding-top: 1.5%;
 }
 
-.menuTop ul {
+.menuTop .buttonLeft, .menuTop .buttonRight, .menuTop ul {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,15 +34,15 @@ html, body {
           justify-content: center;
 }
 
-.menuTop ul li img {
+.menuTop .buttonLeft li img, .menuTop .buttonRight li img, .menuTop ul li img {
   height: 6vh;
 }
 
-.menuTop ul #ghost {
+.menuTop .buttonLeft #ghost, .menuTop .buttonRight #ghost, .menuTop ul #ghost {
   padding: 0 1em 0 1em;
 }
 
-.menuTop ul #ghost img {
+.menuTop .buttonLeft #ghost img, .menuTop .buttonRight #ghost img, .menuTop ul #ghost img {
   height: 8vh;
 }
 
@@ -76,7 +76,7 @@ html, body {
   .contenitoreMappa {
     height: 50vh;
   }
-  .menuTop ul li img {
+  .menuTop .buttonLeft li img, .menuTop .buttonRight li img, .menuTop ul li img {
     height: 4vh;
   }
   #messaggi {

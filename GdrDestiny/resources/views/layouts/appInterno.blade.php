@@ -7,7 +7,7 @@
     <script src="/js/HomeEsterna/modal.js"></script>
     <script src="/js/HomeInterna/home.js"></script>
 </head>
-
+<!-- per modificare link dei bottoni modificare anche il file home.js -->
 <body>
     <section>
         <div class="menuTop">
@@ -21,7 +21,7 @@
                 <div class="buttonRight">
                     <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt=""></a></li>
                     <li><a href="#"><img data-number=5 src="/img/imgHomeInterna/home/rymzody.png" alt=""></a></li>
-                    <li><a href="#"><img data-number=6 src="/img/imgHomeInterna/home/rymzody.png" alt=""></a></li>
+                    <li><a href="#"><img data-number=6 src="/img/imgHomeInterna/home/logouttuttodx.png" alt=""></a></li>
                 </div>
             </ul>
         </div>
