@@ -31,8 +31,10 @@ function changeGhostHome(){
 
 
     }
+
     let menuTop=document.querySelector('.listMenu');
     menuTop.addEventListener('mouseover',changeGhost)
     menuTop.addEventListener('mouseout',returnGhost)
 
 }
+

@@ -72,15 +72,19 @@ html, body {
   top: 6vh;
 }
 
+#meteo {
+  height: 20vh;
+  position: absolute;
+  top: 3.5vh;
+  left: 4.5vh;
+}
+
 @media only screen and (max-width: 980px) {
   .contenitoreMappa {
     height: 50vh;
   }
   .menuTop .buttonLeft li img, .menuTop .buttonRight li img, .menuTop ul li img {
     height: 4vh;
-  }
-  #messaggi {
-    height: 12vh;
   }
 }
 /*# sourceMappingURL=home.css.map */

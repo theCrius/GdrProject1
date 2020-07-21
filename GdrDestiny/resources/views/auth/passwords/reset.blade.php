@@ -1,65 +1,51 @@
-@extends('layouts.app')
+<html lang="it">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/SitoFacciaEsterna/loginWelcome2.css">
+    <link rel="stylesheet" href="/css/modal/modal.css">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+    <script src="/js/HomeEsterna/modal.js"></script>
 
-                        <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<body>
+    <section>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+        <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+            <img id='sfondo' src="/img/imgHomeEsterna/sfondo.png" alt="">
+            <div class="ContainerCentrale login">
+                <div class="circonferenzaBlu login">
+                    <img src="/img/imgHomeEsterna/login/loginprovarw.png" id='sferaRossa' alt="">
+                    <div class="loginImages">
+                        <img src="/img/imgHomeEsterna/imgResetPassword/email.png" alt=""><input id="email" type="email"
+                            name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
+                            class='LoginInput name'>
+                        <img src="/img/imgHomeEsterna/imgResetPassword/nuovapss.png" alt=""><input id="password"
+                            type="password" name="password" required autocomplete="new-password"
+                            class='LoginInput password'>
+                        <img src="/img/imgHomeEsterna/imgResetPassword/ripetipassword.png" alt=""><input
+                            id="password-confirm" type="password" name="password_confirmation" required
+                            autocomplete="new-password" class='LoginInput repeatPassword'>
+                        <button type='submit'><img src="/img/imgHomeEsterna/login/loginconferma.png" alt=""
+                                class='buttonLogin'></button>
+                    </div>
                 </div>
+
+
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+        </form>
+    </section>
+    <script>
+    @if($errors->any())
+
+    new Finestra("{{ json_encode($errors->all()) }}", null, 'Errore Durante il recupero password')
+    @elseif(session('status'))
+
+    new Finestra("{{ json_encode('Password modificata, ora hai la possibilità di continuare a giocare, buon divertimento.') }}", 'no', 'Modificata Effettuata')
+    @endif
+    </script>
+</body>
+
+</html>

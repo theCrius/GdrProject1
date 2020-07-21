@@ -19,7 +19,8 @@
                 <div class="circonferenzaBlu login">
                     <img src="/img/imgHomeEsterna/login/loginprovarw.png" id='sferaRossa' alt="">
                     <div class="loginImages">
-                       <input type="email" name='email'>
+                        <img src="/img/imgHomeEsterna/imgResetPassword/email.png" alt=""><input type="email" name="email" class="LoginInput name">
+                        <button type='submit'><img src="/img/imgHomeEsterna/login/loginconferma.png" alt="" class='buttonLogin'></button>
                     </div>
                 </div>
 
@@ -31,6 +32,9 @@
 @if($errors->any())
 
 new Finestra("{{ json_encode($errors->all()) }}",null, 'Errore Durante il recupero password')
+@elseif(session('status'))
+
+new Finestra("{{ json_encode('Email Inviata, controlla la tua posta.') }}", 'no', 'Richiesta inoltrata con successo')
 @endif
 </script>
 </body>
