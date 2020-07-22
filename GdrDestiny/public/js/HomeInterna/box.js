@@ -12,11 +12,12 @@ class Box
 
         this.createBox()
     }
+
     createBox(){
         this.boxCreated=document.createElement('div')
         this.boxCreated.className='box'
         document.body.append(this.boxCreated)
-        console.log('ok')
+        
 
         this.titleBox=document.createElement('div')
         this.titleBox.append(document.createTextNode(this.title))
