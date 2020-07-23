@@ -1,5 +1,21 @@
 .box {
-  width: 15vh;
-  height: 12vh;
+  width: 20vh;
+  height: 15vh;
+  background-color: #529eab;
+  position: absolute;
+}
+
+.box .titleBox {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.box .contentBox {
+  text-align: left;
+  font-size: 0.6em;
+}
+
+.off {
+  display: none;
 }
 /*# sourceMappingURL=box.css.map */

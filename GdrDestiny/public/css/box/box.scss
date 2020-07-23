@@ -1,4 +1,19 @@
 .box{
-    width:15vh;
-    height:12vh;
+    width:20vh;
+    height:15vh;
+    background-color: #529eab;
+    .titleBox{
+        text-align: center;
+        font-size: 0.8em;
+    }
+    .contentBox{
+        text-align: left;
+        font-size: 0.6em;
+    }
+    position: absolute;
+
+}
+
+.off{
+    display: none;
 }

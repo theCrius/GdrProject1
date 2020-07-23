@@ -31,7 +31,7 @@
             <div class="mappaDiv">
                 @yield('content')
                 <img src="/img/imgHomeInterna/home/messaggioff.png" id='messaggi' alt="">
-                <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="">
+                <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseover=box.showBox('Test','jfdjfjd',this) onmouseout=box.leaveBox()>
             </div>
 
         </div>
@@ -41,7 +41,7 @@
 <script>
 changeGhostHome();
 
-console.log(new Box('meteo','Textfddff','jfkjdhfkjd'))
+let box=new Box()
 
 
 </script>
