@@ -26,9 +26,6 @@ class Breeds extends Migration
             $table->integer('punti_corpo');
             $table->text('descrizione');
             $table->text('immagini');
-
-
-
             $table->timestamps();
         });
     }
