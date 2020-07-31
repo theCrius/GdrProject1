@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/SitoFacciaInterna/home.css">
+    <link rel="stylesheet" href="/css/modal/modalInterna.css">
     <link rel="stylesheet" href="/css/box/box.css">
-    <script src="/js/HomeEsterna/modal.js"></script>
+    <script src="/js/HomeInterna/modal.js"></script>
     <script src="/js/HomeInterna/home.js"></script>
     <script src="/js/HomeInterna/box.js"></script>
 </head>
@@ -14,7 +15,7 @@
     <section>
         <div class="menuTop">
             <ul class='listMenu'>
-                <div class="buttonLeft">ì
+                <div class="buttonLeft">
                     <li><a href="#"><img data-number=1 src="/img/imgHomeInterna/home/archivi.png" alt=""></a></li>
                     <li><a href="#"><img data-number=2 src="/img/imgHomeInterna/home/presenti.png" alt=""></a></li>
                     <li><a href="#"><img data-number=3 src="/img/imgHomeInterna/home/rimnet.png" alt=""></a></li>
@@ -42,6 +43,7 @@
 changeGhostHome();
 
 let box=new Box()
+new Finestra()
 
 
 </script>

@@ -1,11 +1,13 @@
 class Box
 {
-    boxCreated;
-    titleBox;
-    contentBox;
-    
+  
 
     constructor(){
+
+        this.boxCreated
+        this.titleBox
+        this.contentBox
+        
         this.createBox()
     }
 

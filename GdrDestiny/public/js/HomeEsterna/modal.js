@@ -1,7 +1,7 @@
 class Finestra{
     
 
-
+    
 
     constructor(text,errore=null,titleModal='Errore Durante La Registrazione',){
     

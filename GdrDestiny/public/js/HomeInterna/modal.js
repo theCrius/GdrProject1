@@ -1,18 +1,14 @@
 class Finestra{
+
+    constructor(toGet){
     
-
-
-
-    constructor(name){
-    
-        this.createStructure(errore,titleModal,text)
-        this.checkModal()
+        this.createStructure()
         this.addEventCloseButton()
 
     }
 
     
-    createStructure(errore,titleModal,text){
+    createStructure(){
         this.divModal=document.createElement('div')
         this.divModal.className='modal'
         document.body.append(this.divModal)
@@ -22,7 +18,7 @@ class Finestra{
         this.divModal.append(this.modalBody)
 
         this.imgSfondo=document.createElement('img');
-        this.imgSfondo.src= errore ? '/img/imgHomeEsterna/imgIscrizione/sfondoiscrizifine.png' : '/img/errorw.png'
+        this.imgSfondo.src= '/img/imgHomeInterna/home/sfondobg.png'
         this.imgSfondo.id='sfondoModal'
         this.modalBody.append(this.imgSfondo)
 
@@ -37,15 +33,7 @@ class Finestra{
         this.divContentModal=document.createElement('div')
         this.divContentModal.className='content'
         this.modalBody.append(this.divContentModal)
-
-        this.contentTitle=document.createElement('div')
-        this.contentTitle.className='titleModal'
-        this.divContentModal.append(this.contentTitle)
-
-        this.h1Title=document.createElement('h1')
-        this.h1Title.textContent=titleModal
-        this.contentTitle.append(this.h1Title)
-
+        
         this.textOfModal=document.createElement('p')
         this.textOfModal.className='text'
         this.textOfModal.innerHTML=errore ? text: this.getError(text)
