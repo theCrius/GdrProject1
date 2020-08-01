@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.3);
     position: absolute;
     top:0;
     align-items: center;
@@ -18,7 +18,7 @@ html body{
     scrollbar-width: thin;
 }
 #sfondoModal{
-    height: 45vh;
+    height: 55vh;
 }
 .modal_body{
     position: relative;
@@ -26,7 +26,7 @@ html body{
 .closeModal{
     width: fit-content;
     img{
-        height: 3vh;
+        height: 4vh;
         cursor: pointer;
     }
 }
@@ -36,7 +36,6 @@ html body{
 #modalHeader{
     position: ABSOLUTE;
     top: 0;
-    /* height: 100%; */
     width: 100%;
     height: 4.5vh;
     display: flex;

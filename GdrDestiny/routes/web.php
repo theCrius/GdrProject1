@@ -37,3 +37,4 @@ Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento'
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/{id}','ChiamateAjaxController@showUser')->name('userProfile');

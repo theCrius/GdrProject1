@@ -10,9 +10,10 @@
     <script src="/js/HomeInterna/home.js"></script>
     <script src="/js/HomeInterna/box.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <!-- per modificare link dei bottoni modificare anche il file home.js -->
+
 <body>
     <section>
         <div class="menuTop">
@@ -24,9 +25,10 @@
                 </div>
                 <li id='ghost'><img src="/img/imgHomeInterna/home/ghost.png" alt=""></li>
                 <div class="buttonRight">
-                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt=""></a></li>
+                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',\Auth::id())}}')"></a></li>
                     <li><a href="#"><img data-number=5 src="/img/imgHomeInterna/home/rymzody.png" alt=""></a></li>
-                    <li><a href="{{ route('logout') }}"><img data-number=6 src="/img/imgHomeInterna/home/logouttuttodx.png" alt=""></a></li>
+                    <li><a href="{{ route('logout') }}"><img data-number=6
+                                src="/img/imgHomeInterna/home/logouttuttodx.png" alt=""></a></li>
                 </div>
             </ul>
         </div>
@@ -34,7 +36,8 @@
             <div class="mappaDiv">
                 @yield('content')
                 <img src="/img/imgHomeInterna/home/messaggioff.png" id='messaggi' alt="messaggi">
-                <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseover=box.showBox('Test','jfdjfjd',this) onmouseout=box.leaveBox()>
+                <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt=""
+                    onmouseover=box.showBox('Test','jfdjfjd',this) onmouseout=box.leaveBox()>
             </div>
 
         </div>
@@ -44,15 +47,13 @@
 <script>
 changeGhostHome();
 
-let box=new Box()
-new Finestra()
+let box = new Box()
+let modal=new Finestra()
 
 //to move the modal
 $(".modal_body").draggable({
     handle: "#modalHeader"
-}); 
-
-
+});
 </script>
 
 </html>

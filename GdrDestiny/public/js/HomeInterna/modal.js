@@ -1,8 +1,9 @@
 class Finestra{
 
-    constructor(toGet){
+    constructor(){
     
         this.createStructure()
+        this.checkModal()
         this.addEventCloseButton()
 
     }
@@ -10,7 +11,7 @@ class Finestra{
     
     createStructure(){
         this.divModal=document.createElement('div')
-        this.divModal.className='modal'
+        this.divModal.className='modal off'
         document.body.append(this.divModal)
 
         this.modalBody=document.createElement('div')
@@ -72,6 +73,41 @@ class Finestra{
         
         
     }
+
+    connectionToPage(url){
+       function getHTMLData(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText)
+            return this.responseText
+           
+           
+        }
+       }
+       
+        let http=new XMLHttpRequest()
+        
+         
+        http.onreadystatechange=getHTMLData
+        http.open('GET',url,true)  
+        http.send()
+        return http.onreadystatechange()
+
+        
+
+        
+       
+
+    }
+
+
+    openModal(url){
+
+        this.divModal.className='modal'
+        console.log(this.connectionToPage(url))
+
+    }
+
+
     getError(text){
    
         let errors=text.split('.')
