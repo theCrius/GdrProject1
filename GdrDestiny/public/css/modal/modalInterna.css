@@ -13,6 +13,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
 }
 
 html body {
@@ -32,16 +33,35 @@ html body {
 }
 
 .closeModal {
-  position: absolute;
-  top: 3%;
-  right: 1%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
-.closeModal button {
-  font-size: 2vh;
-  background: transparent;
-  border: transparent;
-  color: #03fdfe;
+.closeModal img {
+  height: 3vh;
   cursor: pointer;
+}
+
+.off {
+  display: none;
+}
+
+#modalHeader {
+  position: ABSOLUTE;
+  top: 0;
+  /* height: 100%; */
+  width: 100%;
+  height: 4.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: move;
 }
 /*# sourceMappingURL=modalInterna.css.map */

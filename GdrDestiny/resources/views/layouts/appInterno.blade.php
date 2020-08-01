@@ -9,6 +9,8 @@
     <script src="/js/HomeInterna/modal.js"></script>
     <script src="/js/HomeInterna/home.js"></script>
     <script src="/js/HomeInterna/box.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <!-- per modificare link dei bottoni modificare anche il file home.js -->
 <body>
@@ -44,6 +46,11 @@ changeGhostHome();
 
 let box=new Box()
 new Finestra()
+
+//to move the modal
+$(".modal_body").draggable({
+    handle: "#modalHeader"
+}); 
 
 
 </script>

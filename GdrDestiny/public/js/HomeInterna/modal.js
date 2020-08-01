@@ -22,31 +22,35 @@ class Finestra{
         this.imgSfondo.id='sfondoModal'
         this.modalBody.append(this.imgSfondo)
 
+        this.modalHeader=document.createElement('div')
+        this.modalHeader.id='modalHeader'
+        this.modalBody.append(this.modalHeader)
+
         this.closeDiv=document.createElement('div')
         this.closeDiv.className='closeModal'
-        this.modalBody.append(this.closeDiv)
+        this.modalHeader.append(this.closeDiv)
 
-        this.buttonClose=document.createElement('button')
-        this.buttonClose.innerHTML='&times'
+        this.buttonClose=document.createElement('img')
+        this.buttonClose.src='/img/imgHomeInterna/home/chiudischeda.png'
         this.closeDiv.append(this.buttonClose)
 
         this.divContentModal=document.createElement('div')
         this.divContentModal.className='content'
         this.modalBody.append(this.divContentModal)
         
-        this.textOfModal=document.createElement('p')
-        this.textOfModal.className='text'
-        this.textOfModal.innerHTML=errore ? text: this.getError(text)
-        this.divContentModal.append(this.textOfModal)
+        // this.textOfModal=document.createElement('p')
+        // this.textOfModal.className='text'
+        // this.textOfModal.innerHTML=errore ? text: this.getError(text)
+        // this.divContentModal.append(this.textOfModal)
 
-        this.buttonSubmit=document.createElement('button')
-        this.buttonSubmit.id='buttonSubmit'
-        this.buttonSubmit.type='submit'
-        this.divContentModal.append(this.buttonSubmit)
+        // this.buttonSubmit=document.createElement('button')
+        // this.buttonSubmit.id='buttonSubmit'
+        // this.buttonSubmit.type='submit'
+        // this.divContentModal.append(this.buttonSubmit)
 
-        this.imageButtonSubmit=document.createElement('img')
-        this.imageButtonSubmit.src='/img/imgHomeEsterna/coonfermasiclick.png'
-        this.buttonSubmit.append(this.imageButtonSubmit)
+        // this.imageButtonSubmit=document.createElement('img')
+        // this.imageButtonSubmit.src='/img/imgHomeEsterna/coonfermasiclick.png'
+        // this.buttonSubmit.append(this.imageButtonSubmit)
 
 
 
@@ -62,7 +66,7 @@ class Finestra{
             modalToHidden.className='off'
         }
         let modalToHidden=this.divModal
-        this.buttonSubmit.addEventListener('click',(event,modalToHidden) => closeModal(event,modalToHidden))
+       // this.buttonSubmit.addEventListener('click',(event,modalToHidden) => closeModal(event,modalToHidden))
         this.buttonClose.addEventListener('click',(event,modalToHidden) => closeModal(event,modalToHidden))
 
         
