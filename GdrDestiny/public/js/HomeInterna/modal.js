@@ -75,22 +75,38 @@ class Finestra{
     }
 
     connectionToPage(url){
-       function getHTMLData(){
-        if(this.readyState == 4 && this.status == 200){
-            console.log(this.responseText)
-            return this.responseText
-           
-           
-        }
-       }
        
         let http=new XMLHttpRequest()
+
+        return new Promise((resolve,reject) => {
+
+            http.onreadystatechange=function() {
+                http.onload = function () {
+                    if (this.status >= 200 && this.status < 300 && http.response) {
+                      resolve(http.response);
+                    } else {
+                      reject({
+                        status: this.status,
+                        statusText: http.statusText
+                      });
+                    }
+                  };
+                  http.onerror = function () {
+                    reject({
+                      status: this.status,
+                      statusText: http.statusText
+                    });
+                  };
+                  
+                
+            }
+            http.open('GET',url,true)  
+            http.send()
+
+        })
         
          
-        http.onreadystatechange=getHTMLData
-        http.open('GET',url,true)  
-        http.send()
-        return http.onreadystatechange()
+
 
         
 
@@ -103,7 +119,15 @@ class Finestra{
     openModal(url){
 
         this.divModal.className='modal'
-        console.log(this.connectionToPage(url))
+        let a=this.divContentModal
+        
+       this.connectionToPage(url).then(function(data){a.innerHTML = data})
+                                 .catch(function(error){
+                                     if(error.status !== 200) throw new Error('Connessione fallita')
+                                     throw new Error('Cariamento Non Riuscito, dati mancanti')
+                                })
+      
+       
 
     }
 
