@@ -23,7 +23,7 @@ html, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 18.5vh;
+  height: 13.5vh;
   width: 70%;
   margin: auto;
   -webkit-box-align: center;
@@ -53,7 +53,7 @@ html, body {
 }
 
 .contenitoreMappa {
-  height: 70vh;
+  height: 77vh;
 }
 
 .mappaDiv {
@@ -79,12 +79,42 @@ html, body {
   left: 4.5vh;
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-height: 600px) {
+  .contenitoreMappa {
+    height: 80vh;
+  }
+  .menuTop .buttonLeft li img, .menuTop .buttonRight li img, .menuTop ul li img {
+    height: 7vh;
+  }
+}
+
+@media only screen and (max-width: 980px) and (min-height: 700px) {
   .contenitoreMappa {
     height: 50vh;
   }
   .menuTop .buttonLeft li img, .menuTop .buttonRight li img, .menuTop ul li img {
     height: 4vh;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .menuTop .buttonLeft, .menuTop .buttonRight, .menuTop ul {
+    width: 63%;
+    height: 24.5vh;
+  }
+  .menuTop .buttonLeft, .menuTop .buttonRight {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contenitoreMappa {
+    height: 51vh;
+  }
+  #messaggi {
+    height: 17vh;
+    top: 4vh;
+    right: 4vh;
   }
 }
 /*# sourceMappingURL=home.css.map */

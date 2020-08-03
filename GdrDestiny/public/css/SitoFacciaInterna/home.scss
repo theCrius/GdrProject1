@@ -15,7 +15,7 @@ html , body{
         list-style: none;
         display:flex;
         flex-direction: row;
-        height: 18.5vh;
+        height: 13.5vh;
         width:70%;
         margin: auto;
         align-items: center;
@@ -37,10 +37,12 @@ html , body{
         height: 8vh;
         }
         padding:0 1em 0 1em;
+    }
+
+
+    }
+
 }
-
-
-}}
 
 
 #mappa{
@@ -50,7 +52,7 @@ html , body{
 
 }
 .contenitoreMappa{
-    height: 70vh;
+    height: 77vh;
     }
 .mappaDiv{
     position: relative;
@@ -73,8 +75,25 @@ html , body{
     left:4.5vh;
 }
 
+@media only screen and (max-height: 600px ){
+    .contenitoreMappa{
+        height:80vh;
+    }
+    .menuTop{
+        .buttonLeft, .buttonRight,ul{
+            li{
+            
+                
+                img{
+                    height: 7vh;
+    
+                }
+            }
+        }
+        }
 
-@media only screen and (max-width: 980px){
+}
+@media only screen and (max-width: 980px) and (min-height: 700px){
   
     .contenitoreMappa{
         height:50vh;
@@ -96,6 +115,30 @@ html , body{
         
               
            
+
+
+}
+
+@media only screen and (max-width: 620px){
+    .menuTop{
+    .buttonLeft, .buttonRight , ul{
+        width: 63%;
+        height: 24.5vh;
+    }
+
+    .buttonLeft,.buttonRight{
+        flex-direction: column;
+    }
+}
+.contenitoreMappa{
+    height: 51vh;
+}
+    #messaggi{
+        height: 17vh;
+        top:4vh;
+        right: 4vh;
+
+    }
 
 
 }

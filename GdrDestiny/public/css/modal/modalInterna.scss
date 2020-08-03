@@ -18,7 +18,7 @@ html body{
     scrollbar-width: thin;
 }
 #sfondoModal{
-    height: 55vh;
+    height: 75vh;
 }
 .modal_body{
     position: relative;
@@ -26,20 +26,32 @@ html body{
 .closeModal{
     width: fit-content;
     img{
-        height: 4vh;
+        height: 6vh;
         cursor: pointer;
     }
 }
 .off{
     display: none;
 }
+.footerModal{
+    height: 6.7vh;
+    width: 113vh;
+    position: absolute;
+    bottom: 0;
+}
 #modalHeader{
     position: ABSOLUTE;
     top: 0;
     width: 100%;
-    height: 4.5vh;
+    height: 6.8vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     cursor: move;
+}
+.content{
+    width: 113vh;
+    height: 61.4vh;
+    position: absolute;
+    top:7vh;
 }

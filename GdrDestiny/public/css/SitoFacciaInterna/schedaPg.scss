@@ -1,0 +1,30 @@
+.contentSub{
+    display:flex;
+   justify-content: space-evenly;
+   height: inherit;
+}
+.button{
+    
+    img{
+        height: 10.5vh;
+        cursor: pointer;
+    }
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+
+}
+.immagineProfilo{
+    img{
+    height: 59vh;
+
+    }
+    display: flex;
+    align-items: center;
+}
+*{
+    margin:0;
+    padding:0;
+
+}
