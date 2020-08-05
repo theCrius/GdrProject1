@@ -29,9 +29,8 @@ class CreateUsersTable extends Migration
             $table->text('note_fato')->nullable();
             $table->text('background')->nullable();
             $table->text('note_off')->nullable();
-            $table->enum('bloccato',['si','no'])->default('no');
             $table->string('indirizzo_ip');
-            $table->string('role');
+            $table->string('role')->nullable();
             $table->string('immagine_avatar')->nullable();
             $table->rememberToken();
             $table->dateTime('last_activity');

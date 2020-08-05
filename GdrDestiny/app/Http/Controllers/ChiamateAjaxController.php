@@ -14,7 +14,7 @@ class ChiamateAjaxController extends Controller{
     public function showUser($idUser,$roleUser){
   
         return view('internoLand.schedaUser', [
-            'userInfo' => User::where('id',$id),
+            'userInfo' => User::where('id',$idUser),
             //'roleOfUser' => 
         ]);
     }

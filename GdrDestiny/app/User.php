@@ -21,7 +21,7 @@ class User extends Authenticatable
     ];
     protected $cast = [
         'roles' => 'array',
-    ]
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
