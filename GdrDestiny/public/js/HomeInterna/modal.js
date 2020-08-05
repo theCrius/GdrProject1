@@ -21,11 +21,10 @@ class Finestra{
         function closeModal(event,divModal){
             modalToHidden.className='off'
         }
-        let modalToHidden=this.modal
-        console.log(document.querySelector('.closeModal'))
-       // document.querySelector('.closeModal').addEventListener('click',(event,modalToHidden) => closeModal(event,modalToHidden))
+        let modalToHidden=document.querySelector('.modal')
+   
+        document.querySelector('.closeModal').addEventListener('click',(event,modalToHidden) => closeModal(event,modalToHidden))
 
-        
         
     }
 
@@ -43,6 +42,7 @@ class Finestra{
                       reject({
                         status: this.status,
                         statusText: http.statusText
+                        
                       });
                     }
                   };
@@ -55,8 +55,10 @@ class Finestra{
                   
                 
             }
+            
             http.open('GET',url,true)  
             http.send()
+            
 
         })
         
@@ -70,60 +72,27 @@ class Finestra{
 
     }
 
-    dragElement() {
-      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-      let modalBody=document.querySelector('.modal_body')
-      
-      console.log(document.querySelector('.modal_body'),modalBody)
-      //document.querySelector("#modalHeader").onmousedown = dragMouseDown;
-      
-    
-      function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // get the mouse cursor position at startup:
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
-        document.onmousemove = elementDrag;
-      }
-    
-      function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // calculate the new cursor position:
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        // set the element's new position:
-        modalBody.style.top = (elmnt.offsetTop - pos2) + "px";
-        modalBody.style.left = (elmnt.offsetLeft - pos1) + "px";
-      }
-    
-      function closeDragElement() {
-        /* stop moving when mouse button is released:*/
-        document.onmouseup = null;
-        document.onmousemove = null;
-      }
-    }
-
-
     openModal(url){
 
         this.modal.className='modal'
         let modalContent=this.modal
+        let modalAddEventClose = this.addEventCloseButton
         
         
-        
-       this.connectionToPage(url).then(function(data){modalContent.innerHTML= data})
-                                 .catch(function(error){
-                                     if(error.status !== 200) throw new Error('Connessione fallita')
-                                     throw new Error('Cariamento Non Riuscito, dati mancanti')
+       this.connectionToPage(url).then(function(data){
+         modalContent.innerHTML= data; //print the data in the modal
+        $(".modal_body").draggable({ //the user can move the modal
+        handle: "#modalHeader"
+    }); 
+      modalAddEventClose() //the user can close the modal
+  }).catch(function(error){  
+    if(error.status !== 200) throw new Error('Connessione fallita')
+          throw new Error('Cariamento Non Riuscito, dati mancanti')
                                 })
-        this.dragElement() //to move modal
-                                //this.addEventCloseButton()
+                                
+        
+        
+                                
        
         
       
