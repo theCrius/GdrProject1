@@ -1,4 +1,8 @@
 @extends('layouts.appModalInterno')
+@section('header')
+
+
+@endsection
 
 @section('content')
 <div class='contentSub'>

@@ -2,14 +2,17 @@
 
 namespace App;
 
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
+use App\Roles\methodRole;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use methodRole;
 
     /**
      * The attributes that are mass assignable.
@@ -17,11 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname','email', 'data_di_nascita','nazionalità','password','sesso','id_class1','id_class2','id_razza','note_fato','background','note_off','indirizzo_ip','immagine_avatar','last_activity','id_emisfero'
+        'name', 'surname','email', 'data_di_nascita','nazionalità','password','sesso','id_class1','id_class2','id_razza','note_fato','background','note_off','indirizzo_ip','immagine_avatar','last_activity','id_emisfero','role'
     ];
-    protected $cast = [
-        'roles' => 'array',
-    ];
+    
 
     /**
      * The attributes that should be hidden for arrays.

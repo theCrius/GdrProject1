@@ -34,6 +34,12 @@ class CreateUsersTable extends Migration
             $table->string('immagine_avatar')->nullable();
             $table->rememberToken();
             $table->dateTime('last_activity');
+            $table->integer('forza')->default(0);
+            $table->integer('destrezza')->default(0);
+            $table->integer('resistenza')->default(0);
+            $table->integer('prontezza')->default(0);
+            $table->integer('percezione')->default(0);
+            $table->integer('intelligenza')->default(0);
             $table->timestamps();
             
             $table->foreign('id_emisfero')->references('id')->on('hemisperes');
