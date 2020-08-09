@@ -11,11 +11,12 @@ class ChiamateAjaxController extends Controller{
         return $this->middleware('auth');
 
     }
-    public function showUser($idUser,$roleUser){
+    public function showUser($userIdToView,$userIdThatView, Request $request){
   
         return view('internoLand.schedaUser', [
-            'userInfo' => User::where('id',$idUser),
-            //'roleOfUser' => 
+            'userToView' => User::where('id',$userIdToView)->get()[0],
+            'errors' => $request->error,
+            'userView' => User::where('id',$userIdThatView)->get()[0]
         ]);
     }
 

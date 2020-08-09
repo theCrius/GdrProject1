@@ -19,7 +19,9 @@ class CheckUserRole
     public function handle($request, Closure $next , $role)
     {
         
-        if(!$request->user()->hasRole($role))  \Error('Non hai i poteri sufficienti');
+        if(!$request->user()->hasRole($role)){
+            $request->error='Errore, non hai i permessi';
+        }
         return $next($request);
     }
 }

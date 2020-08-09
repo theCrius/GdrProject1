@@ -77,4 +77,10 @@ html body {
   position: absolute;
   top: 7vh;
 }
+
+#titleError, #contentError {
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
 /*# sourceMappingURL=modalInterna.css.map */

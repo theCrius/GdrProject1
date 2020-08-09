@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .contentSub {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -29,7 +34,7 @@
   cursor: pointer;
 }
 
-.immagineProfilo {
+.riquadroDestra {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,12 +43,77 @@
           align-items: center;
 }
 
-.immagineProfilo img {
+.riquadroDestra #riquadroImmagineStatistiche {
   height: 59vh;
+}
+
+.riquadroDestra #inviaMessaggi {
+  position: absolute;
+  top: 0;
+  right: 0.5vh;
+  height: 11.5vh;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+.editProfile {
+  position: absolute;
+  bottom: -0.2vh;
+  height: 3vh;
+  width: 29vh;
+  text-align: center;
+  left: 0;
+}
+
+.editProfile img {
+  height: inherit;
+  opacity: 0.7;
+}
+
+.editProfile:hover img {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.levelup {
+  position: absolute;
+  height: 3.5vh;
+  width: 29vh;
+  text-align: center;
+  left: 0;
+}
+
+.levelup img {
+  height: inherit;
+  opacity: 0.7;
+}
+
+.levelup:hover img {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.riquadroContenuto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  right: 8.7vh;
+  text-align: center;
+}
+
+.riquadroContenuto .immagineProfilo img {
+  height: 34vh;
+}
+
+.riquadroContenuto .statisticheProfilo img {
+  height: 14vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */

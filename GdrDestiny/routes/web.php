@@ -37,4 +37,5 @@ Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento'
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user/{idUser}/{userRequesting}','ChiamateAjaxController@showUser')->name('userProfile')->middleware('checkRole:' .\Config::get('roles.ROLE_ADMIN'));
+Route::get('/user/{idUser}/{userRequesting}','ChiamateAjaxController@showUser')->name('userProfile');
+
