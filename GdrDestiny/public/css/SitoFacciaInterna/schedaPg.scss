@@ -2,6 +2,7 @@
     padding:0;
     margin:0;
 }
+
 .contentSub{
     display:flex;
    justify-content: space-evenly;
@@ -27,8 +28,8 @@
     #inviaMessaggi{
         position: absolute;
         top: 0;
-        right: 0.5vh;
-        height: 11.5vh;
+        right: 2.5vh;
+        height: 9.5vh;
     }
     display: flex;
     align-items: center;
@@ -79,7 +80,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 8.7vh;
+    right: 8.8vh;
+    top:7vh;
     text-align: center;
     .immagineProfilo{
         img{
@@ -88,7 +90,39 @@
     }
     .statisticheProfilo{
         img{
-            height: 14vh;
+            height: 11.5vh;
         }
     }
+}
+
+.statisticheProfilo{
+    position: relative;
+    font-size: 2vh;
+    ul{
+        list-style: none;
+    li{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        color:#bff4fe;
+    }
+}
+    .leftStat{
+        position: absolute;
+        top: 3.8vh;
+        left: 17.5vh;
+    }
+    .rightStat{
+        position: absolute;
+        top: 3.6vh;
+        right: 0.5vh;
+
+    }
+}
+#icone{
+    display: flex;
+    
+    img{
+        height: 10vh;
+    }
+
 }
