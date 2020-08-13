@@ -150,6 +150,9 @@
   list-style: none;
   -ms-flex-line-pack: center;
       align-content: center;
+  position: absolute;
+  right: 5.5vh;
+  top: 2.5vh;
 }
 
 #icone li {
@@ -162,10 +165,10 @@
   -ms-flex-line-pack: center;
       align-content: center;
   height: 3vh;
-  width: 14.5vh;
+  width: 15.3vh;
 }
 
 #icone li img {
-  height: 70%;
+  height: 3vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */

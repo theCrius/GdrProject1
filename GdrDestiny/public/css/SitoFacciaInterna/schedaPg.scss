@@ -121,15 +121,18 @@
     display: flex;
     list-style: none;
     align-content: center;
+    position: absolute;
+    right: 5.5vh;
+    top: 2.5vh;
     li{
         display: flex;
         justify-content: center;
         align-content: center;
         height: 3vh;
-        width: 14.5vh;
+        width: 15.3vh;
     
     img{
-        height: 70%;
+        height: 3vh;
     }
 }
 
