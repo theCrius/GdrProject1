@@ -37,16 +37,16 @@
                 <img src="/img/imgHomeInterna/home/schedaPg/statistiche.png" alt="">
                 <div class="leftStat">
                     <ul>
-                        <li>10/10</li>
-                        <li>10/10</li>
-                        <li>10/10</li>
+                        <li>10&nbsp&nbsp10</li>
+                        <li>10&nbsp&nbsp10</li>
+                        <li>10&nbsp&nbsp10</li>
                     </ul>
                 </div>
                 <div class="rightStat">
                     <ul>
-                        <li>10/10</li>
-                        <li>10/10</li>
-                        <li>10/10</li>
+                        <li>10 10</li>
+                        <li>10 10</li>
+                        <li>10 10</li>
                     </ul>
                 </div>
             </div>

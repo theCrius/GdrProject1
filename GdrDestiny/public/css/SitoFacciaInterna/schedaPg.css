@@ -120,7 +120,7 @@
 
 .statisticheProfilo {
   position: relative;
-  font-size: 2vh;
+  font-size: 1.5vh;
 }
 
 .statisticheProfilo ul {
@@ -128,15 +128,13 @@
 }
 
 .statisticheProfilo ul li {
-  padding-top: 1px;
-  padding-bottom: 1px;
   color: #bff4fe;
 }
 
 .statisticheProfilo .leftStat {
   position: absolute;
-  top: 3.8vh;
-  left: 17.5vh;
+  top: 3.5vh;
+  left: 18vh;
 }
 
 .statisticheProfilo .rightStat {
@@ -149,9 +147,25 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  list-style: none;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
-#icone img {
-  height: 10vh;
+#icone li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 3vh;
+  width: 14.5vh;
+}
+
+#icone li img {
+  height: 70%;
 }
 /*# sourceMappingURL=schedaPg.css.map */
