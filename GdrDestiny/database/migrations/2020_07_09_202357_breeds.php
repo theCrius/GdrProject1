@@ -26,6 +26,12 @@ class Breeds extends Migration
             $table->integer('punti_corpo');
             $table->text('descrizione');
             $table->text('immagini');
+            $table->integer('forzaLimite');
+            $table->integer('destrezzaLimite');
+            $table->integer('resistenzaLimite');
+            $table->integer('prontezzaLimite');
+            $table->integer('percezioneLimite');
+            $table->integer('intelligenzaLimite');
             $table->timestamps();
         });
     }

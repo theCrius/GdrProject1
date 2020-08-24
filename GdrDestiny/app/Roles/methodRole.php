@@ -5,15 +5,20 @@ trait methodRole{
 
     //get roles of a user 
     public function getRole(){
-        return $this->role ?? 'utente';
+        if(!$this->role) return 'utente';
+        return \Config::get('roles.'.$this->role);
 
     }
 
-    public function hasRole(string $role){
-        
+    public function hasRole(array $role, int $power=0){
+
         $roleOfUser=$this->getRole();
+        if(!$roleOfUser) throw new Exception('Errore nella registrazione del ruolo utente');
+
+        $powerRole=$roleOfUser['power'];
+        $nameRole=$roleOfUser['name'];
         
-        return $roleOfUser === $role; 
+        return $nameRole === $role['name'] && $powerRole > $power; 
         
     }
 

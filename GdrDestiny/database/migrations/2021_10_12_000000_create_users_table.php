@@ -30,8 +30,9 @@ class CreateUsersTable extends Migration
             $table->text('background')->nullable();
             $table->text('note_off')->nullable();
             $table->string('indirizzo_ip');
-            $table->string('role')->nullable();
+            $table->string('role')->default('ROLE_UTENTE');
             $table->string('immagine_avatar')->default('/img/imgHomeInterna/home/schedaPg/avatar.png');
+            $table->string('immagine_miniavatar')->default('/img/imgHomeInterna/home/schedaPg/miniavatar.png');
             $table->rememberToken();
             $table->dateTime('last_activity');
             $table->integer('forza')->default(0);

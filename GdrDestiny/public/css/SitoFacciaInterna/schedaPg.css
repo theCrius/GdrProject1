@@ -137,10 +137,42 @@
   left: 19.9vh;
 }
 
+.statisticheProfilo .leftStat ul {
+  position: relative;
+}
+
+.statisticheProfilo .leftStat ul li:nth-child(2) {
+  position: absolute;
+  top: 2.1vh;
+  right: 0.2vh;
+}
+
+.statisticheProfilo .leftStat ul li:nth-child(3) {
+  position: absolute;
+  top: 4.3vh;
+  right: 0.5vh;
+}
+
 .statisticheProfilo .rightStat {
   position: absolute;
-  top: 3.6vh;
-  right: 0.5vh;
+  top: 3.9vh;
+  right: 6vh;
+}
+
+.statisticheProfilo .rightStat ul {
+  position: relative;
+}
+
+.statisticheProfilo .rightStat ul li:nth-child(2) {
+  position: absolute;
+  top: 2.1vh;
+  left: 0.1vh;
+}
+
+.statisticheProfilo .rightStat ul li:nth-child(3) {
+  position: absolute;
+  left: 0.1vh;
+  top: 4.2vh;
 }
 
 #icone {
