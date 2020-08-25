@@ -9,7 +9,7 @@ class Messages extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void  n
      */
     public function up()
     {
@@ -17,6 +17,7 @@ class Messages extends Migration
         $table->foreignId('id_user_from');
         $table->text('message');
         $table->string('title');
+        $table->enum('letto',['si','no']);
         $table->timestamps();
 
         $table->foreign('id_user_to')->references('id')->on('users');
