@@ -14,27 +14,18 @@ class Breed extends Model
         'prontezza',
         'percezione',
         'intelligenza',
+        'forzaLimite',
+        'destrezzaLimite',
+        'resistenzaLimite',
+        'prontezzaLimite',
+        'percezioneLimite',
+        'intelligenzaLimite',
         'punti_mente',
-         'punti_corpo',
+        'punti_corpo',
         'descrizione',
-       'immagini'
+        'immagini'
     ];
 
-    //riempire di dati il db
-    function inserisciTestDiProva(){
-        $ok=\App\Breed::insert([
-        'name' => 'Test',
-        'forza' => 10,
-        'destrezza' => 102,
-        'resistenza' => 9,
-        'prontezza' => 9,
-        'percezione' => 98,
-        'intelligenza' => 88,
-        'punti_mente' => 87,
-         'punti_corpo'=> 9,
-        'descrizione'=>'okokkok',
-       'immagini'=>'ijjk',
-        ]);
+  
 
-    }
 }

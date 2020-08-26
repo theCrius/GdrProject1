@@ -13,6 +13,7 @@ class Messages extends Migration
      */
     public function up()
     {
+        Schema::create('messages', function (Blueprint $table) {
         $table->foreignId('id_user_to');
         $table->foreignId('id_user_from');
         $table->text('message');
@@ -23,7 +24,7 @@ class Messages extends Migration
         $table->foreign('id_user_to')->references('id')->on('users');
         $table->foreign('id_user_from')->references('id')->on('users');
 
-
+        });
     }
 
     /**
