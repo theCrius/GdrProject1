@@ -37,16 +37,16 @@
                 <img src="/img/imgHomeInterna/home/schedaPg/statistiche.png" alt="">
                 <div class="leftStat">
                     <ul>
-                        <li>20&nbsp&nbsp10</li>
-                        <li>06&nbsp&nbsp10</li>
-                        <li>10&nbsp&nbsp10</li>
+                        <li>{{$userToView->forza + $userToView->breed->forza}}&nbsp&nbsp{{$userToView->breed->forzaLimite}}</li>
+                        <li>{{$userToView->destrezza + $userToView->breed->destrezza}}&nbsp&nbsp{{$userToView->breed->destrezzaLimite}}</li>
+                        <li>{{$userToView->resistenza + $userToView->breed->resistenza}}&nbsp&nbsp{{$userToView->breed->resistenzaLimite}}</li>
                     </ul>
                 </div>
                 <div class="rightStat">
                     <ul>
-                        <li>10&nbsp&nbsp10</li>
-                        <li>10&nbsp&nbsp10</li>
-                        <li>10&nbsp&nbsp10</li>
+                        <li>{{$userToView->prontezza + $userToView->breed->prontezza}}&nbsp&nbsp{{$userToView->breed->prontezzaLimite}}</li>
+                        <li>{{$userToView->percezione + $userToView->breed->percezione}}&nbsp&nbsp{{$userToView->breed->percezioneLimite}}</li>
+                        <li>{{$userToView->intelligenza + $userToView->breed->intelligenza}}&nbsp&nbsp{{$userToView->breed->intelligenzaLimite}}</li>
                     </ul>
                 </div>
             </div>

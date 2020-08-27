@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class OngroupRoles extends Migration
+class GroupRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class OngroupRoles extends Migration
      */
     public function up()
     {
-        Schema::create('ongrouproles', function (Blueprint $table) {
+        Schema::create('grouproles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('id_ongroup');
             $table->string('name');
             $table->string('immagine');
             $table->timestamps();
 
-            $table->foreign('id_ongroup')->references('id')->on('ongroups');
+            $table->foreign('id_ongroup')->references('id')->on('groups');
             
         });
     }
