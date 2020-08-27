@@ -4,11 +4,14 @@
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt=""></div>
 @endif
 <ul id='icone'>
-    <li><img src="/img/imgHomeInterna/home/schedaPg/corporazione.png" alt=""></li>
+    <li><img src="/img/imgHomeInterna/home/schedaPg/corporazione.png" alt=""> <img src="#" alt=""> </li>
 
-    <li><img src="/img/imgHomeInterna/home/schedaPg/razzaimg.png" alt=""></li>
+    <li><img src="/img/imgHomeInterna/home/schedaPg/razzaimg.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Razze/{{$userToView->breed->immagini}}" alt=""></li>
 
-    <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt=""></li>
+    <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt="">
+    @if($userToView->class)
+    
+    </li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe2.png" alt=""></li>
     <li><img src="/img/imgHomeInterna/home/schedaPg/caricaoff.png" alt=""></li>

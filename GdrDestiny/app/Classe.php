@@ -9,4 +9,7 @@ class Classe extends Model
     protected $filliable=[
         'name','descrizione','immagine'
     ];
+
+    
+    
 }
