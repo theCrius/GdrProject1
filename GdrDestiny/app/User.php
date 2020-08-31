@@ -52,5 +52,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Breed','id_razza','id');
     }
 
+    public function classes(){
+        return $this->belongsToMany('App\Classe','userclasses','id_user','id_classe');
+    }
+
 
 }

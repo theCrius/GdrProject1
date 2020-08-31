@@ -26,8 +26,8 @@ return [
         'name' => 'TUTOR',
         'power' => 1   
     ],
-    'ROLE_USER' => [
-        'name' => 'ROLE_USER',
+    'ROLE_UTENTE' => [
+        'name' => 'ROLE_UTENTE',
         'power' => 0   
     ]  
 

@@ -14,24 +14,37 @@ class ChiamateAjaxController extends Controller{
     public function showUser($userIdToView, Request $request){
        
         return view('internoLand.schedaUser', [
-            'userToView' => User::where('id',$userIdToView)->with('breed')->get()[0],
-            'classes' => \App\Userclasse::where('id_user',$userIdToView)->with('classes')->get(),
+            'userToView' => User::where('id',$userIdToView)->with('breed','classes')->get()[0],
             'errors' => $request->error,
             'userView' => \Auth::user(),
         ]);
     }
 
     public function addClass(Request $request){
+        $classesUser=\App\Userclasse::find(\Auth::id()) ?? [];
+        if(count($classesUser) > 1) $request->error='Errore, non puoi scegliere la tua classe, perchè già lo hai fatto'; 
         return view('internoLand.addClass',[
         'errors' => $request->error,
         'classes' => \App\Classe::all(),
-        'userClasses' => \App\Userclasse::find(\Auth::id()) ?? []
+        'userClasses' => $classesUser
             ]);
             
     }
 
     public function storeClass(Request $request){
-        dd(\App\Classe::find($request->class));
+        $idUser=\Auth::id();
+        if(!(int)$request->class){
+            $request->errors='Classe non aggiunta al tuo profilo, riprova';
+
+            return redirect()->route('addClass');
+        }
+        
+        \App\Userclasse::insert([
+            'id_classe' => $request->class,
+            'id_user' => $idUser
+        ]);
+        return redirect()->route('userProfile');
+        
     }
 
 }

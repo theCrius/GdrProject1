@@ -9,18 +9,21 @@
     <li><img src="/img/imgHomeInterna/home/schedaPg/razzaimg.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Razze/{{$userToView->breed->immagini}}" alt=""></li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt=""> 
-    @empty($classes[0])
-       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" onclick="modal.openModal('{{route('addClasses',\Auth::id())}}')">
-    @endempty
-    
+    @if(!count($userToView->classes))
+       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" onclick="modal.openModal('{{route('addClass')}}')">
+    @else
+        <img src="/img/imgHomeInterna/home/Icone/Classi/{{$userToView->classes[0]->immagine}}" alt="">
+    @endif
     </li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe2.png" alt="">
-    @empty($classes[1])
-        <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="">
-    @endempty
-    
+    @if(count($userToView->classes) == 1 || count($userToView->classes) == 0)
+       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" onclick="modal.openModal('{{route('addClass')}}')">
+    @else
+        <img src="/img/imgHomeInterna/home/Icone/Classi/{{$userToView->classes[1]->immagine}}" alt="">
+    @endif
     </li>
+    
     <li><img src="/img/imgHomeInterna/home/schedaPg/caricaoff.png" alt=""></li>
 
 </ul>

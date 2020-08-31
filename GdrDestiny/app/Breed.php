@@ -26,8 +26,5 @@ class Breed extends Model
         'immagini'
     ];
 
-    public function users(){
-        return $this->hasMany('App\User');
-    }
 
 }
