@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.icon {
+  cursor: pointer;
+}
+
 html, body {
   height: 100%;
   width: 100%;

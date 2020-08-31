@@ -22,8 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('nazionalità');
             $table->string('password');
             $table->enum('sesso',['m','f']);
-            $table->foreignId('id_class1')->nullable();
-            $table->foreignId('id_class2')->nullable();
             $table->foreignId('id_razza');
             $table->foreignId('id_emisfero');
             $table->text('note_fato')->nullable();
@@ -44,8 +42,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             
             $table->foreign('id_emisfero')->references('id')->on('hemisperes');
-            $table->foreign('id_class1')->references('id')->on('classes');
-            $table->foreign('id_class2')->references('id')->on('classes');
             $table->foreign('id_razza')->references('id')->on('breeds');
             
         });

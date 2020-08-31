@@ -158,7 +158,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3vh;
+        height: 3.5vh;
         width: 15.3vh;
     
     img{
@@ -166,4 +166,41 @@
     }
 }
 
+}
+
+/* ADD CLASS */
+.chooseClass{
+    text-align: center;
+
+.selectClass{
+    padding: 1em;
+    input:checked +.classToSelect{
+        filter: none;
+    }
+    input{
+        display: none;
+    }
+.classToSelect{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+            transition: all 100ms ease-in;
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+            &:hover{
+            
+                filter: brightness(1.2) grayscale(.5) opacity(.9);
+            }
+    img{
+        height: 17vh;
+    }
+}}
+#entra{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+#title{
+    height: 7.5vh;
+}
 }

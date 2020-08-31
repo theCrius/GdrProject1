@@ -8,16 +8,24 @@
 
     <li><img src="/img/imgHomeInterna/home/schedaPg/razzaimg.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Razze/{{$userToView->breed->immagini}}" alt=""></li>
 
-    <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt="">
-    @if($userToView->class)
+    <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt=""> 
+    @empty($classes[0])
+       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" onclick="modal.openModal('{{route('addClasses',\Auth::id())}}')">
+    @endempty
     
     </li>
 
-    <li> <img src="/img/imgHomeInterna/home/schedaPg/classe2.png" alt=""></li>
+    <li> <img src="/img/imgHomeInterna/home/schedaPg/classe2.png" alt="">
+    @empty($classes[1])
+        <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="">
+    @endempty
+    
+    </li>
     <li><img src="/img/imgHomeInterna/home/schedaPg/caricaoff.png" alt=""></li>
 
 </ul>
 @endsection
+
 
 @section('content')
 <div class='contentSub'>

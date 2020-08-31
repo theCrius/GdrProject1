@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id','name', 'surname','email', 'data_di_nascita','nazionalità','password','sesso','id_class1','id_class2','id_razza','note_fato','background','note_off','indirizzo_ip','immagine_avatar','last_activity','id_emisfero','role'
+        'id','name', 'surname','email', 'data_di_nascita','nazionalità','password','sesso','id_razza','note_fato','background','note_off','indirizzo_ip','immagine_avatar','last_activity','id_emisfero','role'
     ];
     
 
@@ -52,7 +52,5 @@ class User extends Authenticatable
         return $this->belongsTo('App\Breed','id_razza','id');
     }
 
-    public function classes(){
-         return $this->belongsToMany('App\Classe',['id_class1','id_class2'],'id');
-    }
+
 }

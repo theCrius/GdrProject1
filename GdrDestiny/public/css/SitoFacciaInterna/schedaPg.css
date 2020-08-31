@@ -197,11 +197,59 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 3vh;
+  height: 3.5vh;
   width: 15.3vh;
 }
 
 #icone li img {
   height: 2.4vh;
+}
+
+/* ADD CLASS */
+.chooseClass {
+  text-align: center;
+}
+
+.chooseClass .selectClass {
+  padding: 1em;
+}
+
+.chooseClass .selectClass input:checked + .classToSelect {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.chooseClass .selectClass input {
+  display: none;
+}
+
+.chooseClass .selectClass .classToSelect {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(0.7);
+          filter: brightness(1.8) grayscale(1) opacity(0.7);
+}
+
+.chooseClass .selectClass .classToSelect:hover {
+  -webkit-filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+          filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+}
+
+.chooseClass .selectClass .classToSelect img {
+  height: 17vh;
+}
+
+.chooseClass #entra {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.chooseClass #title {
+  height: 7.5vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */
