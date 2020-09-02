@@ -21,7 +21,9 @@ class ChiamateAjaxController extends Controller{
     }
 
     public function addClass(Request $request){
-        $classesUser=\App\Userclasse::find(\Auth::id()) ?? [];
+        $classesUser=\App\Userclasse::where('id_user',\Auth::id())->get();
+
+
         if(count($classesUser) > 1) $request->error='Errore, non puoi scegliere la tua classe, perchè già lo hai fatto'; 
         return view('internoLand.addClass',[
         'errors' => $request->error,
@@ -43,7 +45,7 @@ class ChiamateAjaxController extends Controller{
             'id_classe' => $request->class,
             'id_user' => $idUser
         ]);
-        return redirect()->route('userProfile');
+        return redirect()->route('home');
         
     }
 

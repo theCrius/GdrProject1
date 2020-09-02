@@ -12,8 +12,7 @@
             @yield('content')
         @else
             <h1 id='titleError'>Errore, non puoi accedere ai servizi </h1>
-            <p id='contentError'>Il sistema ha rifiutato la tua richiesta , non hai i giusti permessi o qualcosa è andato
-                male, non ti arrendere , contatta gli admin!</p>
+            <p id='contentError'>{{$errors}}</p>
         @endif
 
     </div>

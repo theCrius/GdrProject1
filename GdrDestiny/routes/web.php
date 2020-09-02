@@ -37,6 +37,9 @@ Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento'
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+//add class by user
 Route::get('/user/AddClass','ChiamateAjaxController@addClass')->name('addClass');
 Route::post('/user/AddClass','ChiamateAjaxController@storeClass')->name('storeClass');
+
+//show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');
