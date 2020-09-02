@@ -35,11 +35,14 @@ Route::get('ambientazione','GuidaController@indexAmbientazione')->name('ambienta
 Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento');
 
 
-
+//after logging
 Route::get('/home', 'HomeController@index')->name('home');
+
 //add class by user
-Route::get('/user/AddClass','ChiamateAjaxController@addClass')->name('addClass');
-Route::post('/user/AddClass','ChiamateAjaxController@storeClass')->name('storeClass');
+Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');
+Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClass');
+
+Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

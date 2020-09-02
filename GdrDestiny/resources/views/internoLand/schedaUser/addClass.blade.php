@@ -7,14 +7,13 @@
 <img src="/img/imgHomeInterna/home/Classi/scegliclasse.png" alt="" id='title'>
 <div class="selectClass">
 @foreach($classes as $class)
-    @if(count($userClasses) == 1) 
-        @if ($userClasses[0]->id_classe == $class->id) 
-            @continue
-        @endif
+    @if(count($userClasses) == 1 && $userClasses[0]->id_classe == $class->id) 
+       @continue
+        
     @endif
     <input  type="radio" id='{{$class->name}}' name="class" value="{{$class->id}}" />
     <label class="classToSelect" for="{{$class->name}}">
-        <img src="/img/imgHomeInterna/home/Classi/{{$class->immagine}}" alt=""></li>
+        <img src="/img/imgHomeInterna/home/Classi/{{$class->immagine}}" title="{{$class->name}}"></li>
     </label>
     
 @endforeach

@@ -1,4 +1,4 @@
-@extends('layouts.appModalInterno')
+@extends('../layouts.appModalInterno')
 @section('header')
 @if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE')))
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt=""></div>
@@ -6,21 +6,21 @@
 <ul id='icone'>
     <li><img src="/img/imgHomeInterna/home/schedaPg/corporazione.png" alt=""> <img src="#" alt=""> </li>
 
-    <li><img src="/img/imgHomeInterna/home/schedaPg/razzaimg.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Razze/{{$userToView->breed->immagini}}" alt=""></li>
+    <li><img src="/img/imgHomeInterna/home/schedaPg/razzaimg.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Razze/{{$userToView->breed->immagini}}"  title='{{$userToView->breed->name}}'alt=""></li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt=""> 
     @if(!count($userToView->classes))
-       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" onclick="modal.openModal('{{route('addClass')}}')">
+       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" title='Aggiungi Classe' onclick="modal.openModal('{{route('addClass')}}')">
     @else
-        <img src="/img/imgHomeInterna/home/Icone/Classi/{{$userToView->classes[0]->immagine}}" alt="">
+        <img src="/img/imgHomeInterna/home/Icone/Classi/{{$userToView->classes[0]->immagine}}"  title='{{$userToView->classes[0]->name}}' alt="">
     @endif
     </li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe2.png" alt="">
     @if(count($userToView->classes) == 1 || count($userToView->classes) == 0)
-       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' alt="" onclick="modal.openModal('{{route('addClass')}}')">
+       <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' title='Aggiungi Classe' alt="" onclick="modal.openModal('{{route('addClass')}}')">
     @else
-        <img src="/img/imgHomeInterna/home/Icone/Classi/{{$userToView->classes[1]->immagine}}" alt="">
+        <img src="/img/imgHomeInterna/home/Icone/Classi/{{$userToView->classes[1]->immagine}}" title='{{$userToView->classes[1]->name}}' alt="">
     @endif
     </li>
     
@@ -33,7 +33,7 @@
 @section('content')
 <div class='contentSub'>
     <div class="button">
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità.png" alt="">
+        <img src="/img/imgHomeInterna/home/schedaPg/abilità.png" alt="" onclick="modal.openModal('{{route('showSkills',$userToView)}}')">
         <img src="/img/imgHomeInterna/home/schedaPg/background.png" alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/notefato.png" alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/inventario.png" alt="">

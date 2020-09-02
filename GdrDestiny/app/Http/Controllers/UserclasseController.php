@@ -17,69 +17,33 @@ class UserclasseController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    
+    public function addClass(Request $request){
+        $classesUser=\App\Userclasse::where('id_user',\Auth::id())->get();
+
+
+        if(count($classesUser) > 1) $request->error='Errore, non puoi scegliere la tua classe, perchè già lo hai fatto'; 
+        return view('internoLand.schedaUser.addClass',[
+        'errors' => $request->error,
+        'classes' => \App\Classe::all(),
+        'userClasses' => $classesUser
+            ]);
+            
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function storeClass(Request $request){
+        $idUser=\Auth::id();
+        if(!(int)$request->class){
+            $request->errors='Classe non aggiunta al tuo profilo, riprova';
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\userclasses  $userclasses
-     * @return \Illuminate\Http\Response
-     */
-    public function show(userclasses $userclasses)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\userclasses  $userclasses
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(userclasses $userclasses)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\userclasses  $userclasses
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, userclasses $userclasses)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\userclasses  $userclasses
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(userclasses $userclasses)
-    {
-        //
+            return redirect()->route('addClass');
+        }
+        
+        \App\Userclasse::insert([
+            'id_classe' => $request->class,
+            'id_user' => $idUser
+        ]);
+        return redirect()->route('home');
+        
     }
 }
