@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -251,5 +252,19 @@
 
 .chooseClass #title {
   height: 7.5vh;
+}
+
+/* ABILITÀ CSS */
+.leftBox {
+  height: 61.5vh;
+  width: 60%;
+}
+
+.boxAbilita {
+  height: 19.8vh;
+}
+
+.boxAbilita .sfondoBoxLeft {
+  height: inherit;
 }
 /*# sourceMappingURL=schedaPg.css.map */

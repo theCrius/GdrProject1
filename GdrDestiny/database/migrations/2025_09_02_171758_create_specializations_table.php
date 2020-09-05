@@ -16,8 +16,14 @@ class CreateSpecializationsTable extends Migration
         Schema::create('specializations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            
+            $table->integer('livello');
+            $table->foreignId('id_skill1');
+            $table->foreignId('id_skill2')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_skill1')->references('id')->on('skills');
+            $table->foreign('id_skill2')->references('id')->on('skills');
+
         });
     }
 
