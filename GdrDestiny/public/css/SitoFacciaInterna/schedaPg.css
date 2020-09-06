@@ -255,16 +255,42 @@
 }
 
 /* ABILITÀ CSS */
-.leftBox {
+.leftBox, .rightBox {
   height: 61.5vh;
   width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.rightBox {
+  width: 40%;
 }
 
 .boxAbilita {
   height: 19.8vh;
 }
 
-.boxAbilita .sfondoBoxLeft {
+.sfondoBox {
   height: inherit;
+  position: absolute;
+}
+
+.boxSpec {
+  height: 10vh;
+}
+
+.abilita {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=schedaPg.css.map */

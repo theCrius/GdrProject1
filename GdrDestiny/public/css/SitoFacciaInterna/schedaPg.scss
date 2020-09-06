@@ -206,15 +206,30 @@
 }
 
 /* ABILITÀ CSS */ 
-.leftBox{
+.leftBox, .rightBox{
     height: 61.5vh;
     width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    position: relative;
 }
-
+.rightBox{
+        width: 40%;
+    
+}
 .boxAbilita {
     height: 19.8vh;
     
-    .sfondoBoxLeft{
-        height: inherit;
-    }
+}
+.sfondoBox{
+    height: inherit;
+    position: absolute;
+}
+.boxSpec{
+    height: 10vh;
+}
+.abilita{
+    display: flex;
+    
 }
