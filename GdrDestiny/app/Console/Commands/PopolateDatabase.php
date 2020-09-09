@@ -150,6 +150,14 @@ class PopolateDatabase extends Command
 
         ]);
     }
+
+    public function insertSkills(){
+        $skills=new \App\Skill([
+            [
+                
+            ],
+        ])
+    }
     
     /**
      * The name and signature of the console command.

@@ -268,15 +268,21 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
 }
 
 .rightBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 40%;
 }
 
 .boxAbilita {
   height: 19.8vh;
+  position: relative;
 }
 
 .sfondoBox {
@@ -285,7 +291,53 @@
 }
 
 .boxSpec {
-  height: 10vh;
+  height: 18vh;
+  width: 44.5vh;
+  margin: auto;
+  position: relative;
+}
+
+.titleSpec {
+  position: absolute;
+  height: 3vh;
+  left: 12vh;
+  top: 0.5vh;
+}
+
+.titleAbilita {
+  position: absolute;
+  height: 3vh;
+  left: 25vh;
+  top: 0.5vh;
+}
+
+.immaginiSpec {
+  position: absolute;
+  bottom: 2vh;
+  left: 5vh;
+}
+
+.immaginiSpec ul {
+  list-style: none;
+  width: 34.5vh;
+  height: 12vh;
+}
+
+.immaginiSpec ul li {
+  display: inline-block;
+  height: 5.5vh;
+}
+
+.immaginiSpec ul li img {
+  height: inherit;
+}
+
+.immaginiSpec ul li:nth-child(5) {
+  clear: left;
+}
+
+.emisfero {
+  left: 23vh;
 }
 
 .abilita {

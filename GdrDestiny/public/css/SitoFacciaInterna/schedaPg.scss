@@ -212,14 +212,17 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    position: relative;
+  
 }
 .rightBox{
+    display: flex;
+    justify-content: space-evenly;
         width: 40%;
     
 }
 .boxAbilita {
     height: 19.8vh;
+    position: relative;
     
 }
 .sfondoBox{
@@ -227,9 +230,49 @@
     position: absolute;
 }
 .boxSpec{
-    height: 10vh;
+    height: 18vh;
+    width: 44.5vh;
+    margin: auto;
+    position: relative;
+}
+.titleSpec{
+    position: absolute;
+    height: 3vh;
+    left: 12vh;
+    top:0.5vh
+}
+.titleAbilita{
+    position: absolute;
+    height: 3vh;
+    left: 25vh;
+    top: 0.5vh;
+    
+}
+.immaginiSpec{
+    position: absolute;
+    bottom: 2vh;
+    left: 5vh;
+    ul{
+        list-style: none;
+        width: 34.5vh;
+        height: 12vh;
+        li{
+            display: inline-block;
+            height: 5.5vh;
+            img{
+            height: inherit;
+            }
+        }
+        li:nth-child(5){
+            clear:left;
+        }
+    }
+}
+.emisfero{
+    left: 23vh;
 }
 .abilita{
     display: flex;
     
 }
+
