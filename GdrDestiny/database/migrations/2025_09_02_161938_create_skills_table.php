@@ -15,9 +15,9 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_classe')->nullable();
-            $table->foreignId('id_hemispere')->nullable();
-            $table->foreignId('id_breed')->nullable();
+            $table->foreignId('id_classe')->nullable()->default(NULL);
+            $table->foreignId('id_hemispere')->nullable()->default(NULL);
+            $table->foreignId('id_breed')->nullable()->default(NULL);
             $table->string('name');
 
             $table->foreign('id_classe')->references('id')->on('classes');

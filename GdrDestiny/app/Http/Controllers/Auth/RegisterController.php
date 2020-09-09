@@ -45,35 +45,18 @@ class RegisterController extends Controller
     }
 
     public function primoStep(){
-            $toselect=[
-                'id',
-                'name',
-                'forza',
-                'destrezza',
-                'resistenza',
-                'prontezza',
-                'percezione',
-                'intelligenza',
-                'punti_mente',
-                'punti_corpo',
-                'descrizione',
-            ];
 
             $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','razze');
            
-            $breeds=\App\Breed::select($toselect)->get();
             return view('auth.register-principal',[
-                'breeds' => $breeds,
                 'textModal' => $textModal
             ]);
     
     }
     public function secondoStep($id_razza){
-        $hemisperes=\App\Hemispere::select('name','id','descrizione')->get();
         $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','emisferi');
         return view('auth.register-secondary',[
             'razza' => $id_razza,
-            'hemisperes' => $hemisperes,
             'textModal' => $textModal
     
 
