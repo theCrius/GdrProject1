@@ -325,7 +325,7 @@
 
 .immaginiSpec ul li {
   display: inline-block;
-  height: 5.5vh;
+  height: 5vh;
 }
 
 .immaginiSpec ul li img {
@@ -344,5 +344,23 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+#iconAddSkill0, #iconAddSkill1, #iconAddSkill2 {
+  position: absolute;
+  left: 33vh;
+  height: 3.5vh;
+}
+
+#iconAddSkill0 {
+  top: 4.5vh;
+}
+
+#iconAddSkill1 {
+  top: 9.5vh;
+}
+
+#iconAddSkill2 {
+  top: 14.5vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */
