@@ -363,4 +363,68 @@
 #iconAddSkill2 {
   top: 14.5vh;
 }
+
+.abilitaLevel1, .abilitaLevel2, .abilitaLevel3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 1.5vh;
+  width: 97%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.abilitaLevel1 h4, .abilitaLevel2 h4, .abilitaLevel3 h4 {
+  font-size: 1.8vh;
+  color: white;
+}
+
+.abilitaLevel1 .levelsAbilita, .abilitaLevel2 .levelsAbilita, .abilitaLevel3 .levelsAbilita {
+  height: 4vh;
+}
+
+.abilitaLevel1 .livelli, .abilitaLevel2 .livelli, .abilitaLevel3 .livelli {
+  position: relative;
+}
+
+.abilitaLevel1 .livelli ul, .abilitaLevel2 .livelli ul, .abilitaLevel3 .livelli ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  position: absolute;
+  top: 0.7vh;
+  left: 1vh;
+  color: white;
+  font-size: 2vh;
+}
+
+.abilitaLevel1 .livelli ul li, .abilitaLevel2 .livelli ul li, .abilitaLevel3 .livelli ul li {
+  padding-right: 2.5vh;
+}
+
+.abilitaLevel1 .livelli ul .beyondFive, .abilitaLevel2 .livelli ul .beyondFive, .abilitaLevel3 .livelli ul .beyondFive {
+  padding-right: 1em;
+}
+
+.abilitaLevel1 {
+  top: 4vh;
+}
+
+.abilitaLevel2 {
+  top: 9vh;
+}
+
+.abilitaLevel3 {
+  top: 14vh;
+}
 /*# sourceMappingURL=schedaPg.css.map */

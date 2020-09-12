@@ -8,50 +8,64 @@
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitarazza.png" alt="" class='titleAbilita'>
             <div class="skillRazza">
-            
-                @for($i=0; $i < 3; $i++)
-                    @if(!isset($skills['breed'][$i]))
-                        <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}' title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
-                        @continue
+
+                @for($i=0; $i < 3; $i++) @if(!isset($skills['breed'][$i])) <img
+                    src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}'
+                    title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
+
+                    @continue
                     @endif
-                    
-                    <h3>{{$skills['breed'][$i]['name']}}</h3>
-                    <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" alt="">
-                @endfor
+                    <div class="abilitaLevel{{$i+1}}">
+                        <h4>{{$skills['breed'][$i]['name']}}</h4>
+                        <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" class='levelsAbilita' alt="">
+                    </div>
+
+                    @endfor
             </div>
         </div>
         <div class="boxAbilita boxClasse">
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaclasse.png" alt="" class='titleAbilita'>
-           <ul>
-            @for($i=0; $i < 3; $i++)
-                    @if(!isset($skills['classe'][$i]))
-                        <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}' title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
-                    @continue
-                    @endif
-                    <h3>{{$skills['classe'][$i]['name']}}</h3>
-                    <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" alt="">
+
+
+            @for($i=0; $i < 3; $i++) @if(!isset($skills['classe'][$i])) <img
+                src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}'
+                title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
+
+                @continue
+                @endif
+                <div class="abilitaLevel{{$i+1}}">
+                    <h4>{{$skills['classe'][$i]['name']}}</h4>
+                    <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" class='levelsAbilita' alt="">
+                </div>
                 @endfor
-                <
+
         </div>
         <div class="boxAbilita boxEmisfero">
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaemisfero.png" alt=""
                 class='titleAbilita emisfero'>
-                <ul>
-                @for($i=0; $i < 3; $i++)
-                <li>
-                    @if(!isset($skills['hemispere'][$i]))
-                        <img src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}' title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
-                        </li>
-                        @continue
-                    @endif
+            @for($i=0; $i < 3; $i++) @if(!isset($skills['hemispere'][$i])) <img
+                src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}'
+                title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
 
-                    <h3>{{$skills['hemispere'][$i]['name']}}</h3>
-                    <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" alt="">
-                    </li>
+                @continue
+                @endif
+                <div class="abilitaLevel{{$i+1}}">
+                    <h4>{{$skills['hemispere'][$i]['name']}}</h4>
+                    <div class="livelli">
+                        <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" class='levelsAbilita' alt="">
+                        <ul>
+                            @for($l=0;$l < $skills['hemispere'][$i]['level']; $l++) 
+                            <li 
+                            @if($l > 5) class='beyondFive' @endif
+                            > {{$l}} </li>
+                
+                                @endfor
+                        </ul>
+                    </div>
+                </div>
                 @endfor
-                </ul>
         </div>
     </div>
     <div class="rightBox">
