@@ -20,7 +20,7 @@ class Userclasses extends Migration
             $table->timestamps();
 
             $table->foreign('id_classe')->references('id')->on('classes');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

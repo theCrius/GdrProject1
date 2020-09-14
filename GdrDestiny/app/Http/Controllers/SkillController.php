@@ -38,7 +38,15 @@ class SkillController extends Controller
        
        return view('internoLand.schedaUser.showSkill',[
         'errors' => $request->error,
-        'skills' =>  $this->getSkills($id)
+        'skills' =>  $this->getSkills($id),
+        'id_user' => \Auth::id() 
        ]);
    } 
+
+   public function addSkills($id, Request $request){
+        return view('internoLand.schedaUser.addSkills',[
+            'errors' => $request->error,
+        
+        ]);
+   }
 }

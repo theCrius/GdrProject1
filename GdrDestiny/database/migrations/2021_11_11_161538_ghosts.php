@@ -26,7 +26,7 @@ class Ghosts extends Migration
             $table->string('slot5');
             $table->timestamps();
             
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

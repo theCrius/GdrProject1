@@ -41,8 +41,8 @@ class CreateUsersTable extends Migration
             $table->integer('intelligenza')->default(0);
             $table->timestamps();
             
-            $table->foreign('id_emisfero')->references('id')->on('hemisperes');
-            $table->foreign('id_razza')->references('id')->on('breeds');
+            $table->foreign('id_emisfero')->references('id')->on('hemisperes')->onDelete('cascade');
+            $table->foreign('id_razza')->references('id')->on('breeds')->onDelete('cascade');
             
         });
     }

@@ -10,8 +10,8 @@
             <div class="skillRazza">
 
                 @for($i=0; $i < 3; $i++) @if(!isset($skills['breed'][$i])) <img
-                    src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}'
-                    title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
+                    src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill{{$i}}'
+                    title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',$id_user)}}')">
 
                     @continue
                     @endif
@@ -29,8 +29,8 @@
 
 
             @for($i=0; $i < 3; $i++) @if(!isset($skills['classe'][$i])) <img
-                src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}'
-                title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
+                src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill{{$i}}'
+                title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',$id_user)}}')">
 
                 @continue
                 @endif
@@ -46,8 +46,8 @@
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaemisfero.png" alt=""
                 class='titleAbilita emisfero'>
             @for($i=0; $i < 3; $i++) @if(!isset($skills['hemispere'][$i])) <img
-                src="/img/imgHomeInterna/home/Icone/piu.png" class='icon' id='iconAddSkill{{$i}}'
-                title='Aggiungi Abilita' alt="" onclick="modal.openModal()">
+                src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill{{$i}}'
+                title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',$id_user)}}')">
 
                 @continue
                 @endif

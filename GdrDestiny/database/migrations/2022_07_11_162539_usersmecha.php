@@ -18,8 +18,8 @@ class Usersmecha extends Migration
             $table->foreignId('id_user');
             $table->foreignId('id_mecha');
             
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_mecha')->references('id')->on('mechas');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_mecha')->references('id')->on('mechas')->onDelete('cascade');
 
             $table->timestamps();
         });

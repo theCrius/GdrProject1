@@ -20,7 +20,7 @@ class GroupRoles extends Migration
             $table->string('immagine');
             $table->timestamps();
 
-            $table->foreign('id_group')->references('id')->on('groups');
+            $table->foreign('id_group')->references('id')->on('groups')->onDelete('cascade');
             
         });
     }
