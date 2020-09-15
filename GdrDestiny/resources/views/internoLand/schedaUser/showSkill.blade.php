@@ -11,7 +11,7 @@
 
                 @for($i=0; $i < 3; $i++) @if(!isset($skills['breed'][$i])) <img
                     src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill{{$i}}'
-                    title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',$id_user)}}')">
+                    title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'breed'])}}')">
 
                     @continue
                     @endif
@@ -30,7 +30,7 @@
 
             @for($i=0; $i < 3; $i++) @if(!isset($skills['classe'][$i])) <img
                 src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill{{$i}}'
-                title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',$id_user)}}')">
+                title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'classe'])}}')">
 
                 @continue
                 @endif
@@ -47,7 +47,7 @@
                 class='titleAbilita emisfero'>
             @for($i=0; $i < 3; $i++) @if(!isset($skills['hemispere'][$i])) <img
                 src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill{{$i}}'
-                title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',$id_user)}}')">
+                title='Aggiungi Abilita' alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'hemispere'])}}')">
 
                 @continue
                 @endif

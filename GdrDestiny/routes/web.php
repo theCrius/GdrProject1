@@ -43,7 +43,7 @@ Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');
 Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClass');
 
 //add skills
-Route::get('/user/{id}/AddSkills','SkillController@addSkills')->name('addSkills');
+Route::get('/user/{idUser}/{skillFrom}/AddSkills','SkillController@addSkills')->name('addSkills');
 
 Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 
