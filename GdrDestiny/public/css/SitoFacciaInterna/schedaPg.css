@@ -244,14 +244,14 @@
   height: 17vh;
 }
 
-.chooseClass #conferma {
+.chooseClass #title {
+  height: 7.5vh;
+}
+
+#conferma {
   background: transparent;
   border: none;
   cursor: pointer;
-}
-
-.chooseClass #title {
-  height: 7.5vh;
 }
 
 /* ABILITÀ CSS */
@@ -427,4 +427,6 @@
 .abilitaLevel3 {
   top: 14vh;
 }
+
+/* Apprendi Abilita CSS */
 /*# sourceMappingURL=schedaPg.css.map */

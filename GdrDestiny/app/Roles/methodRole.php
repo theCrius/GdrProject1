@@ -9,16 +9,25 @@ trait methodRole{
 
     }
 
-    public function hasRole(array $role, int $power=0){
-
-        $roleOfUser=$this->getRole();
+    public function hasRole($role=null,$power){
+       
+       $roleOfUser=$this->getRole();
         
         if(!$roleOfUser) throw new \Exception('Errore nella registrazione del ruolo utente');
 
         $powerRole=$roleOfUser['power'];
         $nameRole=$roleOfUser['name'];
+
+        if(is_array($power)){
+            $powerRange=[
+                'minimo' => $power[0],
+                'massimo' => $power[1]
+            ];
+             return $nameRole === $role['name'] && $powerRole > $powerRange['minimo'] && $powerRange['massimo'] > $powerRole; 
+        }
+
+        return $nameRole === $role['name'];
         
-        return $nameRole === $role['name'] && $powerRole > $power; 
         
     }
 
