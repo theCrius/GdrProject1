@@ -338,3 +338,11 @@
 }
 
 /* Apprendi Abilita CSS */ 
+.title , .buttonConferma{
+    text-align: center;
+}
+.containerAbilita{
+    height: 48vh;
+    display: flex;
+    flex-direction: row;
+}
