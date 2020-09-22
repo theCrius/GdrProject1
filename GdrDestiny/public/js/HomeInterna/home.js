@@ -38,3 +38,19 @@ function changeGhostHome(){
 
 }
 
+function addDataForm(nameClass){
+    let formToAppend=document.querySelector('form');
+    
+    if( formToAppend ) throw new Error('Form non trovato');
+
+
+    function GetData(formWhereIsDatas,nameClass){
+        formWhereIsDatas=document.querySelectorAll('.'+nameClass);
+        //if(formWhereIsDatas.length < 3) box
+    }
+    
+
+
+    
+    
+}

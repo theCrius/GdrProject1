@@ -7,9 +7,24 @@
         @csrf
 
         <div class="containerAbilita">
-        @for($i=0; $i < 10 ; $i++)
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/scegliabilitàsfondo.png" alt="">
+        <div class="leftContainer">
+      
+
+        @for($i=0;$i < 5; $i++)
+        
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' alt="">
+
+            @endfor
+      
+    </div>
+    <div class="centerContainer">
+    <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/ghostcentrale.gif" class='' alt="">
+    </div>
+    <div class="rightContainer">
+    @for($i=5;$i < 10; $i++)
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' alt="">
         @endfor
+    </div>
         </div>
         <div class="buttonConferma">
         <button type="submit" id='conferma'><span><img src="/img/imgHomeInterna/home/schedaPg/conferma.png"

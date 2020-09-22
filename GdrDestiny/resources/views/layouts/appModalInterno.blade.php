@@ -21,4 +21,8 @@
         @yield('footer')
         @endif
     </div>
+
+<script> 
+let test=10;
+</script>
 </div>

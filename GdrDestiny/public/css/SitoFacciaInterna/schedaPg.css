@@ -304,11 +304,23 @@
   top: 0.5vh;
 }
 
-.titleAbilita {
+.titleShowSkill {
   position: absolute;
   height: 3vh;
-  left: 25vh;
+  left: 50%;
   top: 0.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.titleShowSkill .titleAbilita {
+  height: inherit;
 }
 
 .immaginiSpec {
@@ -346,22 +358,8 @@
   display: flex;
 }
 
-#iconAddSkill0, #iconAddSkill1, #iconAddSkill2 {
-  position: absolute;
-  left: 33vh;
-  height: 3.5vh;
-}
-
-#iconAddSkill0 {
-  top: 4.5vh;
-}
-
-#iconAddSkill1 {
-  top: 9.5vh;
-}
-
-#iconAddSkill2 {
-  top: 14.5vh;
+#iconAddSkill {
+  height: 2.5vh;
 }
 
 .abilitaLevel1, .abilitaLevel2, .abilitaLevel3 {
@@ -433,8 +431,12 @@
   text-align: center;
 }
 
+.title img, .buttonConferma img {
+  height: 7vh;
+}
+
 .containerAbilita {
-  height: 48vh;
+  height: 46vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -442,5 +444,48 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.leftContainer, .rightContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.leftContainer img, .rightContainer img {
+  height: 8vh;
+  width: 35vh;
+}
+
+.centerContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.centerContainer img {
+  height: 20vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */

@@ -2,19 +2,20 @@ class Box
 {
   
 
-    constructor(){
+    constructor(positionToAppendBox=null){
 
         this.boxCreated
         this.titleBox
         this.contentBox
         
-        this.createBox()
+        if(!positionToAppendBox) positionToAppendBox = document.body;
+        this.createBox(positionToAppendBox)
     }
 
-    createBox(){
+    createBox(positionToAppendBox){
         this.boxCreated=document.createElement('div')
-        this.boxCreated.className='box off'
-        document.body.append(this.boxCreated)
+        this.boxCreated.className='box off' 
+        positionToAppendBox.append(this.boxCreated)
         
 
         this.titleBox=document.createElement('div')

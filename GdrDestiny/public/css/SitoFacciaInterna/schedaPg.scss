@@ -241,13 +241,20 @@
     left: 12vh;
     top:0.5vh
 }
-.titleAbilita{
+.titleShowSkill{
     position: absolute;
     height: 3vh;
-    left: 25vh;
+    left: 50%;
     top: 0.5vh;
+    display: flex;
+    align-items: center;
+    .titleAbilita{
+        height: inherit;
+    }
+    transform: translate(-50%);
     
 }
+
 .immaginiSpec{
     position: absolute;
     bottom: 2vh;
@@ -275,19 +282,8 @@
     display: flex;
     
 }
-#iconAddSkill0,#iconAddSkill1,#iconAddSkill2{
-    position: absolute;
-    left:33vh;
-    height: 3.5vh;
-}
-#iconAddSkill0{
-    top: 4.5vh;
-}
-#iconAddSkill1{
-    top:9.5vh;
-}
-#iconAddSkill2{
-    top:14.5vh;
+#iconAddSkill{
+    height: 2.5vh;
 }
 .abilitaLevel1,.abilitaLevel2,.abilitaLevel3{
     display: flex;
@@ -340,9 +336,32 @@
 /* Apprendi Abilita CSS */ 
 .title , .buttonConferma{
     text-align: center;
+    img{
+        height:7vh;
+    }
 }
 .containerAbilita{
-    height: 48vh;
+    height: 46vh;
     display: flex;
     flex-direction: row;
+}
+.leftContainer , .rightContainer{
+    img{
+        height: 8vh;
+        width: 35vh;
+    }
+    flex:1;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.centerContainer{
+    flex:1;
+    img{
+        height: 20vh;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
