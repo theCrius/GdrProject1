@@ -1,8 +1,11 @@
+import { Box } from './box.js'
+
 class Finestra{
 
     constructor(){
     
         this.checkModal()
+
 
     }
 
@@ -19,7 +22,8 @@ class Finestra{
 
     addEventCloseButton(){
         function closeModal(event,divModal){
-            modalToHidden.className='off'
+            modalToHidden.className+=' off'
+            modalToHidden.innerHTML=''
         }
         let modalToHidden=document.querySelector('.modal')
    
@@ -38,7 +42,7 @@ class Finestra{
                 http.onload = function () {
                     if (this.status >= 200 && this.status < 300 && http.response) {
                       resolve(http.response);
-                    } else {
+                    }else{
                       reject({
                         status: this.status,
                         statusText: http.statusText
@@ -78,8 +82,9 @@ class Finestra{
         let modalContent=this.modal
         let modalAddEventClose = this.addEventCloseButton
         
-        
+      this.modal
        this.connectionToPage(url).then(function(data){
+         
          modalContent.innerHTML= data; //print the data in the modal
         $(".modal_body").draggable({ //the user can move the modal
         handle: "#modalHeader"
@@ -125,3 +130,5 @@ class Finestra{
 
 
 }
+
+export{ Finestra }

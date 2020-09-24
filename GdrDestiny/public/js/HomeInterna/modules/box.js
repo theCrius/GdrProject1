@@ -1,12 +1,14 @@
+
 class Box
 {
   
 
-    constructor(positionToAppendBox=null){
+    constructor(positionToAppendBox=null,nameClass=''){
 
         this.boxCreated
         this.titleBox
         this.contentBox
+        this.nameClass=nameClass
         
         if(!positionToAppendBox) positionToAppendBox = document.body;
         this.createBox(positionToAppendBox)
@@ -47,15 +49,27 @@ class Box
     }
 
     showBox(title,text,elementCloser){
+       
         this.changeTitle(title,text)
-        this.boxCreated.className='box'
+        this.boxCreated.className='box' + this.nameClass
         this.moveBox(elementCloser)
 
     }
     leaveBox(){
+ 
         this.boxCreated.className='box off'
         this.titleBox.innerHTML=''
         this.contentBox.innerHTML=''
+    }
+
+    appendEventsLeaveShowBox(elementCloser,title,text){
+    
+        if(!elementCloser) throw new Error('Elemento non trovato')
+        let box=this
+       
+        elementCloser.addEventListener('mouseout',() => box.leaveBox())
+        elementCloser.addEventListener('mouseover', () => box.showBox(title,text,elementCloser) )
+
     }
 
 
@@ -63,3 +77,5 @@ class Box
 
     
 }
+
+export { Box }
