@@ -21,8 +21,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('internoLand.home');
+        $request->errors=array('routeName' => route('userProfile',\Auth::id()));
+        
+        return view('internoLand.home',
+        [
+            'errors' => $request->errors
+        ]
+    );
     }
 }

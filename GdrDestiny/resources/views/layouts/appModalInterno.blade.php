@@ -6,7 +6,12 @@
         <div class="closeModal"><img src="/img/imgHomeInterna/home/chiudischeda.png"></div>
     </div>
     <div class="content">
-            @yield('content')
+    @if($errors)
+        errore
+    @else
+         @yield('content')
+    @endif
+   
     </div>
     <div class="footerModal">
         @yield('footer')

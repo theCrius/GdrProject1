@@ -19,7 +19,7 @@
 @endforeach
 </div>
 
-<button type="submit" id='conferma'><span><img src="/img/imgHomeInterna/home/schedaPg/conferma.png" alt=""></span></button>
+<button type="submit" id='conferma' ><span><img src="/img/imgHomeInterna/home/schedaPg/conferma.png" alt=""></span></button>
 </form>
 </div>
 @endsection

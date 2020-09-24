@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('immagine_miniavatar')->default('/img/imgHomeInterna/home/schedaPg/miniavatar.png');
             $table->rememberToken();
             $table->dateTime('last_activity');
+            $table->string('last_chat')->default('home');
             $table->integer('forza')->default(0);
             $table->integer('destrezza')->default(0);
             $table->integer('resistenza')->default(0);

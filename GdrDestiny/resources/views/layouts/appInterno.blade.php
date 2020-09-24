@@ -11,6 +11,7 @@
     <script src="/js/HomeInterna/home.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 <!-- per modificare link dei bottoni modificare anche il file home.js -->
 
@@ -42,12 +43,27 @@
 
         </div>
     </section>
+
+        @if($errors && $errors['routeName'])
+                <script>
+                
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('{{$errors['routeName']}}')
+        modal.openModal('{{$errors['routeName']}}')}, false)
+                </script>
+
+            
+        @endif
+  
   <script>
     changeGhostHome();
+
     </script>
 
-</body>
 
 <script type='module' src="/js/HomeInterna/main.js"></script>
+</body>
+
+
 
 </html>

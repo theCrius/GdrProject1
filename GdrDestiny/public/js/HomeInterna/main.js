@@ -8,6 +8,7 @@ let box=new Box();
 //modal to use 
 window.modal=new Finestra
 
+
 //box meteo
 box.appendEventsLeaveShowBox(document.querySelector('#meteo'),'ok','fdkdk');
 
