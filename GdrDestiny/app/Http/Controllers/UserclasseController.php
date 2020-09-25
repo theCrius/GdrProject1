@@ -19,10 +19,12 @@ class UserclasseController extends Controller
 
     
     public function addClass(Request $request){
-        $classesUser=\App\Userclasse::where('id_user',\Auth::id())->get();
-
-
-        if(count($classesUser) > 1) $request->error='Errore, non puoi scegliere la tua classe, perchè già lo hai fatto'; 
+        $user=\Auth::user();
+        $classesUser=\App\Userclasse::where('id_user',$user->id)->get();
+        
+        if(count($classesUser) > 1) $this->returnBack($request,'hai già scelto le tue classi');
+        $this->saveDataPreSubmit($request,$user);
+        
         return view('internoLand.schedaUser.addClass',[
         'errors' => $request->error,
         'classes' => \App\Classe::all(),
@@ -33,10 +35,9 @@ class UserclasseController extends Controller
 
     public function storeClass(Request $request){
         $idUser=\Auth::id();
-        if(!(int)$request->class){
-            $request->errors='Classe non aggiunta al tuo profilo, riprova';
-
-            return redirect()->route('addClass');
+        
+        if(!(int)$request->class || !$request->class ) {
+            return $this->returnBack($request,'errore ritenta');
         }
         
         \App\Userclasse::insert([

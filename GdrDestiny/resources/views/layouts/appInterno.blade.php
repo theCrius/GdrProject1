@@ -51,7 +51,7 @@
                 console.log('{{$errors['routeName']}}')
         modal.openModal('{{$errors['routeName']}}')}, false)
                 </script>
-
+{{$errors['message'] ?? 'ok'}}
             
         @endif
   
