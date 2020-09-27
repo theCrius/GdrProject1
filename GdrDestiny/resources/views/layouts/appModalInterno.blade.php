@@ -6,12 +6,16 @@
         <div class="closeModal"><img src="/img/imgHomeInterna/home/chiudischeda.png"></div>
     </div>
     <div class="content">
-
-    @if($errors)
-        errore
-    @else
-         @yield('content')
+    @if($errors && $errors['routeName'])
+    
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+        let test=new Box();
+        console.log('ok')}, false)
+        
+            </script>
     @endif
+    @yield('content')
    
     </div>
     <div class="footerModal">

@@ -18,12 +18,12 @@ class Controller extends BaseController
     
     
         $datasToReSendBack=$request->session()->get('last-position:RouteParams');
-        
+        $datasToReSendBack[]=$request;
         //se
         if(!$routeToReturn){
 
             $routeToReturn= 'userProfile';
-            $datasToReSendBack=\Auth::id();
+            $datasToReSendBack[]=\Auth::id();
         }
         $request->errors=[
             'routeName' => route($routeToReturn,$datasToReSendBack),
@@ -34,6 +34,7 @@ class Controller extends BaseController
     
     return redirect()->route($request->session()->get('last-position:Chat'),["errors" => $request->errors]) ;
 }
+
 
 public function saveDataPreSubmit(Request $request,\App\User $user=null){
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());

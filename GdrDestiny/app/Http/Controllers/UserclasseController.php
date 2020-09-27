@@ -26,7 +26,7 @@ class UserclasseController extends Controller
         $this->saveDataPreSubmit($request,$user);
         
         return view('internoLand.schedaUser.addClass',[
-        'errors' => $request->error,
+        'errors' => $request->errors,
         'classes' => \App\Classe::all(),
         'userClasses' => $classesUser
             ]);
