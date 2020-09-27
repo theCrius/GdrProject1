@@ -44,6 +44,7 @@ class UserclasseController extends Controller
             'id_classe' => $request->class,
             'id_user' => $idUser
         ]);
+        
         return redirect()->route('home');
         
     }

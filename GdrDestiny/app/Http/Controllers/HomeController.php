@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->errors=array('routeName' => route('userProfile',\Auth::id()));
+       
         
         return view('internoLand.home',
         [

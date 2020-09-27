@@ -52,7 +52,7 @@ class SkillController extends Controller
        $user=\App\User::where('id',$id)->with('skills')->get()[0];
       
        return view('internoLand.schedaUser.showSkill',[
-        'errors' => $request->error,
+        'errors' => $request->errors,
         'skills' =>  $this->getSkills($user),
         'id_user' => $user->id,
        ]);
@@ -65,7 +65,7 @@ class SkillController extends Controller
         $idSkillsGotByUser= [];
         $viewToReturn='internoLand.schedaUser.addSkills';
 
-    
+    $this->saveDataPreSubmit($request,$user);
     //get the id of skill are already gotten 
     foreach($skillsOfUser[$skillFrom] as $skillOfUser){
 
@@ -107,7 +107,7 @@ class SkillController extends Controller
    }
 
    public function storeSkills($idUser, Request $request){
-        return $this->returnBack($request);
+        return $this->returnBack($request,'ookoko');
    }
 
 }

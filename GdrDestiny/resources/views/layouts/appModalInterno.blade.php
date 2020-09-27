@@ -6,6 +6,7 @@
         <div class="closeModal"><img src="/img/imgHomeInterna/home/chiudischeda.png"></div>
     </div>
     <div class="content">
+
     @if($errors)
         errore
     @else

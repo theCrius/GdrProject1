@@ -15,8 +15,8 @@ class Controller extends BaseController
 
     public function returnBack(Request $request,String $message){
         $routeToReturn=$request->session()->get('last-position:View');
-       
-
+    
+    
         $datasToReSendBack=$request->session()->get('last-position:RouteParams');
         
         //se
@@ -25,10 +25,9 @@ class Controller extends BaseController
             $routeToReturn= 'userProfile';
             $datasToReSendBack=\Auth::id();
         }
-        dd($datasToReSendBack);
         $request->errors=[
             'routeName' => route($routeToReturn,$datasToReSendBack),
-            'message' => $message
+            'message' => \Crypt::encrypt($message),
         ];
         
         

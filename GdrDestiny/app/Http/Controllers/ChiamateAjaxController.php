@@ -17,7 +17,7 @@ class ChiamateAjaxController extends Controller{
        
         return view('internoLand.schedaUser.schedaUser', [
             'userToView' => User::where('id',$userIdToView)->with('breed','classes')->get()[0],
-            'errors' => $request->error,
+            'errors' => $request->errors,
             'userView' => \Auth::user(),
         ]);
     }

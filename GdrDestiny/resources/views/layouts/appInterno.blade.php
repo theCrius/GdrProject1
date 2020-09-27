@@ -48,10 +48,10 @@
                 <script>
                 
             document.addEventListener('DOMContentLoaded', function() {
-                console.log('{{$errors['routeName']}}')
+                
         modal.openModal('{{$errors['routeName']}}')}, false)
                 </script>
-{{$errors['message'] ?? 'ok'}}
+{{$errors['routeName'] ?? 'ok'}}
             
         @endif
   

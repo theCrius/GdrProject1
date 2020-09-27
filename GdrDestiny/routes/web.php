@@ -46,7 +46,7 @@ Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClas
 Route::post('/user/{idUser}/StoreSkills','SkillController@storeSkills')->name('storeSkills');
 Route::get('/user/{idUser}/{skillFrom}/AddSkills','SkillController@addSkills')->name('addSkills');
 
-
+//show skill
 Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 
 //show profile
