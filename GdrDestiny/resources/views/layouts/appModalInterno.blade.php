@@ -6,8 +6,9 @@
         <div class="closeModal"><img src="/img/imgHomeInterna/home/chiudischeda.png"></div>
     </div>
     <div class="content">
+   
     @if($errors && $errors['routeName'])
-    
+  
     <script>
      document.addEventListener('DOMContentLoaded', function() {
         let test=new Box();

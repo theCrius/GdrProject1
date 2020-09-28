@@ -51,7 +51,6 @@
                 
         modal.openModal('{{$errors['routeName']}}')}, false)
                 </script>
-{{$errors['routeName'] ?? 'ok'}}
             
         @endif
   

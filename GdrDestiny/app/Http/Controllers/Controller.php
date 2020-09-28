@@ -18,17 +18,19 @@ class Controller extends BaseController
     
     
         $datasToReSendBack=$request->session()->get('last-position:RouteParams');
-        $datasToReSendBack[]=$request;
         //se
         if(!$routeToReturn){
 
             $routeToReturn= 'userProfile';
             $datasToReSendBack[]=\Auth::id();
         }
+        
         $request->errors=[
-            'routeName' => route($routeToReturn,$datasToReSendBack),
             'message' => \Crypt::encrypt($message),
         ];
+        $datasToReSendBack['errors']=$request->errors;
+        $request->errors['routeName']=route($routeToReturn,$datasToReSendBack);
+     
         
         
     
