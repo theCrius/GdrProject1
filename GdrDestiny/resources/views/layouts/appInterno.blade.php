@@ -44,12 +44,12 @@
         </div>
     </section>
 
-        @if($errors && $errors['routeName'])
+        @if($errors)
                 <script>
                 
             document.addEventListener('DOMContentLoaded', function() {
                 
-        modal.openModal('{{$errors['routeName']}}')}, false)
+        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}')}, false)
                 </script>
             
         @endif

@@ -29,9 +29,12 @@ class Controller extends BaseController
             'message' => \Crypt::encrypt($message),
         ];
         $datasToReSendBack['errors']=$request->errors;
-        $request->errors['routeName']=route($routeToReturn,$datasToReSendBack);
+        $request->errors=[ 
+            'routeName' => $routeToReturn,
+            'parametrs' => $datasToReSendBack
+        ];
      
-        
+    
         
     
     return redirect()->route($request->session()->get('last-position:Chat'),["errors" => $request->errors]) ;

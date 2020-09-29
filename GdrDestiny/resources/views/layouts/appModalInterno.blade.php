@@ -7,11 +7,11 @@
     </div>
     <div class="content">
    
-    @if($errors && $errors['routeName'])
+    @if($errors)
   
     <script>
      document.addEventListener('DOMContentLoaded', function() {
-        let test=new Box();
+        let test=new Box(document.querySelector('.modal'));
         console.log('ok')}, false)
         
             </script>
