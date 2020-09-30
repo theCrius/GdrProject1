@@ -91,10 +91,10 @@ class SkillController extends Controller
    
 
     //limite massimo di skill ottenibili per razza, classe ed emisfero
-    if(count($idSkillsGotByUser) === 3) $request->error['message']='Hai già scelto le tue abilita, mi dispiace';
+    if(count($idSkillsGotByUser) === 3) $request->errors['message']='Hai già scelto le tue abilita, mi dispiace';
     
     //controllo permessi
-    if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $request->error['message']='Non hai le giuste autorizzazioni, riprova';
+    if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $request->errors['message']='Non hai le giuste autorizzazioni, riprova';
  
     return view('internoLand.schedaUser.addSkills',[
             'errors' => $request->errors,

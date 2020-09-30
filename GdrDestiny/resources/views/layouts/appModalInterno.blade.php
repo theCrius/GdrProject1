@@ -8,13 +8,15 @@
     <div class="content">
    
     @if($errors)
-  
-    <script>
+  @php
+  echo '2332';
+    echo "<script>
      document.addEventListener('DOMContentLoaded', function() {
         let test=new Box(document.querySelector('.modal'));
         console.log('ok')}, false)
         
-            </script>
+            </script> ";
+    @endphp
     @endif
     @yield('content')
    

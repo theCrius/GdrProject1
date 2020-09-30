@@ -45,11 +45,12 @@
     </section>
 
         @if($errors)
+       
                 <script>
                 
             document.addEventListener('DOMContentLoaded', function() {
                 
-        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}')}, false)
+        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{$errors['parametrs']['errors']['message']}}')}, false)
                 </script>
             
         @endif

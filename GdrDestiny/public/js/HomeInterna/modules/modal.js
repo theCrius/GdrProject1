@@ -2,11 +2,18 @@ import { Box } from './box.js'
 
 class Finestra{
 
+
     constructor(){
     
         this.checkModal()
+        this.boxError //box created for error
 
 
+    }
+
+    dealError(errors){
+      console.log(errors)
+        this.boxError=new Box(this.modal);
     }
 
     
@@ -76,24 +83,27 @@ class Finestra{
 
     }
 
-    openModal(url){
+    openModal(url,errors){
 
         this.modal.className='modal'
         let modalContent=this.modal
         let modalAddEventClose = this.addEventCloseButton
-        
-      this.modal
+        let dealErrorBox=this.dealError(errors);
+     
        this.connectionToPage(url).then(function(data){
          
          modalContent.innerHTML= data; //print the data in the modal
         $(".modal_body").draggable({ //the user can move the modal
         handle: "#modalHeader"
     }); 
+    
       modalAddEventClose() //the user can close the modal
-  }).catch(function(error){  
+      dealErrorBox();
+    }).catch(function(error){  
+
     if(error.status !== 200) throw new Error('Connessione fallita')
           throw new Error('Cariamento Non Riuscito, dati mancanti')
-                                })
+                                });
                                 
         
         
