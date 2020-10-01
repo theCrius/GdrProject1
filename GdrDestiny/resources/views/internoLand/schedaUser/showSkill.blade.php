@@ -11,7 +11,7 @@
                 @if(empty($skills['breed']))
                 <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill'
                     title='Aggiungi Abilita' alt=""
-                    onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'breed'])}}')">
+                    onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'breed'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
             </div>
             @else
         </div>
@@ -31,7 +31,7 @@
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaclasse.png" alt="" class='titleAbilita'>
         @if(empty($skills['classe']))
         <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill' title='Aggiungi Abilita'
-            alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'classe'])}}')">
+            alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'classe'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
     </div>
     @else
 </div>
@@ -53,7 +53,7 @@
         @if(empty($skills['hemispere']))
         <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill' title='Aggiungi Abilita'
             alt=""
-            onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'hemispere'])}}')">
+            onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'hemispere'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
     </div>
     @else
 </div>

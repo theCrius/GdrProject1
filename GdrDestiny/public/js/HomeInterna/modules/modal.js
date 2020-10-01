@@ -16,6 +16,12 @@ class Finestra{
       boxError.changeTitle('Ops , qualcosa è andato storto D:', errors)
     }
 
+    addScriptToFile(nameFile){
+        let scriptToAppend=document.createElement('script');
+        scriptToAppend.src='/js/HomeInterna/' + nameFile
+        document.head.append(scriptToAppend)
+    }
+
     
     
     checkModal(){
@@ -83,12 +89,13 @@ class Finestra{
 
     }
 
-    openModal(url,errors){
+    openModal(url,errors,scriptNameToAdd){
 
         this.modal.className='modal'
         let modalContent=this.modal
         let modalAddEventClose = this.addEventCloseButton
         let dealErrorBox=this.dealError;
+        let sendScriptNameToCall=this.addScriptToFile
      
        this.connectionToPage(url).then(function(data){
          
@@ -98,7 +105,7 @@ class Finestra{
     }); 
     
       modalAddEventClose() //the user can close the modal
-   
+      if( scriptNameToAdd ) sendScriptNameToCall(scriptNameToAdd)
       if(typeof errors == 'string') dealErrorBox(errors,modalContent);
     }).catch(function(error){  
 

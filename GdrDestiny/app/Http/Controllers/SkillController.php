@@ -50,7 +50,10 @@ class SkillController extends Controller
     
    public function show(Request $request,int $id){
        $user=\App\User::where('id',$id)->with('skills')->get()[0];
-      
+       //to add the script to deal the data to post
+        $request->errors=[
+            'scriptName' => '/modules/postMultipleData.js'
+        ];
        return view('internoLand.schedaUser.showSkill',[
         'errors' => $request->errors,
         'skills' =>  $this->getSkills($user),
@@ -95,7 +98,8 @@ class SkillController extends Controller
     
     //controllo permessi
     if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $request->errors['message']='Non hai le giuste autorizzazioni, riprova';
- 
+    
+   
     return view('internoLand.schedaUser.addSkills',[
             'errors' => $request->errors,
             'skills' => \App\Skill::select('id',$skillBelongsTo,'name')->whereIn($skillBelongsTo,$idBreedOrClassOrHemispere)->whereNotIn('id',$idSkillsGotByUser)->get(),
@@ -111,4 +115,3 @@ class SkillController extends Controller
    }
 
 }
-//http://127.0.0.1:8000/user/1/breed/AddSkills

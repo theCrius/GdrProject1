@@ -13,7 +13,14 @@ class Box
         
         if(!positionToAppendBox) positionToAppendBox = document.body;
         this.createBox(positionToAppendBox)
-        if(closeManullay) this.closeManually.className='closeManually'
+        if(closeManullay) this.closeManuallyBox()
+    }
+    closeManuallyBox(){
+        this.closeManually.className='closeManually'
+        this.closeX.addEventListener('click',() => {
+           this.boxCreated.className+=' off'
+        }
+        );
     }
 
     createBox(positionToAppendBox){
@@ -65,14 +72,17 @@ class Box
     showBox(title,text,elementCloser){
        
         this.changeTitle(title,text)
-        this.boxCreated.className='box' + this.nameClass
+        if( this.nameClass == 'off'){
+            this.boxCreated.className='box'
+        }else{
+        this.boxCreated.className='box ' + this.nameClass
+        }
         this.moveBox(elementCloser)
 
 
     }
     leaveBox(){
- 
-        this.boxCreated.className='box off'
+        this.boxCreated.className+=' off'
         this.titleBox.innerHTML=''
         this.contentBox.innerHTML=''
     }

@@ -9,7 +9,6 @@
   
     
     <link rel="stylesheet" href="/css/box/box.css">
-    <script src="/js/HomeInterna/home.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -50,16 +49,11 @@
                 
             document.addEventListener('DOMContentLoaded', function() {
                 
-        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{\Crypt::decrypt($errors['parametrs']['errors']['message'])}}')}, false)
+        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{\Crypt::decrypt($errors['parametrs']['errors']['message'])}}','{{$errors['scriptName'] ?? ''}}')}, false)
                 </script>
             
         @endif
   
-  <script>
-    changeGhostHome();
-
-    </script>
-
    <script type='module' src="/js/HomeInterna/main.js"></script>
 
 </body>
