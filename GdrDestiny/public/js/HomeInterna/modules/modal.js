@@ -11,9 +11,9 @@ class Finestra{
 
     }
 
-    dealError(errors){
-      console.log(errors)
-        this.boxError=new Box(this.modal);
+    dealError(errors,modalContent){
+      let boxError=new Box(modalContent,'errore',true);
+      boxError.changeTitle('Ops , qualcosa è andato storto D:', errors)
     }
 
     
@@ -88,7 +88,7 @@ class Finestra{
         this.modal.className='modal'
         let modalContent=this.modal
         let modalAddEventClose = this.addEventCloseButton
-        let dealErrorBox=this.dealError(errors);
+        let dealErrorBox=this.dealError;
      
        this.connectionToPage(url).then(function(data){
          
@@ -98,7 +98,8 @@ class Finestra{
     }); 
     
       modalAddEventClose() //the user can close the modal
-      dealErrorBox();
+   
+      if(typeof errors == 'string') dealErrorBox(errors,modalContent);
     }).catch(function(error){  
 
     if(error.status !== 200) throw new Error('Connessione fallita')

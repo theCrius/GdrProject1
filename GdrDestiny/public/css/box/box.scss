@@ -6,20 +6,20 @@
     opacity: 0.9;
     font-family: Arial, Helvetica, sans-serif;
     color: #f0f8ff;
-    .titleBox{
-        text-align: center;
-        font-size: 0.8em;
-        padding: 0.2em;
-    }
-    .contentBox{
-        text-align: left;
-        font-size: 0.6em;
-        padding: 0.7em;
-    }
     position: absolute;
 
 }
 
 .off{
     display: none;
+}
+.titleBox{
+    text-align: center;
+    font-size: 0.8em;
+    padding: 0.2em;
+}
+.contentBox{
+    text-align: left;
+    font-size: 0.6em;
+    padding: 0.7em;
 }

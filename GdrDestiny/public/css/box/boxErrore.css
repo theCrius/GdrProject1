@@ -1,0 +1,33 @@
+.errore {
+  width: 65vh !important;
+  height: 30vh !important;
+  background-color: #9d0d0d !important;
+}
+
+.errore .titleBox {
+  font-size: 3vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.errore .titleBox .titleBoxTitle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.errore .titleBox .closeManually {
+  -webkit-box-flex: 0.07;
+      -ms-flex: 0.07;
+          flex: 0.07;
+}
+
+.errore .titleBox .closeManually .close {
+  cursor: pointer;
+}
+
+.errore .contentBox {
+  font-size: 2vh;
+}
+/*# sourceMappingURL=boxErrore.css.map */

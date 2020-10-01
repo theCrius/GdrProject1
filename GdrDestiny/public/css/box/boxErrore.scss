@@ -1,0 +1,22 @@
+.errore{
+    
+    width: 65vh !important;
+    height: 30vh !important;
+    background-color: #9d0d0d !important;
+    .titleBox{
+        font-size: 3vh;
+        display: flex;
+        .titleBoxTitle{
+            flex: 1;
+        }
+        .closeManually{
+            flex: 0.07;
+            .close{
+                cursor: pointer;
+            }
+        }
+    }
+    .contentBox{
+        font-size: 2vh;
+    }
+}

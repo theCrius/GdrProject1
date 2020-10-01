@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/SitoFacciaInterna/home.css">
+    <link rel="stylesheet" href="/css/box/boxErrore.css">
     <link rel="stylesheet" href="/css/modal/modalInterna.css">
   
     
@@ -43,14 +44,13 @@
 
         </div>
     </section>
-
         @if($errors)
        
                 <script>
                 
             document.addEventListener('DOMContentLoaded', function() {
                 
-        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{$errors['parametrs']['errors']['message']}}')}, false)
+        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{\Crypt::decrypt($errors['parametrs']['errors']['message'])}}')}, false)
                 </script>
             
         @endif
@@ -60,8 +60,8 @@
 
     </script>
 
+   <script type='module' src="/js/HomeInterna/main.js"></script>
 
-<script type='module' src="/js/HomeInterna/main.js"></script>
 </body>
 
 

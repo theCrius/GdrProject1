@@ -6,18 +6,6 @@
         <div class="closeModal"><img src="/img/imgHomeInterna/home/chiudischeda.png"></div>
     </div>
     <div class="content">
-   
-    @if($errors)
-  @php
-  echo '2332';
-    echo "<script>
-     document.addEventListener('DOMContentLoaded', function() {
-        let test=new Box(document.querySelector('.modal'));
-        console.log('ok')}, false)
-        
-            </script> ";
-    @endphp
-    @endif
     @yield('content')
    
     </div>
