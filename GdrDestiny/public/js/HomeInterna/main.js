@@ -14,6 +14,6 @@ window.modal=new Finestra
 
 
 //box meteo
-box.appendEventsLeaveShowBox(document.querySelector('#meteo'),'ok','fdkdk');
+box.appendEventsLeaveShowBox(document.querySelector('#meteo'),'UYDDFIDFHUFD','fdkdk');
 
 

@@ -60,15 +60,16 @@ class Box
         errorGif.id='errorGif'
         this.titleBoxTitle.append(errorGif)
 
-        this.contentBox.innerHTML='<marquee behavior="scroll" direction="right" scrollamount="7"></marquee>'
+        this.contentBox.innerHTML='<marquee behavior="scroll" direction="right" scrollamount="5"></marquee>'
     }
     changeTitle(title,text){
         if(title){ 
              this.titleBoxTitle.append(document.createTextNode(title))
         }else{
             this.showErrorGif()
+            return this.contentBox.children[0].append(document.createTextNode(text))
         }
-        this.contentBox.children[0].append(document.createTextNode(text))
+        this.contentBox.append(document.createTextNode(text))
     }
 
     moveBox(element){
@@ -95,7 +96,7 @@ class Box
     }
     leaveBox(){
         this.boxCreated.className+=' off'
-        this.titleBox.innerHTML=''
+        this.titleBoxTitle.innerHTML=''
         this.contentBox.innerHTML=''
     }
 
