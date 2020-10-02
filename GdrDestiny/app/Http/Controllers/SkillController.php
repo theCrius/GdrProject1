@@ -52,7 +52,7 @@ class SkillController extends Controller
        $user=\App\User::where('id',$id)->with('skills')->get()[0];
        //to add the script to deal the data to post
         $request->errors=[
-            'scriptName' => '/modules/postMultipleData.js'
+            'scriptName' => '/schedaPg/addSkill.js'
         ];
        return view('internoLand.schedaUser.showSkill',[
         'errors' => $request->errors,

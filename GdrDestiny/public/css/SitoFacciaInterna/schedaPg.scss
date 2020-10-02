@@ -205,6 +205,7 @@
     border: none;
     cursor: pointer;
 }
+
 /* ABILITÀ CSS */ 
 .leftBox, .rightBox{
     height: 61.5vh;
@@ -364,4 +365,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.selected{
+    border: 2px white solid;
 }

@@ -488,4 +488,8 @@
 .centerContainer img {
   height: 20vh;
 }
+
+.selected {
+  border: 2px white solid;
+}
 /*# sourceMappingURL=schedaPg.css.map */

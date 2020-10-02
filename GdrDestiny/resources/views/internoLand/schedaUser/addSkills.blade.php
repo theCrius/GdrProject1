@@ -12,7 +12,7 @@
 
         @for($i=0;$i < 5; $i++)
         
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' alt="">
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' id='skill' alt="">
 
             @endfor
       
@@ -22,7 +22,7 @@
     </div>
     <div class="rightContainer">
     @for($i=5;$i < 10; $i++)
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' alt="">
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' id='skill' alt="">
         @endfor
     </div>
         </div>

@@ -19,6 +19,7 @@ class Finestra{
 
     addScriptToFile(nameFile){
         let scriptToAppend=document.createElement('script');
+        scriptToAppend.type='module'
         scriptToAppend.src='/js/HomeInterna/' + nameFile
         document.head.append(scriptToAppend)
     }
