@@ -13,7 +13,8 @@ class Finestra{
 
     dealError(errors,modalContent){
       let boxError=new Box(modalContent,'errore',true);
-      boxError.changeTitle('Ops , qualcosa è andato storto D:', errors)
+      boxError.changeTitle('', errors)
+    
     }
 
     addScriptToFile(nameFile){

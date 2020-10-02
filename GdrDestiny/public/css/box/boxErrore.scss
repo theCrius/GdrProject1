@@ -7,7 +7,7 @@
         font-size: 3vh;
         display: flex;
         .titleBoxTitle{
-            flex: 1;
+            flex: 2;
         }
         .closeManually{
             flex: 0.07;
@@ -18,5 +18,13 @@
     }
     .contentBox{
         font-size: 2vh;
+    }
+    #errorGif{
+        height: 26vh;
+    }
+    .contentBox{
+        padding: 0 !important;
+        padding-left: 6em !important;
+        padding-right: 6em !important;
     }
 }

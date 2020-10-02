@@ -42,7 +42,7 @@ class Controller extends BaseController
 
 
 public function saveDataPreSubmit(Request $request,\App\User $user=null){
-    dd($request->errors);
+  
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
     $request->session()->flash('last-position:Chat',$user->last_chat ?? \Auth::user()->last_chat);

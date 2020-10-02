@@ -54,9 +54,21 @@ class Box
 
     }
 
+    showErrorGif(){
+        let errorGif=document.createElement('img')
+        errorGif.src='/img/imgHomeInterna/home/errorGifModal.gif'
+        errorGif.id='errorGif'
+        this.titleBoxTitle.append(errorGif)
+
+        this.contentBox.innerHTML='<marquee behavior="scroll" direction="right" scrollamount="7"></marquee>'
+    }
     changeTitle(title,text){
-        this.titleBoxTitle.append(document.createTextNode(title))
-        this.contentBox.append(document.createTextNode(text))
+        if(title){ 
+             this.titleBoxTitle.append(document.createTextNode(title))
+        }else{
+            this.showErrorGif()
+        }
+        this.contentBox.children[0].append(document.createTextNode(text))
     }
 
     moveBox(element){
