@@ -8,7 +8,9 @@
 
         <div class="containerAbilita">
         <div class="leftContainer">
-      
+      @php 
+      dd(count($skills))
+      @endphp
 
         @for($i=0;$i < 5; $i++)
         

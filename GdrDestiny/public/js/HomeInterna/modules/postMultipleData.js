@@ -30,30 +30,28 @@ class postMultipleData{
     SkillToSelect(htmlObjectClicked,idName){
         let classThis=this
         if(htmlObjectClicked.nodeName === 'IMG' && htmlObjectClicked.id == idName){
-            let lastMaximumSkillSelected=maxSkillSelected(classThis)
-            
+            let skillSelectedByUser=SkillSelected(classThis)
+
             //remove status selected
             if(htmlObjectClicked.className.includes('selected')) return eliminateClassSelected(htmlObjectClicked)
             
-            if(lastMaximumSkillSelected) eliminateClassSelected(lastMaximumSkillSelected)
+            if(skillSelectedByUser.length === this.maxDataToSend) eliminateClassSelected(skillSelectedByUser[0])
             htmlObjectClicked.className+=' selected'
         }
 
-        function maxSkillSelected(classThis){
-            let count=0;
-            let skills=classThis.skills
+        function SkillSelected(classThis){
+            let skillsSelected=[]
      
-            for(let skill of skills){
+            for(let skill of classThis.skills){
                 
                 if(skill.className.includes('selected')){
-                    count+=1;
-                    if(count == classThis.maxDataToSend) return skill
+                    skillsSelected.push(skill)
                 }
 
                   
             }
 
-            return null;
+            return skillsSelected
 
         }
 
