@@ -168,228 +168,16 @@ class PopolateDatabase extends Command
     }
 
      public function insertSkills(){
-         $skills_classe=\App\Skill::insert([
-           
-        [
-                'name' => 'As Pilot',
-                'id_classe' => \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
-                
-            ],
-           
-        [
-                'name' => 'Eva Pilot',
-                'id_classe'=> \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Riflessi Pronti',
-                'id_classe'=> \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
-            ],  
-           
-        [
-                'name' =>' SHAS Licence ' ,
-                'id_classe'=> \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Medicina',
-                'id_classe' => \App\Classe::select('id')->where('name','Dottore')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Biologia',
-                'id_classe'=> \App\Classe::select('id')->where('name','Dottore')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Medicina d\'Assalto',
-                'id_classe'=>\App\Classe::select('id')->where('name','Dottore')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Patologo' ,
-                'id_classe'=> \App\Classe::select('id')->where('name','Dottore')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Eva Healer',
-                'id_classe'=> \App\Classe::select('id')->where('name','Dottore')->get()[0]->id,
-            ],  
-           
-        [
-                'name' =>'Mecha Physician',
-                'id_classe'=>\App\Classe::select('id')->where('name','Geniere')->get()[0]->id,
-            ],  
-           
-        [ 
-                'name' => 'Eva Physician',
-                'id_classe'=> \App\Classe::select('id')->where('name','Geniere')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'T-Operator',
-                'id_classe'=> \App\Classe::select('id')->where('name','Geniere')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Furia dello Spirito',
-                'id_classe'=> \App\Classe::select('id')->where('name','Survivor')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Gambler',
-                'id_classe'=> \App\Classe::select('id')->where('name','Survivor')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Metabolismo Adattivo',
-                'id_classe'=> \App\Classe::select('id')->where('name','Survivor')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Vivremo per Sempre',
-                'id_classe'=>\App\Classe::select('id')->where('name','Sinners')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Voci del Vuoto',
-                'id_classe'=>\App\Classe::select('id')->where('name','Sinners')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Dono di Lasa',
-                'id_classe'=> \App\Classe::select('id')->where('name','Sinners')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Maledizione del Rovo',
-                'id_classe'=>\App\Classe::select('id')->where('name','Sinners')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Agony Arc',
-                'id_classe'=> \App\Classe::select('id')->where('name','Sinners')->get()[0]->id,
-            ],  
-           
-        [
-                'name' =>'Knights Pilots',
-                'id_classe'=>\App\Classe::select('id')->where('name','Cyberwalker')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'DIY Master',
-                'id_classe'=> \App\Classe::select('id')->where('name','Cyberwalker')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Ad Ogni Costo',
-                'id_classe'=> \App\Classe::select('id')->where('name','Cyberwalker')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Tracker',
-                'id_classe'=> \App\Classe::select('id')->where('name','Cyberwalker')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'C-Builter',
-                'id_classe'=>\App\Classe::select('id')->where('name','Tech-Fighter')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'ATST',
-                'id_classe'=> \App\Classe::select('id')->where('name','Tech-Fighter')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Cyberonics',
-                'id_classe'=> \App\Classe::select('id')->where('name','Tech-Fighter')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Politica',
-                'id_classe'=> \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Espressione Artistica',
-                'id_classe'=>  \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Rissa',
-                'id_classe'=>  \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Legge',
-                'id_classe'=>  \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Conoscenza della Strada',
-                'id_classe'=>  \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Buon Senso',
-                'id_classe'=>  \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Armi da Fuoco Media/Lunga Distanza',
-                'id_classe'=>  \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
-            ],  
-           
-        [
-                'name' =>'Armi Bianche(Bastoni e Coltelli)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Corpo a Corpo(Jujitsu)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Armi da Fuoco Breve/Media Distanza',
-                'id_classe'=> \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Armi Bianche(Martelli e Mazze)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Corpo a Corpo(Prese e Sottomissioni)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Armi da Fuoco(Esplosivi e Cecchino)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Armi Bianche(Spade e Stocchi)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
-            ],  
-           
-        [
-                'name' => 'Corpo a Corpo(Wing Chun)',
-                'id_classe'=> \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
-            ],
-           
-        [
+         $skills_classe=\App\Skill::insert([           
+            [
                 'name' => 'AS Pilot',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
             ],
-[
+            [
                 'name' => 'EVA Pilot',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
             ],
-[
+            [
                 'name' => 'SHAS Licence',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
             ],
@@ -542,437 +330,292 @@ class PopolateDatabase extends Command
                 'id_classe'=>  \App\Classe::select('id')->where('name','Cittadino')->get()[0]->id,
             ],
 
+
             ]);
-            $skills_breed=\App\Skill::insert([
-                [
-                    'name' => 'Vocazione',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Resistenza',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Forza di Volontà',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Adattabilità',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Volto in Vista',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Estremi Rimedi',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Dominio Territoriale',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Depistaggio',
-                    'id_breed'=> 1,
-                    
-                    
-                ],[
-                    'name' => 'Sensi Sviluppati',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Visione del Piano Ascendente',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Canto della Bestia',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Presa Mentale',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Sangue Blu',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Campione',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Equilibrio',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Liberazione',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Ascensione',
-                    'id_breed'=> 2,
-                    
-                    
-                ],[
-                    'name' => 'Memoria Espansa',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Forza Brutale',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Sangue Freddo',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Connessione Remota',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Calcolo della Realtà',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Backup',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Maschera dei Mille Volti',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Resistenza agli EMP',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Sembianze Umane',
-                    'id_breed'=> 3,
-                    
-                    
-                ],[
-                    'name' => 'Code-Exo',
-                    'id_breed'=> 3,
-                      
-                ],    
+            $skills_breed=\App\Skill::insert([            
+            [
+                'name' => 'Vocazione',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Resistenza',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Forza di Volontà',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Adattabilità',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Volto in Vista',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Estremi Rimedi',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Dominio Territoriale',
+                'id_breed'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Depistaggio',
+                'id_breed'=> 1,
+                
+                
+            ],
             [
                 'name' => 'Sensi Sviluppati',
                 'id_breed'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Agilità',
-                'id_breed'=> 2,
-                
-                
-            ],
-           
-        [
+            [
                 'name' => 'Visione del Piano Ascendente',
                 'id_breed'=> 2,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Canto della Bestia',
                 'id_breed'=> 2,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Presa Mentale',
                 'id_breed'=> 2,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Sangue Blu',
                 'id_breed'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Vocazione',
-                'id_breed'=> 1,
+            [
+                'name' => 'Campione',
+                'id_breed'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Resistenza',
-                'id_breed'=> 1,
+            [
+                'name' => 'Equilibrio',
+                'id_breed'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Forza di Volontà',
-                'id_breed'=> 1,
+            [
+                'name' => 'Liberazione',
+                'id_breed'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Adattabilità',
-                'id_breed'=> 1,
+            [
+                'name' => 'Ascensione',
+                'id_breed'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Volto in Vista',
-                'id_breed'=> 1,
-                
-                
-            ],
-           
-        [
+            [
                 'name' => 'Memoria Espansa',
                 'id_breed'=> 3,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Forza Brutale',
                 'id_breed'=> 3,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Sangue Freddo',
                 'id_breed'=> 3,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Connessione Remota',
                 'id_breed'=> 3,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Calcolo della Realtà',
                 'id_breed'=> 3,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Backup',
                 'id_breed'=> 3,
                 
                 
-            ]]);
-            $skills_hemispere=\App\Skill::insert([
-           [
-                'name' => 'Veglia',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Compostezza',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Autorità',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Intuizione',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Ambidestro',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Autoapprendimento',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Orologio Biologico',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Codice d\'Onore',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Stella dei Vex',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Controllo della Ghiandola Pineale',
-                'id_hemispere'=> 2,
-                
-                
-            ],[
-                'name' => 'Charme',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Empatia',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Espressività',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Galateo',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Equilibrio Felino',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Sotterfugio',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Memoria Fotografica',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Alleato del Mondo Animale',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Inoffensivo',
-                'id_hemispere'=> 1,
-                
-                
-            ],[
-                'name' => 'Santità',
-                'id_hemispere'=> 1,
             ],
-
+            [
+                'name' => 'Maschera dei Mille Volti',
+                'id_breed'=> 3,
+                
+                
+            ],
+            [
+                'name' => 'Resistenza agli EMP',
+                'id_breed'=> 3,
+                
+                
+            ],
+            [
+                'name' => 'Sembianze Umane',
+                'id_breed'=> 3,
+                
+                
+            ],
+            [
+                'name' => 'Code-Exo',
+                'id_breed'=> 3,
+                  
+            ],
+                
+                ]);
+            $skills_hemispere=\App\Skill::insert([            
             [
                 'name' => 'Veglia',
                 'id_hemispere'=> 2,
                 
                 
-                
             ],
-           
-        [
+            [
                 'name' => 'Compostezza',
                 'id_hemispere'=> 2,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Autorità',
                 'id_hemispere'=> 2,
                 
                 
             ],
-           
-        [
+            [
                 'name' => 'Intuizione',
                 'id_hemispere'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Auto-Apprendimento',
+            [
+                'name' => 'Ambidestro',
                 'id_hemispere'=> 2,
                 
                 
             ],
-           
-        [
-                'name' => 'Empatia', 
+            [
+                'name' => 'Autoapprendimento',
+                'id_hemispere'=> 2,
+                
+                
+            ],
+            [
+                'name' => 'Orologio Biologico',
+                'id_hemispere'=> 2,
+                
+                
+            ],
+            [
+                'name' => 'Codice d\'Onore',
+                'id_hemispere'=> 2,
+                
+                
+            ],
+            [
+                'name' => 'Stella dei Vex',
+                'id_hemispere'=> 2,
+                
+                
+            ],
+            [
+                'name' => 'Controllo della Ghiandola Pineale',
+                'id_hemispere'=> 2,
+                
+                
+            ],
+            [
+                'name' => 'Charme',
                 'id_hemispere'=> 1,
                 
                 
-
             ],
-           
-        [
+            [
+                'name' => 'Empatia',
+                'id_hemispere'=> 1,
+                
+                
+            ],
+            [
                 'name' => 'Espressività',
                 'id_hemispere'=> 1,
                 
                 
-
             ],
-           
-        [
+            [
                 'name' => 'Galateo',
                 'id_hemispere'=> 1,
                 
                 
-
             ],
-           
-        [
+            [
                 'name' => 'Equilibrio Felino',
                 'id_hemispere'=> 1,
                 
                 
-
             ],
-           
-        [
+            [
                 'name' => 'Sotterfugio',
                 'id_hemispere'=> 1,
                 
                 
-
+            ],
+            [
+                'name' => 'Memoria Fotografica',
+                'id_hemispere'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Alleato del Mondo Animale',
+                'id_hemispere'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Inoffensivo',
+                'id_hemispere'=> 1,
+                
+                
+            ],
+            [
+                'name' => 'Santità',
+                'id_hemispere'=> 1,
             ]
+
          ]);
      }
     

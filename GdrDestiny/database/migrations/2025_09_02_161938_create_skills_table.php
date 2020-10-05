@@ -18,6 +18,7 @@ class CreateSkillsTable extends Migration
             $table->foreignId('id_classe')->nullable()->default(NULL);
             $table->foreignId('id_hemispere')->nullable()->default(NULL);
             $table->foreignId('id_breed')->nullable()->default(NULL);
+            $table->text('description');
             $table->string('name');
 
             $table->foreign('id_classe')->references('id')->on('classes');

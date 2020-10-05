@@ -347,10 +347,6 @@
     flex-direction: row;
 }
 .leftContainer , .rightContainer{
-    img{
-        height: 8vh;
-        width: 35vh;
-    }
     flex:1;
     justify-content: space-evenly;
     display: flex;
@@ -368,4 +364,20 @@
 }
 .selected{
     border: 2px white solid;
+}
+.skillToSelect{
+    height: 8vh;
+    width: 35vh;
+    position: relative;
+    .sfondoRiquadroSkill{
+        height: inherit;
+        width: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .contenitoreText{
+        height: inherit;
+        width: inherit;
+    }
 }

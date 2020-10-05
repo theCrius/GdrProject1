@@ -8,15 +8,22 @@
 
         <div class="containerAbilita">
         <div class="leftContainer">
-      @php 
-      dd(count($skills))
-      @endphp
+     
 
         @for($i=0;$i < 5; $i++)
-        
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' id='skill' alt="">
-
-            @endfor
+        <div class="skillToSelect">
+    
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill' id='skill' data-id="{{$skills[$i]->id}}" alt="">
+            <div class="contenitoreText">
+                <div class="title">
+                {{$skills[$i]->name}}
+                </div>
+                <div class="description">
+                    
+                </div>
+            </div>
+        </div>
+        @endfor
       
     </div>
     <div class="centerContainer">
@@ -24,7 +31,10 @@
     </div>
     <div class="rightContainer">
     @for($i=5;$i < 10; $i++)
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='ok12' id='skill' alt="">
+        <div class="skillToSelect">
+            {{$skills[$i]->name}}
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill' id='skill' data-id="{{$skills[$i]->id}}" alt=""> 
+        </div>
         @endfor
     </div>
         </div>

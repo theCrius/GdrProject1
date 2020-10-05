@@ -465,11 +465,6 @@
           flex-direction: column;
 }
 
-.leftContainer img, .rightContainer img {
-  height: 8vh;
-  width: 35vh;
-}
-
 .centerContainer {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -491,5 +486,24 @@
 
 .selected {
   border: 2px white solid;
+}
+
+.skillToSelect {
+  height: 8vh;
+  width: 35vh;
+  position: relative;
+}
+
+.skillToSelect .sfondoRiquadroSkill {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.skillToSelect .contenitoreText {
+  height: inherit;
+  width: inherit;
 }
 /*# sourceMappingURL=schedaPg.css.map */
