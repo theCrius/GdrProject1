@@ -102,7 +102,7 @@ class SkillController extends Controller
    
     return view('internoLand.schedaUser.addSkills',[
             'errors' => $request->errors,
-            'skills' => \App\Skill::select('id',$skillBelongsTo,'name')->whereIn($skillBelongsTo,$idBreedOrClassOrHemispere)->whereNotIn('id',$idSkillsGotByUser)->get(),
+            'skills' => \App\Skill::select('id',$skillBelongsTo,'name','description')->whereIn($skillBelongsTo,$idBreedOrClassOrHemispere)->whereNotIn('id',$idSkillsGotByUser)->get(),
             'idUser' => $idUser,
             
             

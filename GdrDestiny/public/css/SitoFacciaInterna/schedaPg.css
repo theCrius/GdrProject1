@@ -1,4 +1,20 @@
 @charset "UTF-8";
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d5edfa;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -485,7 +501,8 @@
 }
 
 .selected {
-  border: 2px white solid;
+  -webkit-box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
+          box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
 }
 
 .skillToSelect {
@@ -505,5 +522,25 @@
 .skillToSelect .contenitoreText {
   height: inherit;
   width: inherit;
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.skillToSelect .contenitoreText .title {
+  font-size: 2.3vh;
+  color: #f5f9ff;
+}
+
+.skillToSelect .contenitoreText .description {
+  font-size: 1.7vh;
+  height: 4.2vh;
+  width: 90%;
+  overflow-y: auto;
+  margin: auto;
+  padding-left: 0.5vh;
+  padding-right: 0.5vh;
+  padding-top: 0.5vh;
+  color: #cbe5ff;
+  text-align: justify;
 }
 /*# sourceMappingURL=schedaPg.css.map */

@@ -618,9 +618,109 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
     
                 
                 ]);
-        //     $skills_hemispere=\App\Skill::insert([            
+             $skills_hemispere=\App\Skill::insert([            
+                [
+                    'name' =>'Veglia',
+                    'id_hemispere'=>2,
+        'description' => 'description',
+    ],
+    [
+                    'name' =>'Compostezza',
+                    'id_hemispere'=>2,
+        'description' => 'Solitamente sono persone estremamente posate che anche nelle situazioni più disperate riescono a rimanere tranquille',
+    ],
+    [
+                    'name' =>'Autorità',
+                    'id_hemispere'=> 2,
+        'description' => 'La capacità di analizzare in maniera logica una situazione le porta ad imporsi all\'interno di un gruppo con un innato carisma da leader',
+    ],
+    [
+                    'name' =>'Intuizione',
+                    'id_hemispere'=>2,
+        'description' => 'Ogni situazione può essere analizzata in maniera schematica e , per questo, è più facile per persone con questa abilità vedere particolari che ad altri sfuggono ',
+    ],
+    [
+                    'name' =>'Auto-appprendimento',
+                    'id_hemispere'=> 2,
+        'description' => 'Metodo, questa è la parola d\'ordine che porta queste persone a ridurre di un quarto i tempi di apprendimento delle abilità di razza e di una classe.',
+    ],
+    [
+                    'name' =>'Ambidestro',
+                    'id_hemispere'=>2,
+        'description' => 'Il personaggio è in grado si utilizzare entrambe le mani senza avere alcuna penalità, potendo così ad esempio utilizzare due armi.',
+    ],
+    [
+                    'name' =>'Orologio Biologico',
+                    'id_hemispere'=> 2,
+        'description' => 'Possedete un innato senso del tempo e siete in grado di quantificarne accuratamente lo scorrere senza bisogno di un orologio o altro attrezzo meccanico.',
+    ],
+    [
+                    'name' =>'Codice d\'Onore',
+                    'id_hemispere'=> 2,
+        'description' => 'Seguite strettamente un vostro personale codice etico le cui regole verranno stabili dal Narratore prima di giocare. I personaggi con questa abilità non cedono facilmente alla paura quando tentano di evitare situazioni che potrebbero costringerli ad andare contro i propri principi.',
+    ],
+    [
+                    'name' =>'Stella dei Vex',
+                    'id_hemispere'=> 2,
+        'description' => 'Non si conosce il motivo, ma i Vex sembrano avere una particolare passione per voi. Alcuni vi adorano al punto di difendervi dai loro simili, altri hanno intenzioni meno pacifiche, ma è chiaro che quando venite percepiti all\'interno della loro rete o fuori, la loro attenzione è su di voi.',
+    ],
+    [
+                    'name' =>'Controllo della Ghiandola Pineale',
+                    'id_hemispere'=> 2,
+        'description' => 'Chi possiede questa peculiarità è i grado di controllare questa particolare ghiandola riuscendo così ad evitare di incorrere in dipendenze. Può controllare l\'apporto ormonale in modo tale da diventare più sensibile ai pericoli o meno in date situazioni.',
+    ],
+    [
+                    'name' =>'Charme',
+                    'id_hemispere'=> 1,
+        'description' => 'siete in grado di affascinate chi avete intorno con la vostra voce, il vostro modo di porvi. Sapete essere molto convincenti.',
+    ],
+    [
+                    'name' =>'Empatia',
+                    'id_hemispere'=> 1,
+        'description' => 'Persone sensibili che riescono a percepire le emozioni degli altri anche comprendendone il significato',
+    ],
+    [
+                    'name' =>'Espressività',
+                    'id_hemispere'=> 1,
+        'description' => 'Tristezza, felicità, divertimento o rabbia. Qualsiasi emozione per queste persone è facile da trasmettere in maniera sempre più precisa e diretta riuscendo, a livelli alti, anche a trasmettere quel particolare stato d\'animo a chi hanno vicino.',
+    ],
+    [
+                    'name' =>'Galateo',
+                    'id_hemispere'=> 1,
+        'description' => 'Fin da piccole queste persone si distinguono per apprendere con grande facilità l\'etichetta dell\'ambiente in cui crescono, ma anche quelle di nuovi posti dove si ritrovano a spostarsi.',
+    ],
+    [
+                    'name' =>'Equilibrio Felino',
+                    'id_hemispere'=> 1,
+        'description' => 'L\'equilibrio per loro non ha segreti, camminare sui tetti od in luoghi estremamente pericolosi per loro non è un grande pensiero proprio grazie alla padronanza che hanno sul loro corpo',
+    ],
+    [
+                    'name' =>'Sotterfugio',
+                    'id_hemispere'=> 1,
+        'description' => 'Non è semplicemente mentire, ma saper mutare la realtà a proprio fare, attraverso la loro creatività sanno come far vedere agli altri ciò che vogliono…sempre che chi hanno di fronte non abbia degli occhi buoni da cogliere le loro menzogne.',
+    ],
+    [
+                    'name' =>'Memoria Fotografica',
+                    'id_hemispere'=> 1,
+        'description' => 'Conversazioni, immagini, rimangono impresse nella mente, rendendo facile far riaffiorare alla mente foto, documenti et simili.',
+    ],
+    [
+                    'name' =>'Alleato del Mondo Animale',
+                    'id_hemispere'=> 1 ,
+        'description' => 'Gli animali non vi vedono come una minaccia, anzi, verso di voi sembrano avere una particolare simpatia che li porta a sforzarsi di capirvi',
+    ],
+    [
+                    'name' =>'Inoffensivo',
+                    'id_hemispere'=> 1,
+        'description' => 'Tutti in città vi conoscono e sanno che non costituite una minaccia. Essere considerati Inoffensivi può sembrare umiliante, ma in verità è quello che vi preserva da situazioni pericolose. Nessuno pensa che valga la pena di trascorrere del tempo con voi, e la scarsa stima di cui godete vi mantiene al sicuro. Se cominciate a comportarvi in modo differente per dimostrare che non siete poi tanto indifesi, la reazione degli altri potrebbe cambiare di conseguenza.',
+    ],
+    [
+                    'name' =>'Santità',
+                    'id_hemispere'=> 1,
+        'description' => 'Questa peculiarità viene talvolta chiamata "Effetto Aureola": chiunque vi stia intorno vi considera puri e innocenti, anche se non necessariamente ingenui. Avete una certa "santità", difficile da esprimere a parole ma impossibile da negare. La gente si fida di voi, anche se non siete delle persone affidabili. A discrezione del Narratore, riuscite a cavarvela con punizioni inferiori rispetto ai crimini che commettete, e piacete quasi a tutti',
+    ]
 
-        //  ]);
+          ]);
      }
     
     /**

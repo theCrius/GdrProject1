@@ -9,17 +9,17 @@
         <div class="containerAbilita">
         <div class="leftContainer">
      
-
+      
         @for($i=0;$i < 5; $i++)
-        <div class="skillToSelect">
+        <div class="skillToSelect" id='skill'>
     
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill' id='skill' data-id="{{$skills[$i]->id}}" alt="">
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{$skills[$i]->id}}" alt="">
             <div class="contenitoreText">
                 <div class="title">
                 {{$skills[$i]->name}}
                 </div>
                 <div class="description">
-                    
+                    {{$skills[$i]->description}}
                 </div>
             </div>
         </div>
@@ -31,9 +31,16 @@
     </div>
     <div class="rightContainer">
     @for($i=5;$i < 10; $i++)
-        <div class="skillToSelect">
-            {{$skills[$i]->name}}
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill' id='skill' data-id="{{$skills[$i]->id}}" alt=""> 
+        <div class="skillToSelect" id='skill'>
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{$skills[$i]->id}}" alt=""> 
+            <div class="contenitoreText">
+                <div class="title">
+                {{$skills[$i]->name}}
+                </div>
+                <div class="description">
+                    {{$skills[$i]->description}}
+                </div>
+            </div>
         </div>
         @endfor
     </div>

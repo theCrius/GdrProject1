@@ -1,8 +1,10 @@
 class postMultipleData{
 
-    constructor(maxDataToSend){
+    constructor(maxDataToSend,idRiquadri){
         if(typeof maxDataToSend != "number") throw new Error('Inserire un numero e non un altro valore come massimale')
         this.maxDataToSend=maxDataToSend
+        this.idRiquadri=idRiquadri
+        
         this.getData()
     }
     
@@ -29,14 +31,15 @@ class postMultipleData{
     
     SkillToSelect(htmlObjectClicked,idName){
         let classThis=this
-        if(htmlObjectClicked.nodeName === 'IMG' && htmlObjectClicked.id == idName){
+        let htmlObjectBoxClicked=htmlObjectClicked.parentElement.parentElement
+        if(htmlObjectBoxClicked.id == idName){
             let skillSelectedByUser=SkillSelected(classThis)
-
+            
             //remove status selected
-            if(htmlObjectClicked.className.includes('selected')) return eliminateClassSelected(htmlObjectClicked)
+            if(htmlObjectBoxClicked.className.includes('selected')) return eliminateClassSelected(htmlObjectBoxClicked)
             
             if(skillSelectedByUser.length === this.maxDataToSend) eliminateClassSelected(skillSelectedByUser[0])
-            htmlObjectClicked.className+=' selected'
+            htmlObjectBoxClicked.className+=' selected'
         }
 
         function SkillSelected(classThis){
