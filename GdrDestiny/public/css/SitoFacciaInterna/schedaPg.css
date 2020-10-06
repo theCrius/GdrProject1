@@ -527,13 +527,14 @@
 }
 
 .skillToSelect .contenitoreText .title {
-  font-size: 2.3vh;
+  font-size: 1.4vw;
   color: #f5f9ff;
+  padding-top: 0.5vh;
 }
 
 .skillToSelect .contenitoreText .description {
-  font-size: 1.7vh;
-  height: 4.2vh;
+  font-size: 1.5vh;
+  height: 3.9vh;
   width: 90%;
   overflow-y: auto;
   margin: auto;

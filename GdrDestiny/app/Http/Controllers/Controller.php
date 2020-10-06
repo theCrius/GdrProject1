@@ -13,7 +13,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function returnBack(Request $request,String $message){
+    public function returnBackWithError(Request $request,String $message){
         $routeToReturn=$request->session()->get('last-position:View');
     
         
@@ -27,11 +27,13 @@ class Controller extends BaseController
         
         $request->errors=[
             'message' => \Crypt::encrypt($message),
+            
         ];
         $datasToReSendBack['errors']=$request->errors;
         $request->errors=[ 
             'routeName' => $routeToReturn,
-            'parametrs' => $datasToReSendBack
+            'parametrs' => $datasToReSendBack,
+            'scriptName' => $request->session()->get('last-position:ScriptName')
         ];
      
     
@@ -40,13 +42,22 @@ class Controller extends BaseController
     return redirect()->route($request->session()->get('last-position:Chat'),["errors" => $request->errors]) ;
 }
 
+    public function returnBack(String $whereToGo,Array $WhatShowsInModal,Request $request){
+        $request->errors=[
+            'routeName' => $WhatShowsInModal['nameRoute'],
+            'parametrs' => $WhatShowsInModal['parametrs'],
+        ];
+        return redirect()->route($whereToGo,['errors' => $request->errors]);
+    }
 
-public function saveDataPreSubmit(Request $request,\App\User $user=null){
+
+public function saveDataPreSubmit(Request $request,String $scripName,\App\User $user=null){
   
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
     $request->session()->flash('last-position:Chat',$user->last_chat ?? \Auth::user()->last_chat);
     $request->session()->flash('last-position:View',$request->route()->getName());
+    if($scripName) $request->session()->flash('last-position:ScriptName',$scripName);
 }
 
 }

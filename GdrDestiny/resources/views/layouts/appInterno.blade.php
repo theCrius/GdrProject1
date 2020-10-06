@@ -49,7 +49,7 @@
                 
             document.addEventListener('DOMContentLoaded', function() {
                 
-        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{\Crypt::decrypt($errors['parametrs']['errors']['message'])}}','{{$errors['scriptName'] ?? ''}}')}, false)
+        modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{ isset($errors['parametrs']['errors']['message']) ? \Crypt::decrypt($errors['parametrs']['errors']['message']) : '' }}','{{$errors['scriptName'] ?? ''}}')}, false)
                 </script>
             
         @endif

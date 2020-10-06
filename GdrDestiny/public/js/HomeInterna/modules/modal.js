@@ -108,7 +108,7 @@ class Finestra{
     
       modalAddEventClose() //the user can close the modal
       if( scriptNameToAdd ) sendScriptNameToCall(scriptNameToAdd)
-      if(typeof errors == 'string') dealErrorBox(errors,modalContent);
+      if(errors) dealErrorBox(errors,modalContent);
     }).catch(function(error){  
 
     if(error.status !== 200) throw new Error('Connessione fallita')

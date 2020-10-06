@@ -68,7 +68,7 @@ class SkillController extends Controller
         $idSkillsGotByUser= [];
         $viewToReturn='internoLand.schedaUser.addSkills';
 
-    $this->saveDataPreSubmit($request,$user);
+    $this->saveDataPreSubmit($request,'schedaPg/addSkill.js',$user);
     //get the id of skill are already gotten 
     foreach($skillsOfUser[$skillFrom] as $skillOfUser){
 
@@ -111,7 +111,10 @@ class SkillController extends Controller
    }
 
    public function storeSkills($idUser, Request $request){
-        return $this->returnBack($request,'ookoko');
+       $redirectRoute['nameRoute']='showSkills';
+       $redirectRoute['parametrs']=\Auth::id();
+        
+        return $this->returnBackWithError($request,'jijcij');
    }
 
 }

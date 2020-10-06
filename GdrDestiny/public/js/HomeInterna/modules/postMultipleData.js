@@ -1,16 +1,17 @@
 class postMultipleData{
 
-    constructor(maxDataToSend,idRiquadri){
+    constructor(maxDataToSend,idRiquadri,nameRequestToUse){
         if(typeof maxDataToSend != "number") throw new Error('Inserire un numero e non un altro valore come massimale')
         this.maxDataToSend=maxDataToSend
         this.idRiquadri=idRiquadri
+        this.nameInput=nameRequestToUse
         
-        this.getData()
+        this.addEventForm()
     }
     
 
 
-    getData(){
+    addEventForm(){
 
         this.formWhereAreDatas=document.querySelector('form');
 
@@ -23,9 +24,42 @@ class postMultipleData{
 
         
         this.formWhereAreDatas.addEventListener('click',(event) => { this.SkillToSelect(event.target,'skill') } )
+        this.formWhereAreDatas.querySelector('#conferma').addEventListener('click',(event) => { this.submitData(event,this.SkillSelected())})
 
 
 
+    }
+
+    SkillSelected(){
+        let skillsSelected=[]
+ 
+        for(let skill of this.skills){
+            
+            if(skill.className.includes('selected')){
+                skillsSelected.push(skill)
+            }
+
+              
+        }
+
+        return skillsSelected
+
+    }
+
+    submitData(event,datasToSend){
+        let inputHidden
+       
+       
+        for(let boxSelected of datasToSend){
+            let idHiddenInImmage=boxSelected.querySelector('img').dataset.id
+
+            inputHidden=document.createElement('input')
+            inputHidden.value=idHiddenInImmage
+            inputHidden.type='hidden'
+            inputHidden.name=this.nameInput+'[]'
+            this.formWhereAreDatas.append(inputHidden)
+           
+        }
     }
 
     
@@ -33,7 +67,7 @@ class postMultipleData{
         let classThis=this
         let htmlObjectBoxClicked=htmlObjectClicked.parentElement.parentElement
         if(htmlObjectBoxClicked.id == idName){
-            let skillSelectedByUser=SkillSelected(classThis)
+            let skillSelectedByUser=classThis.SkillSelected(classThis)
             
             //remove status selected
             if(htmlObjectBoxClicked.className.includes('selected')) return eliminateClassSelected(htmlObjectBoxClicked)
@@ -42,21 +76,6 @@ class postMultipleData{
             htmlObjectBoxClicked.className+=' selected'
         }
 
-        function SkillSelected(classThis){
-            let skillsSelected=[]
-     
-            for(let skill of classThis.skills){
-                
-                if(skill.className.includes('selected')){
-                    skillsSelected.push(skill)
-                }
-
-                  
-            }
-
-            return skillsSelected
-
-        }
 
         function eliminateClassSelected(object){
             return object.className=object.className.slice(0,object.className.indexOf('selected')).replace(' ','') 

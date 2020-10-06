@@ -22,7 +22,7 @@ class UserclasseController extends Controller
         $user=\Auth::user();
         $classesUser=\App\Userclasse::where('id_user',$user->id)->get();
         
-        if(count($classesUser) > 1) $this->returnBack($request,'hai già scelto le tue classi');
+        if(count($classesUser) > 1) $this->returnBackWithError($request,'hai già scelto le tue classi');
         $this->saveDataPreSubmit($request,$user);
         
         return view('internoLand.schedaUser.addClass',[
@@ -37,15 +37,16 @@ class UserclasseController extends Controller
         $idUser=\Auth::id();
         
         if(!(int)$request->class || !$request->class ) {
-            return $this->returnBack($request,'errore ritenta');
+            return $this->returnBackWithError($request,'Classe non selezionata, riprova');
         }
         
         \App\Userclasse::insert([
             'id_classe' => $request->class,
             'id_user' => $idUser
         ]);
-        
-        return redirect()->route('home');
+        $returnBackRoute['nameRoute']='userProfile';
+        $returnBackRoute['parametrs']=$idUser;
+        return $this->returnBack('home',$returnBackRoute,$request);
         
     }
 }
