@@ -54,6 +54,8 @@ class SkillController extends Controller
         $request->errors=[
             'scriptName' => '/schedaPg/addSkill.js'
         ];
+
+    $this->saveDataPreSubmit($request,'',$user);
        return view('internoLand.schedaUser.showSkill',[
         'errors' => $request->errors,
         'skills' =>  $this->getSkills($user),

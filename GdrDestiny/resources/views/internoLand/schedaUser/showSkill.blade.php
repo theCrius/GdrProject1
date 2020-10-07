@@ -40,17 +40,25 @@
         <h4>{{$skills['classe'][$i]['name']}}</h4>
         <div class='skillLevels'>
         <div class='livelli'>
-   
+   <ul>
         @for($z=1; $z <= 15; $z++ )
-            @if($z <= $skills['classe'][$i]['level'])
-                <span><h1>{{$z}}</h1></span>
-            @else
-            <span>
+       
+        <li 
+        @if($z <= $skills['classe'][$i]['level'])
+            class='levelGotten'
+        @else 
+            class='levelNotGotten'
+            onclick="if(confirm('Sei sicuro di voler aumentare il livello della tua skill?')) return modal.openModal('{{route('updateSkillLevel',['idUser' => \Auth::id(), 'idSkill' => $skills['classe'][$i]['id']])}}')"
+        @endif
+        
+        >
+            
                 <p>{{$z}}</p>
-                </span>
-            @endif
+           
+        </li>
 
         @endfor
+        </ul>
         </div>
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
         </div>

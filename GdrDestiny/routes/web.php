@@ -46,6 +46,9 @@ Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClas
 Route::post('/user/{idUser}/StoreSkills','UserskillController@storeSkills')->name('storeSkills');
 Route::get('/user/{idUser}/{skillFrom}/AddSkills','UserskillController@addSkills')->name('addSkills');
 
+//Modify the level of skill
+Route::get('/user/{idUser}/{idSkill}/UpdateSkillLevel','UserskillController@updateSkill')->name('updateSkillLevel');
+
 //show skill
 Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 

@@ -42,11 +42,12 @@ class Controller extends BaseController
     return redirect()->route($request->session()->get('last-position:Chat'),["errors" => $request->errors]) ;
 }
 
-    public function returnBack(String $whereToGo,Array $WhatShowsInModal,Request $request){
+    public function returnBack(Request $request,String $whereToGo=null,Array $WhatShowsInModal=null){
         $request->errors=[
-            'routeName' => $WhatShowsInModal['nameRoute'],
-            'parametrs' => $WhatShowsInModal['parametrs'],
+            'routeName' => $WhatShowsInModal['nameRoute'] ?? $request->session()->get('last-position:View'),
+            'parametrs' => $WhatShowsInModal['parametrs'] ?? $request->session()->get('last-position:RouteParams'),
         ];
+        if(!$whereToGo) $whereToGo = $request->session()->get('last-position:Chat');
         return redirect()->route($whereToGo,['errors' => $request->errors]);
     }
 

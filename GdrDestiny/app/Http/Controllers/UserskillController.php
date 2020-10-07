@@ -116,4 +116,12 @@ class UserskillController extends Controller
         ];
         return $this->returnBack('home',$whatshowsInModal,$request);
    }
+
+   public function updateSkill($idUser,$idSkill,Request $request){
+        $updateLevel=\App\Userskill::where('id_user',$idUser)->where('id_skill',$idSkill)->get()[0];
+        $updateLevel->livello+=1;
+        $updateLevel->save();
+
+        return $this->returnBack($request);
+   }
 }
