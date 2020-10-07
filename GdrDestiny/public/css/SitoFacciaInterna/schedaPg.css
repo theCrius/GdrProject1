@@ -391,7 +391,7 @@
       -ms-flex-align: center;
           align-items: center;
   left: 1.5vh;
-  width: 97%;
+  width: 96%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -403,7 +403,7 @@
 }
 
 .abilitaLevel1 .levelsAbilita, .abilitaLevel2 .levelsAbilita, .abilitaLevel3 .levelsAbilita {
-  height: 4vh;
+  height: 3vh;
 }
 
 .abilitaLevel1 .livelli, .abilitaLevel2 .livelli, .abilitaLevel3 .livelli {
@@ -527,7 +527,7 @@
 }
 
 .skillToSelect .contenitoreText .title {
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   color: #f5f9ff;
   padding-top: 0.5vh;
 }

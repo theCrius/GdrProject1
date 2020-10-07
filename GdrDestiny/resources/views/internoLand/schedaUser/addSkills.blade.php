@@ -13,7 +13,7 @@
         @for($i=0;$i < 5; $i++)
         <div class="skillToSelect" id='skill'>
     
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{$skills[$i]->id}}" alt="">
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt($skills[$i]->id)}}" alt="">
             <div class="contenitoreText">
                 <div class="title">
                 {{$skills[$i]->name}}
@@ -32,7 +32,7 @@
     <div class="rightContainer">
     @for($i=5;$i < 10; $i++)
         <div class="skillToSelect" id='skill'>
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{$skills[$i]->id}}" alt=""> 
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt($skills[$i]->id)}}" alt=""> 
             <div class="contenitoreText">
                 <div class="title">
                 {{$skills[$i]->name}}

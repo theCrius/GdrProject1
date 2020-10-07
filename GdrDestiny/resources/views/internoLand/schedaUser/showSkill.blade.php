@@ -18,7 +18,7 @@
         <div class="skillRazza">
             @for($i=0; $i < 3; $i++) <div class="abilitaLevel{{$i+1}}">
                 <h4>{{$skills['breed'][$i]['name']}}</h4>
-                <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" class='levelsAbilita' alt="">
+                <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
         </div>
 
         @endfor
@@ -38,7 +38,22 @@
 <div class="skillRazza">
     @for($i=0; $i < 3; $i++) <div class="abilitaLevel{{$i+1}}">
         <h4>{{$skills['classe'][$i]['name']}}</h4>
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" class='levelsAbilita' alt="">
+        <div class='skillLevels'>
+        <div class='livelli'>
+   
+        @for($z=1; $z <= 15; $z++ )
+            @if($z <= $skills['classe'][$i]['level'])
+                <span><h1>{{$z}}</h1></span>
+            @else
+            <span>
+                <p>{{$z}}</p>
+                </span>
+            @endif
+
+        @endfor
+        </div>
+        <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
+        </div>
 </div>
 
 @endfor
@@ -60,7 +75,7 @@
 <div class="skillRazza">
     @for($i=0; $i < 3; $i++) <div class="abilitaLevel{{$i+1}}">
         <h4>{{$skills['hemispere'][$i]['name']}}</h4>
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità/numeriq.png" class='levelsAbilita' alt="">
+        <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
 </div>
 
 @endfor
@@ -85,7 +100,9 @@
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
         <div class="immaginiSpec">
             <ul>
-                @for($i=0; $i < 10; $i++) <li> <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png">
+                @for($i=0; $i < 10; $i++)
+                 <li> 
+                 <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png">
                     </li>
                     @endfor
             </ul>
