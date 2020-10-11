@@ -78,9 +78,10 @@ class UserskillController extends Controller
     //controllo permessi
     if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $request->errors['message']='Non hai le giuste autorizzazioni, riprova';
     
-   
+    //se ci sono errori blocca tutto
+    if($request->errors) return $this->returnBackWithError($request,$request->errors['message']);
+    
     return view('internoLand.schedaUser.addSkills',[
-            'errors' => $request->errors,
             'skills' => \App\Skill::select('id',$skillBelongsTo,'name','description')->whereIn($skillBelongsTo,$idBreedOrClassOrHemispere)->whereNotIn('id',$idSkillsGotByUser)->get(),
             'idUser' => $idUser,
             
@@ -90,8 +91,7 @@ class UserskillController extends Controller
    }
 
    public function storeSkills($idUser, Request $request){
-       $redirectRoute['nameRoute']='showSkills';
-       $redirectRoute['parametrs']=$idUser;
+
        $idSkills=$request->idSkills;
 
        
@@ -114,7 +114,8 @@ class UserskillController extends Controller
             'nameRoute' => 'userProfile',
             'parametrs' => $idUser
         ];
-        return $this->returnBack('home',$whatshowsInModal,$request);
+
+        return $this->returnBack($request);
    }
 
    public function updateSkill($idUser,$idSkill,Request $request){

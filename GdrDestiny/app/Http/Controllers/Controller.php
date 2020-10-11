@@ -43,8 +43,9 @@ class Controller extends BaseController
 }
 
     public function returnBack(Request $request,String $whereToGo=null,Array $WhatShowsInModal=null){
+        dd($$request->session()->get('last-position'));
         $request->errors=[
-            'routeName' => $WhatShowsInModal['nameRoute'] ?? $request->session()->get('last-position:View'),
+            'routeName' => $WhatShowsInModal['routeName'] ?? $request->session()->get('last-position:View'),
             'parametrs' => $WhatShowsInModal['parametrs'] ?? $request->session()->get('last-position:RouteParams'),
         ];
         if(!$whereToGo) $whereToGo = $request->session()->get('last-position:Chat');

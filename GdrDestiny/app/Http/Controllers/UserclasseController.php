@@ -44,9 +44,9 @@ class UserclasseController extends Controller
             'id_classe' => $request->class,
             'id_user' => $idUser
         ]);
-        $returnBackRoute['nameRoute']='userProfile';
+        $returnBackRoute['routeName']='userProfile';
         $returnBackRoute['parametrs']=$idUser;
-        return $this->returnBack('home',$returnBackRoute,$request);
+        return $this->returnBack($request,'home',$returnBackRoute);
         
     }
 }
