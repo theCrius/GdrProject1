@@ -35,6 +35,8 @@ class Controller extends BaseController
             'parametrs' => $datasToReSendBack,
             'scriptName' => $request->session()->get('last-position:ScriptName')
         ];
+
+       
      
     
         
@@ -43,7 +45,7 @@ class Controller extends BaseController
 }
 
     public function returnBack(Request $request,String $whereToGo=null,Array $WhatShowsInModal=null){
-        dd($$request->session()->get('last-position'));
+        
         $request->errors=[
             'routeName' => $WhatShowsInModal['routeName'] ?? $request->session()->get('last-position:View'),
             'parametrs' => $WhatShowsInModal['parametrs'] ?? $request->session()->get('last-position:RouteParams'),
@@ -53,9 +55,9 @@ class Controller extends BaseController
     }
 
 
-public function saveDataPreSubmit(Request $request,String $scripName,\App\User $user=null){
+public function saveDataPreSubmit(Request $request,String $scripName=null,\App\User $user=null){
   
-    $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
+
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
     $request->session()->flash('last-position:Chat',$user->last_chat ?? \Auth::user()->last_chat);
     $request->session()->flash('last-position:View',$request->route()->getName());

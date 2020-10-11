@@ -8,45 +8,14 @@ use \App\User;
 class UserskillController extends Controller
 {
 
-    public function getSkills(User $user){
-        
-        $skillOrdered = [
-            'breed' => [],
-            'classe' => [],
-            'hemispere' => []
-        ];
-        foreach($user->skills as $skill){
-           if($skill->id_breed){
-               $skillOrdered['breed'][]=[
-                   "name" => $skill->name,
-                   'level' => $skill->pivot->livello,
-                   'id' => $skill->id,
-               ];
-               continue;
-           }elseif($skill->id_classe){
-                $skillOrdered['classe'][]=[
-                    'name' => $skill->name,
-                    'level' => $skill->pivot->livello,
-                    'id' => $skill->id
-                ];
-                continue;
-           }
-           $skillOrdered['hemispere'][]=[
-            'name' => $skill->name,
-            'level' => $skill->pivot->livello,
-            'id' => $skill->id
-        ];
-        }
-        return $skillOrdered;
-    }
 
     public function addSkills(int $idUser,string $skillFrom, Request $request){
         $skillBelongsTo='id_' . $skillFrom;
         $user=\App\User::where('id',$idUser)->with('skills','classes')->get()[0];
-        $skillsOfUser=$this->getSkills($user);
+        $skillsOfUser=SkillController::getSkills($user);
         $idSkillsGotByUser= [];
-        $viewToReturn='internoLand.schedaUser.addSkills';
 
+    
     $this->saveDataPreSubmit($request,'schedaPg/addSkill.js',$user);
     //get the id of skill are already gotten 
     foreach($skillsOfUser[$skillFrom] as $skillOfUser){
@@ -73,13 +42,13 @@ class UserskillController extends Controller
    
 
     //limite massimo di skill ottenibili per razza, classe ed emisfero
-    if(count($idSkillsGotByUser) === 3) $request->errors['message']='Hai già scelto le tue abilita, mi dispiace';
+    if(count($idSkillsGotByUser) === 3) $messageToShow='Hai già scelto le tue abilita, mi dispiace';
     
     //controllo permessi
-    if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $request->errors['message']='Non hai le giuste autorizzazioni, riprova';
+    if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $messageToShow='Non hai le giuste autorizzazioni, riprova';
     
     //se ci sono errori blocca tutto
-    if($request->errors) return $this->returnBackWithError($request,$request->errors['message']);
+    if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
     
     return view('internoLand.schedaUser.addSkills',[
             'skills' => \App\Skill::select('id',$skillBelongsTo,'name','description')->whereIn($skillBelongsTo,$idBreedOrClassOrHemispere)->whereNotIn('id',$idSkillsGotByUser)->get(),
@@ -95,7 +64,7 @@ class UserskillController extends Controller
        $idSkills=$request->idSkills;
 
        
-        if( !$idSkills ||count($idSkills) != 3) return $this->returnBackWithError($request, 'Devi scegliere 3 skill');
+        if( !$idSkills || count($idSkills) != 3) return $this->returnBackWithError($request, 'Devi scegliere 3 skill');
         
         try{
             foreach($idSkills as $idSkill){
@@ -114,15 +83,25 @@ class UserskillController extends Controller
             'nameRoute' => 'userProfile',
             'parametrs' => $idUser
         ];
-
-        return $this->returnBack($request);
+        $whatshowsInModal=[
+            'routeName' => 'showSkills',
+            'parametrs' => $idUser
+        ];
+        return $this->returnBack($request,null,$whatshowsInModal);
    }
 
    public function updateSkill($idUser,$idSkill,Request $request){
         $updateLevel=\App\Userskill::where('id_user',$idUser)->where('id_skill',$idSkill)->get()[0];
+
+        //the quantity of exp to buy a level, change the number after the ()
+        $expToUseToBuyLevel=($updateLevel->level + 1) * 20;
+        if($expToUseToBuyLevel > ExpController::getSumOfExp($updateLevel->id)) return $this->returnBackWithError($request,'Non hai exp sufficienti');
         $updateLevel->livello+=1;
         $updateLevel->save();
-
-        return $this->returnBack($request);
+        $whatshowsInModal=[
+            'routeName' => 'showSkills',
+            'parametrs' => $updateLevel->id
+        ];
+        return $this->returnBack($request,null,$whatshowsInModal);
    }
 }

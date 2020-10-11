@@ -111,7 +111,7 @@ class Finestra{
       if(errors) dealErrorBox(errors,modalContent);
     }).catch(function(error){  
 
-    if(error.status !== 200) throw new Error('Connessione fallita')
+    if(error.status !== 200) throw new Error('Connessione fallita: '+ error)
           throw new Error('Cariamento Non Riuscito, dati mancanti')
                                 });
                                 

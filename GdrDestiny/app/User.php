@@ -59,6 +59,11 @@ class User extends Authenticatable
     public function skills(){
         return $this->belongsToMany('App\Skill','userskills','id_user','id_skill')->withPivot('livello');
     }
+    public function exps(){
+        return $this->hasMany('App\Exp','id_user_to');
+    }
+
+    
 
 
 }

@@ -15,7 +15,7 @@ class SkillController extends Controller
 
 
 
-    public function getSkills(User $user){
+    public static function getSkills(User $user){
         
         $skillOrdered = [
             'breed' => [],
@@ -54,11 +54,12 @@ class SkillController extends Controller
         $request->errors=[
             'scriptName' => '/schedaPg/addSkill.js'
         ];
+       // dd('test122');
 
-    $this->saveDataPreSubmit($request,'',$user);
+        $this->saveDataPreSubmit($request,null,$user);
        return view('internoLand.schedaUser.showSkill',[
         'errors' => $request->errors,
-        'skills' =>  $this->getSkills($user),
+        'skills' =>  self::getSkills($user),
         'id_user' => $user->id,
        ]);
    } 
