@@ -62,10 +62,11 @@ class UserskillController extends Controller
    public function storeSkills($idUser, Request $request){
 
        $idSkills=$request->idSkills;
-
+        $user=\Auth::user();
        
-        if( !$idSkills || count($idSkills) != 3) return $this->returnBackWithError($request, 'Devi scegliere 3 skill');
-        
+        if( !$idSkills || count($idSkills) != 3) $messageToShow='devi scegliere 3 skill';
+        if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
+        if($messageToShow) return $this->returnBackWithError($request,$messageToShow);
         try{
             foreach($idSkills as $idSkill){
                 \App\Userskill::insert([
@@ -79,29 +80,53 @@ class UserskillController extends Controller
             
             return $this->returnBackWithError($request,$e);
         }
-        $whatshowsInModal=[
-            'nameRoute' => 'userProfile',
-            'parametrs' => $idUser
-        ];
-        $whatshowsInModal=[
+       
+        $whatshowsInModal1=[
             'routeName' => 'showSkills',
             'parametrs' => $idUser
         ];
-        return $this->returnBack($request,null,$whatshowsInModal);
+        return $this->returnBack($request,null,$whatshowsInModal1);
    }
+ 
 
-   public function updateSkill($idUser,$idSkill,Request $request){
+   public function incrementLevelOfSkill($idUser,$idSkill,Request $request){
         $updateLevel=\App\Userskill::where('id_user',$idUser)->where('id_skill',$idSkill)->get()[0];
+        $user=\Auth::user();
+        $userExp=ExpController::getSumOfExp($idUser);
 
         //the quantity of exp to buy a level, change the number after the ()
-        $expToUseToBuyLevel=($updateLevel->level + 1) * 20;
-        if($expToUseToBuyLevel > ExpController::getSumOfExp($updateLevel->id)) return $this->returnBackWithError($request,'Non hai exp sufficienti');
+        $expToUseToBuyLevel=($updateLevel->livello + 1) * 20;
+      
+        
+        //check if the user has the the exp necessary to buy the level
+        if($expToUseToBuyLevel > $userExp) $messageToShow='Hai bisogno di ' . ($expToUseToBuyLevel - $userExp) . ' exp';
+
+        if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
+
+      
+
+        
+
+        if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
+
+        //add the level of skill
         $updateLevel->livello+=1;
+
+        //save the change
         $updateLevel->save();
+        
+        \App\Exp::insert([
+            'exp_dati' => -$expToUseToBuyLevel,
+            'id_user_from' => 1,
+            'id_user_to' => $idUser,
+            'motivazione' => 'acquisto skill'
+        ]);
+        
         $whatshowsInModal=[
             'routeName' => 'showSkills',
-            'parametrs' => $updateLevel->id
+            'parametrs' => $idUser
         ];
+        
         return $this->returnBack($request,null,$whatshowsInModal);
    }
 }

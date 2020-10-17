@@ -428,8 +428,14 @@
   position: absolute;
   height: 3vh;
   width: 100%;
-  color: white;
   font-size: 1.4vh;
+  color: white;
+  text-decoration: none;
+}
+
+.abilitaLevel1 .livelli ul a, .abilitaLevel2 .livelli ul a, .abilitaLevel3 .livelli ul a {
+  color: white;
+  text-decoration: none;
 }
 
 .abilitaLevel1 .livelli ul li, .abilitaLevel2 .livelli ul li, .abilitaLevel3 .livelli ul li {
@@ -448,10 +454,6 @@
 
 .abilitaLevel1 .livelli ul .levelGotten, .abilitaLevel2 .livelli ul .levelGotten, .abilitaLevel3 .livelli ul .levelGotten {
   background-color: #00616f;
-}
-
-.abilitaLevel1 .livelli ul .levelNotGotten, .abilitaLevel2 .livelli ul .levelNotGotten, .abilitaLevel3 .livelli ul .levelNotGotten {
-  cursor: pointer;
 }
 
 .abilitaLevel1 .livelli ul .beyondFive, .abilitaLevel2 .livelli ul .beyondFive, .abilitaLevel3 .livelli ul .beyondFive {

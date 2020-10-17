@@ -333,23 +333,26 @@
         position: absolute;
         height: 3vh;
         width: 100%;
-        color: white;
         font-size: 1.4vh;
+        color: white;
+        text-decoration: none;
+        a{
+            color: white;
+        text-decoration: none;
+        }
         li{
             width: 2.8vh;
             height: 100%;
             align-items: center;
             justify-content: center;
             display: flex;
-    
+            
         }
         .levelGotten{
             background-color: #00616f;
            
         }
-        .levelNotGotten{
-            cursor: pointer;
-        }
+       
         
 
         .beyondFive{

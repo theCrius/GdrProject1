@@ -42,13 +42,12 @@
         <div class='livelli'>
    <ul>
         @for($z=1; $z <= 15; $z++ )
-       
+        @if($skills['classe'][$i]['level']+1 === $z)
+        <a href="{{route('updateSkillLevel',['idUser' => \Auth::id(), 'idSkill' => $skills['classe'][$i]['id']])}}">
+        @endif
         <li 
         @if($z <= $skills['classe'][$i]['level'])
             class='levelGotten'
-        @else 
-            class='levelNotGotten'
-            onclick="if(confirm('Sei sicuro di voler aumentare il livello della tua skill?')) return modal.openModal('{{route('updateSkillLevel',['idUser' => \Auth::id(), 'idSkill' => $skills['classe'][$i]['id']])}}')"
         @endif
         
         >
@@ -56,10 +55,14 @@
                 <p>{{$z}}</p>
            
         </li>
+        @if($skills['classe'][$i]['level'] + 1  === $z)
+        </a>
+        @endif
 
         @endfor
         </ul>
         </div>
+      
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
         </div>
 </div>
@@ -82,7 +85,7 @@
 </div>
 <div class="skillRazza">
     @for($i=0; $i < 3; $i++) <div class="abilitaLevel{{$i+1}}">
-        <h4>{{$skills['hemispere'][$i]['name']}}</h4>
+        
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
 </div>
 
