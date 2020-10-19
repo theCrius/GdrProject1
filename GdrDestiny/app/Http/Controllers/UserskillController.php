@@ -66,7 +66,7 @@ class UserskillController extends Controller
        
         if( !$idSkills || count($idSkills) != 3) $messageToShow='devi scegliere 3 skill';
         if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
-        if($messageToShow) return $this->returnBackWithError($request,$messageToShow);
+        if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
         try{
             foreach($idSkills as $idSkill){
                 \App\Userskill::insert([

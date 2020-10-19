@@ -46,12 +46,17 @@ Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClas
 Route::post('/user/{idUser}/StoreSkills','UserskillController@storeSkills')->name('storeSkills');
 Route::get('/user/{idUser}/{skillFrom}/AddSkills','UserskillController@addSkills')->name('addSkills');
 
+//add specs
+Route::post('/user/{idUser}/StoreSpecs','UserspecializationController@storeSpecs')->name('storeSpecs');
+Route::get('/user/{idUser}/{specFrom}/AddSpecs','UserspecializationController@addSpecs')->name('addSpecs');
+
 //show skill
 Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 
 
 //Modify the level of skill
 Route::get('/user/{idUser}/{idSkill}/UpdateSkillLevel','UserskillController@incrementLevelOfSkill')->name('updateSkillLevel');
+
 
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

@@ -257,13 +257,7 @@
     margin: auto;
     position: relative;
 }
-.titleSpec{
-    position: absolute;
-    height: 3vh;
-    left: 12vh;
-    top:0.5vh
-}
-.titleShowSkill{
+.titleShowCenter{
     position: absolute;
     height: 3vh;
     left: 50%;
@@ -273,10 +267,11 @@
     .titleAbilita{
         height: inherit;
     }
-    transform: translate(-50%);
-    
+    transform: translate(-50%);   
 }
-
+.titleSpec{
+    height: 2.5vh;
+}
 .immaginiSpec{
     position: absolute;
     bottom: 2vh;
@@ -304,8 +299,11 @@
     display: flex;
     
 }
-#iconAddSkill{
+#iconAdd{
     height: 2.5vh;
+}
+.addSpec{
+    height: 2vh !important;
 }
 .abilitaLevel1,.abilitaLevel2,.abilitaLevel3{
     display: flex;

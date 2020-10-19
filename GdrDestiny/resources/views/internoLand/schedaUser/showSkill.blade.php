@@ -6,31 +6,59 @@
 
         <div class="boxAbilita boxRazza">
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
-            <div class="titleShowSkill">
+            <div class="titleShowCenter">
                 <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitarazza.png" alt="" class='titleAbilita'>
                 @if(empty($skills['breed']))
-                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill'
+                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd'
                     title='Aggiungi Abilita' alt=""
                     onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'breed'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
             </div>
             @else
         </div>
         <div class="skillRazza">
-            @for($i=0; $i < 3; $i++) <div class="abilitaLevel{{$i+1}}">
+            @for($i=0; $i < 3; $i++) 
+            <div class="abilitaLevel{{$i+1}}">
                 <h4>{{$skills['breed'][$i]['name']}}</h4>
+                <div class='skillLevels'>
+                <div class='livelli'>
+           <ul>
+                @for($z=1; $z <= 15; $z++ )
+                @if($skills['breed'][$i]['level']+1 === $z)
+                <a href="{{route('updateSkillLevel',['idUser' => \Auth::id(), 'idSkill' => $skills['breed'][$i]['id']])}}">
+                @endif
+                <li 
+                @if($z <= $skills['breed'][$i]['level'])
+                    class='levelGotten'
+                @endif
+                
+                >
+                    
+                        <p>{{$z}}</p>
+                   
+                </li>
+                @if($skills['breed'][$i]['level'] + 1  === $z)
+                </a>
+                @endif
+        
+                @endfor
+                </ul>
+                </div>
+              
                 <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
+                </div>
         </div>
-
+        
         @endfor
-    </div>
-    @endif
-</div>
+        </div>
+        @endif
+        </div>
+        
 <div class="boxAbilita boxClasse">
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
-    <div class='titleShowSkill hemispereTitle'>
+    <div class='titleShowCenter hemispereTitle'>
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaclasse.png" alt="" class='titleAbilita'>
         @if(empty($skills['classe']))
-        <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill' title='Aggiungi Abilita'
+        <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
             alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'classe'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
     </div>
     @else
@@ -74,19 +102,46 @@
 </div>
 <div class="boxAbilita boxEmisfero">
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
-    <div class='titleShowSkill'>
+    <div class='titleShowCenter'>
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaemisfero.png" alt="" class='titleAbilita emisfero'>
         @if(empty($skills['hemispere']))
-        <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAddSkill' title='Aggiungi Abilita'
+        <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
             alt=""
             onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'hemispere'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
     </div>
-    @else
+         @else
 </div>
 <div class="skillRazza">
-    @for($i=0; $i < 3; $i++) <div class="abilitaLevel{{$i+1}}">
+    @for($i=0; $i < 3; $i++) 
+    <div class="abilitaLevel{{$i+1}}">
+        <h4>{{$skills['hemispere'][$i]['name']}}</h4>
+        <div class='skillLevels'>
+        <div class='livelli'>
+   <ul>
+        @for($z=1; $z <= 15; $z++ )
+        @if($skills['hemispere'][$i]['level']+1 === $z)
+        <a href="{{route('updateSkillLevel',['idUser' => \Auth::id(), 'idSkill' => $skills['hemispere'][$i]['id']])}}">
+        @endif
+        <li 
+        @if($z <= $skills['hemispere'][$i]['level'])
+            class='levelGotten'
+        @endif
         
+        >
+            
+                <p>{{$z}}</p>
+           
+        </li>
+        @if($skills['hemispere'][$i]['level'] + 1  === $z)
+        </a>
+        @endif
+
+        @endfor
+        </ul>
+        </div>
+      
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/caselle.png" class='levelsAbilita' alt="">
+        </div>
 </div>
 
 @endfor
@@ -97,7 +152,15 @@
 <div class="rightBox">
     <div class="boxSpec boxRazza">
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameqspec.png" alt="" class='sfondoBox'>
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
+
+        <div class='titleShowCenter'>
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
+                @if($skills['breed'])
+                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
+                    alt=""
+                    onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'breed'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
+                @endif
+                </div>
         <div class="immaginiSpec">
             <ul>
                 @for($i=0; $i < 10; $i++) <li> <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png">
