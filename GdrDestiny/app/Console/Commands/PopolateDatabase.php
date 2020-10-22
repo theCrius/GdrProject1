@@ -94,7 +94,7 @@ class PopolateDatabase extends Command
     }
 
     public function insertSpecialitazions(){
-    $spec_multiple_skill=\App\Specialization::inserti([
+    $spec_multiple_skill=\App\Specialization::insert([
         
     [
    
@@ -451,7 +451,7 @@ class PopolateDatabase extends Command
           
         'livello' => 5,
           
-        'id_skill1' => \App\Skill::select('id')->where('name','Combattimento con Armi da Fuoco(Media e Lunga Distanza)')->get()[0]->id,
+        'id_skill1' => \App\Skill::select('id')->where('name','Armi da Fuoco(Media/Lunga Distanza)')->get()[0]->id,
           
         'id_skill2' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
           
@@ -499,7 +499,7 @@ class PopolateDatabase extends Command
           
         'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Wing Chun')->get()[0]->id,
           
-        'id_skill2' => \App\Skill::select('id')->where('name','Combattimento con Armi da Fuoco(Media e Lunga Distanza)')->get()[0]->id,
+        'id_skill2' => \App\Skill::select('id')->where('name','Armi da Fuoco(Media/Lunga Distanza)')->get()[0]->id,
           
         'descrizione' => "L'arco viene materializzato dal ghost attingendo alla forza del proprio padrone, esso assume il colore dell'aura dell'umano ed è in grado di sferrare sei colpi che variano proprio a seconda di quel colore. 
                             Rosso, Arancione e Giallo: Dardi Infuocati
@@ -768,11 +768,11 @@ class PopolateDatabase extends Command
     }
 
      public function insertSkills(){
-         $skills_classe=\App\Skill::insert([           
+        $skills_classe=\App\Skill::insert([           
             [
                 'name' => 'AS Pilot',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Pilota')->get()[0]->id,
-    'description' => 'Abilità che permette di mettersi alla guida dei Mecha appartenenti alla categoria Arm Slaves',
+            'description' => 'Abilità che permette di mettersi alla guida dei Mecha appartenenti alla categoria Arm Slaves',
 ],
 [
                 'name' => 'EVA Pilot',
@@ -1011,82 +1011,84 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
     'description' => 'La vita quotidiana ti ha insegnato quando una situazione è meglio evitarla, già, anche con un semplice colpo d\'occhio i più esperti sanno quando una cosa è troppo rischiosa.',
 ],
 [
-                'name' => 'Combattimento con Armi da Fuoco(Media e Lunga Distanza)',
+                'name' => 'Armi da Fuoco(Media/Lunga Distanza)',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
     'description' => 'Abilità che ottimizza l\'utilizzo di armi che colpiscono dai 30 m poi',
 ],
 [
-                'name' => 'Combattimento con Armi Bianche (Coltelli)',
+                'name' => 'Maestria con Coltelli',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
     'description' => 'Abilità che permette di lanciare e maneggiare i coltelli in maniera ottimale',
 ],
 [
-                'name' => ' Combattimento corpo a corpo(Wing Chun)',
+                'name' => 'Maestro di Wing Chun',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
     'description' => 'Abilità di sfruttare tutte le mosse appartenenti all\'arte marziale del Wing Chun',
 ],
 [
-                'name' => ' Combattimento con Armi Bianche(Bastoni)',
+                'name' => 'Maestro di Bastone',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
     'description' => 'Abilità che permette di utilizzare in maniera ottimale qualsiasi tipologia di bastone di qualsiasi dimensione',
 ],
 [
-                'name' => 'Combattimento con Armi Bianche(Lancia)',
+                'name' => 'Maestro di Lancia',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Hunter')->get()[0]->id,
     'description' => 'Abilità che permette di utilizzare in maniera ottimale la lancia sfruttandola per qualsiasi genere di evoluzione',
 ],
 [
-                'name' => 'Combattimento con Armi da Fuoco(Breve e Media distanza)',
+                'name' => 'Armi da Fuoco(Breve/Media Distanza)',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
     'description' => 'Abilità che ottimizza l\'utilizzo di armi che colpiscono al di sotto dei 200 metri',
 ],
 [
-                'name' => 'Combattimento con Armi Bianche (Martelli)',
+                'name' => 'Maestro di Martello',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
     'description' => 'Abilità che permette di utilizzare in maniera ottimale qualsiasi genere di arma dalle sembianze di martello',
 ],
 [
-                'name' => 'Combattimento corpo a corpo(Prese e Sottomissioni)',
+                'name' => 'Maestria Prese e Sottomissioni',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
     'description' => 'Abilità che permette l\'apprendimento di un\'arte marziale che comprende l\'utilizzo di prese e sottomissioni come fulcro dello stile',
 ],
 [
-                'name' => 'Combattimento con Armi Bianche(Mazze ed Asce)',
+                'name' => 'Maestria con Mazze ed Asce',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
     'description' => 'Abilità che permette l\'utilizzo di mazze ed asce in combattimento, determinando anche una migliore precisioni nei lanci delle stesse.',
 ],
 [
-                'name' => 'Combattimento con Armi da Fuoco(Lanciarazzi)',
+                'name' => 'Demolition Rocket',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Titan')->get()[0]->id,
     'description' => 'Abilità che permette di essere abilitati all\'utilizzo dell\'arma ed anche la precisione nel suo utilizzo',
 ],
 [
-                'name' => 'Combattimento Armi da Fuoco(Esplosivi)',
+                'name' => 'Armi da Fuoco(Esplosivi)',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
     'description' => 'Abilità che permette di essere abilitati all\'utilizzo di esplosivi',
 ],
 [
-                'name' => 'Combattimento Armi Bianche(Spade Occidentali)',
+                'name' => 'Maestro di Scherma Occidentale',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
     'description' => 'Abilità che ottimizza l\'utilizzo di qualsiasi genere di spada occidentale',
 ],
 [
-                'name' => 'Combattimento corpo a corpo(Kyusho Jitsu)',
+                'name' => 'Maestro di Kyusho Jitsu',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
     'description' => 'Abilità che permette di sfruttare un\'arte marziale che punta ad inibire il corpo dell\'avversario attraverso i punti di pressione',
 ],
 [
-                'name' => 'Combattimento con Armi Bianche(Spade Orientale)',
+                'name' => 'Maestro di Spada Orientale',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
     'description' => 'Abilità che permette l\'utilizzo in maniera ottimale di qualsiasi tipologia di spada dal taglio orientale',
 ],
 [
-                'name' => 'Combattimento corpo a corpo(Muay Thai) ',
+                'name' => 'Maestro di Muay Thai ',
                 'id_classe'=>  \App\Classe::select('id')->where('name','Warlock')->get()[0]->id,
     'description' => 'Abilità che permette di sfruttare uno stile di combattimento aggressivo e molto letale',
 ]
 
             ]);
+        
+
          
             $skills_breed=\App\Skill::insert([            
                 [
