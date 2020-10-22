@@ -19,6 +19,8 @@ class CreateSpecializationsTable extends Migration
             $table->integer('livello');
             $table->foreignId('id_skill1');
             $table->foreignId('id_skill2')->nullable();
+            $table->text('descrizione');
+            $table->string('url_image');
             $table->timestamps();
 
             $table->foreign('id_skill1')->references('id')->on('skills');

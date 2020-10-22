@@ -93,6 +93,606 @@ class PopolateDatabase extends Command
             ]);
     }
 
+    public function insertSpecialitazions(){
+    $spec_multiple_skill=\App\Specialization::inserti([
+        
+    [
+   
+        'name' => 'Occhi della Tempesta',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Eva Pilot')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Tempo Prezioso')->get()[0]->id,
+       
+        'descrizione' => "Permette di avere maggiore controllo durante lo stato di trance e, quindi, di poter tornare indietro.",
+       
+        'url_image' => 'occhiociclone.png',
+    ],
+    [
+   
+        'name' => 'Specialista d\'Assalto',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Tempo Prezioso')->get()[0]->id,
+
+        'descrizione' => "Chi lo possiede, durante il dispiegamento od una quest riesce ad individuare punti deboli fisici dell’avversario",
+        
+        'url_image' => 'specialistaassalto.png',
+    ],
+     
+    [
+   
+        'name' => 'Analista Psichico',
+        
+        'livello' => 5,
+        
+        'id_skill1' => \App\Skill::select('id')->where('name','AS Pilot')->get()[0]->id,
+        
+        'id_skill2' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
+        
+        'descrizione' => " Abilità che permette di analizzare il comportamento del nemico in maniera mirata.",
+    
+        'url_image' => 'analistapsichico.png',
+    
+    ],   
+    
+    [
+   
+        'name' => 'Fightmaster',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Tempo Prezioso')->get()[0]->id,
+          
+        'descrizione' => "Specializzazione che permette di essere estremamente abili con un'arma in particolare, i colpi hanno più possibilità di andare a segno quando si usa ciò in cui si è più versati",
+       
+        'url_image' => 'fightmaster.png',
+
+    ],  
+    [
+   
+        'name' => 'Bio Harvest Creature',
+          
+        'livello' =>10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Biologia')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Medicina')->get()[0]->id,
+          
+        'descrizione' => "Persona che si è specializzata nello studio degli organismi alieni.",
+       
+        'url_image' => 'bioharvestcreature.png',
+    
+    ],   
+    [
+   
+        'name' => 'First Line Medical',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Medicina')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Patologo')->get()[0]->id,
+          
+        'descrizione' => "Definisce una persona che ha portato al massimo le sude doti di medico, riesce ad avere il sufficiente sangue freddo per operare sul campo e, ovviamente, in situazioni di stress opera comunque in maniera ottimale.",
+       
+        'url_image' => 'firstmedical.png',
+    
+    ],
+    [
+   
+        'name' => 'Cruel Angels Thesis',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Eva Healer')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Patologo')->get()[0]->id,
+          
+        'descrizione' => " Permette di accedere alle conoscenze sulla Black Technology e l'accesso con il corpo centrale della Mente Bellica Ego. ",
+       
+        'url_image' => 'cruelangelthesis.png',
+    
+    ],
+    [
+   
+        'name' => 'Freccia di Sangue',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Eva Healer')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Medicina')->get()[0]->id,
+          
+       
+            'descrizione' => "'Presentarsi quando le cose si mettono male, ascoltare quali sono i problemi delle persone e aiutare chi ne ha bisogno; è cosi che si diventa più forti, è cosi che si cresce.'
+       
+       Abilità che permette, interfacciandosi con il ghost, di curare ferite gravi che solitamente non potrebbero essere ferite sul campo. 
+       Non si può far ricrescere un arto mozzato, ma tagli profondi e bruciature possono essere curate donando parte delle proprie cellule all'altra persona. 
+       Le ferite che ci si infligge in questa maniera non possono essere curate dal Ghost, ma devono seguire un normale decorso. 
+       Funzionamento: 
+       
+       Turno 1: Si dichiara di voler usare l'abilità indicando la percentuale di danno che si vuole sanare
+       Turno 2: La percentuale che si vuole curare viene scalata dai propri punti ed assegnata alla persona bersaglio dell'azione. ",
+        
+       'url_image' => 'frecciasangue.png',                       
+    ],
+    [
+   
+        'name' => 'Equip Specialist',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','T-Operator')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Equipment Designer')->get()[0]->id,
+          
+       
+        'descrizione' => " Permette di creare da 0 delle armi o degli equipaggiamenti.",
+
+        'url_image' => 'equipspecialist.png'
+    
+    ],
+    
+    [
+   
+        'name' => 'Programmatore di Battaglie',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','T-Operator')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Genio d\'Assalto')->get()[0]->id,
+          
+        'descrizione' => "Chi possiede questa abilità può fare simulazioni dei combattimenti estremamente attendibili che consentono di avere informazioni utili e importanti per le storti della battaglia.",
+    
+        'url_image' => 'programmatorebattaglie.png',
+
+    ],
+    [
+   
+        'name' => 'Mecha Builter',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Mecha Physician')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','T-Operator')->get()[0]->id,
+          
+        'descrizione' => "Permette al meccanico di progettare e creare da 0 un'unità AS o Jaeger con assetti totalmente nuovi, nel caso di un'unità Eva è necessaria la collaborazione di un Dottore.",
+
+        'url_image' => 'mechabuilter.png',
+           
+    ],
+    
+    [
+   
+        'name' => 'Costruito per Durare',
+        
+        'livello' => 5,
+        
+        'id_skill1' => \App\Skill::select('id')->where('name','Equipment Designer')->get()[0]->id,
+        
+        'id_skill2' => \App\Skill::select('id')->where('name','T-Operator')->get()[0]->id,
+        
+        'descrizione' => "Permette di creare Mecha più resistenti ed equipaggiamenti con una raffinazione migliore dei materiali. ",
+        
+        'url_image' => 'costruitoperdurare.png', 
+    
+    ],
+
+    [
+   
+        'name' => 'Balla con Me',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Natural Survival')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Gambler')->get()[0]->id,
+          
+       'descrizione' => "'Un altro spettacolo è cominciato,
+                        Balla con me prima che sopraggiunga la tempesta
+                        Segui i miei passi al ritmo affannato
+                        Balla con Me fino all'alba funesta.
+                        Tu si che sai come prendere un colpo.'
+                        
+                        Quando sei ferito( -50% PF), l’adrenalina il corpo ti permette di muoverti rapidamente e schivare più facilmente i colpi dei nemici.",
+
+        'url_image' => 'ballaconme.png', 
+    ],
+    
+    [
+   
+        'name' => 'Convalescenza',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Metabolismo Adattivo')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Immunità alle Infenzioni')->get()[0]->id,
+          
+        'descrizione' => "'Una pietà che spezza le tempeste.'
+                            
+                            Il corpo vuole vivere e, per questo, risponde estremamente bene alle cure e, non solo, le ferite si rimarginano più facilmente rispetto alla media, i tempi di guarigione sono dimezzati e nel caso di piccoli danni la guarigione è estremamente veloce.
+                            
+                            Utilizzo: Il Ghost, anche in caso di ferite più significative impiegherà solo un turno per curarvi e nel caso di degenza in ospedale impiegherete la metà del tempo ad uscirne.",
+                                
+       'url_image' => 'convalescenza.png', 
+    
+    ],
+    [
+   
+        'name' => 'Asso nella Manica',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Furia dello Spirito')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Natural Survival')->get()[0]->id,
+          
+        'descrizione' => "La Dea Bendata è dalla tua parte, o almeno, ogni tanto getta il suo sguardo su di te.
+                            Una volta per quest si ha la possibilità di invocarne l’aiuto ed a seconda di un tiro di dado un’azione avversaria fallirà od una che si compie riuscirà sicuramente, il tiro ovviamente ne definirà la spettacolarità e se riesce solo di un soffio o facilmente.
+                            Tiro di dado 100:
+                            1 a 50 – Riesce di un soffio
+                            60 a 97 – Riesce bene
+                            98-100 – Spettacolare",
+       
+        'url_image' => 'assonellamanica.png', 
+    
+    ],
+    
+    [
+   
+        'name' => 'Legame',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maledizione del Rovo')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Knights Pilot')->get()[0]->id,
+          
+        'descrizione' => "
+                        'Dobbiamo lavorare come una squadra, ho bisogno che tu sopravviva così che io possa sopravvivere!'
+                        
+                        Abilità legata all'uso degli esoscheletri quando sono posseduti dal Ghost, la Catena di Rovi diventa una corda che può collegare l'armatura con il Sinners permettendogli di muoverla a suo piacimento nel raggio di dieci metri senza alcun deficit nei tempi di risposta, inoltre, grazie al Ghost è possibile replicare l'arma fisica del Sinners per farla sfruttare al suo compagno. 
+                        
+                        Utilizzo: Quando il Sinners decide di sfruttare l'esoscheletro in remoto ha bisogno di un turno in cui il ghost si interfaccia all'armatura e viene effettuato il collegamento con il rovo." ,
+       
+        'url_image' => 'legame.png', 
+    ],
+    
+    [
+   
+        'name' => 'Neurolink',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','DIY Master')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Rilocatore')->get()[0]->id,
+          
+        'descrizione' => "
+                                Il pacchetto telecomunicazioni Neurolink consente all'utilizzatore di ricevere e trasmettere messaggi senza l'ausilio di dispositivi fisici aggiuntivi.
+                                La tecnologia sfrutta le proprietà naturali di conduzione di denti e ossa per far arrivare i suoni all'orecchio interno.
+                                Viene impiantata anche una protesi retinica Eye-Know, che consente di proiettare le trasmissioni in arrivo direttamente sulla retina del soggetto.
+                                Insieme l'impianto cocleare trasferisce le trasmissioni audio in arrivo direttamente all'orecchio interno dell'utilizzatore, eliminando la necessità di cuffie o auricolari.
+                                Una micro-sonda, posizionata sulle corde vocali permette all'utilizzatore di inviare messaggi vocali utilizzando frequenze al di sotto della normale soglia dell'udito umano.",
+                                
+        'url_image' => 'neurolink.png',    
+    
+    ],
+    
+    [
+   
+        'name' => 'Drone Flock',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','ATST')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','C-Builter')->get()[0]->id,
+          
+        'descrizione' => "L’abilità ad occuparsi di più situazioni contemporaneamente consente a queste persone di controllare in un combattimento fino a cinque droni quando l’abilità viene portata al massimo, non hanno certo un grande potenziale offensivo o difensivo, ma sono pur sempre utili mezzi da sfruttare.
+                            
+                            Intelligenza 10: è possibile usare due drone per 3 turni all'interno di una quest, dal quarto turno si inizieranno ad accusare problemi dovuti al sovraccarico neurale. Usare un solo drone comporta un minore sovraccarico dei sistemi e questo aumenta i tempi in cui si può controllarlo a 5 prima di accusare problemi.(-10 PF a turno Salute Fisica)
+                            
+                            
+                            Intelligenza 15-20: è possibile usare tre droni per 3 turni all’interno di una quest, dal quarto turno per via dell’affaticamento si inizieranno ad accusare danni sempre più ingenti alle zone sovraccaricate. Usare un solo drone non comporta alcuno sforzo e può essere usato per tutta la durata.
+                            (-5 PF a turno Salute Fisica)
+                            
+                            Da Intelligenza 21 in su: è possibile controllare fino a cinque droni per 3 turni con i medesimi malus del livello II, se si sceglie di controllarne solo due invece non si avrà alcun genere di danno per via del carico meno gravoso sull’impianto potenziato.",
+        
+        'url_image' => 'dronefolk',     
+    ],
+    [
+   
+        'name' => 'Cyberonics',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','ATST')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Black-Technology')->get()[0]->id,
+          
+        'descrizione' => "Perché limitarsi a creare oggetti di uso normale? No, i possessori di questa abilità sono andati oltre e sono in grado di creare degli animali, anche in grado di comportarsi come tali, totalmente fatti di materiale artificiale.
+                            Non avranno mai un aspetto uguale a quelli reali, ma i movimenti ed i modi saranno sicuramente identici.
+                            Un vezzo, per alcuni, ma per altri un utile compagno di battaglia.",
+        
+        'url_image' => 'cyberonics.png',   
+    
+    ],
+    [
+   
+        'name' => 'Politica',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Legge')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Conoscenza della Strada')->get()[0]->id,
+          
+        'descrizione' => "Sanno barcamenarsi nella giungla sociale della città e conoscono le correnti dove è meglio spostarsi per avere dei vantaggi",
+        
+        'url_image' => 'politica.png', 
+
+    ],
+
+    [
+   
+        'name' => 'Golden Gun',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Combattimento con Armi da Fuoco(Media e Lunga Distanza)')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
+          
+        'descrizione' => "Il personaggio ha un'arma in cui è specializzato, quando la usa durante una giocata ha la possibilità di usare una singola volta questa abitlità:è in grado di scaricare un intero caricatore sul nemico a precisione massima.",
+        
+        'url_image' => 'goldengun.png',   
+    
+    ],
+
+    [
+   
+        'name' => 'Danzatore di Lame',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestria con Coltelli')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
+          
+        'descrizione' => "Non c'è miglior difesa che l'attacco, chi ha questa specializzazione riesce a sferrare cinque colpi con arma bianca in un singolo turno.",
+        
+        'url_image' => 'danzatoredilame.png', 
+    
+    ],
+    [
+   
+        'name' => 'Cacciatore di Fulmini',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Ad Ogni Costo')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Maestro di Bastone')->get()[0]->id,
+          
+        'descrizione' => "L'arma prediletta per questa specializzazione è il bastone, il Cacciatore una volta attivata questa abilità è immune alle scosse elettriche e può attaccare senza preoccuparsi dell'alta tensione per un numero di turni pari alla resistenza/3.",
+        
+        'url_image' => 'cacciatoredifulmini.png',
+    
+    ],
+    [
+   
+        'name' => 'Arco dell\'Aura',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Wing Chun')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Combattimento con Armi da Fuoco(Media e Lunga Distanza)')->get()[0]->id,
+          
+        'descrizione' => "L'arco viene materializzato dal ghost attingendo alla forza del proprio padrone, esso assume il colore dell'aura dell'umano ed è in grado di sferrare sei colpi che variano proprio a seconda di quel colore. 
+                            Rosso, Arancione e Giallo: Dardi Infuocati
+                            Blu,Indaco: Dardi Gelati
+                            Verde,Viola: Dardi Avvelenati
+                            Rosa,Oro: Dardi Curativi(+5 PF a Turno sul bersaglio)",
+           
+        'url_image' => 'arcodellaura.png',
+    
+    ],
+    [
+   
+        'name' => 'Pugni della Distruzione',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Demolition Rocket')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Furia dello Spirito')->get()[0]->id,
+          
+        'descrizione' => "Necessita di un turno di concentrazione, ma dal successivo per 2 azioni si possono sferrare devastanti pugni in grado di causare gravi danni ai nemici, come se venissero colpiti da un’arma da fuoco.",
+
+        'url_image' => 'pugnidelladistruzione.png',     
+    
+    ],
+    [
+   
+        'name' => 'Scudo d\'Assalto',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Martello')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Maestria con Mazze ed Asce')->get()[0]->id,
+          
+        'descrizione' => "Uno scudo d'energia di 60 cm che, solitamente, viene collocato sul braccio non dominante.
+                        Può essere anche lanciato ed è in grado di tornare indietro automaticamente, essendo estremamente resistenze se la forza del personaggio è superiore a 10 può essere usato per spaccare anche muri molto spessi.",
+           
+        'url_image' => 'scudoassalto.png', 
+    
+    ],
+    [
+   
+        'name' => 'Scudo della Sentinella',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestria Prese e Sottomissioni')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Ad Ogni Costo')->get()[0]->id,
+          
+        'descrizione' => "Permette di creare uno scudo dinanzi a sé che protegge sé stessi ed i propri compagni dai colpi nemici per 2 azioni, a meno che non si venga colpiti da un attacco molto forte.
+                            Lo scudo è una cupola dal diametro di 3 m ed altezza 3 m.",
+           
+        'url_image' => 'scudodellasentinella.png', 
+    
+    ],
+    [
+   
+        'name' => 'Pugni del Signore dei Tuoni',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestria Prese e Sottomissioni')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Riflessi Pronti')->get()[0]->id,
+          
+        'descrizione' => "Il titano può elettrificare i suoi guanti e, per tre turni, i suoi colpi avranno la possibilità di paralizzare il nemico oltre a causare lesioni dovute alle scosse.",
+        
+       'url_image' => 'signoretuoni.png', 
+    
+    ],
+    [
+   
+        'name' => 'Justice Hammer',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Martello')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Demolition Rocket')->get()[0]->id,
+          
+        'descrizione' => "Il Titano mediante il ghost è in grado di evocare un martello della dimensione doppia rispetto a sè stesso che maneggia facilmente, l'arma è in grado di infliggere danni aggravati e rimane materializzata per 3 turni. 
+                         Dato il volume dell'arma si può sferrare un solo colpo a turno. ",
+    
+        'url_image' => 'justicehammer.png', 
+
+    ],
+    [
+   
+        'name' => 'Cerchio AOE',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Medicina')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Maestro di Kyusho Jitsu')->get()[0]->id,
+          
+        'descrizione' => "Permette di creare un cerchio dal diametro di 3 m all’interno del quale le persone vengono curate(i punti ferita dipendono dal livello d’intelligenza/2)",
+        
+        'url_image' => 'cerchioaoe.png',
+    
+    ],
+    [
+   
+        'name' => 'Alba Nascente',
+          
+        'livello' => 5,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Scherma Occidentale')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Tempo Prezioso')->get()[0]->id,
+          
+        'descrizione' => "Un potente colpo che porta a sovraccaricare la propria spada od arma da fuoco per poter così sferrare colpi in grado di finire un nemico potente con un solo colpo.",
+        
+        'url_image' => 'albanascente.png',
+
+    ],
+    [
+   
+        'name' => 'Frammenti di Bifrost',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Spada Orientale')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','ATST')->get()[0]->id,
+          
+        'descrizione' => "Il Warlock è in grado di creare piccole piattaforme fluttuanti di diametro di circa 50 cm, è perfettamente in grado di controllarne i movimenti e, quindi, non solo può usare per levitare, ma anche per consentire a compagni di farlo.
+                            Livelli di intelligenza più alti consentono di creare più piattaforme(Intelligenza/4)",
+
+        'url_image' => 'frammentibifrost.png',
+        
+    ],
+    [
+   
+        'name' => 'Sovraccarico dell\'Aura',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Maestro di Kyusho Jitsu')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Vivremo per Sempre')->get()[0]->id,
+          
+        'descrizione' => "A seconda del colore dell'aura un Warlock si sincronizza con il Ghost per rilasciarne il potere e poter così colpire i nemici intorno a sè nel raggio di tre metri, a seconda dell'aura l'effetto è differente. 
+                        
+                        Rosso, Arancione e Giallo: Onda Infuocata
+                        Blu,Indaco: Onda di Ghiaccio
+                        Verde,Viola: Onda Avvelenata
+                        Rosa,Oro: Onda Paralizzante
+                        
+                        Utilizzo: Un turno di carica, un turno per colpire, un turno di riposo.(-5PF Salute Fisica ad utilizzo)",
+
+        'url_image' => 'sovraccaricoaura.png', 
+    ],
+    [
+   
+        'name' => 'Into The Void',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Rilocatore')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Ad Ogni Costo')->get()[0]->id,
+          
+        'descrizione' => "Specializzazione che permette all'utilizzatore di spostarsi su un piano di realtà differente evitando così qualsiasi colpo per un singolo turno, il recupero dell'abilità dipende dal livello di Intelligenza, più alta sarà meno si impiegherà a poterla utilizzare nuovamente. 
+                            Intelligenza 15: 4 Turni
+                            Intelligenza da 16 a 20: 2 Turni
+                            Intelligenza da 21: 1 Turno",
+
+        'url_image' => 'intothevoid.png',
+
+    ],
+    [
+   
+        'name' => 'Beast of the Hunt',
+          
+        'livello' => 10,
+          
+        'id_skill1' => \App\Skill::select('id')->where('name','Tracker')->get()[0]->id,
+          
+        'id_skill2' => \App\Skill::select('id')->where('name','Natural Survival')->get()[0]->id,
+          
+        'descrizione' => "Specializzazione che permette di essere molto più efficenti nella ricerca di traccie anche nel pieno di una battaglia, i sensi sono stati migliorati anche attraverso delle implementazioni fisiche che rendono più semplice captare suoni, rumori o odori(Si deve scegliere uno solo dei tre sensi e dichiararlo al momento dell'acquisto della specializzazione)",
+        
+        'url_image' => 'beastofthehunt.png', 
+    
+    ],
+        ]);
+
+    
+    }
+
     public function insertClasses(){
         $classes=\App\Classe::insert([
            
@@ -487,6 +1087,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 ]
 
             ]);
+         
             $skills_breed=\App\Skill::insert([            
                 [
                     'name' => 'Sensi Sviluppati',
@@ -765,6 +1366,9 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
           //inserire abilita
           $this->insertSkills();
+
+          //inserire le specializzazioni
+          $this->insertSpecialitazions();
    
     }
 }
