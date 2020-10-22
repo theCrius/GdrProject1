@@ -55,6 +55,14 @@
   cursor: pointer;
 }
 
+.sfondo {
+  position: absolute;
+}
+
+.sfondo img {
+  width: 100%;
+}
+
 .riquadroDestra {
   display: -webkit-box;
   display: -ms-flexbox;

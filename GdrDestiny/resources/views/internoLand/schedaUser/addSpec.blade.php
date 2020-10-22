@@ -1,7 +1,10 @@
 @extends('../layouts.appModalInterno')
 @section('content')
 <div class="abilitaAdd">
-    <div class="title"><img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/scegliabilità.png" alt=""></div>
+    <div class="title">
+    <div class="sfondo"><img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/rigatit.png" alt=""></div>
+    <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/sceglispec.png" alt="">
+    </div>
 
     <form action="{{route('storeSpecs',$idUser)}}" method='POST'>
         @csrf
@@ -10,16 +13,16 @@
         <div class="leftContainer">
      
       
-        @for($i=0;$i < 5; $i++)
+        @for($i=0;$i < 5; $i++) 
         <div class="skillToSelect" id='spec'>
     
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt($specs[$i]->id)}}" alt="">
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt(}" alt"">
             <div class="contenitoreText">
                 <div class="title">
-                {{$specs[$i]->name}}
-                </div>
+                
+            </div>
                 <div class="description">
-                    {{$specs[$i]->description}}
+                    
                 </div>
             </div>
         </div>
@@ -32,13 +35,13 @@
     <div class="rightContainer">
     @for($i=5;$i < 10; $i++)
         <div class="skillToSelect" id='spec'>
-            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt($specs[$i]->id)}}" alt=""> 
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/sfondoskill.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt(}" alt""> 
             <div class="contenitoreText">
                 <div class="title">
-                {{$specs[$i]->name}}
-                </div>
+                
+            </div>
                 <div class="description">
-                    {{$specs[$i]->description}}
+                    
                 </div>
             </div>
         </div>
