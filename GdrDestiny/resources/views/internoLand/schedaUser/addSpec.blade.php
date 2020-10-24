@@ -1,14 +1,14 @@
 @extends('../layouts.appModalInterno')
 @section('content')
 <div class="abilitaAdd">
-    <div class="title">
-    <div class="sfondo"><img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/rigatit.png" alt=""></div>
-    <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/sceglispec.png" alt="">
+    <div class="titleWithBackground">
+    <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/rigatit.png" alt="" id='sfondoTitle'>
+    <div class='titleImg'><img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/sceglispec.png" alt=""></div>
     </div>
 
     <form action="{{route('storeSpecs',$idUser)}}" method='POST'>
         @csrf
-
+    <div class="containerWithSfondo">
         <div class="containerAbilita">
         <div class="leftContainer">
      
@@ -51,7 +51,11 @@
         <div class="buttonConferma">
         <button type="submit" id='conferma'><span><img src="/img/imgHomeInterna/home/schedaPg/conferma.png"
                     alt=""></span></button>
+        
+        
         </div>
+        <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/rigatit.png" alt="" id='sfondoTitle'>
+    </div>
     </form>
 </div>
 @endsection
