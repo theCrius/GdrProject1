@@ -549,14 +549,6 @@
   position: relative;
 }
 
-.skillToSelect .sfondoRiquadroSkill {
-  height: inherit;
-  width: inherit;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .skillToSelect .contenitoreText {
   height: inherit;
   width: inherit;
@@ -583,8 +575,20 @@
   text-align: justify;
 }
 
+.sfondoRiquadroSkill {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.titleHeight {
+  height: 4.5vh;
+}
+
 /* APPRENDI SPECIALIZAZZIONE */
-.titleImg {
+.centerToAbsolutePosition {
   height: inherit;
   position: absolute;
   left: 50%;
@@ -593,18 +597,55 @@
           transform: translate(-50%);
 }
 
-.titleImg img {
-  height: 5.5vh;
-}
-
 .titleWithBackground {
   width: 100%;
   height: 7vh;
   position: relative;
 }
 
-.titleWithBackground #sfondoTitle {
+#sfondoTitle {
   width: inherit;
   height: inherit;
+}
+
+.containerWithBackground {
+  height: 46vh;
+  width: 100%;
+  position: relative;
+}
+
+.containerWithBackground .containerAbilita {
+  height: 45vh;
+}
+
+.totalWidth {
+  width: 100%;
+}
+
+.riquadroSpec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 97%;
+  height: 7.5vh;
+}
+
+.modifyHeWSpec {
+  height: inherit;
+  width: 47vh;
+}
+
+.heightSfondoSpecDesc {
+  height: 6vh;
+}
+
+.iconSpec {
+  height: 6.1;
+}
+
+.logoSpec {
+  height: 7.2vh;
+  width: 8vh;
+  position: relative;
 }
 /*# sourceMappingURL=schedaPg.css.map */
