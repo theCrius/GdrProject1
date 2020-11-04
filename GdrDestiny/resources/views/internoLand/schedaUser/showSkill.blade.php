@@ -171,7 +171,14 @@
     </div>
     <div class="boxSpec boxClasse">
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameqspec.png" alt="" class='sfondoBox'>
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
+        <div class='titleShowCenter'>
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
+                @if($skills['classe'])
+                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
+                    alt=""
+                    onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'classe'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
+                @endif
+                </div>
         <div class="immaginiSpec">
             <ul>
                 @for($i=0; $i < 10; $i++)
@@ -184,7 +191,14 @@
     </div>
     <div class="boxSpec boxEmisfero">
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameqspec.png" alt="" class='sfondoBox'>
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
+        <div class='titleShowCenter'>
+            <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
+                @if($skills['hemispere'])
+                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
+                    alt=""
+                    onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'hemispere'])}}',null,'{{$errors['scriptName'] ?? ''}}')">
+                @endif
+                </div>
         <div class="immaginiSpec">
             <ul>
                 @for($i=0; $i < 10; $i++) <li> <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png">

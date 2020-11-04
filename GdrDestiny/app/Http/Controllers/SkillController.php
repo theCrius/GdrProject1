@@ -14,7 +14,7 @@ class SkillController extends Controller
     }
 
 
-
+    
     public static function getSkills(User $user){
         
         $skillOrdered = [
