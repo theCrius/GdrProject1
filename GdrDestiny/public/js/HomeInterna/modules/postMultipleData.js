@@ -65,7 +65,8 @@ class postMultipleData{
     
     SkillToSelect(htmlObjectClicked,idName){
         let classThis=this
-        let htmlObjectBoxClicked=htmlObjectClicked.parentElement.parentElement
+        
+        let htmlObjectBoxClicked=htmlObjectClicked.querySelector('.skillToSelect')
         if(htmlObjectBoxClicked.id == idName){
             let skillSelectedByUser=classThis.SkillSelected(classThis)
             

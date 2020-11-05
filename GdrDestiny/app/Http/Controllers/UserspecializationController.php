@@ -19,13 +19,12 @@ class UserspecializationController extends Controller
             $idSkills[]=$skill['id'];
         }
         
-        $skill=\App\Specialization::whereIn('id_skill1', $idSkills)->whereIn('id_skill2',$idSkills)->whereNotIn('id',\App\Userspecialization::select('id_specialization')->where('id_user',$idUser)->get()[0])->get();
+        $specs=\App\Specialization::whereIn('id_skill1', $idSkills)->whereIn('id_skill2',$idSkills)->whereNotIn('id',\App\Userspecialization::select('id_specialization')->where('id_user',$idUser)->get()[0] ?? [])->get();
         
-
-        if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
+        
        return view('internoLand.schedaUser.addSpec',[
         'idUser' => $idUser,
-        'specs' => $specFrom
+        'specs' => $specs
         ]);
     }
 

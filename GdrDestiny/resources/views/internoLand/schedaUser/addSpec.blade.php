@@ -18,13 +18,29 @@
         @for($i=0;$i < 5; $i++) 
         <div class='riquadroSpec'>
             <div class="skillToSelect modifyHeWSpec" id='spec'>
-                <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/descrriq.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt(}" alt""> 
+                <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/descrriq.png" class='sfondoRiquadroSkill'  @if((isset($specs[$i]))) data-id="{{  \Crypt::encrypt($specs[$i]->id)  }}" @endif alt> 
                 <div class="contenitoreText">
                     <div class="title">
-                    
+                        @if((isset($specs[$i]))) 
+
+                            {{ $specs[$i]->name  }}
+                           
+                            
+                        @else 
+                        Specializzazione Non presente
+
+                        @endif
                 </div>
                     <div class="description">
-                        
+                        @if((isset($specs[$i]))) 
+
+                            {{ $specs[$i]->descrizione  }}
+                           
+                            
+                        @else 
+                        Probabilmente l'hai già acquistata
+
+                        @endif
                     </div>
                 </div>
             </div>
@@ -42,13 +58,29 @@
     @for($i=5;$i < 10; $i++)
         <div class='riquadroSpec'>
         <div class="skillToSelect modifyHeWSpec" id='spec'>
-            <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/descrriq.png" class='sfondoRiquadroSkill'  data-id="{{\Crypt::encrypt(}" alt""> 
+            <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/descrriq.png" class='sfondoRiquadroSkill'  @if((isset($specs[$i]))) data-id="{{  \Crypt::encrypt($specs[$i]->id)  }}" @endif alt""> 
             <div class="contenitoreText">
                 <div class="title">
-                
+                    @if((isset($specs[$i]))) 
+
+                    {{ $specs[$i]->name  }}
+                   
+                    
+                @else 
+                Specializzazione Non presente
+
+                @endif
             </div>
                 <div class="description">
+                    @if((isset($specs[$i]))) 
+
+                    {{ $specs[$i]->descrizione  }}
+                   
                     
+                @else 
+                Probabilmente l'hai già acquistata
+
+                @endif
                 </div>
             </div>
         </div>
