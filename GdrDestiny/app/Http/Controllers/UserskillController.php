@@ -78,7 +78,7 @@ class UserskillController extends Controller
 
         }catch(\Exception $e){
             
-            return $this->returnBackWithError($request,$e);
+            return $this->returnBackWithError($request,$e->getMessage());
         }
        
         $whatshowsInModal1=[

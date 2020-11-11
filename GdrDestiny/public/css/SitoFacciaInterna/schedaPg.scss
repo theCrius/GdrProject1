@@ -406,11 +406,14 @@
     align-items: center;
     justify-content: center;
 }
-.selected{
+.selectedWithShadow{
     box-shadow:  5px  5px 2px #2cc6c8,
               -5px -5px 2px #2cc6c8,
                5px -5px 2px #2cc6c8,
               -5px  5px 2px #2cc6c8;
+}
+.selectedWithOpacity{
+    opacity: 0.5;
 }
 .skillToSelect{
     height: 8vh;

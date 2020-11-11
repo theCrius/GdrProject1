@@ -538,9 +538,13 @@
   height: 20vh;
 }
 
-.selected {
+.selectedWithShadow {
   -webkit-box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
           box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
+}
+
+.selectedWithOpacity {
+  opacity: 0.5;
 }
 
 .skillToSelect {

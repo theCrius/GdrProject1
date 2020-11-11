@@ -1,4 +1,4 @@
 # MarkDown To-Do
 
-- [ ] Fare PostmutipleData
-- [ ] Problema riguardanti idRiquadri, mi serve quello sopra, selezionato
+ - [ ] Fare immagine affianco spec
+ - [ ] Levare soldi/Exp mi pare 200 o 100
