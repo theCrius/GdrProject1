@@ -1,5 +1,4 @@
 # MarkDown To-Do
 
-- Fare Spec Blade
-- Inserire specs nel database
-- Specs controller sopratutto
+- [ ] Fare PostmutipleData
+- [ ] Problema riguardanti idRiquadri, mi serve quello sopra, selezionato

@@ -18,12 +18,12 @@ class postMultipleData{
 
         if( !this.formWhereAreDatas ) throw new Error('form non trovato')
 
-        this.skills=this.formWhereAreDatas.querySelectorAll('#skill');
+        this.skills=this.formWhereAreDatas.querySelectorAll('.skillToSelect');
 
         if( !this.skills ) throw new Error('skill non presenti')
 
         
-        this.formWhereAreDatas.addEventListener('click',(event) => { this.SkillToSelect(event.target,'skill') } )
+        this.formWhereAreDatas.addEventListener('click',(event) => { this.SkillToSelect(event.target,'skillToSelect') } )
         this.formWhereAreDatas.querySelector('#conferma').addEventListener('click',(event) => { this.submitData(event,this.SkillSelected())})
 
 
@@ -63,18 +63,18 @@ class postMultipleData{
     }
 
     
-    SkillToSelect(htmlObjectClicked,idName){
+    SkillToSelect(htmlObjectClicked,className1){
         let classThis=this
         
-        let htmlObjectBoxClicked=htmlObjectClicked.querySelector('.skillToSelect')
-        if(htmlObjectBoxClicked.id == idName){
+        let htmlObjectBoxClicked=htmlObjectClicked.parentElement
+        if(htmlObjectBoxClicked.className.indexOf(className1)){
             let skillSelectedByUser=classThis.SkillSelected(classThis)
             
             //remove status selected
-            if(htmlObjectBoxClicked.className.includes('selected')) return eliminateClassSelected(htmlObjectBoxClicked)
+            if(classThis.idRiquadri.className.includes('selected')) return eliminateClassSelected(classThis.idRiquadri)
             
             if(skillSelectedByUser.length === this.maxDataToSend) eliminateClassSelected(skillSelectedByUser[0])
-            htmlObjectBoxClicked.className+=' selected'
+            classThis.idRiquadri.className+=' selected'
         }
 
 
