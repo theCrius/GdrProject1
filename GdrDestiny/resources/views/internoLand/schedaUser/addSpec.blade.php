@@ -17,7 +17,7 @@
       
         @for($i=0;$i < 5; $i++) 
         <div class='riquadroSpec'>
-            <div class="skillToSelect modifyHeWSpec" id='spec'>
+            <div class="skillToSelect modifyHeWSpec">
                 <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/descrriq.png" class='sfondoRiquadroSkill'  @if((isset($specs[$i]))) data-id="{{  \Crypt::encrypt($specs[$i]->id)  }}" @endif alt> 
                 <div class="contenitoreText">
                     <div class="title">
@@ -47,7 +47,9 @@
             <div class='logoSpec'>
                 <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/specvuota.png" class='sfondoRiquadroSkill'> 
                 <div class="contenitoreText">
-                   
+                    @if(isset($specs[$i]))
+            <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs[$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
+            @endif
                     </div>
                 </div>
             </div>
@@ -57,7 +59,7 @@
     <div class="rightContainer">
     @for($i=5;$i < 10; $i++)
         <div class='riquadroSpec'>
-        <div class="skillToSelect modifyHeWSpec" id='spec'>
+        <div class="skillToSelect modifyHeWSpec">
             <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/descrriq.png" class='sfondoRiquadroSkill'  @if((isset($specs[$i]))) data-id="{{  \Crypt::encrypt($specs[$i]->id)  }}" @endif alt""> 
             <div class="contenitoreText">
                 <div class="title">
@@ -87,7 +89,9 @@
         <div class='logoSpec'>
             <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/specvuota.png" class='sfondoRiquadroSkill'> 
             <div class="contenitoreText">
-               
+                @if(isset($specs[$i]))
+            <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs[$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
+            @endif
                 </div>
             </div>
         </div>

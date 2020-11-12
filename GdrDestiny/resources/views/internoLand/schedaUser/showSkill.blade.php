@@ -164,7 +164,17 @@
                 </div>
         <div class="immaginiSpec">
             <ul>
-                @for($i=0; $i < 10; $i++) <li> <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png">
+                @for($i=0; $i < 10; $i++) <li> 
+                    <div class='logoSpecShow'>
+                        <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png" class='sfondoRiquadroSkill'> 
+                        <div class="contenitoreText">
+                            @if(isset($specs['breed'][$i]))
+                    <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs['breed'][$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
+                    @endif
+                            </div>
+                        </div>
+                    
+                   
                     </li>
                     @endfor
             </ul>
@@ -184,7 +194,14 @@
             <ul>
                 @for($i=0; $i < 10; $i++)
                  <li> 
-                 <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png">
+                    <div class='logoSpecShow'>
+                        <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png" class='sfondoRiquadroSkill'> 
+                        <div class="contenitoreText">
+                            @if(isset($specs['classe'][$i]))
+                    <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs['classe'][$i]}}" class='sfondoRiquadroSkill' id='iconeSpecsShow'> 
+                    @endif
+                            </div>
+                        </div>
                     </li>
                     @endfor
             </ul>

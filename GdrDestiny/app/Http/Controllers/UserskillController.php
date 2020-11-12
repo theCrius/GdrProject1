@@ -55,9 +55,27 @@ class UserskillController extends Controller
             'idUser' => $idUser,
             
             
+            
         
         ]);
    }
+
+    public function checkIfSkillIsGetting($skillId,$userId){
+        $Skill=\App\Skill::find($skillId);
+        $user=\App\User::find($userId);
+
+        foreach( $user->classes as $class ){
+            $idClasses[]=$class->id;
+        }
+
+        
+        if($Skill->id_breed == $user->id_razza  ||  $Skill->id_hemispere == $user->id_emisfero    || in_array($Skill->id_classe,$idClasses)) return true;
+
+        //if the skill is not getting because the user doesn't own the the breed or the classes or the hemispere right
+        return false;
+
+
+    }
 
    public function storeSkills($idUser, Request $request){
 
@@ -65,19 +83,25 @@ class UserskillController extends Controller
         $user=\Auth::user();
        
         if( !$idSkills || count($idSkills) != 3) $messageToShow='devi scegliere 3 skill';
+        
         if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
         if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
         try{
             foreach($idSkills as $idSkill){
+                $idSkillDecrypt=\Crypt::decrypt($idSkill);
+                
+                if(!$this->checkIfSkillIsGetting($idSkillDecrypt,$idUser)) return $this->returnBackWithError($request,'non puoi ottenere la skill');
+
                 \App\Userskill::insert([
-                    'id_skill' => \Crypt::decrypt($idSkill),
+                    'id_skill' => $idSkillDecrypt,
                     'id_user' => $idUser,
-                    'livello' => 1
+                    'livello' => 1,
+                    'created_at' => now()
                 ]);
+                
             }
 
         }catch(\Exception $e){
-            
             return $this->returnBackWithError($request,$e->getMessage());
         }
        
@@ -90,7 +114,7 @@ class UserskillController extends Controller
  
 
    public function incrementLevelOfSkill($idUser,$idSkill,Request $request){
-        $updateLevel=\App\Userskill::where('id_user',$idUser)->where('id_skill',$idSkill)->get()[0];
+        $updateLevel=\App\Userskill::where('id_user',$idUser)->where('id_skill',$idSkill)->with('skill')->get()[0];
         $user=\Auth::user();
         $userExp=ExpController::getSumOfExp($idUser);
 
@@ -115,12 +139,7 @@ class UserskillController extends Controller
         //save the change
         $updateLevel->save();
         
-        \App\Exp::insert([
-            'exp_dati' => -$expToUseToBuyLevel,
-            'id_user_from' => 1,
-            'id_user_to' => $idUser,
-            'motivazione' => 'acquisto skill'
-        ]);
+        ExpController::removeExp($expToUseToBuyLevel,1,$idUser,'Upgrade livello ('. $updateLevel->livello . ') : '. $updateLevel->skill->name );
         
         $whatshowsInModal=[
             'routeName' => 'showSkills',

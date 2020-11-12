@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Catch_;
 
 class ExpController extends Controller
 {
@@ -16,5 +17,35 @@ class ExpController extends Controller
         }
         
         return $exps;
+    }
+
+    public static function addExp($expToAdd,$idUserFrom,$idUserTo,$motivazione){
+        try{
+            \App\Exp::insert([
+                'exp_dati' => $expToAdd,
+                'id_user_from' => $idUserFrom,
+                'id_user_to' => $idUserTo,
+                'motivazione' => $motivazione,
+                'created_at' => now()
+            ]);
+                
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }   
+    }
+
+    public static function removeExp($expToAdd,$idUserFrom,$idUserTo,$motivazione){
+        try{
+            \App\Exp::insert([
+                'exp_dati' => -$expToAdd,
+                'id_user_from' => $idUserFrom,
+                'id_user_to' => $idUserTo,
+                'motivazione' => $motivazione,
+                'created_at' => now()
+            ]);
+                
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }   
     }
 }

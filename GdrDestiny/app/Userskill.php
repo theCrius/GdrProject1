@@ -10,5 +10,9 @@ class Userskill extends Model
         'id_user','id_skill','livello'
     ];
 
+    public function skill(){
+        return $this->belongsTo('App\Skill','id_skill','id');
+    }
+
 
 }

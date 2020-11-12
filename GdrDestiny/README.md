@@ -1,4 +1,4 @@
 # MarkDown To-Do
 
- - [ ] Fare immagine affianco spec
- - [ ] Levare soldi/Exp mi pare 200 o 100
+ - [ ] Fare che le skill sono selezionabili max 10
+ - [ ] Fare che non puoi scegliere due razze uguali
