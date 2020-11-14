@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class UserspecializationController extends Controller
 {
     public function returnSpecsOfUser($idUser){
-        $specs_of_user=\App\Userspecialization::select('id_specialization')->where('id_user',$idUser)->get();
+        $specs_of_user=\App\User::find($idUser)->specs;
         foreach($specs_of_user as $spec_of_user){
             
             $idSpecsUser[]=$spec_of_user->id_specialization;
@@ -43,13 +43,13 @@ class UserspecializationController extends Controller
 
 
         //check if the user has the the exp necessary to buy the level
-        if( $userExp < 100 ) $messageToShow='Hai bisogno di ' . (100 - $userExp) . ' exp';
-
+        if( $userExp < 100 * count($idSpecs) ) $messageToShow='Hai bisogno di ' . (100 * count($idSpecs) - $userExp) . ' exp';
+        
         $user=\Auth::user();
         
         if( !$idSpecs ) $messageToShow='devi scegliere almeno 1 specializzazione';
         if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
-
+        if(( count($this->returnSpecsOfUser()) + count($idSpecs) )> 10 ) $messageToShow='Hai scelto troppe specializzazioni';
         if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
 
         try{
