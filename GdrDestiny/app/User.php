@@ -47,6 +47,9 @@ class User extends Authenticatable
         // Your your own implementation.
         $this->notify(new ResetPasswordNotification($token));
     }
+    public function hemispere(){
+        return $this->belongsTo('App\Hemispere','id_emisfero','id');
+    }
 
     public function breed(){
         return $this->belongsTo('App\Breed','id_razza','id');
