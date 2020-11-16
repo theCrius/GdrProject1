@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE')))
+@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt=""></div>
 @endif
 <ul id='icone'>
@@ -43,6 +43,13 @@
     <div class="riquadroDestra">
         <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
+        <img src="/img/imgHomeInterna/home/schedaPg/log.png" alt="" id='logImmagine'>
+        <div id="namePg">
+            <p>{{$userToView->name}} </p>
+        </div>
+        <div id='surnamePg'>
+        <p>{{$userToView->surname}}</p>
+        </div>
         <div class="riquadroContenuto">
             <div class="immagineProfilo">
                 <img src="{{$userToView->immagine_avatar}}" alt="">
@@ -73,6 +80,17 @@
 @section('footer')
 @if($userToView->id === $userView->id)
 <div class='levelup'><img src="/img/imgHomeInterna/home/schedaPg/levelup.png" alt=""> </div>
+@endif
+<ul id='iconeFooter'>
+    <li><img src="/img/imgHomeInterna/home/schedaPg/emisfero.png" alt=""> </li>
+
+    <li><img src="/img/imgHomeInterna/home/schedaPg/mechaeso.png" alt=""> </li>
+
+    <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> </li>
+</ul>
+
+@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
+<div class='expShow'><img src="/img/imgHomeInterna/home/schedaPg/esperienza.png" alt=""> <p> {{$expsUser}} </div>
 @endif
 
 @endsection

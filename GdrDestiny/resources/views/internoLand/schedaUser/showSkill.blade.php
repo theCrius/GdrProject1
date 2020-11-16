@@ -58,7 +58,7 @@
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
     <div class='titleShowCenter hemispereTitle'>
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaclasse.png" alt="" class='titleAbilita'>
-        @if(empty($skills['classe']))
+        @if(empty($skills['classe']) && ( $id_user === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,3])) )
         <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
             alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'classe'])}}',null,'/schedaPg/addSkill.js')">
     </div>
@@ -105,7 +105,7 @@
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameab.png" alt="" class='sfondoBox'>
     <div class='titleShowCenter'>
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaemisfero.png" alt="" class='titleAbilita emisfero'>
-        @if(empty($skills['hemispere']))
+        @if(empty($skills['hemispere']) && ( $id_user === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,3])) )
         <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
             alt=""
             onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'hemispere'])}}',null,'/schedaPg/addSkill.js')">
@@ -156,7 +156,7 @@
 
         <div class='titleShowCenter'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
-                @if($skills['breed'])
+                @if($skills['breed'] && ( $id_user === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,3])) )
                 <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
                     alt=""
                     onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'breed'])}}',null,'/schedaPg/addSpec.js')">
@@ -184,7 +184,7 @@
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameqspec.png" alt="" class='sfondoBox'>
         <div class='titleShowCenter'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
-                @if($skills['classe'])
+                @if($skills['classe'] && ( $id_user === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,3]))  )
                 <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
                     alt=""
                     onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'classe'])}}',null,'/schedaPg/addSpec.js')">
@@ -211,7 +211,7 @@
         <img src="/img/imgHomeInterna/home/schedaPg/abilità/frameqspec.png" alt="" class='sfondoBox'>
         <div class='titleShowCenter'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
-                @if($skills['hemispere'])
+                @if($skills['hemispere'] && ( $id_user === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,3]))  )
                 <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
                     alt=""
                     onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'hemispere'])}}',null,'/schedaPg/addSpec.js')">

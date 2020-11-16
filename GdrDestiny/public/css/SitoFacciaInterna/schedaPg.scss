@@ -195,6 +195,97 @@
 
 }
 
+#namePg, #surnamePg{
+    position: absolute;
+    text-align: center;
+    overflow-x: hidden;
+    p{
+        color: #bff4fe;
+        font-size: 1.2vh;
+    }
+}
+#namePg{
+    top: 3.5vh;
+    width: 11vh;
+    left: 47.5vh;
+}
+#surnamePg{
+    right: 12.5vh;
+    top: 3.5vh;
+    width: 11vh;
+}
+
+#iconeFooter{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    position: absolute;
+    top: 0.5vh;
+    left: 27.5vh;
+    width : 58vh;
+    li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3.8vh;
+        width: 19.4vh;
+        img{
+            height: 2vh;
+        }
+    }
+}
+.expShow{
+    width: 26vh;
+    height: 3.2vh;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        height: 3.5vh;
+
+    }
+    p{
+        color: #bff4fe;
+    }
+}
+
+#logImmagine{
+    position: absolute;
+    top:0;
+    left:38vh;
+    height: 9.5vh;
+}
+.emisferoShow , .genereShow , .mechaShow{
+    img{
+        height: 2vh;
+    }
+    position: absolute;
+}
+.emisferoShow{
+    
+    height: 3.5vh;
+    width: 18vh;
+    
+    left: 28.5vh;
+    top: 1.2vh;
+    
+}
+.mechaShow{
+    
+    height: 3.5vh;
+    width: 29vh;
+    
+    left: 0;
+}
+.genereShow{
+    
+    height: 3.5vh;
+    width: 29vh;
+    
+    left: 0;
+}
 /* ADD CLASS */
 .chooseClass{
     text-align: center;

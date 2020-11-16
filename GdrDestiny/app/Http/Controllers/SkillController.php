@@ -85,6 +85,7 @@ class SkillController extends Controller
        return view('internoLand.schedaUser.showSkill',[
         'skills' =>  self::getSkills($user),
         'id_user' => $user->id,
+        'userView' => \Auth::user(),
         'specs' => self::getSpecs($user)
        ]);
    } 

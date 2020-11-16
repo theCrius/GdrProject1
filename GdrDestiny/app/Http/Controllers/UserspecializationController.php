@@ -41,15 +41,15 @@ class UserspecializationController extends Controller
         $idSpecs=$request->idSpecs;
         $userExp=ExpController::getSumOfExp($idUser);
 
+        if( !$idSpecs ) return $this->returnBackWithError($request,'Devi selezionare almeno una specializzazioni');
 
         //check if the user has the the exp necessary to buy the level
         if( $userExp < 100 * count($idSpecs) ) $messageToShow='Hai bisogno di ' . (100 * count($idSpecs) - $userExp) . ' exp';
         
         $user=\Auth::user();
         
-        if( !$idSpecs ) $messageToShow='devi scegliere almeno 1 specializzazione';
         if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
-        if(( count($this->returnSpecsOfUser()) + count($idSpecs) )> 10 ) $messageToShow='Hai scelto troppe specializzazioni';
+        if(( count($this->returnSpecsOfUser($idUser)) + count($idSpecs) )> 10 ) $messageToShow='Hai scelto troppe specializzazioni';
         if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
 
         try{
