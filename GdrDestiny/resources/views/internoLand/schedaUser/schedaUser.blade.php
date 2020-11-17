@@ -87,7 +87,7 @@
 
     <li><img src="/img/imgHomeInterna/home/schedaPg/mechaeso.png" alt=""> </li>
 
-    <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> </li>
+    <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Sesso/{{ $userToView->sesso }}.png" alt=""></li>
 </ul>
 
 @if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
