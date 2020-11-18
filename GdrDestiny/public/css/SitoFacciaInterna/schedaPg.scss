@@ -8,6 +8,7 @@
 ::-webkit-scrollbar {
     width: 3px;
   }
+
   
   /* Track */
   ::-webkit-scrollbar-track {
@@ -613,4 +614,26 @@
 }
 #iconeSpecsShow{
     height: 4.9vh;
+}
+
+/* BACKGROUND */
+#immagineBgLeft{
+    height: 50vh;
+    cursor: auto;
+}
+.textBackground{
+    position: absolute;
+    height: 47vh;
+    width: 59.5vh;
+    left: 4.8vh;
+    color: #bff4fe;
+    font-size: 1.5vh;
+    overflow-x: auto;
+    text-align: justify;
+    p{
+        padding: 1em;
+    }
+}
+.parentRelative{
+    position: relative;
 }

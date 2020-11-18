@@ -33,12 +33,16 @@
 @section('content')
 <div class='contentSub'>
     <div class="button">
-
+        <img src="/img/imgHomeInterna/home/schedaPg/background/background.png" alt="" id='immagineBgLeft'>
     </div>
 
-    <div class="riquadroDestra">
+    <div class="riquadroDestra parentRelative">
         <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
-        <div class="riquadroContenuto">
+
+        <div class="textBackground">
+            <p>
+                {{$userToView->background ?? 'Background non ancora scritto'}}
+</p>
             </div>
     </div>
 </div>
