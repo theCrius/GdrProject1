@@ -33,45 +33,13 @@
 @section('content')
 <div class='contentSub'>
     <div class="button">
-        <img src="/img/imgHomeInterna/home/schedaPg/abilità.png" alt="" onclick="modal.openModal('{{route('showSkills',$userToView)}}')">
-        <img src="/img/imgHomeInterna/home/schedaPg/background.png"  onclick="modal.openModal('{{route('showBackground',$userToView)}}')" alt="">
-        <img src="/img/imgHomeInterna/home/schedaPg/notefato.png" alt="">
-        <img src="/img/imgHomeInterna/home/schedaPg/inventario.png" alt="">
 
     </div>
 
     <div class="riquadroDestra">
-        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
-        <img src="/img/imgHomeInterna/home/schedaPg/log.png" alt="" id='logImmagine'>
-        <div id="namePg">
-            <p>{{$userToView->name}} </p>
-        </div>
-        <div id='surnamePg'>
-        <p>{{$userToView->surname}}</p>
-        </div>
         <div class="riquadroContenuto">
-            <div class="immagineProfilo">
-                <img src="{{$userToView->immagine_avatar}}" alt="">
             </div>
-            <div class="statisticheProfilo">
-                <img src="/img/imgHomeInterna/home/schedaPg/statistiche.png" alt="">
-                <div class="leftStat">
-                    <ul>
-                        <li>{{$userToView->forza + $userToView->breed->forza}}&nbsp&nbsp{{$userToView->breed->forzaLimite}}</li>
-                        <li>{{$userToView->destrezza + $userToView->breed->destrezza}}&nbsp&nbsp{{$userToView->breed->destrezzaLimite}}</li>
-                        <li>{{$userToView->resistenza + $userToView->breed->resistenza}}&nbsp&nbsp{{$userToView->breed->resistenzaLimite}}</li>
-                    </ul>
-                </div>
-                <div class="rightStat">
-                    <ul>
-                        <li>{{$userToView->prontezza + $userToView->breed->prontezza}}&nbsp&nbsp{{$userToView->breed->prontezzaLimite}}</li>
-                        <li>{{$userToView->percezione + $userToView->breed->percezione}}&nbsp&nbsp{{$userToView->breed->percezioneLimite}}</li>
-                        <li>{{$userToView->intelligenza + $userToView->breed->intelligenza}}&nbsp&nbsp{{$userToView->breed->intelligenzaLimite}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -90,8 +58,6 @@
     <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Sesso/{{ $userToView->sesso }}.png" alt=""></li>
 </ul>
 
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
-<div class='expShow'><img src="/img/imgHomeInterna/home/schedaPg/esperienza.png" alt=""> <p> {{$expsUser}} </div>
-@endif
+
 
 @endsection

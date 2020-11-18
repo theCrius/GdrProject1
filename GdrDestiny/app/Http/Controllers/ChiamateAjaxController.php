@@ -23,6 +23,15 @@ class ChiamateAjaxController extends Controller{
         ]);
     }
 
+    public function showBackground($idUser , Request $request){
+        return view('internoLand.schedaUser.background', [
+            'userToView' => User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0],
+            'errors' => $request->errors,
+            'userView' => \Auth::user(),
+
+        ]);
+    }
+
 
 }
 
