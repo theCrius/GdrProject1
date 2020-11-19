@@ -44,8 +44,10 @@
     </div>
 
     <div class="riquadroDestra parentRelative">
-        <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
-
+        <img src="/img/imgHomeInterna/home/schedaPg/background/backsfondobac.png" id='riquadroImmagineStatistiche' alt="">
+        <div class="titleBackground">
+            <img src="/img/imgHomeInterna/home/schedaPg/background/title.png" alt="">
+        </div>
         <div class="textBackground">
             <p>
                 {{$userToView->background ?? 'Background non ancora scritto'}}

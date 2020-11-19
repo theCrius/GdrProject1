@@ -47,6 +47,10 @@ class ChiamateAjaxController extends Controller{
     ]);
     }
 
+    public function updateBackground($idUser, Request $request){
+
+    }
+
 
 }
 

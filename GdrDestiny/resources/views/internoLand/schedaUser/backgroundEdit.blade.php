@@ -34,13 +34,23 @@
     </div>
 
     <div class="riquadroDestra parentRelative">
-        <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
-
-        <div class="textBackground">
-            <p>
-                {{$userToView->background ?? 'Background non ancora scritto'}}
-</p>
+        <img src="/img/imgHomeInterna/home/schedaPg/background/backsfondobac.png" id='riquadroImmagineStatistiche' alt="">
+        <div class="titleBackground">
+            <img src="/img/imgHomeInterna/home/schedaPg/background/title.png" alt="">
+        </div>
+    <form action="{{ route('updateBackground',$userToView) }}" method='post' id='backgroundForm'>
+        @csrf 
+        @method('put')
+        <div class="contentUpdateBackground">
+                <textarea name="background" id="backgroundTextarea" autofocus>{{$userToView->background ?? 'Background non ancora scritto'}}</textarea>
+               <div id='musicLinkDiv'>
+                <img src="/img/imgHomeInterna/home/schedaPg/background/linkmusica.png" alt="" id='musicEditBackground'>
+                <input type="text" name="linkMusic" id="linkMusic">
+               </div>
             </div>
+
+            <button type="submit" id="confermaBackground"><span><img src="/img/imgHomeInterna/home/schedaPg/background/confermabck.png" alt=""></span></button>
+        </form>
     </div>
 </div>
 
