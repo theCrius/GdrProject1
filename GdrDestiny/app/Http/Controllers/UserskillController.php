@@ -16,7 +16,7 @@ class UserskillController extends Controller
         $idSkillsGotByUser= [];
 
     
-    $this->saveDataPreSubmit($request,'schedaPg/addSkill.js',$user);
+    $this->saveDataPreSubmit($request,'schedaPg/addSkill.js');
     //get the id of skill are already gotten 
     foreach($skillsOfUser[$skillFrom] as $skillOfUser){
 

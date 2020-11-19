@@ -21,7 +21,7 @@ class UserspecializationController extends Controller
         $user=\App\User::where('id',$idUser)->with('skills')->get()[0];
         $userSkills=SkillController::getSkills($user)[$specFrom];
 
-       $this->saveDataPreSubmit($request,'schedaPg/addSpec.js',$user);
+       $this->saveDataPreSubmit($request,'schedaPg/addSpec.js');
         
         //get the id of the skills
         foreach($userSkills as $skill){

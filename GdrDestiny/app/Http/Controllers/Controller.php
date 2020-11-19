@@ -41,7 +41,7 @@ class Controller extends BaseController
     
         
     
-    return redirect()->route($request->session()->get('last-position:Chat'),["errors" => $request->errors]) ;
+    return redirect()->route(\Auth::user()->last_chat,["errors" => $request->errors]) ;
 }
 
     public function returnBack(Request $request,String $whereToGo=null,Array $WhatShowsInModal=null){
@@ -50,8 +50,9 @@ class Controller extends BaseController
             'routeName' => $WhatShowsInModal['routeName'] ?? $request->session()->get('last-position:View'),
             'parametrs' => $WhatShowsInModal['parametrs'] ?? $request->session()->get('last-position:RouteParams'),
         ];
+
         if(!$whereToGo) $whereToGo = $request->session()->get('last-position:Chat');
-        return redirect()->route($whereToGo,['errors' => $request->errors]);
+        return redirect()->route(\Auth::user()->last_chat,['errors' => $request->errors]);
     }
 
 
@@ -59,7 +60,6 @@ public function saveDataPreSubmit(Request $request,String $scripName=null,\App\U
   
 
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
-    $request->session()->flash('last-position:Chat',$user->last_chat ?? \Auth::user()->last_chat);
     $request->session()->flash('last-position:View',$request->route()->getName());
     if($scripName) $request->session()->flash('last-position:ScriptName',$scripName);
 }

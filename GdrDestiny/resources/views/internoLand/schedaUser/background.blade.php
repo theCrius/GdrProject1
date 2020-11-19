@@ -50,7 +50,7 @@
         </div>
         <div class="textBackground">
             <p>
-                {{$userToView->background ?? 'Background non ancora scritto'}}
+                {!! $userToView->background ?? 'Background non ancora scritto' !!}
 </p>
             </div>
     </div>

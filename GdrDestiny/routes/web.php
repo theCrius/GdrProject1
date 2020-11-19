@@ -62,6 +62,7 @@ Route::get('/user/{idUser}/background','ChiamateAjaxController@showBackground')-
 
 //modify the background
 Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
-Route::put('/user/{idUser/background/update', 'ChiamateAjaxController@updateBackground')->name('updateBackground');
+Route::put('/user/{idUser}/background/update', 'ChiamateAjaxController@updateBackground')->name('updateBackground');
+
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

@@ -23,7 +23,7 @@ class UserclasseController extends Controller
         $classesUser=\App\Userclasse::where('id_user',$user->id)->get();
         
         if(count($classesUser) > 1) $this->returnBackWithError($request,'hai già scelto le tue classi');
-        $this->saveDataPreSubmit($request,null,$user);
+        $this->saveDataPreSubmit($request,null);
         
         return view('internoLand.schedaUser.addClass',[
         'errors' => $request->errors,

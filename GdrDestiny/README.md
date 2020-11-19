@@ -1,4 +1,6 @@
 # MarkDown To-Do
-- [ ] Fare background
 - [ ] Fare player musicale
 - [ ] Fare la vita nella scheda pg
+
+- [ ] Fare controlli background (sopratutto ruolo)
+- [ ] Aggiungere link mp3 media player(controlli)
