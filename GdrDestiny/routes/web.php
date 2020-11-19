@@ -57,7 +57,11 @@ Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 //Modify the level of skill
 Route::get('/user/{idUser}/{idSkill}/UpdateSkillLevel','UserskillController@incrementLevelOfSkill')->name('updateSkillLevel');
 
+//get background
 Route::get('/user/{idUser}/background','ChiamateAjaxController@showBackground')->name('showBackground');
+
+//modify the background
+Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
 
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

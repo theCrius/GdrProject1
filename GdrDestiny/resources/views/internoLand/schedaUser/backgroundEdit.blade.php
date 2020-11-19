@@ -1,8 +1,5 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
-<div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('modifyBackground', $userToView->id)}}')"></div>
-@endif
 <ul id='icone'>
     <li><img src="/img/imgHomeInterna/home/schedaPg/corporazione.png" alt=""> <img src="#" alt=""> </li>
 
@@ -34,13 +31,6 @@
 <div class='contentSub'>
     <div class="button">
         <img src="/img/imgHomeInterna/home/schedaPg/background/background.png" alt="" id='immagineBgLeft'>
-        <div class="musicPlayer">
-                <audio id="player" src="#"></audio>
-                <div class="player">
-                    <button class="play"></button>
-                    <button class="stop"></button>
-                </div>
-        </div>
     </div>
 
     <div class="riquadroDestra parentRelative">

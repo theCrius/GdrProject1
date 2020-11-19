@@ -32,6 +32,21 @@ class ChiamateAjaxController extends Controller{
         ]);
     }
 
+    public function editBackground($idUser, Request $request){
+        $userIdToView=User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0];
+        $userView=\Auth::user();
+        //$userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]
+
+
+        return view('internoLand.schedaUser.backgroundEdit',
+    [   
+        'userToView' => $userIdToView,
+        'userView' => $userView
+        
+
+    ]);
+    }
+
 
 }
 

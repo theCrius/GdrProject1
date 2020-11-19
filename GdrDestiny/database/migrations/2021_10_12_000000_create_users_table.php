@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('nazionalità');
             $table->string('password');
+            $table->string('url_music')->nullable();
             $table->enum('sesso',['m','f']);
             $table->foreignId('id_razza');
             $table->foreignId('id_emisfero');
