@@ -670,11 +670,12 @@
 #backgroundTextarea{
     width: inherit;
     height: 45vh;
-    padding: 1em;
+    padding: 1vh;
     background: transparent;
     border: none;
     color: #bff4fe;
     resize: none;
+    font-size: 1.8vh;
    
   
 }
@@ -685,6 +686,8 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #2cc6c8;
+    
+   
 }
 #musicLinkDiv{
     display: flex;
