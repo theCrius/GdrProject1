@@ -40,7 +40,7 @@
         </div>
     <form action="{{ route('updateBackground',$userToView->id) }}" method='post' id='backgroundForm'>
         @csrf 
-        @method('put')
+  
         <div class="contentUpdateBackground">
                 <textarea name="background" id="backgroundTextarea" autofocus>{{$userToView->background ?? 'Background non ancora scritto' }}</textarea>
                <div id='musicLinkDiv'>

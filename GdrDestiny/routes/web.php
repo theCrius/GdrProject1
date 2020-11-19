@@ -61,8 +61,8 @@ Route::get('/user/{idUser}/{idSkill}/UpdateSkillLevel','UserskillController@incr
 Route::get('/user/{idUser}/background','ChiamateAjaxController@showBackground')->name('showBackground');
 
 //modify the background
-Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
 Route::put('/user/{idUser}/background/update', 'ChiamateAjaxController@updateBackground')->name('updateBackground');
+Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
 
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

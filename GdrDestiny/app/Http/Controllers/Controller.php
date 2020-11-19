@@ -56,7 +56,7 @@ class Controller extends BaseController
     }
 
 
-public function saveDataPreSubmit(Request $request,String $scripName=null,\App\User $user=null){
+public function saveDataPreSubmit(Request $request,String $scripName=null){
   
 
     $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
