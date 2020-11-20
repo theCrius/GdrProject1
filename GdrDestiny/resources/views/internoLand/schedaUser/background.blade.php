@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
+@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[4,5]))
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('modifyBackground', $userToView->id)}}')"></div>
 @endif
 <ul id='icone'>
@@ -35,10 +35,10 @@
     <div class="button">
         <img src="/img/imgHomeInterna/home/schedaPg/background/background.png" alt="" id='immagineBgLeft'>
         <div class="musicPlayer">
-                <audio id="player" src="#"></audio>
+        <audio id="playerFake" src="{{ $userToView->url_music ?? '#' }}" autoplay></audio>
                 <div class="player">
-                    <button class="play"></button>
-                    <button class="stop"></button>
+                    <button class="play" onclick="document.querySelector('#playerFake').play()"><img src="/img/imgHomeInterna/home/schedaPg/musicplayer/play.png" alt=""></button>
+                    <button class="stop" onclick="document.querySelector('#playerFake').pause()"><img src="/img/imgHomeInterna/home/schedaPg/musicplayer/stop.png" alt=""></button>
                 </div>
         </div>
     </div>

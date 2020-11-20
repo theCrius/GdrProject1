@@ -59,9 +59,9 @@ class Controller extends BaseController
 public function saveDataPreSubmit(Request $request,String $scripName=null){
   
 
-    $request->session()->flash('last-position:RouteParams',$request->route()->parameters());
-    $request->session()->flash('last-position:View',$request->route()->getName());
-    if($scripName) $request->session()->flash('last-position:ScriptName',$scripName);
+    $request->session()->put('last-position:RouteParams',$request->route()->parameters());
+    $request->session()->put('last-position:View',$request->route()->getName());
+    if($scripName) $request->session()->put('last-position:ScriptName',$scripName);
 }
 
 }

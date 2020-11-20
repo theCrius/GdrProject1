@@ -40,12 +40,12 @@
         </div>
     <form action="{{ route('updateBackground',$userToView->id) }}" method='post' id='backgroundForm'>
         @csrf 
-  
+        @method('PUT')
         <div class="contentUpdateBackground">
                 <textarea name="background" id="backgroundTextarea" autofocus>{{$userToView->background ?? 'Background non ancora scritto' }}</textarea>
                <div id='musicLinkDiv'>
                 <img src="/img/imgHomeInterna/home/schedaPg/background/linkmusica.png" alt="" id='musicEditBackground'>
-                <input type="text" name="linkMusic" id="linkMusic">
+               <input type="text" name="linkMusic" id="linkMusic" value=" {{ $userToView->url_music }}">
                </div>
             </div>
 

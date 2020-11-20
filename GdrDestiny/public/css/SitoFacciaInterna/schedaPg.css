@@ -787,6 +787,21 @@
   cursor: auto;
 }
 
+.player {
+  position: absolute;
+  top: 17.5vh;
+  left: 19vh;
+}
+
+.player .play, .player .stop {
+  background: transparent;
+  border: none;
+}
+
+.player .play img, .player .stop img {
+  height: 2vh;
+}
+
 .textBackground {
   position: absolute;
   height: 47vh;

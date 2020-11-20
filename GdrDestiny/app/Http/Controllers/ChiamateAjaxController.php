@@ -37,8 +37,9 @@ class ChiamateAjaxController extends Controller{
     public function editBackground($idUser,Request $request){
         $userIdToView=User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0];
         $userView=\Auth::user();
-        $this->saveDataPreSubmit($request);
         
+        if($userIdToView->id !== $userView->id || $userView->hasRole(\Config::get('roles.ROLE_GESTORE'),[4,5])) return $this->returnBackWithError($request,'non hai i permessi per visualizzare questa pagina');
+        $this->saveDataPreSubmit($request);
         //$userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]
 
        
@@ -55,13 +56,14 @@ class ChiamateAjaxController extends Controller{
 
     public function updateBackground($idUser,Request $request){
         $userToModify=\App\User::find($idUser);
-
+        $userView=\Auth::user();
         
         //the html tags are eliminated excpet p, h1 ecc.. , br
         $new_background=strip_tags($request->background,'<p><h1><h2><h3><h4><h5><br>');
         
         $linkMusicToStore=htmlspecialchars(strip_tags($request->linkMusic));
 
+        if($userToModify->id !== $userView->id || $userView->hasRole(\Config::get('roles.ROLE_GESTORE'),[4,5])) return $this->returnBackWithError($request,'non hai i permessi per visualizzare questa pagina');
         //if the link music is written then we will check
         if(!filter_var($linkMusicToStore, FILTER_VALIDATE_URL) && $linkMusicToStore)  return $this->returnBackWithError($request,'link non valido');
         try{
