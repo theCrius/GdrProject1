@@ -57,9 +57,11 @@ class ChiamateAjaxController extends Controller{
     public function updateBackground($idUser,Request $request){
         $userToModify=\App\User::find($idUser);
         $userView=\Auth::user();
-        
+       
         //the html tags are eliminated excpet p, h1 ecc.. , br
-        $new_background=strip_tags($request->background,'<p><h1><h2><h3><h4><h5><br>');
+        $background_with_spaces=nl2br($request->background);
+        $new_background=strip_tags($background_with_spaces,'<p><h1><h2><h3><h4><h5><br>');
+
         
         $linkMusicToStore=htmlspecialchars(strip_tags($request->linkMusic));
 

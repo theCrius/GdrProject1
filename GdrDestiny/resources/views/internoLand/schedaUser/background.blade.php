@@ -48,12 +48,24 @@
         <div class="titleBackground">
             <img src="/img/imgHomeInterna/home/schedaPg/background/title.png" alt="">
         </div>
+        <div class="contentRight">
+    <div class="background">
         <div class="textBackground">
             <p>
                 {!! $userToView->background ?? 'Background non ancora scritto' !!}
-</p>
+            </p>
             </div>
     </div>
+    <div class="notefato">
+        <div class="titleNoteFato">
+            <img src="/img/imgHomeInterna/home/schedaPg/background/notefatotit.png" alt="">
+        </div>
+        <div class="textNotefato">
+            <p>assdasddasfqa</p>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 
 @endsection

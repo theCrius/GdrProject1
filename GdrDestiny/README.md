@@ -4,3 +4,6 @@
 
 - [ ] Fare MEdical Record pagina
 
+- [ ] Modificare bottone pagina grande
+
+

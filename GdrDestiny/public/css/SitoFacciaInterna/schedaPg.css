@@ -802,19 +802,49 @@
   height: 2vh;
 }
 
-.textBackground {
+.ContentRight {
   position: absolute;
-  height: 47vh;
-  width: 59.5vh;
-  left: 4.8vh;
+  height: 48vh;
+  width: 55vh;
+  left: 4vh;
   color: #bff4fe;
   font-size: 1.5vh;
   overflow-x: auto;
   text-align: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.textBackground p {
-  padding: 1em;
+.ContentRight p {
+  width: inherit;
+  overflow: hidden;
+}
+
+.background {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  overflow-y: scroll;
+}
+
+.notefato {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.titleNoteFato {
+  text-align: center;
+  padding-top: 1vh;
+}
+
+.titleNoteFato img {
+  height: 1.5vh;
 }
 
 .parentRelative {
@@ -935,24 +965,75 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #totalBody {
   height: 48vh;
+  position: relative;
 }
 
-.descrizioneFeriteMiddle {
+.descrizioneFerite {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 17vh;
+  position: relative;
+}
+
+.boxFerite {
+  width: 20vh;
+  height: inherit;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.textInRiquadro {
+  position: absolute;
+  top: 0.3vh;
+  width: 100%;
+}
+
+.textInRiquadro img {
+  height: 3vh;
+}
+
+.riquadroParteLesa {
+  position: absolute;
+}
+
+.Top {
+  top: 0.5vh;
+}
+
+.Top img {
+  height: 7vh;
+}
+
+.Middle {
+  top: 8vh;
+}
+
+.Middle img {
+  height: 22vh;
+}
+
+.Bottom {
+  bottom: 0;
+}
+
+.Bottom img {
+  height: 18vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */

@@ -633,18 +633,37 @@
         }
     }
 }
-.textBackground{
+.ContentRight{
     position: absolute;
-    height: 47vh;
-    width: 59.5vh;
-    left: 4.8vh;
+    height: 48vh;
+    width: 55vh;
+    left: 4vh;
     color: #bff4fe;
     font-size: 1.5vh;
     overflow-x: auto;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
     p{
-        padding: 1em;
+        width: inherit;
+        overflow: hidden;
     }
+    
+}
+.background{
+    flex: 3;
+    overflow-y: scroll;
+}
+.notefato{
+    flex: 1;
+}
+.titleNoteFato{
+    text-align: center;
+    padding-top:1vh;
+    img{
+        height: 1.5vh;
+    }
+
 }
 .parentRelative{
     position: relative;
@@ -752,13 +771,52 @@
     height: 100%;
     flex:1;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-direction: column;
 }
 #totalBody{
     height: 48vh;
+    position: relative;
 }
-.descrizioneFeriteMiddle{
+.descrizioneFerite{
     display: flex;
     align-items: center;
+    height: 17vh;
+    position: relative;
+}
+.boxFerite{
+    width: 20vh;
+    height: inherit;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.textInRiquadro{
+    position: absolute;
+    top:0.3vh;
+    width: 100%;
+    img {
+        height: 3vh;
+    }
+}
+.riquadroParteLesa{
+    position: absolute;
+    
+}
+.Top{
+    top:0.5vh;
+    img{
+        height: 7vh;
+    }
+}
+.Middle{
+    top: 8vh;
+    img{
+        height: 22vh;
+    }
+}
+.Bottom{
+    bottom: 0;
+    img{
+        height: 18vh;
+    }
 }
