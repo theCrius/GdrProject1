@@ -896,4 +896,31 @@
 #confermaBackground span img {
   height: 1.7vh;
 }
+
+/* Medical Record */
+#immagineMedicalRecordLeft {
+  height: 50vh;
+  width: 38vh;
+  cursor: auto;
+}
+
+#titleMedicalRecord {
+  left: 31.2vh;
+}
+
+#riquadroImmagineMedicalRecord {
+  height: 59vh;
+  width: 73vh;
+}
+
+.contentRiquadroDestro {
+  position: absolute;
+  height: 48vh;
+  width: 64.5vh;
+  left: 4vh;
+  color: #bff4fe;
+  font-size: 1.5vh;
+  overflow-x: auto;
+  text-align: justify;
+}
 /*# sourceMappingURL=schedaPg.css.map */

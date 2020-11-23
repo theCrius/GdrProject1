@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
+@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[1,5]))
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt=""></div>
 @endif
 <ul id='icone'>
@@ -35,7 +35,7 @@
     <div class="button">
         <img src="/img/imgHomeInterna/home/schedaPg/abilità.png" alt="" onclick="modal.openModal('{{route('showSkills',$userToView)}}')">
         <img src="/img/imgHomeInterna/home/schedaPg/background.png"  onclick="modal.openModal('{{route('showBackground',$userToView)}}')" alt="">
-        <img src="/img/imgHomeInterna/home/schedaPg/notefato.png" alt="">
+        <img src="/img/imgHomeInterna/home/schedaPg/notefato.png" onclick="modal.openModal('{{route('showMedicalRecord',$userToView)}}')" alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/inventario.png" alt="">
 
     </div>

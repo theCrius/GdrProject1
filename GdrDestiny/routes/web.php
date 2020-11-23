@@ -64,5 +64,8 @@ Route::get('/user/{idUser}/background','ChiamateAjaxController@showBackground')-
 Route::put('/user/{idUser}/background/update', 'ChiamateAjaxController@updateBackground')->name('updateBackground');
 Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
 
+//Show medical record
+Route::get('/user/{idUser}/cartellaClinica','MedicalRecordController@show')->name('showMedicalRecord');
+
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');
