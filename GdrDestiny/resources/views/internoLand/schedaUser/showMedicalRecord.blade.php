@@ -12,7 +12,19 @@
             <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/cartellaclinica.png" alt="" >
         </div>
         <div class="contentRiquadroDestro">
-            
+            <div class="leftSubRiquadro Sub">
+                <div class="descrizioneFeriteMiddle">
+                    <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/centralriq.png" alt="">
+                    <div class="textInRiquadro"></div>
+                </div>
+            </div>
+            <div class="middleSubRiquadro Sub">
+                <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/Partilese/{{$user->sesso}}/total.png" alt="" id='totalBody'>
+
+            </div>
+            <div class="rightSubRiquadro Sub">
+
+            </div>
             </div>
     </div>
 </div>

@@ -746,4 +746,19 @@
     font-size: 1.5vh;
     overflow-x: auto;
     text-align: justify;
+    display: flex;
+}
+.Sub{
+    height: 100%;
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#totalBody{
+    height: 48vh;
+}
+.descrizioneFeriteMiddle{
+    display: flex;
+    align-items: center;
 }

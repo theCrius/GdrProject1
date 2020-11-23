@@ -922,5 +922,37 @@
   font-size: 1.5vh;
   overflow-x: auto;
   text-align: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Sub {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#totalBody {
+  height: 48vh;
+}
+
+.descrizioneFeriteMiddle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=schedaPg.css.map */
