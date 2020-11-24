@@ -61,7 +61,18 @@
             <img src="/img/imgHomeInterna/home/schedaPg/background/notefatotit.png" alt="">
         </div>
         <div class="textNotefato">
-            <p>assdasddasfqa</p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            <p><i>assdasddasfqa</i></p>
+            
         </div>
     </div>
 </div>

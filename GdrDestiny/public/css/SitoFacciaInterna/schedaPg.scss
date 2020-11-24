@@ -103,6 +103,9 @@
         }
     }
 }
+#cartellaclinicatasto{
+    height: 10vh;
+}
 
 .riquadroContenuto{
     
@@ -656,6 +659,7 @@
 }
 .notefato{
     flex: 1;
+    overflow: auto;
 }
 .titleNoteFato{
     text-align: center;
@@ -794,8 +798,32 @@
     position: absolute;
     top:0.3vh;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     img {
         height: 3vh;
+    }
+}
+.hurts{
+    height: 13.5vh;
+    font-size: 1.3vh;
+    width: 17vh;
+    overflow: auto;
+    margin-top:0.7vh;
+
+    p{
+        padding: 0.2vh;
+        padding-left: 0.5vh;
+        border-bottom: 1px solid #006a86;
+        margin-bottom:0.7vh;
+
+    }
+    #lastModifica{
+        border-bottom:0;
+        font-size: 1.1vh;
+        margin-top: 1.5vh;
     }
 }
 .riquadroParteLesa{

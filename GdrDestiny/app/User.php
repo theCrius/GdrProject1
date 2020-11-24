@@ -68,6 +68,9 @@ class User extends Authenticatable
     public function specs(){
         return $this->belongsToMany('App\Specialization','userspecializations','id_user','id_specialization');
     }
+    public function medicalrecords(){
+        return $this->hasMany('App\Medicalrecord','id_user_to');
+    }
 
     
 

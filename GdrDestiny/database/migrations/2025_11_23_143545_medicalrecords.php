@@ -14,12 +14,17 @@ class Medicalrecords extends Migration
     public function up()
     {
         Schema::create('medicalrecords', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('id_user_to');
-            $table->foreign('id_user_from');
-            $table->enum('hurtposition',['top','middle','bottom']);
+            $table->bigIncrements('id');
+            $table->foreignId('id_user_from');
+            $table->foreignId('id_user_to');
+            $table->enum('hurtposition',['top','bottom','middle','sanitamentale']);
             $table->string('descrizione');
-            $table->int('danno');
+            $table->integer('danno');
+            
+            $table->foreign('id_user_from')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_user_to')->references('id')->on('users')->onDelete('cascade');
+
+            
             $table->timestamps();
         });
     }
@@ -31,6 +36,6 @@ class Medicalrecords extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_medicalrecords');
+        //
     }
 }

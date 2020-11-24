@@ -16,11 +16,17 @@
                 <div class="descrizioneFerite">
                     <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/centralriq.png" alt="" class='boxFerite'>
                     <div class="textInRiquadro">
-                        <div class="textInRiquadro">
+                        
                             <div class="title">
                                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/partecentrale.png" alt="">
                             </div>
-                        </div>
+                            <div class="hurts">
+                                @for($i=0;$i < count ($medicalrecords['middle']) ; $i++)
+                            <p>{{ $medicalrecords['middle'][$i]->descrizione . ' :' . $medicalrecords['middle'][$i]->danno }}</p>
+                             @endfor
+                                <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['middle']['last_modifica'] ?? ''}} </i></p>
+                            </div>
+                        
                     </div>
                 </div>
             </div>
@@ -51,15 +57,27 @@
                         <div class="title">
                             <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/partesuperiore.png" alt="">
                         </div>
+                        <div class="hurts">
+                            @for($i=0;$i < ( count ($medicalrecords['top']) - 1) ; $i++)
+                            <p>{{ $medicalrecords['top'][$i]['descrizione'] . ' :' . $medicalrecords['top'][$i]['danno'] . ' ps' }}</p>
+                             @endfor
+                                <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['top']['last_modifica'] ?? ''}} </i></p>
+                            
+                        </div>
                     </div>
             </div>
             <div class="descrizioneFerite">
                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/centralriq.png" alt="" class='boxFerite'>
                     <div class="textInRiquadro">
-                        <div class="textInRiquadro">
                             <div class="title">
                                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/parteinferiore.png" alt="">
                             </div>
+                        <div class="hurts">
+                            @for($i=0;$i < count ($medicalrecords['middle']) ; $i++)
+                            <p>{{ $medicalrecords['middle'][$i]->descrizione . ' :' . $medicalrecords['middle'][$i]->danno }}</p>
+                             @endfor
+                                <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['middle']['last_modifica'] ?? ''}} </i></p>
+                            
                         </div>
 
                     </div>
