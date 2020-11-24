@@ -73,6 +73,10 @@
             </div>
         </div>
     </div>
+    <div class="salute">
+        <div class="punti">{{$points['punticorpo']}}</div>
+        <div class="punti">{{$points['puntimentali']}}<img src="/img/imgHomeInterna/home/schedaPg/salutebarra/100dx.png" alt=""></div>
+    </div>
 </div>
 
 @endsection

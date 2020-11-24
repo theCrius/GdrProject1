@@ -21,8 +21,10 @@
                                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/partecentrale.png" alt="">
                             </div>
                             <div class="hurts">
-                                @for($i=0;$i < count ($medicalrecords['middle']) ; $i++)
-                            <p>{{ $medicalrecords['middle'][$i]->descrizione . ' :' . $medicalrecords['middle'][$i]->danno }}</p>
+
+                                @for($i=0;$i < ( count ($medicalrecords['middle']) - 1)  ; $i++)
+
+                            <p>{{ $medicalrecords['middle'][$i]['descrizione'] . ' :' . $medicalrecords['middle'][$i]['danno'] }}</p>
                              @endfor
                                 <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['middle']['last_modifica'] ?? ''}} </i></p>
                             </div>
@@ -32,20 +34,20 @@
             </div>
             <div class="middleSubRiquadro Sub">
                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/Partilese/{{$user->sesso}}/total.png" alt="" id='totalBody'>
-                @if(true)
-                    <div class="riquadroParteLesa Top">
+                @if($medicalrecords['top'])
+                    <div class="riquadroParteLesa Top{{$user->sesso }}">
                     <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/Partilese/{{$user->sesso}}/top.png" alt="" >
                     </div>
                 @endif
 
-                @if(true)
-                    <div class="riquadroParteLesa Middle">
+                @if($medicalrecords['middle'])
+                    <div class="riquadroParteLesa Middle{{$user->sesso }}">
                     <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/Partilese/{{$user->sesso}}/middle.png" alt="" >
                     </div>
                 @endif
 
-                @if(true)
-                <div class="riquadroParteLesa Bottom">
+                @if($medicalrecords['bottom'])
+                <div class="riquadroParteLesa Bottom{{$user->sesso }}">
                     <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/Partilese/{{$user->sesso}}/bottom.png" alt="" >
                     </div>
                 @endif
@@ -58,8 +60,9 @@
                             <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/partesuperiore.png" alt="">
                         </div>
                         <div class="hurts">
-                            @for($i=0;$i < ( count ($medicalrecords['top']) - 1) ; $i++)
-                            <p>{{ $medicalrecords['top'][$i]['descrizione'] . ' :' . $medicalrecords['top'][$i]['danno'] . ' ps' }}</p>
+                        
+                            @for($i=0;$i < ( count($medicalrecords['top']) - 1) ; $i++)
+                            <p>{{ $medicalrecords['top'][$i]['descrizione'] . ' :' . $medicalrecords['top'][$i]['danno'] }}</p>
                              @endfor
                                 <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['top']['last_modifica'] ?? ''}} </i></p>
                             
@@ -73,10 +76,11 @@
                                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/parteinferiore.png" alt="">
                             </div>
                         <div class="hurts">
-                            @for($i=0;$i < count ($medicalrecords['middle']) ; $i++)
-                            <p>{{ $medicalrecords['middle'][$i]->descrizione . ' :' . $medicalrecords['middle'][$i]->danno }}</p>
+                        
+                            @for($i=0;$i < ( count ($medicalrecords['bottom']) - 1)  ; $i++)
+                            <p>{{ $medicalrecords['bottom'][$i]['descrizione'] . ' :' . $medicalrecords['bottom'][$i]['danno'] }}</p>
                              @endfor
-                                <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['middle']['last_modifica'] ?? ''}} </i></p>
+                                <p id='lastModifica'><i>Ultima modifica: {{$medicalrecords['bottom']['last_modifica'] ?? ''}} </i></p>
                             
                         </div>
 

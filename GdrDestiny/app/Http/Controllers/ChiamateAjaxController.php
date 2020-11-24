@@ -21,6 +21,7 @@ class ChiamateAjaxController extends Controller{
             'expsUser' => ExpController::getSumOfExp($userIdToView),
             'errors' => $request->errors,
             'userView' => \Auth::user(),
+            'points' => MedicalrecordController::getPoints($userIdToView)
         ]);
     }
 

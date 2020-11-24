@@ -106,7 +106,23 @@
 #cartellaclinicatasto{
     height: 10vh;
 }
-
+.salute{
+    position: absolute;
+    bottom: 1.5vh;
+    right: 7vh;
+    width: 64vh;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .punti{
+        height: inherit;
+        width: 27.5vh;
+        img{
+            height: inherit;
+        }
+    }
+}
 .riquadroContenuto{
     
     display: flex;
@@ -830,21 +846,40 @@
     position: absolute;
     
 }
-.Top{
+.Topm{
     top:0.5vh;
     img{
         height: 7vh;
     }
 }
-.Middle{
+.Topf{
+        top:0.5vh;
+        img{
+            height: 8vh;
+        }
+    
+}
+.Middlem{
     top: 8vh;
     img{
         height: 22vh;
     }
 }
-.Bottom{
+.Middlef{
+    top: 6.5vh;
+    img{
+        height: 23vh;
+    }
+}
+.Bottomm{
     bottom: 0;
     img{
         height: 18vh;
+    }
+}
+.Bottomf{
+    bottom: 0;
+    img{
+        height: 19vh;
     }
 }

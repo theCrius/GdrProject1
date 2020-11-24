@@ -6,17 +6,25 @@ use Illuminate\Http\Request;
 
 class MedicalrecordController extends Controller
 {
-    public static function getSumOfHurts($idUser){
+    public static function getPoints($idUser){
         $hurtsum=0;
-
-        $hurts=\App\User::find($idUser)->medicalrecords;
+        $sanitamentaleSum=0;
+        
+        $user=\App\User::find($idUser)->with('medicalrecords','breed')->get()[0];
        
-        foreach($hurts as $hurt){
+        foreach($user->medicalrecords as $hurt){
+            if($hurt['hurtposition'] == 'sanitamentale') { $sanitamentaleSum+=$hurt['danno']; continue; }
             $hurtsum+=$hurt['danno'];
         }
         
-        return $hurtsum;
+        return [
+            'punticorpo' => $user->breed->punti_corpo + $hurtsum,
+            'puntimentali' => $user->breed->punti_mente + $sanitamentaleSum
+        ];
     }
+
+    
+
     public static function getMedicalRecords(\App\User $user){
     
         $medicalrecordsOrdered = [
@@ -25,11 +33,13 @@ class MedicalrecordController extends Controller
             'middle' => []
         ];
         foreach($user->medicalrecords as $medicalrecord){
-           if($medicalrecord->hurtposition === 'top'){
-               
+           if($medicalrecord->hurtposition === 'top' || $medicalrecord->hurtposition === 'sanitamentale'){
+            //the unity of measure    
+            $psOrsm= ($medicalrecord->hurtposition === 'top') ? 'pc' : 'pm';
+
                $medicalrecordsOrdered['top'][]=[
                    'descrizione' => $medicalrecord->descrizione,
-                   'danno' => $medicalrecord->danno,
+                   'danno' => $medicalrecord->danno . $psOrsm,
                ];
                
                //get the last user that had add record.
@@ -39,7 +49,7 @@ class MedicalrecordController extends Controller
            }elseif($medicalrecord->hurtposition === 'bottom'){
                 $medicalrecordsOrdered['bottom'][]=[
                     'descrizione' => $medicalrecord->descrizione,
-                    'danno' => $medicalrecord->danno,
+                    'danno' => $medicalrecord->danno . 'pc',
                 ];
                  //get the last user that had add record.
                if(empty($medicalrecordsOrdered['bottom']['last_modifica']) || $medicalrecordsOrdered['bottom']['last_modifica'] < $medicalrecord->created_at) $medicalrecordsOrdered['bottom']['last_modifica']=$medicalrecord->userWhoAddHurt->name;
@@ -49,7 +59,7 @@ class MedicalrecordController extends Controller
 
            $medicalrecordsOrdered['middle'][]=[
             'descrizione' => $medicalrecord->descrizione,
-            'danno' => $medicalrecord->danno,
+            'danno' => $medicalrecord->danno . 'pc',
         ];
          //get the last user that had add record.
          if(empty($medicalrecordsOrdered['middle']['last_modifica']) || $medicalrecordsOrdered['middle']['last_modifica'] < $medicalrecord->created_at) $medicalrecordsOrdered['middle']['last_modifica']=$medicalrecord->userWhoAddHurt->name;

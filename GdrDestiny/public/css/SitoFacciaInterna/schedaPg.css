@@ -128,6 +128,33 @@
   height: 10vh;
 }
 
+.salute {
+  position: absolute;
+  bottom: 1.5vh;
+  right: 7vh;
+  width: 64vh;
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.salute .punti {
+  height: inherit;
+  width: 27.5vh;
+}
+
+.salute .punti img {
+  height: inherit;
+}
+
 .riquadroContenuto {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1050,27 +1077,51 @@
   position: absolute;
 }
 
-.Top {
+.Topm {
   top: 0.5vh;
 }
 
-.Top img {
+.Topm img {
   height: 7vh;
 }
 
-.Middle {
+.Topf {
+  top: 0.5vh;
+}
+
+.Topf img {
+  height: 8vh;
+}
+
+.Middlem {
   top: 8vh;
 }
 
-.Middle img {
+.Middlem img {
   height: 22vh;
 }
 
-.Bottom {
+.Middlef {
+  top: 6.5vh;
+}
+
+.Middlef img {
+  height: 23vh;
+}
+
+.Bottomm {
   bottom: 0;
 }
 
-.Bottom img {
+.Bottomm img {
   height: 18vh;
+}
+
+.Bottomf {
+  bottom: 0;
+}
+
+.Bottomf img {
+  height: 19vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */
