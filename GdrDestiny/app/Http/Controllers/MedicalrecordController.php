@@ -10,16 +10,20 @@ class MedicalrecordController extends Controller
         $hurtsum=0;
         $sanitamentaleSum=0;
         
-        $user=\App\User::find($idUser)->with('medicalrecords','breed')->get()[0];
-       
+        $user=\App\User::where('id',$idUser)->with('medicalrecords','breed')->get()[0];
+
         foreach($user->medicalrecords as $hurt){
             if($hurt['hurtposition'] == 'sanitamentale') { $sanitamentaleSum+=$hurt['danno']; continue; }
             $hurtsum+=$hurt['danno'];
         }
+        $punticorpo = $user->breed->punti_corpo - $hurtsum;
+        $puntimentali=$user->breed->punti_mente - $sanitamentaleSum;
         
         return [
-            'punticorpo' => $user->breed->punti_corpo + $hurtsum,
-            'puntimentali' => $user->breed->punti_mente + $sanitamentaleSum
+            'punticorpo' => $punticorpo,
+            'percentualePunticorpo' => round( ( ( $punticorpo / $user->breed->punti_corpo  ) * 100 ) , -1 , PHP_ROUND_HALF_DOWN),
+            'percentualePuntimentali' => round( ( ( $puntimentali / $user->breed->punti_mente  ) * 100 ) , -1 , PHP_ROUND_HALF_DOWN),
+            'puntimentali' => $puntimentali
         ];
     }
 
@@ -67,6 +71,8 @@ class MedicalrecordController extends Controller
         }
         return $medicalrecordsOrdered;
     }
+
+    
     public function show($idUser){
         $user=\App\User::find($idUser);
         

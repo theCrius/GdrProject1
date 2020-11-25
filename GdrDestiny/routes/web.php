@@ -67,5 +67,8 @@ Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackg
 //Show medical record
 Route::get('/user/{idUser}/cartellaClinica','MedicalrecordController@show')->name('showMedicalRecord');
 
+Route::get('/user/{idUser}/oggettiEquipaggiati')->name('oggettiEquipaggiati');
+Route::get('/user/{idUser}/oggettiPosseduti')->name('oggettiPosseduti');
+
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

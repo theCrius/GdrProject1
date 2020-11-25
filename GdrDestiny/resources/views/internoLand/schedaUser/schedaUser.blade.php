@@ -31,6 +31,7 @@
 
 
 @section('content')
+
 <div class='contentSub'>
     <div class="button">
         <img src="/img/imgHomeInterna/home/schedaPg/abilità.png" alt="" onclick="modal.openModal('{{route('showSkills',$userToView)}}')">
@@ -74,8 +75,8 @@
         </div>
     </div>
     <div class="salute">
-        <div class="punti">{{$points['punticorpo']}}</div>
-        <div class="punti">{{$points['puntimentali']}}<img src="/img/imgHomeInterna/home/schedaPg/salutebarra/100dx.png" alt=""></div>
+        <div class="punti"><img src="/img/imgHomeInterna/home/schedaPg/salutebarra/{{(int) $points['percentualePunticorpo']}}sx.png" alt="" title="{{$points['punticorpo']}} punti corpo"></div>
+        <div class="punti"><img src="/img/imgHomeInterna/home/schedaPg/salutebarra/{{(int) $points['percentualePuntimentali']}}dx.png" alt="" title="{{$points['puntimentali']}} punti mente"></div>
     </div>
 </div>
 
