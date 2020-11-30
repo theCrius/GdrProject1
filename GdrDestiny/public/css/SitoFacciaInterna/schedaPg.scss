@@ -887,18 +887,37 @@
 /* EQUIPED PART */
 .equipContent{
     height: inherit;
-    #sfondoEquipped{
+    .equippedSfondo{
         height: 59vh;
         position: absolute;
         top: 1.5vh;
         width: 82vh;
     }
-    .equip{
-        display: flex;
-        flex-direction: row;
-    }
-    .left{
+    .left, .right{
+        flex: 1;
+        justify-content: center;
+        align-items: center;
         display: flex;
         flex-direction: column;
+        .equipped{
+            height: 11vh;
+            width: 13vh;
+            #riquadroObjectEquipped{
+                width: inherit;
+                height: inherit;
+            }
+        }
     }
+    .center{
+        flex:2;
+    }
+    .equip{
+        display: flex;
+        height: 49vh;
+        position: absolute;
+        top: 6.5vh;
+        width: 73.5vh;
+        flex-direction: row;
+    }
+
 }
