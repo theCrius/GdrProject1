@@ -71,6 +71,9 @@ class User extends Authenticatable
     public function medicalrecords(){
         return $this->hasMany('App\Medicalrecord','id_user_to');
     }
+    public function objects(){
+        return $this->hasMany('App\Sellingobject','id_user');
+    }
 
     
 

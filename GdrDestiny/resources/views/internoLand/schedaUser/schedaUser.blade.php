@@ -37,7 +37,7 @@
         <img src="/img/imgHomeInterna/home/schedaPg/abilità.png" alt="" onclick="modal.openModal('{{route('showSkills',$userToView)}}')">
         <img src="/img/imgHomeInterna/home/schedaPg/background.png"  onclick="modal.openModal('{{route('showBackground',$userToView)}}')" alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/cartellaclinicatasto.png" onclick="modal.openModal('{{route('showMedicalRecord',$userToView)}}')" id='cartellaclinicatasto' alt="">
-        <img src="/img/imgHomeInterna/home/schedaPg/inventario.png" alt="">
+        <img src="/img/imgHomeInterna/home/schedaPg/inventario.png" onclick="modal.openModal('{{route('oggettiEquipped',$userToView)}}')" alt="">
 
     </div>
 

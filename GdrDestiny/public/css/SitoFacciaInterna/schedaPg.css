@@ -1124,4 +1124,36 @@
 .Bottomf img {
   height: 19vh;
 }
+
+/* EQUIPED PART */
+.equipContent {
+  height: inherit;
+}
+
+.equipContent #sfondoEquipped {
+  height: 59vh;
+  position: absolute;
+  top: 1.5vh;
+  width: 82vh;
+}
+
+.equipContent .equip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.equipContent .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 /*# sourceMappingURL=schedaPg.css.map */

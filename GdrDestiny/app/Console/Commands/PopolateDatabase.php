@@ -92,6 +92,15 @@ class PopolateDatabase extends Command
                 ]
             ]);
     }
+    public function insertSellingObjectCategories(){
+        $add_categories=\App\Sellingobjectcategory::insert([
+           [ 'name' => 'armi bianche' ],
+           [ 'name' => 'pistole' ],
+           [ 'name' => 'bombe' ],
+           [ 'name' => 'normali' ],
+
+        ]);
+    }
 
     public function insertSpecialitazions(){
     $spec_multiple_skill=\App\Specialization::insert([
@@ -1371,6 +1380,9 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
           //inserire le specializzazioni
           $this->insertSpecialitazions();
+
+          //inserire le categorie del mercato
+          $this->insertSellingObjectCategories();
    
     }
 }

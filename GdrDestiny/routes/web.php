@@ -25,6 +25,7 @@ Route::get('/welcome', function () {
 Auth::routes();
 //logout
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 //registrazione
 Route::get('registrati/razza','Auth\RegisterController@primoStep')->name('registrati1');
 Route::get('registrati/{idRazza}/emisfero','Auth\RegisterController@secondoStep')->name('registrati2');
@@ -67,7 +68,8 @@ Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackg
 //Show medical record
 Route::get('/user/{idUser}/cartellaClinica','MedicalrecordController@show')->name('showMedicalRecord');
 
-Route::get('/user/{idUser}/oggettiEquipaggiati')->name('oggettiEquipaggiati');
+
+Route::get('/user/{idUser}/oggettiEquipaggiati','UserobjectController@showObjectEquipped')->name('oggettiEquipped');
 Route::get('/user/{idUser}/oggettiPosseduti')->name('oggettiPosseduti');
 
 //show profile

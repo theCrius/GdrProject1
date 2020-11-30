@@ -883,3 +883,22 @@
         height: 19vh;
     }
 }
+
+/* EQUIPED PART */
+.equipContent{
+    height: inherit;
+    #sfondoEquipped{
+        height: 59vh;
+        position: absolute;
+        top: 1.5vh;
+        width: 82vh;
+    }
+    .equip{
+        display: flex;
+        flex-direction: row;
+    }
+    .left{
+        display: flex;
+        flex-direction: column;
+    }
+}
