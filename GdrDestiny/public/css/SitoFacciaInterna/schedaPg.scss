@@ -894,22 +894,35 @@
         width: 82vh;
     }
     .left, .right{
-        flex: 1;
+        flex: 0.7;
         justify-content: center;
         align-items: center;
         display: flex;
         flex-direction: column;
-        .equipped{
-            height: 11vh;
-            width: 13vh;
-            #riquadroObjectEquipped{
-                width: inherit;
-                height: inherit;
-            }
+        
+    }
+    .equipped{
+        height: 11vh;
+        width: 13vh;
+        #riquadroObjectEquipped{
+            width: inherit;
+            height: inherit;
         }
     }
     .center{
         flex:2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .top,.bottom{
+            flex: 1;
+            display: flex;
+        }
+        .middle{
+            flex:2;
+            display: flex;
+        }
     }
     .equip{
         display: flex;

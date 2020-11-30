@@ -1138,9 +1138,9 @@
 }
 
 .equipContent .left, .equipContent .right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1156,12 +1156,12 @@
           flex-direction: column;
 }
 
-.equipContent .left .equipped, .equipContent .right .equipped {
+.equipContent .equipped {
   height: 11vh;
   width: 13vh;
 }
 
-.equipContent .left .equipped #riquadroObjectEquipped, .equipContent .right .equipped #riquadroObjectEquipped {
+.equipContent .equipped #riquadroObjectEquipped {
   width: inherit;
   height: inherit;
 }
@@ -1170,6 +1170,37 @@
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.equipContent .center .top, .equipContent .center .bottom {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.equipContent .center .middle {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .equipContent .equip {
