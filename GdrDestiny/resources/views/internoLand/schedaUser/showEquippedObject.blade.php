@@ -20,7 +20,16 @@
             </div>
         @endfor
         </div>
-        <div class="middle"></div>
+        <div class="middle">
+            <div class="goToOwned">
+                @if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[1,2]))
+                <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/depositosi.png" alt="" onclick="modal.openModal('{{route('objectOwned',$userToView)}}')">
+                @else 
+                <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/depositono.png" alt="">
+                @endif
+
+            </div>
+        </div>
         <div class="bottom">
         @for($i=7;$i < 10; $i++)
         <div class="equipped">

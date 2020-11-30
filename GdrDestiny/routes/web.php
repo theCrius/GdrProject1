@@ -69,8 +69,8 @@ Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackg
 Route::get('/user/{idUser}/cartellaClinica','MedicalrecordController@show')->name('showMedicalRecord');
 
 
-Route::get('/user/{idUser}/oggettiEquipaggiati','UserobjectController@showObjectEquipped')->name('oggettiEquipped');
-Route::get('/user/{idUser}/oggettiPosseduti')->name('oggettiPosseduti');
+Route::get('/user/{idUser}/oggettiEquipaggiati','UserobjectController@showObjectEquipped')->name('objectEquipped');
+Route::get('/user/{idUser}/oggettiPosseduti','UserobjectController@showObjectOwned')->name('objectOwned');
 
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

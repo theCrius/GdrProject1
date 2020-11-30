@@ -896,10 +896,15 @@
     .left, .right{
         flex: 0.7;
         justify-content: center;
-        align-items: center;
         display: flex;
         flex-direction: column;
         
+    }
+    .left{
+        align-items: flex-end;
+    }
+    .right{
+        align-items:flex-start;
     }
     .equipped{
         height: 11vh;
@@ -910,14 +915,17 @@
         }
     }
     .center{
-        flex:2;
+        flex:1;
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
         .top,.bottom{
-            flex: 1;
+            flex: 1.2;
             display: flex;
+            
+        }
+        .top{
+            align-items: flex-end;
         }
         .middle{
             flex:2;
@@ -931,6 +939,30 @@
         top: 6.5vh;
         width: 73.5vh;
         flex-direction: row;
+    }
+    .goToOwned{
+        display: flex;
+        align-items: center;
+        img{
+            height: 15vh;
+            cursor: pointer;
+        }
+    }
+
+}
+/*  EQUIPS OWNED */
+.equipOwnedContent{
+    width: 105vh;
+    height: inherit;
+    display: flex;
+    .owned{
+        height: 11vh;
+        width: 13vh;
+        #riquadroObjectOwned{
+            width: inherit;
+            height: inherit;
+        }
+        
     }
 
 }
