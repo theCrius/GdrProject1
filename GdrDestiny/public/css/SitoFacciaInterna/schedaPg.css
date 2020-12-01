@@ -1128,6 +1128,22 @@
   height: 19vh;
 }
 
+#titleEquip {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: -2.5vh;
+  left: 30.3vh;
+}
+
+#titleEquip img {
+  height: 1.2vh;
+}
+
 /* EQUIPED PART */
 .equipContent {
   height: inherit;
@@ -1265,5 +1281,15 @@
 .equipOwnedContent .owned #riquadroObjectOwned {
   width: inherit;
   height: inherit;
+}
+
+.titleCenter {
+  width: 100%;
+  text-align: center;
+}
+
+#titleDep {
+  height: 5vh;
+  padding-top: 1vh;
 }
 /*# sourceMappingURL=schedaPg.css.map */

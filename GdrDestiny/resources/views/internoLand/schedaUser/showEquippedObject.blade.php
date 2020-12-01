@@ -3,6 +3,9 @@
 <div class="equipContent">
 <img src="/img/imgHomeInterna/home/schedaPg/background/backsfondobac.png" alt=""  class='equippedSfondo centerToAbsolutePosition'>
 <div class="equip centerToAbsolutePosition">
+    <div id="titleEquip">
+    <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/equip.png"  alt="">
+    </div>
     <div class="left">
         @for($i=0;$i < 4; $i++)
         <div class="equipped">
