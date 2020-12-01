@@ -15,7 +15,7 @@
             <div class="leftSubRiquadro Sub">
                 <div class="descrizioneFerite">
                     <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/centralriq.png" alt="" class='boxFerite'>
-                    <div class="textInRiquadro">
+                    <div class="textInRiquadro boxShadow">
                         
                             <div class="title">
                                 <img src="/img/imgHomeInterna/home/schedaPg/MedicalRecord/partecentrale.png" alt="">

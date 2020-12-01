@@ -808,6 +808,9 @@
 .boxFerite{
     width: 20vh;
     height: inherit;
+    
+}
+.boxShadow{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .textInRiquadro{
@@ -953,8 +956,9 @@
 /*  EQUIPS OWNED */
 .equipOwnedContent{
     width: 105vh;
-    height: inherit;
+    height: 60vh;
     display: flex;
+    flex-wrap: wrap;
     .owned{
         height: 11vh;
         width: 13vh;

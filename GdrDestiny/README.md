@@ -1,3 +1,3 @@
 # MarkDown To-Do
 
-- [ ] Fare grafica oggetti posseduti
+- [ ] Aspettare i titoli grafici dal grafico
