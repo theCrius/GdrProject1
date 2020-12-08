@@ -1,3 +1,6 @@
 # MarkDown To-Do
 
-- [ ] Aspettare i titoli grafici dal grafico
+- [ ] Parlare dell'usura
+- [ ] Fare lato controller mercato
+
+- [ ] Provare foto deposito equipaggiati
