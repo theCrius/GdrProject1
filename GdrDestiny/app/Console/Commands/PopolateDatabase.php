@@ -1333,7 +1333,35 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
     ]
 
           ]);
+
      }
+
+     public function insertMercato(){
+         \App\Sellingobjectcategory::insert([
+             [
+                 'name' => 'armi bianche'
+             ],
+             [
+                 'name' => 'armi per sparare'
+             ]
+         ]);
+        \App\Sellingobject::insert([
+            [
+                'id_category' => 1,
+                'name' => 'test1',
+                'descrizione' => 'sjidjsdid',
+                'prize' => 100,
+                'usura' => 10
+            ],
+            [
+                'id_category' => 2,
+                'name' => 'test2',
+                'descrizione' => 'sjidjsasdasddsaawrfqwefdid',
+                'prize' => 1000,
+                'usura' => 15
+            ],
+        ]);       
+    }
     
     /**
      * The name and signature of the console command.
@@ -1383,6 +1411,9 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
           //inserire le categorie del mercato
           $this->insertSellingObjectCategories();
+
+          //mercato, oggetti da vendere e categorie
+          $this->insertMercato();
    
     }
 }

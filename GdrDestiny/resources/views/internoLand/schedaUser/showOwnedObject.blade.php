@@ -8,11 +8,15 @@
         <div class='owned boxShadow'>
             <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectOwned' >
             <div class="previewImage">
+                @if(isset($objectsOwned[$i]))
                 <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
                 <div class="BoxContent">
-                    <div><h4>Beretta 50.</h4></div>
-                    <div class='descrizione'><p>Colpi: 30</p><p>Gittata Massima: 50metri</p><p>Gittata Massima: 50metri</p><p>Gittata Massima: 50metri</p></div>
+                    
+                    <div><h4>{{ $objectsOwned[$i]->name }}</h4></div>
+                    <div class='descrizione'><p>{{ $objectsOwned[$i]->descrizione }}</p><p>Usura: {{ $objectsOwned[$i]->usura }}</p></div>
+                   
                 </div>
+                @endif
             </div>
         </div>
         @endfor

@@ -8,11 +8,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
 use App\Roles\methodRole;
+use App\Classes\Objects;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use methodRole;
+    use Objects;
 
     /**
      * The attributes that are mass assignable.
@@ -72,7 +74,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Medicalrecord','id_user_to');
     }
     public function objects(){
-        return $this->hasMany('App\Sellingobject','id_user');
+        return $this->hasMany('App\Userobject','id_user');
     }
 
     

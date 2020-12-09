@@ -10,7 +10,18 @@
         @for($i=0;$i < 4; $i++)
         <div class="equipped">
         <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectEquipped'>
-
+        <div class="previewImage">
+            @if(isset($objectsEquipped[$i]))
+            <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
+            <div class="BoxContent topTransition">
+                
+                <div><h4>{{ $objectsEquipped[$i]->name }}</h4></div>
+                <div class='descrizione'><p>{{ $objectsEquipped[$i]->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]->usura }}</p></div>
+                
+            </div>
+            @endif
+        </div>
+                
         </div>
         @endfor
     </div>

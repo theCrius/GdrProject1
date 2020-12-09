@@ -20,6 +20,7 @@ class CreateSellingobjects extends Migration
             $table->text('descrizione');
             $table->integer('prize');
             $table->foreignId('id_category');
+            $table->integer('usura');
             $table->timestamps();
 
             $table->foreign('id_category')->references('id')->on('sellingobjectcategorys')->ondelete('cascade');

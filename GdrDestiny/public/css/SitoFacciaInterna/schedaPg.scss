@@ -923,6 +923,7 @@
     .equipped{
         height: 11vh;
         width: 13vh;
+        position: relative;
         #riquadroObjectEquipped{
             width: inherit;
             height: inherit;
@@ -970,6 +971,10 @@
             cursor: pointer;
         }
     }
+    .topTransition{
+        transform-origin: top !important;
+    }
+    
 
 }
 /*  EQUIPS OWNED */

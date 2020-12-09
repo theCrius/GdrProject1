@@ -1187,6 +1187,7 @@
 .equipContent .equipped {
   height: 11vh;
   width: 13vh;
+  position: relative;
 }
 
 .equipContent .equipped #riquadroObjectEquipped {
@@ -1269,6 +1270,11 @@
 .equipContent .goToOwned img {
   height: 15vh;
   cursor: pointer;
+}
+
+.equipContent .topTransition {
+  -webkit-transform-origin: top !important;
+          transform-origin: top !important;
 }
 
 /*  EQUIPS OWNED */
