@@ -7,17 +7,29 @@
         @for($i=0;$i < 21; $i++)
         <div class='owned boxShadow'>
             <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectOwned' >
-            <div class="previewImage">
-                @if(isset($objectsOwned[$i]))
+            @if(isset($objectsOwned[$i]))
+           
+           
+                <div class="previewImage" @if($userView->id === $userToView->id) title='Vuoi Equipaggiare il tuo oggetto? Clicca' @endif>
+                    @if($userView->id === $userToView->id)
+                    
+                    <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsOwned[$i]['id']]) }}">
+           
+                @endif
                 <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
                 <div class="BoxContent">
                     
-                    <div><h4>{{ $objectsOwned[$i]->name }}</h4></div>
-                    <div class='descrizione'><p>{{ $objectsOwned[$i]->descrizione }}</p><p>Usura: {{ $objectsOwned[$i]->usura }}</p></div>
+                    <div><h4>{{ $objectsOwned[$i]['object']->name }}</h4></div>
+                    <div class='descrizione'><p>{{ $objectsOwned[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsOwned[$i]['object']->usura }}</p></div>
                    
                 </div>
-                @endif
+                @if($userView->id === $userToView->id)
+                    
+                </a>
+       
+            @endif
             </div>
+            @endif
         </div>
         @endfor
     </div>

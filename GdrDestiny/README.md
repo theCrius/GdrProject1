@@ -3,4 +3,5 @@
 
 - [ ] Vedere usura
 
-- [ ] Continuare oggetti equipaggiarti e posseduti grafica e controller
+- [x] Continuare oggetti equipaggiarti e posseduti grafica e controller
+

@@ -1010,6 +1010,11 @@
     position: absolute;
     top: 0;
     transform-style: preserve-3d;
+    text-decoration: none;
+
+    a{
+        color: white;
+    }
     img{
         width: 10.5vh;
         height: 11.3vh;
@@ -1027,9 +1032,8 @@
         left: 0;
         right: 0;
         margin: auto;
-
+        overflow-wrap: break-word;
         height: 10vh;
-        color: white;
         transform: scaleY(0);
         transition: 0.8s;
         transform-origin: bottom;

@@ -10,17 +10,29 @@
         @for($i=0;$i < 4; $i++)
         <div class="equipped">
         <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectEquipped'>
-        <div class="previewImage">
-            @if(isset($objectsEquipped[$i]))
+        @if(isset($objectsEquipped[$i]))
+  
+       <div class="previewImage" @if($userView->id === $userToView->id) title='Disequipaggia, Clicca!' @endif>
+        @if($userView->id === $userToView->id)
+           
+           <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
+  
+       @endif
             <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
             <div class="BoxContent topTransition">
                 
-                <div><h4>{{ $objectsEquipped[$i]->name }}</h4></div>
-                <div class='descrizione'><p>{{ $objectsEquipped[$i]->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]->usura }}</p></div>
+                <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
+                <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
                 
             </div>
+            
+         @if($userView->id === $userToView->id)
+                    
+                </a>
+       
             @endif
-        </div>
+            </div>
+            @endif
                 
         </div>
         @endfor
@@ -28,9 +40,33 @@
     <div class="center">
         <div class="top">
         @for($i=4;$i < 7; $i++)
-            <div class="equipped">
+        <div class="equipped">
             <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectEquipped'>
+            @if(isset($objectsEquipped[$i]))
+      
+           <div class="previewImage" @if($userView->id === $userToView->id) title='Disequipaggia, Clicca!' @endif>
+            @if($userView->id === $userToView->id)
+           
+           <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
+  
+       @endif
 
+                <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
+                <div class="BoxContent topTransition">
+                    
+                    <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
+                    <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
+                    
+                </div>
+                
+             @if($userView->id === $userToView->id)
+                        
+                    </a>
+           
+                @endif
+                </div>
+                @endif
+                    
             </div>
         @endfor
         </div>
@@ -47,17 +83,64 @@
         <div class="bottom">
         @for($i=7;$i < 10; $i++)
         <div class="equipped">
-        <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectEquipped'>
-
-        </div>
+            <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectEquipped'>
+            @if(isset($objectsEquipped[$i]))
+      
+           <div class="previewImage" @if($userView->id === $userToView->id) title='Disequipaggia, Clicca!' @endif>
+            @if($userView->id === $userToView->id)
+           
+           <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
+  
+       @endif
+                <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
+                <div class="BoxContent topTransition">
+                    
+                    <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
+                    <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
+                    
+                </div>
+                
+             @if($userView->id === $userToView->id)
+                        
+                    </a>
+           
+                @endif
+                </div>
+                @endif
+                    
+            </div>
         @endfor
         </div>
     </div>
     <div class="right">
     @for($i=10;$i < 14; $i++)
-        <div class="equipped">
+    <div class="equipped">
         <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" id='riquadroObjectEquipped'>
+        @if(isset($objectsEquipped[$i]))
 
+  
+       <div class="previewImage" @if($userView->id === $userToView->id) title='Disequipaggia, Clicca!' @endif>
+        @if($userView->id === $userToView->id)
+           
+           <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
+  
+       @endif
+            <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
+            <div class="BoxContent topTransition">
+                
+                <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
+                <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
+                
+            </div>
+            
+         @if($userView->id === $userToView->id)
+                    
+                </a>
+       
+            @endif
+            </div>
+            @endif
+                
         </div>
         @endfor
     </div>

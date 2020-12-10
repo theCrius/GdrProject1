@@ -9,7 +9,14 @@ trait Objects{
         foreach($objectsOwned as $object){
 
             // enum di equipped yes or no
-            if($object->equipped == $yesOrNow) $objectsEquipped[]=$object->object;
+            if($object->equipped == $yesOrNow){
+                $objectsEquipped[]=
+                [
+                    'object' => $object->object,
+                    'id' => $object->id
+                    
+                ];
+            }
 
     }
         return $objectsEquipped;
