@@ -22,7 +22,7 @@
             <div class="BoxContent topTransition">
                 
                 <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
-                <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
+                <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['usura']['posseduta'] }} / {{ $objectsEquipped[$i]['usura']['massima'] }}</p></div>
                 
             </div>
             
@@ -55,7 +55,7 @@
                 <div class="BoxContent topTransition">
                     
                     <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
-                    <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
+                    <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['usura']['posseduta'] }} / {{ $objectsEquipped[$i]['usura']['massima'] }}</p></div>
                     
                 </div>
                 
@@ -129,7 +129,7 @@
             <div class="BoxContent topTransition">
                 
                 <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
-                <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['object']->usura }}</p></div>
+                <div class='descrizione'><p>{{ $objectsEquipped[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsEquipped[$i]['usura']['posseduta'] }} / {{ $objectsEquipped[$i]['usura']['massima'] }} </p></div>
                 
             </div>
             

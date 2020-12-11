@@ -18,9 +18,9 @@
                 @endif
                 <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
                 <div class="BoxContent">
-                    
                     <div><h4>{{ $objectsOwned[$i]['object']->name }}</h4></div>
-                    <div class='descrizione'><p>{{ $objectsOwned[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsOwned[$i]['object']->usura }}</p></div>
+
+                    <div class='descrizione'><p>{{ $objectsOwned[$i]['object']->descrizione }}</p><p>Usura: {{ $objectsOwned[$i]['usura']['posseduta'] }} / {{ $objectsOwned[$i]['usura']['massima'] }}</p></div>
                    
                 </div>
                 @if($userView->id === $userToView->id)

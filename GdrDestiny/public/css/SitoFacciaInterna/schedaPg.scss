@@ -1046,7 +1046,6 @@
             height: 8vh;
             overflow-y: scroll;
         p{
-            font-family: fontP;
             font-size: 1.1vh;
         }
     }
@@ -1065,8 +1064,4 @@
 @font-face {
     font-family: fontH;
     src : url(../../font/FullStopLucca-Bold.ttf);
-}
-@font-face {
-    font-family: fontP;
-    src : url(../../font/FullStopLucca-Light.ttf);
 }

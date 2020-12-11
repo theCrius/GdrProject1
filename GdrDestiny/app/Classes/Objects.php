@@ -10,12 +10,21 @@ trait Objects{
 
             // enum di equipped yes or no
             if($object->equipped == $yesOrNow){
+
+                //function getPoints() returns the lifepoints of object and we can find it in Classes\ObjectPoints.php
+                
                 $objectsEquipped[]=
                 [
                     'object' => $object->object,
-                    'id' => $object->id
+                    'id' => $object->id,
+                    'usura' => [
+                        'posseduta' => $object->getPoints(),
+                        'massima' => $object->object->usura
+                    ]
                     
                 ];
+
+            
             }
 
     }
