@@ -85,6 +85,11 @@
             cursor: pointer;
         }
     }
+    h5{
+        
+        color: white;
+        font-family: fontH;
+    }
 }
 .levelup{
     position: absolute;
@@ -103,6 +108,9 @@
             cursor: pointer;
         }
     }
+}
+#mecha{
+    cursor: pointer;
 }
 #cartellaclinicatasto{
     height: 10vh;
@@ -1059,6 +1067,50 @@
         }
     }
     
+}
+/* MECHA */ 
+.boxParent{
+    display: flex;
+    flex-direction: row;
+    height: inherit;
+    width: inherit;
+    .left , .right{
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .center{
+        flex:2;
+    }
+    .boxChild{
+        flex:1;
+        position: relative;
+    }
+    .sfondoBox{
+        height: 9vh;
+        position: absolute;
+        top: 0;
+        left:0;
+        right:0;
+        bottom : 0;
+        margin: auto;
+    }
+    .boxTitle{
+        position: absolute;
+        top:2.5vh;
+        text-align: center;
+        h6{
+            color: white;
+        font-family: fontH;
+        }
+    }
+    .dx{
+        right:13vh;
+    }
+    .sx{
+        left:13vh;
+    }
 }
 
 @font-face {
