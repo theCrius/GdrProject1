@@ -1,7 +1,5 @@
 # MarkDown To-Do
 
+- [ ] Fare Mecha grafica
 
-- [ ] Vedere usura
-
-- [x] Continuare oggetti equipaggiarti e posseduti grafica e controller
-
+- [ ] Fare Mecha controller e tutto

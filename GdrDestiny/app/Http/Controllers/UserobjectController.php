@@ -9,6 +9,7 @@ class UserobjectController extends Controller
 {
 
 
+
     public function showObjectEquipped($idUser,Request $request){
         $user=\App\User::find($idUser);
 

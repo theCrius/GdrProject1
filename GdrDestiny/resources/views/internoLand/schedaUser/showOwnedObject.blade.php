@@ -16,7 +16,7 @@
                     <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsOwned[$i]['id']]) }}">
            
                 @endif
-                <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
+                <img src="/img/imgHomeInterna/home/Icone/Objects/{{ $objectsOwned[$id]['object']->name }}.png" alt="" >
                 <div class="BoxContent">
                     <div><h4>{{ $objectsOwned[$i]['object']->name }}</h4></div>
 
