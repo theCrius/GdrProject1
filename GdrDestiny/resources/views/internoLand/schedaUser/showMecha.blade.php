@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-<div class='editProfile'><h5>dfdfsds</h5></div>
+<div class='nameMecha'><h5>dfdfsds</h5></div>
 
 
 @endsection
@@ -15,10 +15,12 @@
             <div class="boxTitle sx">
                 <h6>fejdj</h6>
             </div>
-            <div class="boxContent">
-                <div class="descrizione"></div>
+            <div class="boxContent toLeft">
+                <div class="descrizione">
+                    aassfdasdassdwnjosdsahKODJOAJDIOJIOAWJSIODFJOIAJFJjasjfoijaoJDOAzxczxczxcxzfbsdfbfgsdfgsvdfvsdfsdv
+                </div>
                 <div class="image">
-                    <img src="" alt="">
+                    <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerLeft'>
                     <div>
                         <img src="" alt="">
                     </div>
@@ -27,7 +29,9 @@
         </div>
     @endfor
 </div>
-<div class="center"></div>
+<div class="center">
+    <img src="" alt="">
+</div>
 <div class="right">
 @for($i=0; $i < 5; $i++ )
         <div class="boxChild">
@@ -35,16 +39,19 @@
             <div class="boxTitle dx">
                 <h6>fejdj</h6>
             </div>
-            <div class="boxContent">
-                <div class="descrizione"></div>
+            <div class="boxContent toRight">
                 <div class="image">
-                    <img src="" alt="">
+                    <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerRight'>
                     <div>
                         <img src="" alt="">
                     </div>
                 </div>
-            </div>
+                <div class="descrizione">
+                    aassfdasdassd
+                </div>
+
         </div>
+    </div>
     @endfor
 </div>
 </div>
