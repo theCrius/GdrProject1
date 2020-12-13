@@ -90,7 +90,7 @@
 
 <li><img src="/img/imgHomeInterna/home/schedaPg/emisfero.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Emisfero/{{ $userToView->hemispere->immagini }}"  title=' {{ $userToView->hemispere->name }} ' alt=""></li>
 
-    <li><img src="/img/imgHomeInterna/home/schedaPg/mechaeso.png" alt="" id='mecha' onclick="modal.openModal('{{route('showMecha',$userToView)}}')"> </li>
+    <li><img src="/img/imgHomeInterna/home/schedaPg/mechaeso.png" alt="" id='mecha' onclick="modal.openModal('{{route('showMecha',$userToView)}}',null,'schedaPg/showMecha.js')"> </li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Sesso/{{ $userToView->sesso }}.png" alt=""></li>
 </ul>

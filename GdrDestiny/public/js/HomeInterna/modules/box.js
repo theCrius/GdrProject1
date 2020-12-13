@@ -9,11 +9,11 @@ class Box
         this.titleBox
         this.contentBox
         this.nameClass=nameClass
-        
+        this.closeManullay=closeManullay
         
         if(!positionToAppendBox) positionToAppendBox = document.body;
         this.createBox(positionToAppendBox)
-        if(closeManullay) this.closeManuallyBox()
+        if(this.closeManullay) this.closeManuallyBox()
     }
     closeManuallyBox(){
         this.closeManually.className='closeManually'
@@ -25,7 +25,7 @@ class Box
 
     createBox(positionToAppendBox){
         this.boxCreated=document.createElement('div')
-        this.boxCreated.className='box ' + this.nameClass
+        this.boxCreated.className='box ' + this.nameClass +( (this.closeManullay) ? '' : ' off' )
         positionToAppendBox.append(this.boxCreated)
         
 
@@ -82,15 +82,17 @@ class Box
 
     }
 
-    showBox(title,text,elementCloser){
+    showBox(title,text,elementCloser,move=true){
        
         this.changeTitle(title,text)
         if( this.nameClass == 'off'){
             this.boxCreated.className='box'
-        }else{
-        this.boxCreated.className='box ' + this.nameClass
+        }else
+        {
+            this.boxCreated.className='box ' + this.nameClass
         }
-        this.moveBox(elementCloser)
+        
+        if(move) this.moveBox(elementCloser)
 
 
     }

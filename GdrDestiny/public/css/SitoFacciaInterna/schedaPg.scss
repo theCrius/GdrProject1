@@ -1081,6 +1081,77 @@
         overflow: hidden;
         display: flex;
         align-items: center;
+        .statistics{
+            display: none;
+        }
+        &:hover{
+            .statistics{
+                display: flex;
+                position: absolute;
+                height: 19vh;
+                width: 30vh;
+                flex-direction: column;
+                background-color: #063e52;
+                border:1px solid #f0f8ff;
+                opacity: 0.9;
+                color: white;
+                bottom:0;
+                right:0;
+                left:0;
+                top : 0;
+                margin: auto;
+                .statistic{
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .health{
+                    flex: 1.7;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .stats{
+                    display: flex;
+                    flex-direction: row;
+                    flex: 1;
+                    align-items: center;
+                    div{
+                       flex: 1; 
+                       text-align: center;
+                       padding-top: 0.5vh;
+                       h5{
+                            font-family: fontH;
+                       }
+                       p{
+                           font-size: small;
+                       }
+                    }
+                }
+                .title{
+                    width: 15vh;
+                    align-self: center;
+                    border-bottom: 1px solid white;
+
+                    h4{
+                        padding-bottom: 0.5vh;
+                    font-family: fontH;
+                    }
+                }
+                .descrizione{
+                    height: 9vh;
+                    overflow: auto;
+                    overflow-wrap: break-word;
+                    p{
+                        
+                        font-size: small;
+                        padding: 0.2vh;
+                        overflow: auto;
+                        overflow-wrap: break-word;
+                    }
+                }
+
+            }
+        }
     }
     .boxChild{
         flex:1;
@@ -1164,6 +1235,8 @@
         color: white;
     }
 }
+
+
 
 @font-face {
     font-family: fontH;
