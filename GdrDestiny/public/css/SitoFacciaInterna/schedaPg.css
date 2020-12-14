@@ -173,6 +173,11 @@
   text-align: center;
 }
 
+.riquadroContenuto .immagineProfilo {
+  overflow: hidden;
+  height: 34vh;
+}
+
 .riquadroContenuto .immagineProfilo img {
   height: 34vh;
 }
@@ -1426,8 +1431,8 @@
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  height: 19vh;
-  width: 30vh;
+  height: 26vh;
+  width: 35vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1495,6 +1500,7 @@
 
 .boxParent .center:hover .statistics .stats div h5 {
   font-family: fontH;
+  font-size: 1.5vh;
 }
 
 .boxParent .center:hover .statistics .stats div p {
@@ -1502,7 +1508,7 @@
 }
 
 .boxParent .center:hover .statistics .title {
-  width: 15vh;
+  width: 23vh;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -1512,17 +1518,19 @@
 .boxParent .center:hover .statistics .title h4 {
   padding-bottom: 0.5vh;
   font-family: fontH;
+  font-size: 2.5vh;
 }
 
 .boxParent .center:hover .statistics .descrizione {
-  height: 9vh;
+  height: 10vh;
+  margin-top: 1vh;
   overflow: auto;
   overflow-wrap: break-word;
 }
 
 .boxParent .center:hover .statistics .descrizione p {
-  font-size: small;
-  padding: 0.2vh;
+  font-size: 1.8vh;
+  padding: 0.3vh;
   overflow: auto;
   overflow-wrap: break-word;
 }
@@ -1554,7 +1562,7 @@
           flex: 2;
   margin-top: 0.5vh;
   padding-left: 0.7vh;
-  font-size: small;
+  font-size: 1.8vh;
   color: white;
   overflow: auto;
   overflow-wrap: break-word;
@@ -1607,6 +1615,7 @@
 .boxParent .boxTitle h6 {
   color: white;
   font-family: fontH;
+  font-size: 1.4vh;
 }
 
 .boxParent .dx {
@@ -1637,6 +1646,7 @@
 .nameMecha h5 {
   font-family: fontH;
   color: white;
+  font-size: 2vh;
 }
 
 @font-face {

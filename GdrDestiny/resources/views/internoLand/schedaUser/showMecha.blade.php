@@ -21,7 +21,7 @@
             </div>
             <div class="boxContent toLeft" onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this)">
                 <div class="descrizione">
-                    aassfdasdassdwnjosdsahKODJOAJDIOJIOAWJSIODFJOIAJFJjasjfoijaoJDOAzxczxczxcxzfbsdfbfgsdfgsvdfvsdfsdv
+                    <p>ffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafad</p>
                 </div>
                 <div class="image">
                     <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerLeft'>

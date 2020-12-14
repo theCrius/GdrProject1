@@ -137,6 +137,8 @@
     top:7vh;
     text-align: center;
     .immagineProfilo{
+        overflow: hidden;
+        height: 34vh;
         img{
             height: 34vh;
         }
@@ -1088,8 +1090,8 @@
             .statistics{
                 display: flex;
                 position: absolute;
-                height: 19vh;
-                width: 30vh;
+                height: 26vh;
+                width: 35vh;
                 flex-direction: column;
                 background-color: #063e52;
                 border:1px solid #f0f8ff;
@@ -1121,6 +1123,7 @@
                        padding-top: 0.5vh;
                        h5{
                             font-family: fontH;
+                            font-size: 1.5vh;
                        }
                        p{
                            font-size: small;
@@ -1128,23 +1131,25 @@
                     }
                 }
                 .title{
-                    width: 15vh;
+                    width: 23vh;
                     align-self: center;
                     border-bottom: 1px solid white;
 
                     h4{
                         padding-bottom: 0.5vh;
                     font-family: fontH;
+                    font-size: 2.5vh;
                     }
                 }
                 .descrizione{
-                    height: 9vh;
+                    height: 10vh;
+                    margin-top:1vh;
                     overflow: auto;
                     overflow-wrap: break-word;
                     p{
                         
-                        font-size: small;
-                        padding: 0.2vh;
+                        font-size: 1.8vh;
+                        padding: 0.3vh;
                         overflow: auto;
                         overflow-wrap: break-word;
                     }
@@ -1168,7 +1173,7 @@
             flex: 2;
             margin-top: 0.5vh;
             padding-left:0.7vh;
-            font-size: small;
+            font-size: 1.8vh;
             color: white;
             overflow: auto;
             overflow-wrap: break-word;
@@ -1211,6 +1216,7 @@
         h6{
             color: white;
         font-family: fontH;
+        font-size: 1.4vh;
         }
     }
     .dx{
@@ -1233,6 +1239,7 @@
     h5{
         font-family: fontH;
         color: white;
+        font-size: 2vh;
     }
 }
 
