@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use \App\Classes\Mecha;
 
 class Usermecha extends Model
 {
+    use Mecha;
+
     protected $filliable=[
 
-        'id_user','id_mecha','name'
+        'id_user','id_mecha','name','immagine'
     
     ]; 
     public function objects(){
@@ -16,5 +19,9 @@ class Usermecha extends Model
     }
     public function mechaDescription(){
         return $this->belongsTo('\App\Mecha','id_mecha');
+    }
+
+    public function hurts(){
+        return $this->hasMany('\App\Mechahurtsrecord','id_usermecha');
     }
 }

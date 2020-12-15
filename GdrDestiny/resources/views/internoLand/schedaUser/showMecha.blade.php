@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-<div class='nameMecha'><h5>dfdfsds</h5></div>
+<div class='nameMecha'><h5>{{ $mechaName }}</h5></div>
 
 
 @endsection
@@ -11,15 +11,15 @@
 <div class="left">
     @for($i=0; $i < 5; $i++ )
     <div class="boxChild">
-        @if(1)
+        @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) )
             <img src="/img/imgHomeInterna/home/schedaPg/mecha/errore/sxspazir.png" class='sfondoBox' alt="">
         @else 
         <img src="/img/imgHomeInterna/home/schedaPg/mecha/sxspazi.png" class='sfondoBox' alt="">
         @endif
             <div class="boxTitle sx">
-                <h6>fejdj</h6>
+                <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
-            <div class="boxContent toLeft" onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this)">
+            <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this) @endif">
                 <div class="descrizione">
                     <p>ffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafad</p>
                 </div>
@@ -34,46 +34,52 @@
     @endfor
 </div>
 <div class="center" >
-    @if(1)
-    <img src="/img/imgHomeInterna/home/schedaPg/mecha/inserisciimg.png" alt="">
-    @else
-    @endif
+
+    <img src="{{ $userImg }}" alt="">
+    
     <div class="statistics">
         <div class="statistic">
             <div class="title"><h4>Statistiche</h4></div>
             <div class="stats">
                 <div>
-                    <h5>Forza</h5>
-                    <p>10</p>
+                    <h5>Potenza</h5>
+                <p>{{ $statistics['potenza'] }}</p>
                 </div>
                 <div>
                     <h5>Velocita</h5>
-                    <p>20</p>
+                <p>{{ $statistics['velocita'] }}</p>
                 </div>
                 <div>
                     <h5>Resistenza</h5>
-                    <p>10</p>
+                    <p>{{ $statistics['resistenza'] }}</p>
                 </div>
             </div>
         </div>
         <div class="health">
-            <div class="title"><h4>Salute 100 / 150 </h4></div>
+            <div class="title"><h4>Salute {{ $points['pointsNow'] }}/{{ $points['fullpoints'] }} </h4></div>
             <div class="descrizione">
-              <p>[Spalla Destra] : <i> dfsdsfdsdfsdfs sdfsdfsdfsdfsdfsdfsdfsdfsdfsdsdfdsdfsdfsdfsdfsdfs dfssdfsff</i></p>
-              <p>[Spalla Destra] : <i> dfsdsfdsdfsdfs sdfsdfsdfsdfsdfsdfsdfsdfsdfsdsdfdsdfsdfsdfsdfsdfs dfssdfsff</i></p>
+            @foreach ($hurts as $hurt)
 
+            <p>[{{ ucfirst($hurt->partOfMecha) }} -{{ $hurt->hurt }}] : <i>{{ $hurt->descrizione }} by {{ $hurt->user->name }}</i></p>
+
+            
+              @endforeach
             </div>
         </div>
     </div>
 </div>
 <div class="right">
-@for($i=0; $i < 5; $i++ )
+@for($i=5; $i < 10; $i++ )
         <div class="boxChild">
-            <img src="/img/imgHomeInterna/home/schedaPg/mecha/dxspazi.png" class='sfondoBox' alt="">
+        @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) )
+            <img src="/img/imgHomeInterna/home/schedaPg/mecha/errore/dxspazir.png" class='sfondoBox' alt="">
+        @else 
+        <img src="/img/imgHomeInterna/home/schedaPg/mecha/dxspazi.png" class='sfondoBox' alt="">
+        @endif
             <div class="boxTitle dx">
-                <h6>fejdj</h6>
+                <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
-            <div class="boxContent toRight" onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this)">
+            <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this) @endif">
                 <div class="image">
                     <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerRight'>
                     <div>

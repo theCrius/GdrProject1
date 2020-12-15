@@ -1455,6 +1455,23 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             ]
         ]);
     
+        \App\Mechahurtsrecord::insert([
+            [
+                'id_user' => 1,
+                'id_usermecha' => 1,
+                'partOfMecha' => 'braccio dx',
+                'descrizione' => 'piccolo taglio al braccio',
+                'hurt' => 50
+            ],
+            [
+                'id_user' => 1,
+                'id_usermecha' => 1,
+                'partOfMecha' => 'schiena',
+                'descrizione' => 'ematoma enorme',
+                'hurt' =>  30
+            ],
+
+        ]);
     
     }
 
@@ -1476,6 +1493,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             ]
         ]);
     }
+
 }
 
 

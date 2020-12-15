@@ -10,4 +10,5 @@ class Sellingmechaobject extends Model
     protected $filliable= [
         'name','descrizione','prize','usura','velocita','resistenza','potenza','partmecha'
     ];
+   
 }

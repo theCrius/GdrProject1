@@ -9,4 +9,7 @@ class Mechaobject extends Model
     protected $filliable= [
         'id_usermecha','id_sellingmechaobject'
     ];
+    public function objectDescription(){
+        return $this->belongsTo('\App\Sellingmechaobject','id_sellingmechaobject');
+    }
 }

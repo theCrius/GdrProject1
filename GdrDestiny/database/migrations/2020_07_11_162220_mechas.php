@@ -25,6 +25,7 @@ class Mechas extends Migration
             
             
             
+            
             $table->timestamps();
         });
     }

@@ -5,14 +5,14 @@ return [
     
         'partsOfMecha' => [
             'spalla sx',
-            'spalla dx',
-            'braccio dx',
             'braccio sx',
             'petto',
-            'schiena',
             'gamba_sx',
-            'gamba_dx',
             'mod system',
+            'spalla dx',
+            'braccio dx',
+            'schiena',
+            'gamba_dx',
             'specializzazione'
         ],
 

@@ -1,11 +1,11 @@
 # MarkDown To-Do
 
-- [x] Fare Mecha grafica
 
-- [ ] Fare Mecha controller e tutto
 
 - [ ] Fare Mecha Errore
 
-- [ ] Fare mecha vita
+- [ ] Fare boxShow per mostrare i danni ( nuovo metodo js showMultipleP)
 
-- [ ] Fare mecha attributi
+- [ ] Mostrare oggetti equipaggiati del mecha
+
+- [ ] Fare migration

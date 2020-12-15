@@ -76,7 +76,7 @@ Route::get('/user/{idUser}/oggettiPosseduti','UserobjectController@showObjectOwn
 Route::get('/user/{idUser}/{idObject}/equipsOrUnequips','UserobjectController@equipsOrUnequips')->name('equipsOrUnequips');
 
 //Mecha 
-Route::get('/user/{idUser}/Mecha','MechaController@show')->name('showMecha');
+Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha');
 
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

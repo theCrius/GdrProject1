@@ -18,6 +18,7 @@ class Usermechas extends Migration
             $table->foreignId('id_user');
             $table->foreignId('id_mecha');
             $table->string('name');
+            $table->string('immagine')->default('/img/imgHomeInterna/home/schedaPg/mecha/inserisciimg.png');
 
             
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
