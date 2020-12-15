@@ -76,6 +76,9 @@ class User extends Authenticatable
     public function objects(){
         return $this->hasMany('App\Userobject','id_user');
     }
+    public function mecha(){
+        return $this->hasOne('App\Usermecha','id_user');
+    }
 
     
 

@@ -34,7 +34,10 @@
     @endfor
 </div>
 <div class="center" >
-    <img src="" alt="">
+    @if(1)
+    <img src="/img/imgHomeInterna/home/schedaPg/mecha/inserisciimg.png" alt="">
+    @else
+    @endif
     <div class="statistics">
         <div class="statistic">
             <div class="title"><h4>Statistiche</h4></div>

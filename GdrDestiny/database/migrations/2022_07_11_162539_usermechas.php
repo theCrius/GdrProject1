@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Usersmecha extends Migration
+class Usermechas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class Usersmecha extends Migration
      */
     public function up()
     {
-        Schema::create('usersmechas', function (Blueprint $table) {
+        Schema::create('usermechas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('id_user');
             $table->foreignId('id_mecha');
+            $table->string('name');
+
             
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_mecha')->references('id')->on('mechas')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

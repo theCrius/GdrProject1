@@ -8,9 +8,10 @@ class MechaController extends Controller
 {
     public function show($idUser,Request $request){
         
+        
 
         return view('internoLand.schedaUser.showMecha',[
-            
+           
         ]);
     }
 }

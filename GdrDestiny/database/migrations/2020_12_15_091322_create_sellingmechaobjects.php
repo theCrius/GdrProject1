@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Mechas extends Migration
+class CreateSellingmechaobjects extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,21 @@ class Mechas extends Migration
      */
     public function up()
     {
-        Schema::create('mechas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('sellingmechaobjects', function (Blueprint $table) {
+
+            $enumPartsMecha=\Config::get('mecha.partsOfMecha');
+
+            $table->id();
             $table->string('name');
-            $table->integer('costo');
-            $table->integer('salute');
+            $table->text('descrizione');
+            $table->integer('prize');
+            $table->integer('usura');
             $table->integer('velocita');
-            $table->integer('potenza');
             $table->integer('resistenza');
-            $table->string('descrizione');
-            
-            
-            
+            $table->integer('potenza');
+
+            $table->enum('partmecha', $enumPartsMecha);
+
             $table->timestamps();
         });
     }
@@ -36,6 +39,6 @@ class Mechas extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('mecha_objects');
     }
 }
