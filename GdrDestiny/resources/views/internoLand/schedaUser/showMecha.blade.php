@@ -19,7 +19,7 @@
             <div class="boxTitle sx">
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
-            <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this) @endif">
+        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}','asasdasd',this) @endif">
                 <div class="descrizione">
                     <p>ffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafad</p>
                 </div>
@@ -35,7 +35,7 @@
 </div>
 <div class="center" >
 
-    <img src="{{ $userImg }}" alt="">
+    <img src="{{ $mechaImg }}" alt="">
     
     <div class="statistics">
         <div class="statistic">
@@ -58,10 +58,13 @@
         <div class="health">
             <div class="title"><h4>Salute {{ $points['pointsNow'] }}/{{ $points['fullpoints'] }} </h4></div>
             <div class="descrizione">
-            @foreach ($hurts as $hurt)
+            @foreach ($partsHurted as $partHurted)
 
-            <p>[{{ ucfirst($hurt->partOfMecha) }} -{{ $hurt->hurt }}] : <i>{{ $hurt->descrizione }} by {{ $hurt->user->name }}</i></p>
-
+                @foreach($partHurted as $hurt)
+                
+                    <p>[ -{{ $hurt["hurt"] }}] : <i>{{ $hurt['descrizione'] }} by {{ $hurt['assignedBy'] }}</i></p>
+                
+                @endforeach
             
               @endforeach
             </div>
@@ -79,7 +82,8 @@
             <div class="boxTitle dx">
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
-            <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('sdsdsdsd','asasdasd',this) @endif">
+           
+        <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ ucfirst($partsOfMecha[$i]) }}','jjj',this) @endif">
                 <div class="image">
                     <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerRight'>
                     <div>

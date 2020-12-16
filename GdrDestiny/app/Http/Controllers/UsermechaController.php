@@ -10,7 +10,7 @@ class UsermechaController extends Controller
         
         $user=\App\User::find($idUser);
         $mecha= $user->mecha;
-
+        
         return view('internoLand.schedaUser.showMecha',[
            'hurts' => $mecha->hurts,
            'points' => $mecha->getPoints(),

@@ -8,4 +8,5 @@
 
 - [ ] Mostrare oggetti equipaggiati del mecha
 
-- [ ] Fare migration
+- [x] Fare migration
+

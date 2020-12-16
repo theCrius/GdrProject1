@@ -34,10 +34,13 @@ trait Mecha{
     }
 
     public function getPartsHurted(){
-        $hurts= $this->hurts;
 
+        $hurts= $this->hurts;
+        $objectsHurtedOfMecha= $this->objects;
+        
         $partshurted=[];
 
+        //hurts about Mecha
         foreach( $hurts as $hurt ){
             
             $hurtDescription=[
@@ -48,6 +51,25 @@ trait Mecha{
 
             $partshurted[$hurt->partOfMecha][]=$hurtDescription;
 
+        }
+        $hurtDescription=[];
+
+        //hurts about object
+        foreach( $objectsHurtedOfMecha as $objectHurtedOfMecha ){
+            
+                foreach( $objectHurtedOfMecha->hurts as $hurt ){
+
+                    $hurtDescription[]=[
+                            'descrizione' => $hurt->descrizione,
+                            'hurt' => $hurt->hurt,
+                            'assignedBy' => $hurt->user->name
+                    ];
+                    
+            }
+            
+            $partshurted[ $objectHurtedOfMecha->objectDescription->partmecha ]['object']=$hurtDescription;
+            
+            $hurtDescription=[]; //azzero la variabile
         }
 
         return $partshurted;

@@ -62,14 +62,32 @@ class Box
 
         this.contentBox.innerHTML='<marquee behavior="scroll" direction="right" scrollamount="5"></marquee>'
     }
-    changeTitle(title,text){
-        if(title){ 
+
+    changeTitle(title){
              this.titleBoxTitle.append(document.createTextNode(title))
-        }else{
+    }
+    addMultipleP(aLotP){
+        let singleP
+
+        for(singleP of aLotP){
+
+            this.contentBox.append(document.createTextNode(singleP))
+
+        }
+    }
+
+    editContent(title,text){
+
+        if(!title){
+
             this.showErrorGif()
             return this.contentBox.children[0].append(document.createTextNode(text))
+        
         }
-        this.contentBox.append(document.createTextNode(text))
+
+        this.changeTitle(title)
+        this.addMultipleP(text)
+
     }
 
     moveBox(element){
@@ -84,7 +102,7 @@ class Box
 
     showBox(title,text,elementCloser,move=true){
        
-        this.changeTitle(title,text)
+        this.editContent(title,text)
         if( this.nameClass == 'off'){
             this.boxCreated.className='box'
         }else

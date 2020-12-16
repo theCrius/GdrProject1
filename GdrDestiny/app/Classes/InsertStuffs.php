@@ -1472,6 +1472,24 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             ],
 
         ]);
+
+        \App\Mechaobjecthurtsrecord::insert([
+            [
+                
+                'id_mechaobject' => 1,
+                'hurt' => 3,
+                'id_user' => 1,
+                'descrizione' => 'botta al pulsante'
+
+            ],
+            [
+                'id_mechaobject' => 1,
+                'hurt' => 2,
+                'id_user' => 1,
+                'descrizione' => 'asdoasdjsajn'
+            ]
+        
+            ]);
     
     }
 

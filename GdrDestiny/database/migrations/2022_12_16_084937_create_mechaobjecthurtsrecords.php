@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateObjecthurtsrecords extends Migration
+class CreateMechaobjecthurtsrecords extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateObjecthurtsrecords extends Migration
      */
     public function up()
     {
-        Schema::create('objecthurtsrecords', function (Blueprint $table) {
-            
+        Schema::create('mechaobjecthurtsrecords', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_object');
+            $table->foreignId('id_mechaobject');
             $table->integer('hurt');
             $table->foreignId('id_user');
             $table->string('descrizione');
             $table->timestamps();
 
-            $table->foreign('id_object')->references('id')->on('userobjects')->onDelete('cascade');
+            $table->foreign('id_mechaobject')->references('id')->on('mechaobjects')->onDelete('cascade');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
        
         });
@@ -35,6 +34,6 @@ class CreateObjecthurtsrecords extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('object_hurts');
+        Schema::dropIfExists('mechaobjecthurtsrecords');
     }
 }
