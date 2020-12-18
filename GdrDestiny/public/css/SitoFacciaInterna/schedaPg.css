@@ -1525,7 +1525,7 @@
 }
 
 .boxParent .center:hover .statistics .descrizione {
-  height: 10vh;
+  height: 11.5vh;
   margin-top: 1vh;
   overflow: auto;
   overflow-wrap: break-word;
@@ -1560,15 +1560,26 @@
 }
 
 .boxParent .boxContent .descrizione {
+  font-size: 1.5vh;
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
-  margin-top: 0.5vh;
+  text-align: center;
   padding-left: 0.7vh;
-  font-size: 1.8vh;
   color: white;
   overflow: auto;
   overflow-wrap: break-word;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.boxParent .boxContent .descrizione h4 {
+  font-family: fontH;
+}
+
+.boxParent .boxContent .descrizione p {
+  font-size: 1.4vh;
 }
 
 .boxParent .boxContent .image {

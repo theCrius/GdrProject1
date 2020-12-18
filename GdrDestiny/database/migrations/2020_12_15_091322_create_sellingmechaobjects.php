@@ -21,7 +21,7 @@ class CreateSellingmechaobjects extends Migration
             $table->string('name');
             $table->text('descrizione');
             $table->integer('prize');
-            $table->integer('usura');
+            $table->integer('salute');
             $table->integer('velocita');
             $table->integer('resistenza');
             $table->integer('potenza');

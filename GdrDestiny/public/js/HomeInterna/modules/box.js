@@ -67,11 +67,12 @@ class Box
              this.titleBoxTitle.append(document.createTextNode(title))
     }
     addMultipleP(aLotP){
-        let singleP
-
-        for(singleP of aLotP){
-
-            this.contentBox.append(document.createTextNode(singleP))
+        if( typeof aLotP  == 'object') aLotP = aLotP.object
+        console.log(aLotP)
+        let key
+        for(key in aLotP){
+            console.log(aLotP[key])
+            this.contentBox.append(document.createTextNode(aLotP[key]))
 
         }
     }

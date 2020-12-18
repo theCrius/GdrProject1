@@ -13,13 +13,13 @@ class UsermechaController extends Controller
         
         return view('internoLand.schedaUser.showMecha',[
            'hurts' => $mecha->hurts,
-           'points' => $mecha->getPoints(),
+           'points' => $mecha->getPointsMecha(),
            'partsOfMecha' => \Config::get('mecha.partsOfMecha'),
            'mechaName' => $mecha->name,
            'mechaImg' => $mecha->immagine,
            'partsHurted' => $mecha->getPartsHurted(),
            'statistics' => $mecha->getStatistics(),
-           'objectsEquippedToMecha' => $mecha->objects
+           'objectsEquippedToMecha' => $mecha->getObjects()
         ]);
     }
 }

@@ -1415,7 +1415,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'name' => 'Mitraglietta',
                 'descrizione' => 'spara 9 colpi al secondo e quindi in un azione',
                 'prize' => 1000,
-                'usura' => 20,
+                'salute' => 20,
                 'velocita' => 5,
                 'resistenza' => 0,
                 'potenza' => 10,
@@ -1427,7 +1427,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'name' => 'Laser',
                 'descrizione' => 'spara un lase ad azione',
                 'prize' => 1500,
-                'usura' => 15,
+                'salute' => 15,
                 'velocita' => 10,
                 'resistenza' => 0,
                 'potenza' => 20,
@@ -1487,6 +1487,13 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'hurt' => 2,
                 'id_user' => 1,
                 'descrizione' => 'asdoasdjsajn'
+            ],
+            [
+                'id_mechaobject' => 2,
+                'hurt' => 5,
+                'id_user' => 1,
+                'descrizione' => 'colpo rigido'
+
             ]
         
             ]);

@@ -8,7 +8,7 @@ class Sellingmechaobject extends Model
 {
     
     protected $filliable= [
-        'name','descrizione','prize','usura','velocita','resistenza','potenza','partmecha'
+        'name','descrizione','prize','salute','velocita','resistenza','potenza','partmecha'
     ];
    
 }

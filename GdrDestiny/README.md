@@ -2,11 +2,11 @@
 
 
 
-- [ ] Fare Mecha Errore
 
 - [ ] Fare boxShow per mostrare i danni ( nuovo metodo js showMultipleP)
 
-- [ ] Mostrare oggetti equipaggiati del mecha
+- [ ] Fare showBox sull'immaginetta dell'arma
+- [ ] Possibile idea, mettere frase che deve seguire variabili , solo però per questo, classi figlie
 
-- [x] Fare migration
+
 

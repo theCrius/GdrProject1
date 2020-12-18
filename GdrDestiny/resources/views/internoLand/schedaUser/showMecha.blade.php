@@ -19,12 +19,26 @@
             <div class="boxTitle sx">
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
-        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}','asasdasd',this) @endif">
+            
+        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this) @endif">
                 <div class="descrizione">
-                    <p>ffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafadffaafad</p>
+                    @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]))
+                        <h4> {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}</h4>
+                        <p><i>LifePoints: {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['pointsNow'] }}/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['fullpoints'] }} </i></p>
+    
+
+                    @endif
                 </div>
                 <div class="image">
-                    <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerLeft'>
+                    @if( empty( $partsHurted[ $partsOfMecha[$i] ][ 'object' ] ) )
+                        
+                        <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerLeft'>
+                    @else 
+
+                        <img src="/img/imgHomeInterna/home/schedaPg/mecha/errore/objectHurted.gif" alt="" class='sfondoMicroBox centerLeft'>
+
+                    
+                    @endif
                     <div>
                         <img src="" alt="">
                     </div>
@@ -58,11 +72,28 @@
         <div class="health">
             <div class="title"><h4>Salute {{ $points['pointsNow'] }}/{{ $points['fullpoints'] }} </h4></div>
             <div class="descrizione">
-            @foreach ($partsHurted as $partHurted)
-
-                @foreach($partHurted as $hurt)
                 
-                    <p>[ -{{ $hurt["hurt"] }}] : <i>{{ $hurt['descrizione'] }} by {{ $hurt['assignedBy'] }}</i></p>
+            @foreach ($partsHurted as $key => $partHurted)
+                
+                @foreach($partHurted as $key2 => $hurt)
+                
+                    @if( $key2 === 'object' )
+                    
+                        @foreach( $hurt as $Objecthurt)
+                            
+                            <p>[Oggetto colpito : <i>{{ $Objecthurt['name'] }}</i> -{{ $Objecthurt['hurt'] ?? '' }} ] : <i>{{ $Objecthurt['descrizione'] ?? '' }} by {{ $Objecthurt['assignedBy'] ?? '' }}</i></p>
+                        
+                        @endforeach
+
+                        @break
+
+                    @endif
+
+                    
+                    <p>[{{ ucfirst($key) }} -{{ $hurt['hurt'] ?? '' }} ] : <i>{{ $hurt['descrizione'] ?? '' }} by {{ $hurt['assignedBy'] ?? '' }}</i></p>
+
+                
+                    
                 
                 @endforeach
             
@@ -85,13 +116,28 @@
            
         <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ ucfirst($partsOfMecha[$i]) }}','jjj',this) @endif">
                 <div class="image">
-                    <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerRight'>
+                    @if( empty( $partsHurted[ $partsOfMecha[$i] ][ 'object' ] ) )
+                        
+                        <img src="/img/imgHomeInterna/home/schedaPg/ObjectsEquipped/qoggetto.png" alt="" class='sfondoMicroBox centerRight'>
+                    
+                    @else 
+
+                        <img src="/img/imgHomeInterna/home/schedaPg/mecha/errore/objectHurted.gif" alt="" class='sfondoMicroBox centerRight'>
+
+                    
+                    @endif
                     <div>
                         <img src="" alt="">
                     </div>
                 </div>
                 <div class="descrizione">
-                    aassfdasdassd
+                    @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]))
+                   
+                    <h4> {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}</h4>
+                    <p><i>LifePoints: {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['pointsNow'] }}/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['fullpoints'] }} </i></p>
+
+
+                @endif
                 </div>
 
         </div>

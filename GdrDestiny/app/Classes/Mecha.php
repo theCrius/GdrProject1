@@ -14,23 +14,70 @@ trait Mecha{
         return \Config::get('mecha.partsOfMecha');
 
     }
+
+        
     
 
-    public function getPoints(){
+    //ottengo gli oggetti dei mecha divisi in base alla posizione del mecha
+    public function getObjects(){
+        $objectsMecha= $this->objects;
+        $dividedObjects=[];
+       
+
+        foreach( $objectsMecha as $objectMecha ){
+            
+            $object= $objectMecha->objectDescription;
+
+            $dividedObjects[$object->partmecha] = [
+
+                'descrizione' => $object->descrizione,
+                'name' => $object->name,
+                'salute' => $this->getPointsObject($objectMecha,$object->salute)
+
+            ];
+
+        }
+
+        return $dividedObjects;
+    }
+    
+    public function getPointsObject($object,$startedPoints)
+    {
+        $sumOfHurts=0;            
+
+        foreach( $object->hurts as $hurt ){
+
+            $sumOfHurts += $hurt->hurt;
+
+        }
+        
+
+        return [
+            'fullpoints' => $startedPoints,
+            'pointsNow' => $startedPoints - $sumOfHurts
+        ];
+    }
+
+    
+    public function getPointsMecha()
+    {
         $sumOfHurts=0;
 
         $startedPoints= $this->mechaDescription->salute;
+            
 
         foreach( $this->hurts as $hurt ){
 
             $sumOfHurts += $hurt->hurt;
 
         }
+        
 
         return [
             'fullpoints' => $startedPoints,
             'pointsNow' => $startedPoints - $sumOfHurts
         ];
+
     }
 
     public function getPartsHurted(){
@@ -58,18 +105,23 @@ trait Mecha{
         foreach( $objectsHurtedOfMecha as $objectHurtedOfMecha ){
             
                 foreach( $objectHurtedOfMecha->hurts as $hurt ){
-
+                    
                     $hurtDescription[]=[
                             'descrizione' => $hurt->descrizione,
                             'hurt' => $hurt->hurt,
-                            'assignedBy' => $hurt->user->name
+                            'assignedBy' => $hurt->user->name,
+                            'name' => $objectHurtedOfMecha->objectDescription->name
                     ];
                     
             }
             
-            $partshurted[ $objectHurtedOfMecha->objectDescription->partmecha ]['object']=$hurtDescription;
+            if($hurtDescription){
+                
+                $partshurted[ $objectHurtedOfMecha->objectDescription->partmecha ]['object']=$hurtDescription;
             
-            $hurtDescription=[]; //azzero la variabile
+                $hurtDescription=[]; //azzero la variabile
+            
+            }
         }
 
         return $partshurted;
