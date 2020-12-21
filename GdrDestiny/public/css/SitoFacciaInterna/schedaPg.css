@@ -1602,6 +1602,10 @@
   right: 0.5vh;
 }
 
+.boxParent .boxContent .image .centerRightImageObject {
+  right: 0.7vh;
+}
+
 .boxParent .toLeft {
   left: 5vh;
 }

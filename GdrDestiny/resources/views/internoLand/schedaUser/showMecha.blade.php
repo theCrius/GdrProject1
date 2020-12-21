@@ -40,8 +40,9 @@
                     
                     @endif
                     <div>
-                        <img src="" alt="">
-                    </div>
+                        @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]) && empty( $partsHurted[ $partsOfMecha[$i] ][ 'object' ]) )
+                        <img src="/img/imgHomeInterna/home/schedaPg/mecha/Objects/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}.png" id='sfondobox' alt="">
+                    @endif                    </div>
                 </div>
             </div>
         </div>
@@ -127,7 +128,9 @@
                     
                     @endif
                     <div>
-                        <img src="" alt="">
+                        @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]) && empty( $partsHurted[ $partsOfMecha[$i] ][ 'object' ]) )
+                        <img src="/img/imgHomeInterna/home/schedaPg/mecha/Objects/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}.png" class='sfondoMicroBox centerRightImageObject' alt="">
+                    @endif 
                     </div>
                 </div>
                 <div class="descrizione">

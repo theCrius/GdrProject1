@@ -1434,6 +1434,18 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'partmecha' => 'braccio dx'
 
             ],
+            [
+
+                'name' => 'Sparachiodi',
+                'descrizione' => 'spara 23 colpi ogni 3 azioni',
+                'prize' => 100,
+                'salute' => 2,
+                'velocita' => 5,
+                'resistenza' => 0,
+                'potenza' => 34,
+                'partmecha' => 'schiena'
+
+            ],
         ]);
 
         \App\Usermecha::insert([
@@ -1452,7 +1464,11 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             [
                 'id_usermecha' => 1,
                 'id_sellingmechaobject' => 2
-            ]
+            ],
+            [
+                'id_usermecha' => 1,
+                'id_sellingmechaobject' => 3
+            ],
         ]);
     
         \App\Mechahurtsrecord::insert([
