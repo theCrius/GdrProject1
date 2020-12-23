@@ -1429,6 +1429,10 @@
   display: none;
 }
 
+.boxParent .center img {
+  height: 44vh;
+}
+
 .boxParent .center:hover .statistics {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1665,6 +1669,23 @@
   font-family: fontH;
   color: white;
   font-size: 2vh;
+}
+
+/* BOX IN SHOWMECHA */
+.assignedBy {
+  text-align: right;
+  padding-bottom: 0.5vh;
+}
+
+.showHurts {
+  background-color: #9d0d0d !important;
+  width: 40vh;
+  height: 20vh;
+}
+
+.statistics {
+  width: 40vh;
+  height: 19vh;
 }
 
 @font-face {

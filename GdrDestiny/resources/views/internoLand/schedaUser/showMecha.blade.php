@@ -20,11 +20,11 @@
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
             
-        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this) @endif">
+        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this)" @endif>
                 <div class="descrizione">
                     @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]))
                         <h4> {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}</h4>
-                        <p><i>LifePoints: {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['pointsNow'] }}/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['fullpoints'] }} </i></p>
+                        <p><i>Integrità: {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['pointsNow'] }}/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['fullpoints'] }} </i></p>
     
 
                     @endif
@@ -109,13 +109,13 @@
         @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) )
             <img src="/img/imgHomeInterna/home/schedaPg/mecha/errore/dxspazir.png" class='sfondoBox' alt="">
         @else 
-        <img src="/img/imgHomeInterna/home/schedaPg/mecha/dxspazi.png" class='sfondoBox' alt="">
+            <img src="/img/imgHomeInterna/home/schedaPg/mecha/dxspazi.png" class='sfondoBox' alt="">
         @endif
             <div class="boxTitle dx">
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
            
-        <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ ucfirst($partsOfMecha[$i]) }}','jjj',this) @endif">
+        <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this)" @endif>
                 <div class="image">
                     @if( empty( $partsHurted[ $partsOfMecha[$i] ][ 'object' ] ) )
                         
@@ -137,7 +137,7 @@
                     @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]))
                    
                     <h4> {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}</h4>
-                    <p><i>LifePoints: {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['pointsNow'] }}/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['fullpoints'] }} </i></p>
+                    <p><i>Integrità: {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['pointsNow'] }}/{{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['salute']['fullpoints'] }} </i></p>
 
 
                 @endif

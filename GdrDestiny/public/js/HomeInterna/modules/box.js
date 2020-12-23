@@ -66,15 +66,10 @@ class Box
     changeTitle(title){
              this.titleBoxTitle.append(document.createTextNode(title))
     }
-    addMultipleP(aLotP){
-        if( typeof aLotP  == 'object') aLotP = aLotP.object
-        console.log(aLotP)
-        let key
-        for(key in aLotP){
-            console.log(aLotP[key])
-            this.contentBox.append(document.createTextNode(aLotP[key]))
 
-        }
+    addP(text){
+            this.contentBox.append(document.createTextNode(text))
+
     }
 
     editContent(title,text){
@@ -87,7 +82,7 @@ class Box
         }
 
         this.changeTitle(title)
-        this.addMultipleP(text)
+        this.addP(text)
 
     }
 
