@@ -392,6 +392,7 @@
   visibility: hidden;
   height: 30vh;
   width: 58.7vh;
+  background-color: #013445;
   position: absolute;
   right: 9.5vh;
   top: 7vh;
@@ -464,6 +465,9 @@
 .sendMessage form .campi .left input {
   height: 6vh;
   width: 26vh;
+  border: 2px solid #2cc6c8;
+  background-color: transparent;
+  color: white;
 }
 
 .sendMessage form .campi .right {
@@ -479,7 +483,11 @@
 }
 
 .sendMessage form .campi .right textarea {
+  color: white;
   height: 18vh;
+  width: 28vh;
+  border: 2px solid #2cc6c8;
+  background-color: transparent;
 }
 
 .sendMessage form .buttons {
