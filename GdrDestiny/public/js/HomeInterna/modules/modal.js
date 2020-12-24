@@ -13,7 +13,7 @@ class Finestra{
 
     dealError(errors,modalContent){
       let boxError=new Box(modalContent,'errore',true);
-      boxError.changeTitle('', errors)
+      boxError.editContent(null,errors)
     
     }
 

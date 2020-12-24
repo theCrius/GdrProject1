@@ -9,12 +9,12 @@ window.box.addP = function (multipleP){
     for ( key in multipleP) {
 
         if( !multipleP[key].length ) multipleP[key] = [multipleP[key]] 
-        console.log(multipleP[key])
+        
         for( let singleP of multipleP[key]){
 
             
             let newP=document.createElement('p')
-            newP.textContent= '[' + ( singleP.name ?? '' ) + ' -' + singleP.hurt + 'I ] :' + singleP.descrizione
+            newP.textContent= '[' + ( singleP.name ?? '' ) + ' -' + singleP.hurt + ' ] :' + singleP.descrizione
 
             let newPAssignedBy=document.createElement('p')
             newPAssignedBy.textContent= 'by ' + singleP.assignedBy

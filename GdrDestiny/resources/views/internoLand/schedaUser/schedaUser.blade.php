@@ -42,7 +42,35 @@
     </div>
 
     <div class="riquadroDestra">
-        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' alt="">
+        <div class="sendMessage">
+            <form action="" method="post">
+                @method('post')
+                @csrf 
+            <div class="campi">
+            <div class="left">
+
+                <div class="name">
+                    <input type="text" name="name" id="" value='name'>
+                </div>
+
+                <div class="emailOggetto">
+                    <input type="text" name="objectEmail" id="" value='Oggetto'>
+                </div>
+
+            </div>
+            <div class="right">
+
+                <textarea name="text" id="" cols="30" rows="10">Testo</textarea>
+
+            </div>
+        </div>
+            <div class="buttons">
+                <button id='invia'>Invia</button>
+                <button id='annulla'>Chiudi</button>
+            </div>
+            </form>
+        </div>
+        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' onclick="document.querySelector('.sendMessage').className='sendMessage on'">
         <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/log.png" alt="" id='logImmagine'>
         <div id="namePg">

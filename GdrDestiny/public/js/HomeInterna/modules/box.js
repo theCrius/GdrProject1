@@ -64,10 +64,13 @@ class Box
     }
 
     changeTitle(title){
+
              this.titleBoxTitle.append(document.createTextNode(title))
-    }
+    
+            }
 
     addP(text){
+
             this.contentBox.append(document.createTextNode(text))
 
     }
@@ -86,17 +89,35 @@ class Box
 
     }
 
-    moveBox(element){
+    moveBox(element,move){
         let coordinateElement=element.getBoundingClientRect()
         let coordinateBox=this.boxCreated.getBoundingClientRect()
+            
+                if ((move == 'left') || (move == 'right')){
+
+                    move = ( move == 'left' ) ? 'right' : 'left'
+
+                    this.boxCreated.style[move]=coordinateElement[move] + coordinateElement.width;
+                    this.boxCreated.style['top']=coordinateElement['top'] + Math.abs( coordinateElement.height - coordinateBox.height )/2
+
+                    
+                }else{
+
+                    move = ( move == 'bottom' ) ? 'top' : 'bottom'
+                    
+                    this.boxCreated.style['left']= Math.abs(coordinateElement['left'] - Math.abs(  coordinateBox.width - coordinateElement.width )/2 );
+                    this.boxCreated.style['right']=Math.abs(coordinateElement['right'] - Math.abs(  coordinateBox.width - coordinateElement.width )/2 );
+                    this.boxCreated.style[move]=coordinateElement[move] + coordinateElement.height * 1.2;
+                    
+                }
+            
+
         
-        this.boxCreated.style.left=coordinateElement.left + (coordinateBox.width * 0.5);
-        this.boxCreated.style.top=coordinateElement.top + Math.abs(coordinateBox.height-coordinateElement.height)/2;
     
 
     }
 
-    showBox(title,text,elementCloser,move=true){
+    showBox(title,text,elementCloser,move){
        
         this.editContent(title,text)
         if( this.nameClass == 'off'){
@@ -106,7 +127,7 @@ class Box
             this.boxCreated.className='box ' + this.nameClass
         }
         
-        if(move) this.moveBox(elementCloser)
+        if(move) this.moveBox(elementCloser,move)
 
 
     }

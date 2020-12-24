@@ -25,7 +25,7 @@
     padding:0;
     margin:0;
 }
-
+/* scheda user */
 .contentSub{
     display:flex;
    justify-content: space-evenly;
@@ -314,6 +314,88 @@
     
     left: 0;
 }
+/* CONTATTA FORM */ 
+.sendMessage{
+    visibility: hidden;
+    height: 30vh;
+    width: 58.7vh;
+    position: absolute;
+    right: 9.5vh;
+    top: 7vh;
+    margin: auto;
+    z-index: 1;
+    transform: scaleY(0);
+    transform-origin: top;
+    box-shadow:  5px  5px 2px #2cc6c8,
+    -5px -5px 2px #2cc6c8,
+     5px -5px 2px #2cc6c8,
+    -5px  5px 2px #2cc6c8;
+    form{
+        height: inherit;
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        .campi{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        .right, .left{
+            flex:1;
+        }
+        .left{
+            display: flex;
+            flex-direction: column;
+            div{
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input{
+                height: 6vh;
+                width: 26vh;
+            }
+        }
+        .right{
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+            textarea{
+                height: 18vh;
+            }
+        }
+    }
+    .buttons{
+        flex: 0.25;
+        display: flex;
+        width: 56vh;
+        margin: auto;
+        #invia{
+            flex: 1;
+        }
+        #annulla{
+            flex: 0.4;
+        }
+        button{
+            height: 5vh;
+        }
+
+    }
+}
+
+}
+.on{
+    visibility: visible;
+    transition: 0.8s;
+    transform: scaleY(1);
+    
+}
+
+
+
+
+
 /* ADD CLASS */
 .chooseClass{
     text-align: center;
@@ -496,7 +578,7 @@
     top:14vh;
 }
 
-/* Apprendi Abilita CSS */ 
+/* Apprendi Skill CSS */ 
 .title , .buttonConferma{
     text-align: center;
     img{
@@ -1184,6 +1266,8 @@
             align-self: center;
             h4{
                 font-family: fontH;
+                font-size: 1.8vh;
+                
             }
             p{
                 font-size: 1.4vh;
@@ -1272,6 +1356,7 @@
 .statistics{
     width: 40vh;
     height: 19vh;
+    
 }
 
 

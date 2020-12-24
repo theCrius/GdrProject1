@@ -24,6 +24,7 @@
   margin: 0;
 }
 
+/* scheda user */
 .contentSub {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -386,6 +387,136 @@
   left: 0;
 }
 
+/* CONTATTA FORM */
+.sendMessage {
+  visibility: hidden;
+  height: 30vh;
+  width: 58.7vh;
+  position: absolute;
+  right: 9.5vh;
+  top: 7vh;
+  margin: auto;
+  z-index: 1;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
+          box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
+}
+
+.sendMessage form {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sendMessage form .campi {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.sendMessage form .campi .right, .sendMessage form .campi .left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.sendMessage form .campi .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sendMessage form .campi .left div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sendMessage form .campi .left input {
+  height: 6vh;
+  width: 26vh;
+}
+
+.sendMessage form .campi .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sendMessage form .campi .right textarea {
+  height: 18vh;
+}
+
+.sendMessage form .buttons {
+  -webkit-box-flex: 0.25;
+      -ms-flex: 0.25;
+          flex: 0.25;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 56vh;
+  margin: auto;
+}
+
+.sendMessage form .buttons #invia {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.sendMessage form .buttons #annulla {
+  -webkit-box-flex: 0.4;
+      -ms-flex: 0.4;
+          flex: 0.4;
+}
+
+.sendMessage form .buttons button {
+  height: 5vh;
+}
+
+.on {
+  visibility: visible;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
 /* ADD CLASS */
 .chooseClass {
   text-align: center;
@@ -633,7 +764,7 @@
   top: 14vh;
 }
 
-/* Apprendi Abilita CSS */
+/* Apprendi Skill CSS */
 .title, .buttonConferma {
   text-align: center;
 }
@@ -1580,6 +1711,7 @@
 
 .boxParent .boxContent .descrizione h4 {
   font-family: fontH;
+  font-size: 1.8vh;
 }
 
 .boxParent .boxContent .descrizione p {

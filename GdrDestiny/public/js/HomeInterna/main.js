@@ -12,8 +12,8 @@ let box=new Box();
 //modal to use 
 window.modal=new Finestra
 
+window.boxMeteo= new Box()
 
-//box meteo
-box.appendEventsLeaveShowBox(document.querySelector('#meteo'),'UYDDFIDFHUFD','fdkdk');
+
 
 
