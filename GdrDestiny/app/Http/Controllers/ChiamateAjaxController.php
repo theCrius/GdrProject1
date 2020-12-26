@@ -15,10 +15,11 @@ class ChiamateAjaxController extends Controller{
     
     public function showUser($userIdToView, Request $request){
        
-       
+        $this->saveDataPreSubmit($request,'schedaPg/userProfile.js');
         return view('internoLand.schedaUser.schedaUser', [
             'userToView' => User::where('id',$userIdToView)->with('breed','classes','hemispere')->get()[0],
             'expsUser' => ExpController::getSumOfExp($userIdToView),
+            'users' => User::select('name')->get(),
             'errors' => $request->errors,
             'userView' => \Auth::user(),
             'points' => MedicalrecordController::getPoints($userIdToView)
@@ -41,7 +42,7 @@ class ChiamateAjaxController extends Controller{
         
         if($userIdToView->id !== $userView->id || $userView->hasRole(\Config::get('roles.ROLE_GESTORE'),[4,5])) return $this->returnBackWithError($request,'non hai i permessi per visualizzare questa pagina');
         $this->saveDataPreSubmit($request);
-        //$userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]
+        
 
        
 
@@ -80,7 +81,8 @@ class ChiamateAjaxController extends Controller{
 
         $whatshowsInModal1=[
             'routeName' => 'showBackground',
-            'parametrs' => $idUser
+            'parametrs' => $idUser,
+            'scriptName' => 'schedaPg/userProfile.js'
         ];
         
         return $this->returnBack($request,null,$whatshowsInModal1);

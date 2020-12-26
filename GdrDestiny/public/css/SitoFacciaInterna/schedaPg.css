@@ -19,6 +19,38 @@
   background: #d5edfa;
 }
 
+/* PLACEHOLDER STYLE */
+::-webkit-input-placeholder {
+  color: #b7ebf5;
+  opacity: 1;
+  /* Firefox */
+}
+:-ms-input-placeholder {
+  color: #b7ebf5;
+  opacity: 1;
+  /* Firefox */
+}
+::-ms-input-placeholder {
+  color: #b7ebf5;
+  opacity: 1;
+  /* Firefox */
+}
+::placeholder {
+  color: #b7ebf5;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #b7ebf5;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #b7ebf5;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -392,7 +424,7 @@
   visibility: hidden;
   height: 30vh;
   width: 58.7vh;
-  background-color: #013445;
+  background-color: #014358;
   position: absolute;
   right: 9.5vh;
   top: 7vh;
@@ -465,9 +497,15 @@
 .sendMessage form .campi .left input {
   height: 6vh;
   width: 26vh;
-  border: 2px solid #2cc6c8;
-  background-color: transparent;
-  color: white;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+  padding: 1vh;
+  font-size: 1.3vh;
+}
+
+.sendMessage form .campi .left input:focus {
+  background-color: #00838f;
 }
 
 .sendMessage form .campi .right {
@@ -483,11 +521,13 @@
 }
 
 .sendMessage form .campi .right textarea {
-  color: white;
   height: 18vh;
   width: 28vh;
-  border: 2px solid #2cc6c8;
-  background-color: transparent;
+  padding: 1vh;
+  font-size: 1.3vh;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
 }
 
 .sendMessage form .buttons {
@@ -505,6 +545,7 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  border-right: none;
 }
 
 .sendMessage form .buttons #annulla {
@@ -515,6 +556,17 @@
 
 .sendMessage form .buttons button {
   height: 5vh;
+  background-color: #013445;
+  border: 2px solid #00838f;
+  padding: 1vh;
+  font-size: 1.6vh;
+  color: #b7ebf5;
+  cursor: pointer;
+}
+
+.sendMessage form .buttons button:hover {
+  color: #013445;
+  background-color: #00838f;
 }
 
 .on {
@@ -523,6 +575,20 @@
   transition: 0.8s;
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
+}
+
+.leaveBox {
+  visibility: hidden;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.errorInput {
+  border: 1px solid white !important;
+  color: white !important;
+  background-color: #9d0d0d !important;
 }
 
 /* ADD CLASS */

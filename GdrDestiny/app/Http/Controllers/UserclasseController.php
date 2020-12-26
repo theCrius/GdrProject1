@@ -46,6 +46,8 @@ class UserclasseController extends Controller
         ]);
         $returnBackRoute['routeName']='userProfile';
         $returnBackRoute['parametrs']=$idUser;
+        $returnBackRoute['scriptName'] = 'schedaPg/userProfile.js';
+
         return $this->returnBack($request,'home',$returnBackRoute);
         
     }

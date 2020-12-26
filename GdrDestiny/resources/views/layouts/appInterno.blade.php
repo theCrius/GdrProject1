@@ -27,7 +27,7 @@
                 <li id='ghost'><img src="/img/imgHomeInterna/home/ghost.png" alt=""></li>
                 <div class="buttonRight">
                 <!-- variable modal js is wrote in main js file -->
-                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',\Auth::id())}}')"></a></li>
+                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',\Auth::id())}}',null,'schedaPg/userProfile.js')"></a></li>
                     <li><a href="#"><img data-number=5 src="/img/imgHomeInterna/home/rymzody.png" alt=""></a></li>
                     <li><a href="{{ route('logout') }}"><img data-number=6
                                 src="/img/imgHomeInterna/home/logouttuttodx.png" alt=""></a></li>

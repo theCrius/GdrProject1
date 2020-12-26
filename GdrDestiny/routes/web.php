@@ -78,5 +78,8 @@ Route::get('/user/{idUser}/{idObject}/equipsOrUnequips','UserobjectController@eq
 //Mecha 
 Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha');
 
+//Messages
+Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('storeMessage');
+
 //show profile
 Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');

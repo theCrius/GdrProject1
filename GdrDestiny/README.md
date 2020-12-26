@@ -2,6 +2,6 @@
 
 
 
-- [ ] Fare invia messaggio sfondo e grafica
+- [x] Fare invia messaggio sfondo e grafica
 - [ ] vedere migration messaggi e controller
-- [ ]fare route invia messaggio
+- [x]fare route invia messaggio

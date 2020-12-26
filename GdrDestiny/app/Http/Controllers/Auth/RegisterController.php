@@ -114,6 +114,7 @@ class RegisterController extends Controller
         $password=\Str::random(8);
 
         Mail::to($email)->send(new NewUser($name,$password));
+       
         return User::create([
             'name' => $name,
             'surname' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['cognome'])),

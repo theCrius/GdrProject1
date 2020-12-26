@@ -49,6 +49,7 @@ class Controller extends BaseController
         $request->errors=[
             'routeName' => $WhatShowsInModal['routeName'] ?? $request->session()->get('last-position:View'),
             'parametrs' => $WhatShowsInModal['parametrs'] ?? $request->session()->get('last-position:RouteParams'),
+            'scriptName' => $WhatShowsInModal['script'] ?? $request->session()->get('last-position:ScriptName')
         ];
 
         if(!$whereToGo) $whereToGo = $request->session()->get('last-position:Chat');

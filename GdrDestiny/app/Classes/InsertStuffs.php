@@ -1531,7 +1531,8 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'last_activity' => now(),
 
 
-            ]
+            ],
+            
         ]);
     }
 

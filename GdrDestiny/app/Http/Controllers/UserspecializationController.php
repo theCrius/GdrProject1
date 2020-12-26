@@ -74,7 +74,8 @@ class UserspecializationController extends Controller
        
         $whatshowsInModal1=[
             'routeName' => 'showSkills',
-            'parametrs' => $idUser
+            'parametrs' => $idUser,
+            'scriptName' => 'schedaPg/userProfile.js'
         ];
         return $this->returnBack($request,null,$whatshowsInModal1);
 

@@ -21,6 +21,22 @@
     background: #d5edfa; 
   }
   
+  /* PLACEHOLDER STYLE */
+  ::placeholder {
+    color:#b7ebf5;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:#b7ebf5;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:#b7ebf5;
+  }
+
+
+
 *{
     padding:0;
     margin:0;
@@ -319,7 +335,7 @@
     visibility: hidden;
     height: 30vh;
     width: 58.7vh;
-    background-color: #013445;
+    background-color: #014358;
     position: absolute;
     right: 9.5vh;
     top: 7vh;
@@ -355,9 +371,17 @@
             input{
                 height: 6vh;
                 width: 26vh;
-                border: 2px solid #2cc6c8;
-                background-color: transparent;
-                color: white;
+                border: 2px solid #00838f;
+                background-color: #013445;
+                color:#b7ebf5;
+
+                padding: 1vh;
+                font-size: 1.3vh;
+                &:focus{
+                    background-color: #00838f;
+                }
+
+                
             }
         }
         .right{
@@ -366,13 +390,13 @@
             align-items: center;
             justify-content: center;
             textarea{
-                color: white;
                 height: 18vh;
                 width: 28vh;
-
-                border: 2px solid #2cc6c8;
-                background-color: transparent;
-
+                padding: 1vh;
+                font-size: 1.3vh;
+                border: 2px solid #00838f;
+                background-color: #013445;
+                color:#b7ebf5;
             }
         }
     }
@@ -383,12 +407,23 @@
         margin: auto;
         #invia{
             flex: 1;
+            border-right: none;
         }
         #annulla{
             flex: 0.4;
         }
         button{
             height: 5vh;
+            background-color: #013445;
+            border: 2px solid #00838f;
+            padding: 1vh;
+            font-size: 1.6vh;
+            color:#b7ebf5;
+            cursor: pointer;
+            &:hover{
+                color: #013445;
+                background-color: #00838f;
+            }
         }
 
     }
@@ -401,8 +436,18 @@
     transform: scaleY(1);
     
 }
+.leaveBox{
+    visibility: hidden;
+    transition: 0.8s;
+    transform: scaleY(0);
+}
+.errorInput{
 
+    border: 1px solid white !important; 
+    color: white !important;
+    background-color: #9d0d0d !important;
 
+}
 
 
 
@@ -1374,3 +1419,4 @@
     font-family: fontH;
     src : url(../../font/FullStopLucca-Bold.ttf);
 }
+

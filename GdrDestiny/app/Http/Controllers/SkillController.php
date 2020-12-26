@@ -80,7 +80,7 @@ class SkillController extends Controller
         
        
         
-       $this->saveDataPreSubmit($request,null,$user);
+       $this->saveDataPreSubmit($request);
       
        return view('internoLand.schedaUser.showSkill',[
         'skills' =>  self::getSkills($user),

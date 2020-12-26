@@ -43,30 +43,30 @@
 
     <div class="riquadroDestra">
         <div class="sendMessage">
-            <form action="" method="post">
+        <form action="{{ route('storeMessage', $userView->id) }}" method="post" id='formMessage'>
                 @method('post')
                 @csrf 
             <div class="campi">
             <div class="left">
 
                 <div class="name">
-                    <input type="text" name="name" id="" value='name'>
+                <input type="text" name="name" id="" placeholder="Nome dell'utente " data-users="{{ json_encode($users) }}">
                 </div>
 
                 <div class="emailOggetto">
-                    <input type="text" name="objectEmail" id="" value='Oggetto'>
+                    <input type="text" name="objectEmail" id="" placeholder='Oggetto del messaggio'>
                 </div>
 
             </div>
             <div class="right">
 
-                <textarea name="text" id="" cols="30" rows="10">Testo</textarea>
+                <textarea name="text" id="" cols="30" rows="10" placeholder="Testo da inviare"></textarea>
 
             </div>
         </div>
             <div class="buttons">
-                <button id='invia'>Invia</button>
-                <button id='annulla'>Chiudi</button>
+                <button id='invia' disabled>Invia</button>
+                <button id='annulla' onclick="event.preventDefault(); document.querySelector('.sendMessage').className='sendMessage leaveBox'">Chiudi</button>
             </div>
             </form>
         </div>

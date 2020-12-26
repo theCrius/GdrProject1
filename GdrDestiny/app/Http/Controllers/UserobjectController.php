@@ -68,7 +68,8 @@ class UserobjectController extends Controller
 
         $whatshowsInModal=[
             'routeName' => 'objectOwned',
-            'parametrs' => $idUser
+            'parametrs' => $idUser,
+            'scriptName' => 'schedaPg/userProfile.js'
         ];
 
         return $this->returnBack($request,null,$whatshowsInModal);

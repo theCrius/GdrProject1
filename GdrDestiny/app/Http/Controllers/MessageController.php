@@ -3,29 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use Exception;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -33,9 +16,38 @@ class MessageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($idUser,Request $request)
     {
-        //
+
+        try{
+
+            $idUserTo=\App\User::select('id')->where('name',\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->name)))->get()[0]->id;
+            $text= \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->text));
+            $titleMessage =\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->objectEmail));
+            
+            \App\Message::insert([
+
+                'id_user_from' => $idUser,
+                'id_user_to' => $idUserTo,
+                'message' => $text,
+                'title' => $titleMessage,
+                'letto' => 'no'
+
+            ]);
+
+        }catch(Exception $e){
+
+            return $this->returnBackWithError($request,'Qualcosa è andato storto');
+
+        }
+
+
+        $whatshowsInModal1=[
+            'routeName' => 'userProfile',
+            'parametrs' => $idUser,
+            'scriptName' => 'schedaPg/userProfile.js'
+        ];
+        return $this->returnBack($request,null,$whatshowsInModal1);
     }
 
     /**
