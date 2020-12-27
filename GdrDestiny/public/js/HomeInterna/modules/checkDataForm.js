@@ -107,9 +107,14 @@ class checkDataForm{
         if( listOfClasses.contains('errorInput') ) listOfClasses.remove("errorInput",'oko') 
 
         
-        this.button.disabled = false
+        for (const object of this.allObjects) {
             
+            
+            if( object.classList.contains('errorInput') ) return 
+
+        }
         
+        this.button.disabled = false      
 
     }
 
