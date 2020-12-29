@@ -84,7 +84,9 @@ Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha')
 Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('storeMessage');
 
 //Modify Profile
-Route::get('/user/{idUser}/modifica','UserController@edit')->name('editUser');
+Route::get('/user/{idUser}/modifica','UserController@showOptionEditsUser')->name('showOptionEditsUser');
+Route::get('/user/{idUser}/modificaGeneralità','UserController@editUser1')->name('editUser1');
+Route::get('/user/{idUser}/cambioPg','UserController@editUser2')->name('editUser2');
 Route::post('/user/{idUser}/modifica','UserController@update')->name('updateUser');
 
 //show profile

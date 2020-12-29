@@ -72,10 +72,25 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function showOptionEditsUser($idUser, Request $request)
     {
-        return view('internoLand.schedaUser.editUser'[
-        
+        $user= User::find($idUser);
+        if($user->id !== \Auth::id() && !$user->hasRole(\Config::get('roles.ROLE_GESTORE'),[4,5])) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
+
+        return view('internoLand.schedaUser.editUser.showOptionEditsUser',[
+            'idUser' => $user->id
+            ]);
+    }
+
+    public function editUser1($idUser){
+        return view('internoLand.schedaUser.editUser.editUser1',[
+
+        ]);
+    }
+
+    public function editUser2($idUser){
+        return view('internoLand.schedaUser.editUser.editUser2',[
+            
             ]);
     }
 

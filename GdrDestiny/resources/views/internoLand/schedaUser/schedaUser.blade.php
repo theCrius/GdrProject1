@@ -1,7 +1,7 @@
 @extends('../layouts.appModalInterno')
 @section('header')
 @if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[4,5]))
-<div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('editUser',$userToView)}}')"></div>
+<div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('showOptionEditsUser',$userToView)}}')"></div>
 @endif
 <ul id='icone'>
     <li><img src="/img/imgHomeInterna/home/schedaPg/corporazione.png" alt=""> <img src="#" alt=""> </li>
@@ -66,11 +66,11 @@
         </div>
             <div class="buttons">
                 <button id='invia' disabled>Invia</button>
-                <button id='annulla' onclick="event.preventDefault(); document.querySelector('.sendMessage').className='sendMessage leaveBox'">Chiudi</button>
+                <button id='annulla' onclick="event.preventDefault(); document.querySelector('.sendMessage').className='sendMessage leaveBox';">Chiudi</button>
             </div>
             </form>
         </div>
-        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' onclick="document.querySelector('.sendMessage').className='sendMessage on'">
+        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' onclick="document.querySelector('.sendMessage').className='sendMessage on';checkMessage();">
         <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
         <img src="/img/imgHomeInterna/home/schedaPg/log.png" alt="" id='logImmagine'>
         <div id="namePg">

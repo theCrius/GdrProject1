@@ -9,8 +9,7 @@ class checkDataForm{
 
         if( !this.form ) throw Error(' Nessun form trovato ')
         this.findInput()
-        console.log('ok')
-
+        
     }
 
     /* Add to an input a function , the function takes an object with the structure {nameOfInput : function} */

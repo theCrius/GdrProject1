@@ -2,6 +2,10 @@
 
         
     font-family: Arial, Helvetica, sans-serif;
+    
+}
+html{
+    font-size: 62.5%;
 }
 
 /* scrollbar */ 
@@ -1415,8 +1419,103 @@
 }
 
 
+/* showOptionEditsUser */ 
+.displayFlexRow{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .column1, .column2{
+        flex:1;
+        cursor: pointer;
+        border:1rem solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+        
+        background-color: #013445;
+        h1{
+            color: white;
+            font-family: FontH;
+            font-size: 2rem;
+            
+        }
+        .card{
+            position: absolute;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+            text-align: center;
+            flex-direction: column;
+        }
+        .retro{
+            transform: rotateY(180deg);
+            width: 75%;
+            h6{
+                
+                    color: white;
+                    font-size: 1rem;
+                    width: 80%;
+                    margin: 1rem;
+            }
+            
+        }
+        &:hover{
+            transform: rotateY(180deg);
+        }
+        
+    }
+    
+}
+/* editUser1 */
+.displayFlexColumn{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    .firstRow{
+        flex: 0.3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    h1{
+        color: white;
+        font-family: FontH;
+        font-size: 2rem;
+        
+    }
+    .secondRow{
+        flex: 1.5;
+    }
+}
 @font-face {
     font-family: fontH;
     src : url(../../font/FullStopLucca-Bold.ttf);
 }
 
+@media only screen and (max-width: 1200px){
+    html{
+        font-size: 70%;
+    }
+}
+@media only screen and (max-width: 992px){
+    html{
+        font-size: 80%;
+    }
+}
+@media only screen and (max-width: 768px){
+    html{
+        font-size: 40%;
+    }
+}
+@media only screen and (max-width: 480px){
+    html{
+        font-size: 20%;
+    }
+}

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Exception;
+use Illuminate\Http\Request;
+
 
 class ChiamateAjaxController extends Controller{
     
