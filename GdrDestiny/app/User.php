@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
-use App\Roles\methodRole;
+use App\Classes\methodRole;
 use App\Classes\Objects;
 
 class User extends Authenticatable

@@ -23,5 +23,4 @@ let checkIfUserToSendMessageExist={
     }
 }
 
-
 checkSubmitMessage.functionsToAdd( checkIfUserToSendMessageExist )

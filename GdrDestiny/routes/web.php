@@ -17,12 +17,14 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 //home esterna
 Route::get('/welcome', function () {
     return view('welcome2');
 })->name('welcome2');
 
 Auth::routes();
+
 //logout
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -81,5 +83,9 @@ Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha')
 //Messages
 Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('storeMessage');
 
+//Modify Profile
+Route::get('/user/{idUser}/modifica','UserController@edit')->name('editUser');
+Route::post('/user/{idUser}/modifica','UserController@update')->name('updateUser');
+
 //show profile
-Route::get('/user/{idUser}','ChiamateAjaxController@showUser')->name('userProfile');
+Route::get('/user/{idUser}','UserController@show')->name('userProfile');

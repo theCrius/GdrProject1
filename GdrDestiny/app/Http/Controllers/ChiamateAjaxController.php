@@ -4,27 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Exception;
-use Illuminate\Http\Request;
 
 class ChiamateAjaxController extends Controller{
-    public function __construct(){
-
-        return $this->middleware('auth');
-
-    }
     
-    public function showUser($userIdToView, Request $request){
-       
-        $this->saveDataPreSubmit($request,'schedaPg/userProfile.js');
-        return view('internoLand.schedaUser.schedaUser', [
-            'userToView' => User::where('id',$userIdToView)->with('breed','classes','hemispere')->get()[0],
-            'expsUser' => ExpController::getSumOfExp($userIdToView),
-            'users' => User::select('name')->get(),
-            'errors' => $request->errors,
-            'userView' => \Auth::user(),
-            'points' => MedicalrecordController::getPoints($userIdToView)
-        ]);
-    }
 
     public function showBackground($idUser ,Request $request){
         $user=User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0];

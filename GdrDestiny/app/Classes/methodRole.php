@@ -1,5 +1,5 @@
 <?php 
-namespace App\Roles;
+namespace App\Classes;
 
 trait methodRole{
 

@@ -5,10 +5,11 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App;
 use App\Classes\InsertStuffs;
+use App\Classes\PopolateDatabase as ClassesPopolateDatabase;
 
 class PopolateDatabase extends Command
 {
-    use InsertStuffs;
+    use ClassesPopolateDatabase;
     
     /**
      * The name and signature of the console command.

@@ -9,6 +9,7 @@ class checkDataForm{
 
         if( !this.form ) throw Error(' Nessun form trovato ')
         this.findInput()
+        console.log('ok')
 
     }
 

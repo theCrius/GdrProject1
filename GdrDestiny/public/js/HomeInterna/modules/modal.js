@@ -17,11 +17,17 @@ class Finestra{
     
     }
 
-    addScriptToFile(nameFile){
+    addScriptToFile(nameFile, modal){
+
+
         let scriptToAppend=document.createElement('script');
         scriptToAppend.type='module'
         scriptToAppend.src='/js/HomeInterna/' + nameFile
-        document.head.append(scriptToAppend)
+        
+        modal.append(scriptToAppend)
+
+    
+        
     }
 
     
@@ -30,6 +36,7 @@ class Finestra{
         this.modal=document.createElement('div')
         this.modal.className='modal off'
         document.body.append(this.modal)
+        
 
         
         if(!this.modal) throw new Error('modal non trovata/non creata')
@@ -107,8 +114,9 @@ class Finestra{
     }); 
     
       modalAddEventClose() //the user can close the modal
-      if( scriptNameToAdd ) sendScriptNameToCall(scriptNameToAdd)
+      
       if(errors) dealErrorBox(errors,modalContent);
+      if( scriptNameToAdd ) sendScriptNameToCall(scriptNameToAdd,modalContent)
     }).catch(function(error){  
 
     if(error.status !== 200) throw new Error('Connessione fallita: '+ error)

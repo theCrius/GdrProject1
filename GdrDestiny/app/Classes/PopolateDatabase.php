@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-trait InsertStuffs{
+trait PopolateDatabase{
 
     public function insertBreeds(){
         $umani=\App\Breed::insert([[
