@@ -392,10 +392,10 @@ html{
             display: flex;
 
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             textarea{
                 height: 18vh;
-                width: 28vh;
+                flex: 0.95;
                 padding: 1vh;
                 font-size: 1.3vh;
                 border: 2px solid #00838f;
@@ -1487,11 +1487,48 @@ html{
     h1{
         color: white;
         font-family: FontH;
-        font-size: 2rem;
+        font-size: 3.5rem;
         
     }
     .secondRow{
         flex: 1.5;
+    }
+}
+.right , .left{
+    flex: 1;
+    display: flex;
+    input{
+        height: 5rem;
+        border: 2px solid #00838f;
+        background-color: #013445;
+        color: #b7ebf5;
+        flex: 1;
+        padding: 1vh;
+        margin: 2.5rem;
+        font-size: 1.3vh;
+                &:focus{
+                    background-color: #00838f;
+                }
+    }
+}
+.thirdRow{
+    flex: 0.4;
+    display: flex;
+    button{
+        flex: 1;
+        margin-top: 2.5rem;
+        margin-right: 2.5rem;
+        margin-bottom:2.5rem;
+            background-color: #013445;
+            border: 2px solid #00838f;
+            padding: 1vh;
+            font-size: 1.5rem;
+            color:#b7ebf5;
+            cursor: pointer;
+            &:hover{
+                color: #013445;
+                background-color: #00838f;
+            }
     }
 }
 @font-face {
@@ -1506,7 +1543,7 @@ html{
 }
 @media only screen and (max-width: 992px){
     html{
-        font-size: 80%;
+        font-size: 50%;
     }
 }
 @media only screen and (max-width: 768px){

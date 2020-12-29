@@ -87,7 +87,8 @@ Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('st
 Route::get('/user/{idUser}/modifica','UserController@showOptionEditsUser')->name('showOptionEditsUser');
 Route::get('/user/{idUser}/modificaGeneralità','UserController@editUser1')->name('editUser1');
 Route::get('/user/{idUser}/cambioPg','UserController@editUser2')->name('editUser2');
-Route::post('/user/{idUser}/modifica','UserController@update')->name('updateUser');
+
+Route::put('/user/{idUser}/modificaGeneralità','UserController@update')->name('updateUser1');
 
 //show profile
 Route::get('/user/{idUser}','UserController@show')->name('userProfile');

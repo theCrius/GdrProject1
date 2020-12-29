@@ -519,14 +519,16 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .sendMessage form .campi .right textarea {
   height: 18vh;
-  width: 28vh;
+  -webkit-box-flex: 0.95;
+      -ms-flex: 0.95;
+          flex: 0.95;
   padding: 1vh;
   font-size: 1.3vh;
   border: 2px solid #00838f;
@@ -2012,13 +2014,68 @@ html {
 .displayFlexColumn h1 {
   color: white;
   font-family: FontH;
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 
 .displayFlexColumn .secondRow {
   -webkit-box-flex: 1.5;
       -ms-flex: 1.5;
           flex: 1.5;
+}
+
+.right, .left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.right input, .left input {
+  height: 5rem;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1vh;
+  margin: 2.5rem;
+  font-size: 1.3vh;
+}
+
+.right input:focus, .left input:focus {
+  background-color: #00838f;
+}
+
+.thirdRow {
+  -webkit-box-flex: 0.4;
+      -ms-flex: 0.4;
+          flex: 0.4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.thirdRow button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 2.5rem;
+  margin-right: 2.5rem;
+  margin-bottom: 2.5rem;
+  background-color: #013445;
+  border: 2px solid #00838f;
+  padding: 1vh;
+  font-size: 1.5rem;
+  color: #b7ebf5;
+  cursor: pointer;
+}
+
+.thirdRow button:hover {
+  color: #013445;
+  background-color: #00838f;
 }
 
 @font-face {
@@ -2034,7 +2091,7 @@ html {
 
 @media only screen and (max-width: 992px) {
   html {
-    font-size: 80%;
+    font-size: 50%;
   }
 }
 

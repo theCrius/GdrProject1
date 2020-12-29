@@ -1,6 +1,7 @@
 # MarkDown To-Do
 
-- [x] Vedere perchè non carica il messaggio e js dopo aver chiuso la pagina
-- [ ] Fare modifica user
+- [ ] Fare check data in Js
+- [ ] Fare check requests in controller editUser1
 - [ ] EditUserController fare backend
-- [ ] Fare grafica editUSer
+
+- [ ] Fare tutto editUser2

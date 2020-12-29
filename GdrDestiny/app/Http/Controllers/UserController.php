@@ -83,7 +83,9 @@ class UserController extends Controller
     }
 
     public function editUser1($idUser){
+        $user=User::find($idUser);
         return view('internoLand.schedaUser.editUser.editUser1',[
+            'user' => $user,
 
         ]);
     }

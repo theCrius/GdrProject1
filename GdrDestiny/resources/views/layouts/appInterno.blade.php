@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/SitoFacciaInterna/home.css">
     <link rel="stylesheet" href="/css/box/boxErrore.css">
     <link rel="stylesheet" href="/css/modal/modalInterna.css">
-  
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
     
     <link rel="stylesheet" href="/css/box/box.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

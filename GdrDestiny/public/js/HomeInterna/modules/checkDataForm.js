@@ -1,11 +1,13 @@
 class checkDataForm{
 
     allObjects
+    oldInput
 
-    constructor(form){
+    constructor(form,inputsCanBeEmpty){
 
         this.form=form
         this.button=this.form.querySelector('button')
+        this.inputsCanBeEmpty = inputsCanBeEmpty
 
         if( !this.form ) throw Error(' Nessun form trovato ')
         this.findInput()
@@ -64,7 +66,7 @@ class checkDataForm{
 
     addEvent(object){
  
-        object.addEventListener('focusout',(event) => this.checkFieldIfIsEmpty(event))
+        if( this.inputsCanBeEmpty ) object.addEventListener('focusout',(event) => this.checkFieldIfIsEmpty(event))
         object.addEventListener('focus',(event) => this.deleteStatusError(event))
 
     }
@@ -93,8 +95,19 @@ class checkDataForm{
     giveStatusError(objectDom , message){
 
         objectDom.className+=' errorInput'
-              
+        
+        let oldInput=objectDom.value
+
+        objectDom.value = ''
+
         objectDom.placeholder= message
+
+        setTimeout(function(){
+            objectDom.value = oldInput
+            oldInput = null
+        },2500)
+
+
 
         this.button.disabled=true
     }
@@ -105,6 +118,8 @@ class checkDataForm{
         let listOfClasses = event.target.classList
         
         if( listOfClasses.contains('errorInput') ) listOfClasses.remove("errorInput",'oko') 
+
+        
 
         
         for (const object of this.allObjects) {

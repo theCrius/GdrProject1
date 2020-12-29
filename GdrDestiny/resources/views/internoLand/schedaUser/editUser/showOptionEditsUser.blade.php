@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="displayFlexRow">
-    <div class="column1" onclick='modal.openModal("{{ route("editUser1",$idUser) }}")'>
+    <div class="column1" onclick='modal.openModal("{{ route("editUser1",$idUser) }}",null,"schedaPg/editUser/editUser1.js")'>
         <div class="card front"><h1>Modifica Impostazioni <br>Account</h1></div>
         <div class="card retro">
             <h6>Email</h6>

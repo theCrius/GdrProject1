@@ -3,7 +3,7 @@ import { checkDataForm } from "../modules/checkDataForm.js";
 
 window.checkMessage= function(){
     
-    let checkSubmitMessage = new checkDataForm(document.querySelector('#formMessage'));
+    let checkSubmitMessage = new checkDataForm(document.querySelector('#formMessage'),'yes');
 
     let checkIfUserToSendMessageExist={
 
