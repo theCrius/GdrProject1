@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UpdateDataUserPt1;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -84,9 +85,9 @@ class UserController extends Controller
 
     public function editUser1($idUser){
         $user=User::find($idUser);
+
         return view('internoLand.schedaUser.editUser.editUser1',[
             'user' => $user,
-
         ]);
     }
 
@@ -103,9 +104,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateUser1($idUser,Request $request)
     {
-        //
+        $user=User::find($idUser);
+
+        UpdateDataUserPt1::dispatch($request->all(),$user);
+
     }
 
     /**
