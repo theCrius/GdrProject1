@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ChangeEmail extends Notification
+class ChangePassword extends Notification
 {
     use Queueable;
 
@@ -18,7 +18,7 @@ class ChangeEmail extends Notification
      */
     public function __construct($name)
     {
-        $this->name=$name;
+        $this->name= $name;
     }
 
     /**
@@ -41,9 +41,9 @@ class ChangeEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Cambio Email')
+                    ->subject('Cambio Password')
                     ->greeting('Ciao ' . $this->name)
-                    ->line('In data ' . now() . ' hai richiesto il cambio email')
+                    ->line('In data ' . now() . ' hai richiesto il cambio password')
                     ->line('Da ora il cambio è effettivo')
                     ->salutation('Buon Divertimento Dallo Staff');
     }

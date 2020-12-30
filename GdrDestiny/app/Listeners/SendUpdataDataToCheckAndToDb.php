@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use PharIo\Manifest\Email;
 use App\Notifications\ChangeEmail;
+use App\Notifications\ChangePassword;
 
 class SendUpdataDataToCheckAndToDb
 {
@@ -59,13 +60,37 @@ class SendUpdataDataToCheckAndToDb
 
                 $event->user->mecha->immagine = $dataSanitized;
                 $event->user->mecha->save();
+                continue;
 
 
             }else if( $key == 'email' ){
 
-                $this->user->notify(new ChangeEmail($dataSanitized,$event->user->email,$event->user->name));
+                $event->user->email= $dataSanitized;
+                $event->user->save();
 
+                $event->user->notify(new ChangeEmail($event->user->name));
+                continue;
+
+            }else if( $key === 'password' ){
+
+                $event->user->password= \Hash::make($dataSanitized);
+                $event->user->save();
+
+                $event->user->notify(new ChangePassword($event->user->name));
+                continue;
+                
+
+            }else if( $key === 'data_di_nascita'){
+
+                $event->user[$key] = date_format( (date_create($dataSanitized) ) , 'Y-m-d');
+                $event->user->save();
+                continue;
             }
+
+            $event->user[$key] = $dataSanitized;
+
+            
+            $event->user->save();
             
 
         }

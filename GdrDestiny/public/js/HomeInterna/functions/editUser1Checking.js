@@ -35,14 +35,14 @@ function checkImages(event,classCheckDataForm){
 
 }
 
-function checkData(event,classCheckDataForm){
+function checkDate(event,classCheckDataForm){
 
     let dataGotted= event.target.value
 
     if( !dataGotted ) return
 
     //moment npm package installed through Laravel Mix
-    if( !moment(dataGotted, 'DD/MM/YYYY',true).isValid() ) return classCheckDataForm.giveStatusError(event.target,'Formato errato, esempio da seguire DD/MM/YYYY')
+    if( !moment(dataGotted, 'YYYY-MM-DD',true).isValid() ) return classCheckDataForm.giveStatusError(event.target,'Formato errato, esempio da seguire DD/MM/YYYY')
 
 }
-export { checkPassword , checkImages , checkData }
+export { checkPassword , checkImages , checkDate }

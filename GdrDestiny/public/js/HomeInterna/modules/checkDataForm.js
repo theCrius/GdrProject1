@@ -68,6 +68,8 @@ class checkDataForm{
  
         if( this.inputsCanBeEmpty ) object.addEventListener('focusout',(event) => this.checkFieldIfIsEmpty(event))
         object.addEventListener('focus',(event) => this.deleteStatusError(event))
+        object.addEventListener('keypress',(event) => this.enterDisabled(event))        
+
 
     }
 
@@ -105,8 +107,9 @@ class checkDataForm{
         setTimeout(function(){
             objectDom.value = oldInput
             oldInput = null
-        },2500)
+        },1000)
 
+    
 
 
         this.button.disabled=true
@@ -118,6 +121,7 @@ class checkDataForm{
         let listOfClasses = event.target.classList
         
         if( listOfClasses.contains('errorInput') ) listOfClasses.remove("errorInput",'oko') 
+        
 
         
 
@@ -130,6 +134,18 @@ class checkDataForm{
         }
         
         this.button.disabled = false      
+
+    }
+
+    enterDisabled(event){
+
+        if(event.which === '13'){
+
+            event.preventDefault()
+
+        }
+
+        return true;
 
     }
 

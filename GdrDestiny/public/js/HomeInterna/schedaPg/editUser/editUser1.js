@@ -1,5 +1,5 @@
 import { checkDataForm } from '../../modules/checkDataForm.js';
-import { checkPassword , checkImages , checkData } from '../../functions/editUser1Checking.js';
+import { checkPassword , checkImages , checkDate } from '../../functions/editUser1Checking.js';
 
 
 function checkDataFromInput(){
@@ -25,7 +25,7 @@ function checkDataFromInput(){
         },
 
         'data_di_nascita' : function(event, classCheckDataForm){
-            checkData(event,classCheckDataForm)
+            checkDate(event,classCheckDataForm)
         }
     }
 

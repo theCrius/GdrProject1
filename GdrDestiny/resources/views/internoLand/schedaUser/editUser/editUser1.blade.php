@@ -17,7 +17,7 @@
         <div class="displayFlexColumn right">
         <input type="text" name='immagine_avatar' placeholder="Link immagine avatar : {{ $user->immagine_avatar }}">
         <input type="text" name='immagine_miniavatar' placeholder="Link immagine mini-avatar : {{ $user->immagine_miniavatar }}">
-            <input type="text" name='data_di_nascita' placeholder="Data di Nascita Pg xx/xx/xxxx : {{ $user->data_di_nascita }}">
+            <input type="text" name='data_di_nascita' placeholder="Data di Nascita Pg xxxx-xx-xx : {{ $user->data_di_nascita }}">
         </div>
         <div class="thirdRow">
             <button>Invia Modifiche</button>
