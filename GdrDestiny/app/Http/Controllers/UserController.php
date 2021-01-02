@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\UpdateDataUserPt1;
+use App\Events\UpdateDataUserPt2;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -128,7 +129,7 @@ class UserController extends Controller
     {
         $user=User::find($idUser);
         
-        $ifReturnSomethingThereIsError = UpdateDataUserPt1::dispatch($request->all(),$user);
+        $ifReturnSomethingThereIsError = UpdateDataUserPt2::dispatch($request->all(),$user);
 
         if ( $ifReturnSomethingThereIsError[0] ) return $this->returnBackWithError($request,$ifReturnSomethingThereIsError[0]);
 
