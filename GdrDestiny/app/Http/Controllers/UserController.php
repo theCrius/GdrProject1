@@ -83,8 +83,10 @@ class UserController extends Controller
             ]);
     }
 
-    public function editUser1($idUser){
+    public function editUser1($idUser, Request $request){
         $user=User::find($idUser);
+
+        $this->saveDataPreSubmit($request, 'schedaPg/editUser/editUser1.js');
 
         return view('internoLand.schedaUser.editUser.editUser1',[
             'user' => $user,
@@ -108,9 +110,37 @@ class UserController extends Controller
     {
         $user=User::find($idUser);
 
-        UpdateDataUserPt1::dispatch($request->all(),$user);
+        $ifReturnSomethingThereIsError = UpdateDataUserPt1::dispatch($request->all(),$user);
 
-    }
+        if ( $ifReturnSomethingThereIsError[0] ) return $this->returnBackWithError($request,$ifReturnSomethingThereIsError[0]);
+
+
+        $whatshowsInModal=[
+            'routeName' => 'userProfile',
+            'parametrs' => $idUser,
+            'script' => 'schedaPg/userProfile.js'
+        ];
+        
+        return $this->returnBack($request,null,$whatshowsInModal);
+   }
+
+   public function updateUser2($idUser,Request $request)
+    {
+        $user=User::find($idUser);
+        
+        $ifReturnSomethingThereIsError = UpdateDataUserPt1::dispatch($request->all(),$user);
+
+        if ( $ifReturnSomethingThereIsError[0] ) return $this->returnBackWithError($request,$ifReturnSomethingThereIsError[0]);
+
+
+        $whatshowsInModal=[
+            'routeName' => 'userProfile',
+            'parametrs' => $idUser,
+            'script' => 'schedaPg/userProfile.js'
+        ];
+        
+        return $this->returnBack($request,null,$whatshowsInModal);
+   }
 
     /**
      * Remove the specified resource from storage.

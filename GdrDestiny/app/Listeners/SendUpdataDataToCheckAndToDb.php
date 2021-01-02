@@ -43,7 +43,9 @@ class SendUpdataDataToCheckAndToDb
     {
         try{
 
-        foreach ( $event->dataToCheck as $key => $data ){
+            if( !$event->dataToCheck ) throw new Exception('Nessun dato inserito');
+
+            foreach ( $event->dataToCheck as $key => $data ){
 
             //html is trasformed and space is deleted
             $dataSanitized=htmlspecialchars(trim($data));
@@ -73,8 +75,13 @@ class SendUpdataDataToCheckAndToDb
 
             }else if( $key === 'password' ){
 
+                if( !preg_match( '/[A-Z]/' , $dataSanitized ) || !preg_match( '/\d/' , $dataSanitized ) ) throw new Exception('La password deve contenere almeno un numero e una maiuscola');
+
+                if( strlen($dataSanitized) < 8 ) throw new Exception('La password deve essere lunga almeno 8 caratteri');
+
                 $event->user->password= \Hash::make($dataSanitized);
                 $event->user->save();
+
 
                 $event->user->notify(new ChangePassword($event->user->name));
                 continue;
@@ -87,17 +94,24 @@ class SendUpdataDataToCheckAndToDb
                 continue;
             }
 
+
+            if( !$this->imageUrlIsCorrect($dataSanitized) ) {
+
+                    throw new Exception('Errore link immagine, deve terminare con .gif .jpeg . jpg .png');
+
+            }
             $event->user[$key] = $dataSanitized;
 
             
             $event->user->save();
             
-
+        
         }
         }catch(\Exception $e){
             
-            dd($e->getMessage());
+            return $e->getMessage();
         }
+
     }
 
 

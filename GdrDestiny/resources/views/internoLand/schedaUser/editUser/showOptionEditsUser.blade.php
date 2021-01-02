@@ -11,7 +11,7 @@
             <h6>Immagine Mecha</h6>
     </div>
     </div>
-    <div class="column2">
+    <div class="column2" onclick='modal.openModal("{{ route("editUser2",$idUser) }}",null,"schedaPg/editUser/editUser2.js")'>
         <div class="card front"><h1>Cambia Pg</h1></div>
         <div class="card retro">
             <h6>Cambia Classe, skill e nome del Pg perdendo 1/4 dei tuoi EXP </h6>
