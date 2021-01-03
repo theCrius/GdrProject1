@@ -18,7 +18,7 @@ class Box
     closeManuallyBox(){
         this.closeManually.className='closeManually'
         this.closeX.addEventListener('click',() => {
-           this.boxCreated.className += ' off'
+           this.leaveBox()
         }
         );
     }

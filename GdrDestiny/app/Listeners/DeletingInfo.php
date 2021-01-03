@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Http\Controllers\ExpController;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -25,6 +26,9 @@ class DeletingInfo
      */
     public function handle($event)
     {
-        //
+        $email = $event->user->email;
+        $exp = ExpController::getSumOfExp($event->user->id);
+        $money
+        
     }
 }

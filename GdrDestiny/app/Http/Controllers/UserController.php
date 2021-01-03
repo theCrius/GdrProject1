@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ChangeUser;
 use App\Events\UpdateDataUserPt1;
-use App\Events\UpdateDataUserPt2;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -130,6 +130,6 @@ class UserController extends Controller
      */
     public function destroy($idUser)
     {
-        //
+        ChangeUser::dispatch(User::find($idUser));
     }
 }

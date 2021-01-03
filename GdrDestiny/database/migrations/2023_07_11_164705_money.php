@@ -14,6 +14,7 @@ class Money extends Migration
     public function up()
     {
         Schema::create('moneys', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
             $table->string('motivo');
             $table->integer('soldi');
