@@ -2078,32 +2078,41 @@ html {
   background-color: #00838f;
 }
 
+/* CHANGE USER */
+.title {
+  width: 100%;
+  text-align: center;
+  color: white;
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+}
+
+.title h1 {
+  font-family: fontH;
+  font-size: 4rem;
+}
+
+.textContent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .left input, .right input {
+    margin: 0.5rem;
+  }
+  .thirdRow button {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
 @font-face {
   font-family: fontH;
   src: url(../../font/FullStopLucca-Bold.ttf);
-}
-
-@media only screen and (max-width: 1200px) {
-  html {
-    font-size: 50%;
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  html {
-    font-size: 40%;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  html {
-    font-size: 50%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 20%;
-  }
 }
 /*# sourceMappingURL=schedaPg.css.map */

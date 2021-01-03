@@ -1,7 +1,7 @@
 @extends('../layouts.appModalInterno')
 @section('header')
 @if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[4,5]))
-<div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('showOptionEditsUser',$userToView)}}')"></div>
+<div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('showOptionEditsUser',$userToView)}}',null,'schedaPg/editUser/showOptionEditsUser.js')"></div>
 @endif
 <ul id='icone'>
     <li><img src="/img/imgHomeInterna/home/schedaPg/corporazione.png" alt=""> <img src="#" alt=""> </li>

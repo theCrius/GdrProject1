@@ -11,10 +11,10 @@
             <h6>Immagine Mecha</h6>
     </div>
     </div>
-    <div class="column2" onclick='modal.openModal("{{ route("editUser2",$idUser) }}",null,"schedaPg/editUser/editUser2.js")'>
+    <div class="column2" onclick="changeUserBox.showWarning('{{route('deleteUser',$idUser)}}')">
         <div class="card front"><h1>Cambia Pg</h1></div>
         <div class="card retro">
-            <h6>Cambia Classe, skill e nome del Pg perdendo 1/4 dei tuoi EXP </h6>
+            <h6>Dovrai reiscriverti per mezzo di un link che ti arriverà per Email</h6><h6>  Perderai 1/4 di Exp mentre i soldi rimarranno tali!</h6>
     </div>
     </div>
     </div>

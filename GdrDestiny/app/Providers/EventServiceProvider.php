@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Events\UpdateDataUserPt1;
-use App\Events\UpdateDataUserPt2;
+use App\Events\ChangeUser;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
-use App\Listeners\ChangeAndCheckingAllDataAboutUser;
+use App\Listeners\DeletingInfo;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -25,8 +25,8 @@ class EventServiceProvider extends ServiceProvider
         UpdateDataUserPt1::class => [
             SendUpdataDataToCheckAndToDb::class
         ],
-        UpdateDataUserPt2::class => [
-            ChangeAndCheckingAllDataAboutUser::class
+        ChangeUser::class => [
+            DeletingInfo::class
         ]
     ];
 

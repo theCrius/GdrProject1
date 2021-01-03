@@ -89,7 +89,7 @@ Route::get('/user/{idUser}/modifica','UserController@showOptionEditsUser')->name
 Route::get('/user/{idUser}/modificaGeneralità','UserController@editUser1')->name('editUser1');
 Route::put('/user/{idUser}/modificaGeneralità','UserController@updateUser1')->name('updateUser1');
 
-Route::get('/user/{idUser}/cambioPg','UserController@editUser2')->name('editUser2');
-Route::put('/user/{idUser}/cambioPg','UserController@updateUser2')->name('updateUser2');
+Route::put('/user/{idUser}/cambioPg','UserController@destroy')->name('deleteUser');
+
 //show profile
 Route::get('/user/{idUser}','UserController@show')->name('userProfile');

@@ -3,7 +3,7 @@
 @section('content')
 <div class="displayFlexColumn">
     <div class="firstRow">
-        <div class="title"><h1>Modifica Impostazione Account</h1></div>
+        <div><h1>Modifica Impostazione Account</h1></div>
     </div>
     
 <form action="{{ route('updateUser1',$user->id) }}" method="post" id='editUser1' class='displayFlexRow secondRow'>

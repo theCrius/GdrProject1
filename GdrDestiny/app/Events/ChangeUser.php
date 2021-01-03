@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UpdateDataUserPt2
+class ChangeUser
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -23,14 +23,6 @@ class UpdateDataUserPt2
      */
     public function __construct(Array $datas,User $user)
     {
-        //take only the data not null and not about _method and _token
-        foreach( $datas as $key => $dataNotNull ){
-
-            if( $key === '_method' || $key === '_token' ) continue;
-
-            if ( $dataNotNull ) $this->dataToCheck[$key] = $dataNotNull;
-
-        }
         
         $this->user=$user;
 

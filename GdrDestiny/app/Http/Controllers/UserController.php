@@ -94,11 +94,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function editUser2($idUser){
-        return view('internoLand.schedaUser.editUser.editUser2',[
-            
-            ]);
-    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -125,23 +121,6 @@ class UserController extends Controller
         return $this->returnBack($request,null,$whatshowsInModal);
    }
 
-   public function updateUser2($idUser,Request $request)
-    {
-        $user=User::find($idUser);
-        
-        $ifReturnSomethingThereIsError = UpdateDataUserPt2::dispatch($request->all(),$user);
-
-        if ( $ifReturnSomethingThereIsError[0] ) return $this->returnBackWithError($request,$ifReturnSomethingThereIsError[0]);
-
-
-        $whatshowsInModal=[
-            'routeName' => 'userProfile',
-            'parametrs' => $idUser,
-            'script' => 'schedaPg/userProfile.js'
-        ];
-        
-        return $this->returnBack($request,null,$whatshowsInModal);
-   }
 
     /**
      * Remove the specified resource from storage.
@@ -149,7 +128,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idUser)
     {
         //
     }

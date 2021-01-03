@@ -18,7 +18,7 @@ class Box
     closeManuallyBox(){
         this.closeManually.className='closeManually'
         this.closeX.addEventListener('click',() => {
-           this.boxCreated.className+=' off'
+           this.boxCreated.className += ' off'
         }
         );
     }
@@ -72,6 +72,16 @@ class Box
     addP(text){
 
             this.contentBox.append(document.createTextNode(text))
+
+    }
+
+    addLink(text,classButton,link){
+
+        let newLink= document.createElement('a')
+        newLink.className += classButton
+        newLink.textContent = text
+        newLink.href= link
+        this.contentBox.append( newLink )
 
     }
 
