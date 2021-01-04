@@ -15,10 +15,10 @@ class Actions extends Migration
     {
         Schema::create('actions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('id_user');
-            $table->integer('exp_got');
+            $table->foreignId('id_user')->nullable();
             $table->text('action');
-            $table->foreign('id_user')->references('id')->on('users');
+
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('set null');
             
             $table->timestamps();
         });

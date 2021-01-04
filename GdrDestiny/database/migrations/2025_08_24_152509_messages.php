@@ -21,8 +21,8 @@ class Messages extends Migration
         $table->enum('letto',['si','no']);
         $table->timestamps();
 
-        $table->foreign('id_user_to')->references('id')->on('users');
-        $table->foreign('id_user_from')->references('id')->on('users');
+        $table->foreign('id_user_to')->references('id')->on('users')->onDelete('cascade');
+        $table->foreign('id_user_from')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

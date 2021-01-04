@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('url_music')->nullable();
             $table->enum('sesso',['m','f']);
-            $table->foreignId('id_razza');
-            $table->foreignId('id_emisfero');
+            $table->foreignId('id_razza')->nullable();
+            $table->foreignId('id_emisfero')->nullable();
             $table->text('note_fato')->nullable();
             $table->text('background')->nullable();
             $table->text('note_off')->nullable();
@@ -43,8 +43,8 @@ class CreateUsersTable extends Migration
             $table->integer('intelligenza')->default(0);
             $table->timestamps();
             
-            $table->foreign('id_emisfero')->references('id')->on('hemisperes')->onDelete('cascade');
-            $table->foreign('id_razza')->references('id')->on('breeds')->onDelete('cascade');
+            $table->foreign('id_emisfero')->references('id')->on('hemisperes')->onDelete('set null');
+            $table->foreign('id_razza')->references('id')->on('breeds')->onDelete('set null');
             
         });
     }

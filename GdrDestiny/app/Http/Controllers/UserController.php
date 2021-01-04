@@ -78,6 +78,9 @@ class UserController extends Controller
     {
         $user= User::find($idUser);
         if($user->id !== \Auth::id() && !$user->hasRole(\Config::get('roles.ROLE_GESTORE'),[4,5])) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
+        
+        $this->saveDataPreSubmit($request);
+
 
         return view('internoLand.schedaUser.editUser.showOptionEditsUser',[
             'idUser' => $user->id
@@ -128,15 +131,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idUser)
-    {
-        \App\Mechaobject::create([
-            
-            'id_usermecha' => 1,
-            'id_sellingmechaobject' => 2
-            
-        ]);
-
-        ChangeUser::dispatch(User::find($idUser));
+    public function destroy($idUser,Request $request)
+    {    
+        $resultOfDeleting=ChangeUser::dispatch(User::find($idUser));
+        
+        if($resultOfDeleting) return $this->returnBackWithError($request,(string)$resultOfDeleting);
     }
 }

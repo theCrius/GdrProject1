@@ -23,8 +23,8 @@ class CreateSpecializationsTable extends Migration
             $table->string('url_image');
             $table->timestamps();
 
-            $table->foreign('id_skill1')->references('id')->on('skills');
-            $table->foreign('id_skill2')->references('id')->on('skills');
+            $table->foreign('id_skill1')->references('id')->on('skills')->onDelete('cascade');
+            $table->foreign('id_skill2')->references('id')->on('skills')->onDelete('cascade');
 
         });
     }

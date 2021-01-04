@@ -29,7 +29,7 @@ Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //registrazione
-Route::get('registrati/razza','Auth\RegisterController@primoStep')->name('registrati1');
+Route::get('registrati/razza/{tokenExpMoneyPlus?}','Auth\RegisterController@primoStep')->name('registrati1');
 Route::get('registrati/{idRazza}/emisfero','Auth\RegisterController@secondoStep')->name('registrati2');
 Route::get('registrati/{idRazza}/{idEmisfero}/sesso','Auth\RegisterController@terzoStep')->name('registrati3');
 Route::get('registrati/{idRazza}/{idEmisfero}/{sesso}','Auth\RegisterController@quartoStep')->name('registrati4');
@@ -90,6 +90,8 @@ Route::get('/user/{idUser}/modificaGeneralità','UserController@editUser1')->nam
 Route::put('/user/{idUser}/modificaGeneralità','UserController@updateUser1')->name('updateUser1');
 
 Route::get('/user/{idUser}/cambioPg','UserController@destroy')->name('deleteUser');
+
+
 
 //show profile
 Route::get('/user/{idUser}','UserController@show')->name('userProfile');

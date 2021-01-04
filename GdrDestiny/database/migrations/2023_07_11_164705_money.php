@@ -21,8 +21,8 @@ class Money extends Migration
             $table->foreignId('id_user_from')->nullable();
             $table->foreignId('id_user_to');
     
-            $table->foreign('id_user_from')->references('id')->on('users');
-            $table->foreign('id_user_to')->references('id')->on('users');
+            $table->foreign('id_user_from')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('id_user_to')->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
         });

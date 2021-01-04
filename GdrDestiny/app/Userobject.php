@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Classes\ObjectPoints;
+use App\Events\BuyingObjects;
 
 class Userobject extends Model
 {
@@ -19,4 +20,9 @@ class Userobject extends Model
     public function hurtsrecords(){
         return $this->hasMany('App\Objecthurtsrecord','id_object');
     }
+    protected $dispatchesEvents = [
+
+        'creating' => BuyingObjects::class
+    
+    ];
 }

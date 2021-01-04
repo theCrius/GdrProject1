@@ -18,8 +18,8 @@ class CreateMechaobjects extends Migration
             $table->foreignId('id_usermecha');
             $table->foreignId('id_sellingmechaobject');
 
-            $table->foreign('id_usermecha')->references('id')->on('usermechas');
-            $table->foreign('id_sellingmechaobject')->references('id')->on('sellingmechaobjects');
+            $table->foreign('id_usermecha')->references('id')->on('usermechas')->onDelete('cascade');
+            $table->foreign('id_sellingmechaobject')->references('id')->on('sellingmechaobjects')->onDelete('cascade');
             
             $table->timestamps();
         });

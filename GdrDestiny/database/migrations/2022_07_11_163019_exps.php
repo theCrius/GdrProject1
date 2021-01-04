@@ -15,13 +15,13 @@ class Exps extends Migration
     {
         Schema::create('exps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('exp_dati');
+            $table->float('exp_dati', 8,3);
             $table->foreignId('id_user_to');
             $table->foreignId('id_user_from')->nullable();
             $table->string('motivazione');
             
-            $table->foreign('id_user_to')->references('id')->on('users');
-            $table->foreign('id_user_from')->references('id')->on('users');
+            $table->foreign('id_user_to')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_user_from')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }

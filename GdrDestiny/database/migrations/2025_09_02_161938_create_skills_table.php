@@ -21,9 +21,9 @@ class CreateSkillsTable extends Migration
             $table->text('description');
             $table->string('name');
 
-            $table->foreign('id_classe')->references('id')->on('classes');
-            $table->foreign('id_hemispere')->references('id')->on('hemisperes');
-            $table->foreign('id_breed')->references('id')->on('breeds');
+            $table->foreign('id_classe')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('id_hemispere')->references('id')->on('hemisperes')->onDelete('cascade');
+            $table->foreign('id_breed')->references('id')->on('breeds')->onDelete('cascade');
 
             $table->timestamps();
         });

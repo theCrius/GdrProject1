@@ -27,6 +27,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    protected $token;
     /**
      * Where to redirect users after registration.
      *
@@ -44,11 +45,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function primoStep(){
+    public function primoStep($tokenExpMoneyPlus=null){
 
             $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','razze');
-           
-            return view('auth.register-principal',[
+
+           if($tokenExpMoneyPlus) $this->token = $tokenExpMoneyPlus;
+            
+           return view('auth.register-principal',[
                 'textModal' => $textModal
             ]);
     
@@ -80,6 +83,31 @@ class RegisterController extends Controller
         ]);
     }
 
+
+    public function addExpMoney($id){
+
+        try{
+            $userResetInfo=\App\Resetuser::where('codice',$this->token)[0];
+
+            \App\Money::create([
+                'id_user_to' => $id,
+                'motivo' => 'recupero vecchio Pg',
+                'soldi' => $userResetInfo->money
+            ]);
+
+            \App\Exp::create([
+                'id_user_to' => $id,
+                'motivo' => 'recupero vecchio Pg',
+                'exp_dati' => $userResetInfo->exp
+            ]);
+        }catch(\Exception $e){
+
+            return $e->getMessage();
+
+        }
+
+
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -115,7 +143,7 @@ class RegisterController extends Controller
 
         Mail::to($email)->send(new NewUser($name,$password));
        
-        return User::create([
+        $newUser=User::create([
             'name' => $name,
             'surname' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['cognome'])),
             'nazionalità' => \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $data['nazionalità'])),
@@ -130,5 +158,9 @@ class RegisterController extends Controller
             
 
         ]);
+        dd($this->token);
+        if($this->token) $this->addExpMoney($newUser->id);
+
+        return $newUser;
     }
 }
