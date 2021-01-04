@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mecha extends Model
 {
-    protected $filliable= [
-        'name' , 'costo' , 'salute'  ,'velocita' , 'potenza' , 'resistenza','descrizione'
+    protected $fillable= [
+        'name' , 'prize' , 'salute'  ,'velocita' , 'potenza' , 'resistenza','descrizione'
     ];
 }

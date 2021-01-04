@@ -16,7 +16,7 @@ class Mechas extends Migration
         Schema::create('mechas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('costo');
+            $table->integer('prize');
             $table->integer('salute');
             $table->integer('velocita');
             $table->integer('potenza');

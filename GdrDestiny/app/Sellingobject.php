@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sellingobject extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         'id_category','name','descrizione','prize','usura'
     ];
 }

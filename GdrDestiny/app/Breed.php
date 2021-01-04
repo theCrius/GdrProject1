@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Breed extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         'name',
         'forza',
         'destrezza',

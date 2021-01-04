@@ -9,7 +9,7 @@ class Usermecha extends Model
 {
     use Mecha;
 
-    protected $filliable=[
+    protected $fillable=[
 
         'id_user','id_mecha','name','immagine'
     

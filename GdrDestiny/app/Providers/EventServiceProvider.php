@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Events\BuyingObjects;
 use App\Events\UpdateDataUserPt1;
 use App\Events\ChangeUser;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
 use App\Listeners\DeletingInfo;
+use App\Listeners\TakingMoneyFromUser;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ChangeUser::class => [
             DeletingInfo::class
+        ],
+        BuyingObjects::class =>[
+            TakingMoneyFromUser::class            
         ]
     ];
 

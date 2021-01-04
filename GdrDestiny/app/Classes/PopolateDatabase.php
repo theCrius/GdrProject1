@@ -1391,7 +1391,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
         \App\Mecha::insert([
             [
                 'name' => 'Test1',
-                'costo' => 100,
+                'prize' => 100,
                 'salute' => 130,
                 'velocita' => 15,
                 'potenza' => 20,
@@ -1400,7 +1400,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             ],
             [
                 'name' => 'Test2',
-                'costo' => 1000,
+                'prize' => 1000,
                 'salute' => 150,
                 'velocita' => 8,
                 'potenza' => 10,

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mechaobjecthurtsrecord extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         
         'id_mechaobject', 'hurt','id_user','descrizione'
 

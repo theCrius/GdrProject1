@@ -130,6 +130,13 @@ class UserController extends Controller
      */
     public function destroy($idUser)
     {
+        \App\Mechaobject::create([
+            
+            'id_usermecha' => 1,
+            'id_sellingmechaobject' => 2
+            
+        ]);
+
         ChangeUser::dispatch(User::find($idUser));
     }
 }

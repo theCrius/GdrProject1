@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Objecthurtsrecord extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         'id_object','hurt','id_user','descrizione'
     ];
     public function user(){

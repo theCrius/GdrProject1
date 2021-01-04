@@ -79,6 +79,9 @@ class User extends Authenticatable
     public function mecha(){
         return $this->hasOne('App\Usermecha','id_user');
     }
+    public function money(){
+        return $this->hasMany('App\Money','id_user_to');
+    }
 
     
 

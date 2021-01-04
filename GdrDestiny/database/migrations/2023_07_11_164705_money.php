@@ -13,14 +13,14 @@ class Money extends Migration
      */
     public function up()
     {
-        Schema::create('moneys', function (Blueprint $table) {
+        Schema::create('money', function (Blueprint $table) {
             
             $table->bigIncrements('id');
             $table->string('motivo');
-            $table->integer('soldi');
-            $table->foreignId('id_user_from');
+            $table->integer('soldi')->nullable();
+            $table->foreignId('id_user_from')->nullable();
             $table->foreignId('id_user_to');
-            
+    
             $table->foreign('id_user_from')->references('id')->on('users');
             $table->foreign('id_user_to')->references('id')->on('users');
             

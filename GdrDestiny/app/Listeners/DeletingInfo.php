@@ -28,7 +28,7 @@ class DeletingInfo
     {
         $email = $event->user->email;
         $exp = ExpController::getSumOfExp($event->user->id);
-        $money
+        
         
     }
 }

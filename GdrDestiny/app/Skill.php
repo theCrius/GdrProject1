@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Skill extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         'id_classe','id_hemispere','id_breed','name','description'
     ];
 

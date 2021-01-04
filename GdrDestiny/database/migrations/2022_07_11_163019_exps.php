@@ -17,7 +17,7 @@ class Exps extends Migration
             $table->bigIncrements('id');
             $table->integer('exp_dati');
             $table->foreignId('id_user_to');
-            $table->foreignId('id_user_from');
+            $table->foreignId('id_user_from')->nullable();
             $table->string('motivazione');
             
             $table->foreign('id_user_to')->references('id')->on('users');

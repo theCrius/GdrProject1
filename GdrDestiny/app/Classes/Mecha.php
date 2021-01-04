@@ -26,7 +26,7 @@ trait Mecha{
 
         foreach( $objectsMecha as $objectMecha ){
             
-            $object= $objectMecha->objectDescription;
+            $object= $objectMecha->object;
 
             $dividedObjects[$object->partmecha] = [
 
@@ -110,14 +110,14 @@ trait Mecha{
                             'descrizione' => $hurt->descrizione,
                             'hurt' => $hurt->hurt,
                             'assignedBy' => $hurt->user->name,
-                            'name' => $objectHurtedOfMecha->objectDescription->name
+                            'name' => $objectHurtedOfMecha->object->name
                     ];
                     
             }
             
             if($hurtDescription){
                 
-                $partshurted[ $objectHurtedOfMecha->objectDescription->partmecha ]['object']=$hurtDescription;
+                $partshurted[ $objectHurtedOfMecha->object->partmecha ]['object']=$hurtDescription;
             
                 $hurtDescription=[]; //azzero la variabile
             
@@ -141,7 +141,7 @@ trait Mecha{
         
         foreach( $mechaObjects as $object ){
 
-            $objectDescription = $object->objectDescription;
+            $objectDescription = $object->object;
 
             $statisticSum['velocita'] += $objectDescription->velocita;
 

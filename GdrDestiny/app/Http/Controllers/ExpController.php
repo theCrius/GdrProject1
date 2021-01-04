@@ -19,7 +19,7 @@ class ExpController extends Controller
         return $exps;
     }
 
-    public static function addExp($expToAdd,$idUserFrom,$idUserTo,$motivazione){
+    public static function addExp($expToAdd,$idUserFrom=null,$idUserTo,$motivazione){
         try{
             \App\Exp::insert([
                 'exp_dati' => $expToAdd,
@@ -34,7 +34,7 @@ class ExpController extends Controller
         }   
     }
 
-    public static function removeExp($expToAdd,$idUserFrom,$idUserTo,$motivazione){
+    public static function removeExp($expToAdd,$idUserFrom=null,$idUserTo,$motivazione){
         try{
             \App\Exp::insert([
                 'exp_dati' => -$expToAdd,

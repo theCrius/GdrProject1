@@ -140,7 +140,7 @@ class UserskillController extends Controller
         //save the change
         $updateLevel->save();
         
-        ExpController::removeExp($expToUseToBuyLevel,1,$idUser,'Upgrade livello ('. $updateLevel->livello . ') : '. $updateLevel->skill->name );
+        ExpController::removeExp($expToUseToBuyLevel,null,$idUser,'Upgrade livello ('. $updateLevel->livello . ') : '. $updateLevel->skill->name );
         
         $whatshowsInModal=[
             'routeName' => 'showSkills',

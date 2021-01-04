@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medicalrecord extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         'id_user_from','id_user_to','hurtposition','descrizione','danno'
     ];
 

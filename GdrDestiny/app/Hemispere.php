@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hemispere extends Model
 {
-    protected $filliable=[
+    protected $fillable=[
         'name','descrizione','immagini'
     ];
     
