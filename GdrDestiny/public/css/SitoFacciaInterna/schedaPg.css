@@ -143,22 +143,33 @@ html {
   cursor: pointer;
 }
 
-.levelup {
+.money {
   position: absolute;
   height: 3.5vh;
   width: 29vh;
   text-align: center;
   left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.levelup img {
-  height: inherit;
-  opacity: 0.7;
+.money p {
+  color: #bff4fe;
+  margin-top: 0.5vh;
+  font-size: 1.8vh;
 }
 
-.levelup:hover img {
-  opacity: 1;
-  cursor: pointer;
+.money h3 {
+  color: #bff4fe;
+  font-family: fontH;
+  font-size: 1.8vh;
 }
 
 #mecha {
@@ -424,7 +435,7 @@ html {
 }
 
 /* CONTATTA FORM */
-.sendMessage {
+.miniBox {
   visibility: hidden;
   height: 30vh;
   width: 58.7vh;
@@ -442,7 +453,7 @@ html {
           box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
 }
 
-.sendMessage form {
+.miniBox form {
   height: inherit;
   width: inherit;
   display: -webkit-box;
@@ -454,7 +465,7 @@ html {
           flex-direction: column;
 }
 
-.sendMessage form .campi {
+.miniBox form .campi {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -467,13 +478,13 @@ html {
           flex-direction: row;
 }
 
-.sendMessage form .campi .right, .sendMessage form .campi .left {
+.miniBox form .campi .right, .miniBox form .campi .left {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.sendMessage form .campi .left {
+.miniBox form .campi .left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -483,7 +494,7 @@ html {
           flex-direction: column;
 }
 
-.sendMessage form .campi .left div {
+.miniBox form .campi .left div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -498,7 +509,7 @@ html {
           justify-content: center;
 }
 
-.sendMessage form .campi .left input {
+.miniBox form .campi .left input {
   height: 6vh;
   width: 26vh;
   border: 2px solid #00838f;
@@ -508,11 +519,11 @@ html {
   font-size: 1.3vh;
 }
 
-.sendMessage form .campi .left input:focus {
+.miniBox form .campi .left input:focus {
   background-color: #00838f;
 }
 
-.sendMessage form .campi .right {
+.miniBox form .campi .right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -524,7 +535,7 @@ html {
           justify-content: flex-start;
 }
 
-.sendMessage form .campi .right textarea {
+.miniBox form .campi .right textarea {
   height: 18vh;
   -webkit-box-flex: 0.95;
       -ms-flex: 0.95;
@@ -536,7 +547,7 @@ html {
   color: #b7ebf5;
 }
 
-.sendMessage form .buttons {
+.miniBox form .buttons {
   -webkit-box-flex: 0.25;
       -ms-flex: 0.25;
           flex: 0.25;
@@ -547,20 +558,20 @@ html {
   margin: auto;
 }
 
-.sendMessage form .buttons #invia {
+.miniBox form .buttons #invia {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   border-right: none;
 }
 
-.sendMessage form .buttons #annulla {
+.miniBox form .buttons #annulla {
   -webkit-box-flex: 0.4;
       -ms-flex: 0.4;
           flex: 0.4;
 }
 
-.sendMessage form .buttons button {
+.miniBox form .buttons button {
   height: 5vh;
   background-color: #013445;
   border: 2px solid #00838f;
@@ -570,7 +581,7 @@ html {
   cursor: pointer;
 }
 
-.sendMessage form .buttons button:hover {
+.miniBox form .buttons button:hover {
   color: #013445;
   background-color: #00838f;
 }
@@ -595,6 +606,53 @@ html {
   border: 1px solid white !important;
   color: white !important;
   background-color: #9d0d0d !important;
+}
+
+/* LOG */
+.menu {
+  height: 100%;
+}
+
+.menu ul {
+  height: 100%;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.menu ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.2vh;
+  cursor: pointer;
+}
+
+.menu ul li h1 {
+  color: white;
+  font-family: fontH;
+}
+
+.menu ul li:hover {
+  background-color: #00838f;
+}
+
+.menu ul li:hover h1 {
+  color: #014358;
 }
 
 /* ADD CLASS */

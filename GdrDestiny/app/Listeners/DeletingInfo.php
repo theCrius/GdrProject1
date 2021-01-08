@@ -27,7 +27,7 @@ class DeletingInfo
 
         \App\Resetuser::create(
             [
-                'exp' => $exp,
+                'exp' =>  ( $exp * 3/4 ),
                 'money' => $money,
                 'codice' => $this->token
             ]

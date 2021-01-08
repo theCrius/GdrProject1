@@ -6,6 +6,7 @@ use App\Events\ChangeUser;
 use App\Events\UpdateDataUserPt1;
 use Illuminate\Http\Request;
 use App\User;
+use App\Money;
 
 class UserController extends Controller
 {
@@ -55,12 +56,13 @@ class UserController extends Controller
     public function show($idUser, Request $request)
     {
         $this->saveDataPreSubmit($request,'schedaPg/userProfile.js');
-
+        $user= User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0];
         return view('internoLand.schedaUser.schedaUser', [
 
-            'userToView' => User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0],
+            'userToView' => $user,
             'expsUser' => ExpController::getSumOfExp($idUser),
             'users' => User::select('name')->get(),
+            'money' => Money::Calculate($user),
             'errors' => $request->errors,
             'userView' => \Auth::user(),
             'points' => MedicalrecordController::getPoints($idUser)
@@ -135,6 +137,6 @@ class UserController extends Controller
     {    
         $resultOfDeleting=ChangeUser::dispatch(User::find($idUser));
         
-        if($resultOfDeleting) return $this->returnBackWithError($request,(string)$resultOfDeleting);
+        if($resultOfDeleting) return $this->returnBackWithError($request,json_encode($resultOfDeleting));
     }
 }

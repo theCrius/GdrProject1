@@ -2,4 +2,4 @@
 - [x] aggiungerer event money to Mechaobject, Usermecha a Userobject
 - [x] fare migration
 - [ ] fare aggiungi e togli soldi
-- [ ] mandare email e fare evento delete changeUser
+- [x] mandare email e fare evento delete changeUser

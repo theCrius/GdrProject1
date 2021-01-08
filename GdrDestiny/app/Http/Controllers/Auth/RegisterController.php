@@ -27,7 +27,6 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    protected $token;
     /**
      * Where to redirect users after registration.
      *
@@ -45,49 +44,54 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function primoStep($tokenExpMoneyPlus=null){
+    //$tokenExpMoneyPlus works when there is a change user
+    public function primoStep($token=null){
 
             $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','razze');
 
-           if($tokenExpMoneyPlus) $this->token = $tokenExpMoneyPlus;
             
            return view('auth.register-principal',[
-                'textModal' => $textModal
+                'textModal' => $textModal,
+                'token' => $token
             ]);
     
     }
-    public function secondoStep($id_razza){
+    public function secondoStep($id_razza,$token=null){
         $textModal=GuidaController::getSpecifData('Regolamento/RegolamentoON','emisferi');
+        
         return view('auth.register-secondary',[
             'razza' => $id_razza,
-            'textModal' => $textModal
+            'textModal' => $textModal,
+            'token' => $token,
     
 
         ]);
     }
-    public function terzoStep($id_razza,$id_emisfero){
+    public function terzoStep($id_razza,$id_emisfero,$token=null){
         return view('auth.register-third',[
             'RazzaId' => $id_razza,
-            'EmisferoId' => $id_emisfero
+            'EmisferoId' => $id_emisfero,
+            'token' => $token
         ]);
 
     }
-    public function quartoStep($id_razza,$id_emisfero,$sesso){
+    public function quartoStep($id_razza,$id_emisfero,$sesso,$token=null){
         
         return view('auth.last-register',[
             'RazzaId' => $id_razza,
             'EmisferoId' => $id_emisfero,
             'Sesso' => $sesso,
             'statiOptions' => explode("\n",GuidaController::getSpecifData('','stati')),
-            'textModal' => GuidaController::getSpecifData('','avvertenza')
+            'textModal' => GuidaController::getSpecifData('','avvertenza'),
+            'token' => $token
         ]);
     }
 
 
-    public function addExpMoney($id){
+    public function addExpMoney($id,$token){
 
         try{
-            $userResetInfo=\App\Resetuser::where('codice',$this->token)[0];
+            $userResetInfo=\App\Resetuser::where('codice',$token)->get()[0];
 
             \App\Money::create([
                 'id_user_to' => $id,
@@ -97,9 +101,12 @@ class RegisterController extends Controller
 
             \App\Exp::create([
                 'id_user_to' => $id,
-                'motivo' => 'recupero vecchio Pg',
-                'exp_dati' => $userResetInfo->exp
+                'motivazione' => 'recupero vecchio Pg',
+                'exp_dati' => (3/4 * $userResetInfo->exp)
             ]);
+
+            $userResetInfo->delete();
+
         }catch(\Exception $e){
 
             return $e->getMessage();
@@ -123,7 +130,8 @@ class RegisterController extends Controller
             'razza' => ['required', 'string','max:1'],
             'emisfero' => ['required','string','max:1'],
             'sesso' => ['required','string',':max:1'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'token' => ['nullable','exists:resetusers,codice']
         ]);
     }
 
@@ -158,9 +166,9 @@ class RegisterController extends Controller
             
 
         ]);
-        dd($this->token);
-        if($this->token) $this->addExpMoney($newUser->id);
-
+       
+        if($data['token']) $this->addExpMoney($newUser->id,$data['token']);
+            
         return $newUser;
     }
 }

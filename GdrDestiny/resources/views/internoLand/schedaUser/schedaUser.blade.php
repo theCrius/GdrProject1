@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[4,5]))
+@if($userView->adminOrOwner($userToView))
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('showOptionEditsUser',$userToView)}}',null,'schedaPg/editUser/showOptionEditsUser.js')"></div>
 @endif
 <ul id='icone'>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="riquadroDestra">
-        <div class="sendMessage">
+        <div class="miniBox" id='sendMessage'>
         <form action="{{ route('storeMessage', $userView->id) }}" method="post" id='formMessage'>
                 @method('post')
                 @csrf 
@@ -66,13 +66,28 @@
         </div>
             <div class="buttons">
                 <button id='invia' disabled>Invia</button>
-                <button id='annulla' onclick="event.preventDefault(); document.querySelector('.sendMessage').className='sendMessage leaveBox';">Chiudi</button>
+                <button id='annulla' onclick="event.preventDefault();openOrClose('#sendMessage','on','leaveBox')">Chiudi</button>
             </div>
             </form>
         </div>
-        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' onclick="document.querySelector('.sendMessage').className='sendMessage on';checkMessage();">
+
+
+        <div class="miniBox" id="menuLog">
+            <div class="menu displayRow">
+                <ul>
+                    <li><h1>Punti Exp</h1></li>
+                    <li><h1>Danni</h1></li>
+                    <li><h1>Transazioni</h1></li>
+                    @if($userView->hasRole(\Config::get('roles.ROLE_GESTORE')))
+                    <li><h1>Accessi</h1></li>
+                    <li><h1>Messaggi</h1></li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+        <img src="/img/imgHomeInterna/home/schedaPg/contatta.png" id='inviaMessaggi' onclick="openOrClose('#sendMessage','on','leaveBox');checkMessage();">
         <img src="/img/imgHomeInterna/home/schedaPg/schedariquadro.png" id='riquadroImmagineStatistiche' alt="">
-        <img src="/img/imgHomeInterna/home/schedaPg/log.png" alt="" id='logImmagine'>
+        <img src="/img/imgHomeInterna/home/schedaPg/log.png" alt="" id='logImmagine'  onclick="openOrClose('#menuLog','on','leaveBox')">
         <div id="namePg">
             <p>{{$userToView->name}} </p>
         </div>
@@ -112,7 +127,7 @@
 
 @section('footer')
 @if($userToView->id === $userView->id)
-<div class='levelup'><img src="/img/imgHomeInterna/home/schedaPg/levelup.png" alt=""> </div>
+<div class='money'><h3>Soldi:</h3><p>&nbsp&nbsp{{ $money }}</p> </div>
 @endif
 <ul id='iconeFooter'>
 
@@ -123,7 +138,7 @@
     <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> <img src="/img/imgHomeInterna/home/Icone/Sesso/{{ $userToView->sesso }}.png" alt=""></li>
 </ul>
 
-@if($userToView->id === $userView->id || $userView->hasRole(Config::get('roles.ROLE_GESTORE'),[0,5]))
+@if($userToView->id === $userView->id || $userView->hasRole(null,[1,5]))
 <div class='expShow'><img src="/img/imgHomeInterna/home/schedaPg/esperienza.png" alt=""> <p> {{$expsUser}} </div>
 @endif
 

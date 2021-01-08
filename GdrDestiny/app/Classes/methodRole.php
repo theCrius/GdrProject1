@@ -9,7 +9,7 @@ trait methodRole{
 
     }
 
-    public function hasRole($role=null,$power){
+    public function hasRole($role=null,$power=null){
        
        $roleOfUser=$this->getRole();
         
@@ -42,6 +42,14 @@ trait methodRole{
         if(! in_array($role,\Config::get('roles'))) $role=null;
     
         return  $this->setRole($role);
+    }
+
+    //Can do it if you are an admin or the owner
+    public function adminOrOwner($userToView){
+
+        return  ($this->id == $userToView->id) || $this->hasRole(\Config::get('roles.ROLE_GESTORE',[4,5]));
+
+
     }
 
 

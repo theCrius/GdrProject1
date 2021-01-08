@@ -1,6 +1,6 @@
 @extends('./layouts/appIscrizione')
 @section('content')
-<form action="{{route('register',['razza' => $RazzaId,'emisfero' => $EmisferoId,'sesso' => $Sesso])}}" method="POST"
+<form action="{{route('register',['razza' => $RazzaId,'emisfero' => $EmisferoId,'sesso' => $Sesso,'token' => $token])}}" method="POST"
     id="form1">
     @csrf
     <div class="DivPrincipale">
@@ -13,7 +13,7 @@
             <option value="{{ $state }}">{{ $state }}</option>
             @endforeach
         </select>
-
+    <input type="hidden" name="token" value="{{ $token }}">
         <button type="submit" id='entra' form="form1"><span><img src="/img/imgHomeEsterna/imgIscrizione/siclick.png"
                     alt=""></span></button>
     </div>

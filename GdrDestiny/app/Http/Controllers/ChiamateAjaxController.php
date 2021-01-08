@@ -12,6 +12,7 @@ class ChiamateAjaxController extends Controller{
 
     public function showBackground($idUser ,Request $request){
         $user=User::where('id',$idUser)->with('breed','classes','hemispere')->get()[0];
+        
         $this->saveDataPreSubmit($request);
         return view('internoLand.schedaUser.background', [
             'userToView' =>$user,

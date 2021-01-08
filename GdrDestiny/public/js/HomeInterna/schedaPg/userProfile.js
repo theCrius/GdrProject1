@@ -1,5 +1,5 @@
 import { checkDataForm } from "../modules/checkDataForm.js";
-
+import { openOrClose } from "../functions/openCloseBoxSmallBox.js"
 
 window.checkMessage= function(){
     
@@ -29,3 +29,5 @@ window.checkMessage= function(){
     checkSubmitMessage.functionsToAdd( checkIfUserToSendMessageExist )
 
 }
+
+window.openOrClose = openOrClose

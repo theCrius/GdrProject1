@@ -29,10 +29,10 @@ Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //registrazione
-Route::get('registrati/razza/{tokenExpMoneyPlus?}','Auth\RegisterController@primoStep')->name('registrati1');
-Route::get('registrati/{idRazza}/emisfero','Auth\RegisterController@secondoStep')->name('registrati2');
-Route::get('registrati/{idRazza}/{idEmisfero}/sesso','Auth\RegisterController@terzoStep')->name('registrati3');
-Route::get('registrati/{idRazza}/{idEmisfero}/{sesso}','Auth\RegisterController@quartoStep')->name('registrati4');
+Route::get('registrati/razza/{token?}','Auth\RegisterController@primoStep')->name('registrati1');
+Route::get('registrati/{idRazza}/emisfero/{token?}','Auth\RegisterController@secondoStep')->name('registrati2');
+Route::get('registrati/{idRazza}/{idEmisfero}/sesso/{token?}','Auth\RegisterController@terzoStep')->name('registrati3');
+Route::get('registrati/{idRazza}/{idEmisfero}/{sesso}({token?}','Auth\RegisterController@quartoStep')->name('registrati4');
 
 Route::get('ambientazione','GuidaController@indexAmbientazione')->name('ambientazione');
 Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento');
@@ -82,6 +82,7 @@ Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha')
 
 //Messages
 Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('storeMessage');
+
 
 //Modify Profile
 Route::get('/user/{idUser}/modifica','UserController@showOptionEditsUser')->name('showOptionEditsUser');
