@@ -14,9 +14,11 @@ class ExpController extends Controller
 
     public function showLog($idUser){
 
-        $user= User::findOrFail($idUser);
+        $userExps= User::findOrFail($idUser)->exps;
 
         return view('internoLand.schedaUser.log.exp',[
+
+            'expTransactions' =>  $userExps,
 
         ]);
 

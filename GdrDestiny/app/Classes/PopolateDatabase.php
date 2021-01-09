@@ -1532,8 +1532,48 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
 
             ],
+            [
+                'name' => 'Brsaddasyan',
+                'surname' => 'Bldfsadsast',
+                'email' => 'ichigoplayer18@gmaisdfsdel122e.com',
+                'nazionalità' => 'Afghanistan (Repubblica Islamica dell’Afghanistan), AF',
+                'password' => \Hash::make('brunleon'),
+                'id_razza' => 1,
+                'id_emisfero' => 1,
+                'sesso' => 'f',
+                'indirizzo_ip' => 'fsdasddasasdfsd',
+                'last_activity' => now(),
+
+
+            ],
             
         ]);
+    }
+
+    public function insertExpTransactions(){
+
+        \App\Exp::insert([
+           [
+            'exp_dati' => 100,
+            'id_user_to' => 1,
+            'id_user_from' => 2,
+            'motivazione' => 'sdnjsjsdsdjklsd'
+
+           ],
+           [
+            'exp_dati' => -50,
+            'id_user_to' => 1,
+            'id_user_from' => null,
+            'motivazione' => 'dfsdffeasf'
+           ],
+           [
+                'exp_dati' => -20,
+                'id_user_to' => 2,
+                'id_user_from' => 1,
+                'motivazione' => 'prestito'
+           ]
+        ]);
+
     }
 
 }
