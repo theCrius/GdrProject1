@@ -93,6 +93,13 @@ Route::put('/user/{idUser}/modificaGeneralità','UserController@updateUser1')->n
 Route::get('/user/{idUser}/cambioPg','UserController@destroy')->name('deleteUser');
 
 
+//log routes
+Route::prefix('/user/{idUser}/log')->middleware('checkIfAdminOrOwner:test')->group(function () {
+
+    Route::get('exp','ExpController@showLog')->name('expLog');
+
+});
+
 
 //show profile
 Route::get('/user/{idUser}','UserController@show')->name('userProfile');

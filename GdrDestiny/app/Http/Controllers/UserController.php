@@ -79,7 +79,7 @@ class UserController extends Controller
     public function showOptionEditsUser($idUser, Request $request)
     {
         $user= User::find($idUser);
-        if($user->id !== \Auth::id() && !$user->hasRole(\Config::get('roles.ROLE_GESTORE'),[4,5])) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
+        if( !$user->adminOrOwner(\Auth::user())) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
         
         $this->saveDataPreSubmit($request);
 

@@ -20,7 +20,9 @@ class CheckUserRole
     {
         
         if(!$request->user()->hasRole($role)){
+
             $request->error='Errore, non hai i permessi';
+            
         }
         return $next($request);
     }

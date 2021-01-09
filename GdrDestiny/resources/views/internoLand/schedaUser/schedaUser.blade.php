@@ -75,7 +75,7 @@
         <div class="miniBox" id="menuLog">
             <div class="menu displayRow">
                 <ul>
-                    <li><h1>Punti Exp</h1></li>
+                    <li onclick=" modal.openModal('{{route('expLog',$userToView)}}',null,null) "><h1>Punti Esperienza</h1></li>
                     <li><h1>Danni</h1></li>
                     <li><h1>Transazioni</h1></li>
                     @if($userView->hasRole(\Config::get('roles.ROLE_GESTORE')))
