@@ -64,8 +64,11 @@ class User extends Authenticatable
     public function skills(){
         return $this->belongsToMany('App\Skill','userskills','id_user','id_skill')->withPivot('livello');
     }
-    public function exps(){
+    public function expsGotted(){
         return $this->hasMany('App\Exp','id_user_to');
+    }
+    public function expsGiven(){
+        return $this->hasMany('App\Exp','id_user_from');
     }
     public function specs(){
         return $this->belongsToMany('App\Specialization','userspecializations','id_user','id_specialization');
@@ -79,9 +82,13 @@ class User extends Authenticatable
     public function mecha(){
         return $this->hasOne('App\Usermecha','id_user');
     }
-    public function money(){
+    public function moneyGotted(){
         return $this->hasMany('App\Money','id_user_to');
     }
+    public function moneyGiven(){
+        return $this->hasMany('App\Money','id_user_from');
+    }
+
 
     
 

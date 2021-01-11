@@ -11,7 +11,11 @@ class Exp extends Model
     ];
 
     public function userTo(){
-        return $this->belongsTo('App\User','id_user_to','id');
+        return $this->belongsTo('App\User','id_user_to','id')->select(['name']);
+    }
+
+    public function userFrom(){
+        return $this->belongsTo('App\User','id_user_from','id')->select(['name']);
     }
 
 

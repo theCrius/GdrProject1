@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Events\BuyingObjects;
 use App\Events\UpdateDataUserPt1;
 use App\Events\ChangeUser;
+use App\Events\ShowLog;
+use App\Listeners\ConvertForeignToValue;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
 use App\Listeners\DeletingInfo;
 use App\Listeners\TakingMoneyFromUser;
@@ -32,7 +34,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         BuyingObjects::class =>[
             TakingMoneyFromUser::class            
-        ]
+        ],
+        ShowLog::class =>[
+            ConvertForeignToValue::class
+        ],
     ];
 
     /**

@@ -6,10 +6,17 @@ trait ExpHandle{
         public static function getSumOfExp($idUser){
             $exps=0;
 
-            $expsOfUser=\App\User::where('id',$idUser)->with('exps')->get()[0];
-        
-            foreach($expsOfUser['exps'] as $expOfUser){
-                $exps+=$expOfUser['exp_dati'];
+            $expsOfUser=\App\User::where('id',$idUser)->with('expsGotted','expsGiven')->get()[0];
+            
+            foreach($expsOfUser['expsGotted'] as $expOfUserGotted){
+
+                $exps+=$expOfUserGotted['exp_dati'];
+
+            }
+            foreach($expsOfUser['expsGiven'] as $expOfUserGiven){
+
+                $exps-=abs($expOfUserGiven['exp_dati']);
+
             }
             
             return $exps;
@@ -44,6 +51,8 @@ trait ExpHandle{
                 return $e->getMessage();
             }   
         }
+
+        
 
 }
 

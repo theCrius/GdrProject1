@@ -1600,28 +1600,43 @@ html{
 }
 
 /* LOOOG */ 
-.log{
+.containerTable{
     width: 100%;
     max-height: 100%;
-    color: white;
-    h1{
-        font-size: 2.5vh;
-        font-family: fontH;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .log{
+        color: white;
+        border-collapse: collapse;
+        width: 100%;
+        h1{
+            font-size: 2.5vh;
+            font-family: fontH;
+        }
+        tr{
+            height: 6vh;
+            text-align: center;
+            p{
+                font-size: 1.7vh;
+            }
+            overflow: scroll;
+        }
+        th:first-child , th:nth-child(3){
+            width: 13%;
+        }
+        th:nth-child(4){
+            width: 15%;
+        }
+        th{
+            background-color: #006680;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background-color: #006680;
+        }
     }
-    tr{
-        height: 6vh;
-        text-align: center;
-    }
-    th:first-child , th:nth-child(3){
-        width: 13%;
-    }
-    th:nth-child(4){
-        width: 15%;
-    }
-    tbody{
-        overflow-y: scroll;
-        max-height: 100%;
-    }
+    
 }
 
 @media screen and (max-width: 900px) {

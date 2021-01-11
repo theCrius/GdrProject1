@@ -1,6 +1,7 @@
 @extends('../layouts.appModalInterno')
 
 @section('content')
+<div class="containerTable">
     <table class='log'>
         <thead>
         <tr>
@@ -14,14 +15,15 @@
     <tbody>
         @foreach($expTransactions as $expTransaction)
         <tr>
-            <td><p>{{ $expTransaction->exp_dati }}</p></td>
-            <td><p>{{ $expTransaction->motivazione }}</p></td>
-            <td><p>{{ $expTransaction->id_user_to }}</p></td>
-            <td><p>{{ $expTransaction->id_user_from }}</p></td>
-            <td><p>{{ $expTransaction->created_at }}</p></td>
+           
+            <td><p>{{ $expTransaction['exp']['exp_dati'] }}</p></td>
+            <td><p>{{ $expTransaction['exp']['motivazione'] }}</p></td>
+            <td><p>{{ $expTransaction['userFrom'] ?? 'sistema'}}</p></td>
+            <td><p>{{ $expTransaction['userTo'] }}</p></td>
+            <td><p>{{ $expTransaction['exp']['created_at'] }}</p></td>
         </tr>
         @endforeach
     </tbody>
     </table>
-
+</div>
 @endsection
