@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\ChangeUser;
 use App\Events\UpdateDataUserPt1;
+use App\Exp;
 use Illuminate\Http\Request;
 use App\User;
 use App\Money;
@@ -60,9 +61,9 @@ class UserController extends Controller
         return view('internoLand.schedaUser.schedaUser', [
 
             'userToView' => $user,
-            'expsUser' => ExpController::getSumOfExp($idUser),
+            'expsUser' => Exp::getSum($idUser),
             'users' => User::select('name')->get(),
-            'money' => Money::Calculate($user),
+            'money' => Money::getSum($idUser),
             'errors' => $request->errors,
             'userView' => \Auth::user(),
             'points' => MedicalrecordController::getPoints($idUser)
@@ -126,6 +127,14 @@ class UserController extends Controller
         return $this->returnBack($request,null,$whatshowsInModal);
    }
 
+
+   public function showMedicalRecordsAll($idUser){
+
+        return view('internoLand.schedaUser.log.medicalRecords',[
+
+        ]);
+
+   }
 
     /**
      * Remove the specified resource from storage.

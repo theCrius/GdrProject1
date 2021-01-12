@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exp;
 use Illuminate\Http\Request;
 
 class UserspecializationController extends Controller
@@ -39,7 +40,7 @@ class UserspecializationController extends Controller
 
     public function storeSpecs($idUser,Request $request){
         $idSpecs=$request->idSpecs;
-        $userExp=ExpController::getSumOfExp($idUser);
+        $userExp=Exp::getSum($idUser);
 
         if( !$idSpecs ) return $this->returnBackWithError($request,'Devi selezionare almeno una specializzazioni');
 
@@ -62,7 +63,7 @@ class UserspecializationController extends Controller
                     'id_user' => $idUser
                 ]);
 
-                ExpController::removeExp(100,null,$idUser,'Acquisto Spec ' . \App\Specialization::find($idSpecDecrypt)->name);
+                Exp::remove(100,null,$idUser,'Acquisto Spec ' . \App\Specialization::find($idSpecDecrypt)->name);
         
 
             }

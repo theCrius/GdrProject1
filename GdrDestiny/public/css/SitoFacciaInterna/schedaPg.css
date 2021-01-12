@@ -2176,7 +2176,7 @@ html {
   color: #9d0d0d;
 }
 
-/* LOOOG */
+/* LOG Exp e Money */
 .containerTable {
   width: 100%;
   max-height: 100%;
@@ -2226,6 +2226,27 @@ html {
 
 .containerTable .log tr:nth-child(even) {
   background-color: #006680;
+}
+
+/* LOG medicalRecords */
+.childs th:nth-child(3) {
+  width: 25% !important;
+}
+
+.childs th:nth-child(5) {
+  width: 17%;
+}
+
+.childs th:first-child {
+  width: 15% !important;
+}
+
+.childs th:nth-child(2) {
+  width: 13%;
+}
+
+.childs th:nth-child(4) {
+  width: 11%;
 }
 
 @media screen and (max-width: 900px) {

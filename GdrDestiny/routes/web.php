@@ -98,6 +98,7 @@ Route::prefix('/user/{idUser}/log')->group(function () {
 
     Route::get('exp','ExpController@showLog')->name('expLog');
     Route::get('money','MoneyController@showLog')->name('moneyLog');
+    Route::get('medicalrecords','UserController@showMedicalRecordsAll')->name('medicalRecordsLog');
 
 });
 

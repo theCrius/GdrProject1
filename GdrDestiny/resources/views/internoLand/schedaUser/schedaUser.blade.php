@@ -50,7 +50,7 @@
             <div class="left">
 
                 <div class="name">
-                <input type="text" name="name" id="" placeholder="Nome dell'utente " data-users="{{ json_encode($users) }}">
+                <input type="text" name="name" id="" placeholder="Nome dell'utente " data-users="{{ json_encode($users) }}" value="{{$userToView->name}}">
                 </div>
 
                 <div class="emailOggetto">
@@ -65,7 +65,7 @@
             </div>
         </div>
             <div class="buttons">
-                <button id='invia' disabled>Invia</button>
+                <button id='invia'>Invia</button>
                 <button id='annulla' onclick="event.preventDefault();openOrClose('#sendMessage','on','leaveBox')">Chiudi</button>
             </div>
             </form>
@@ -76,7 +76,7 @@
             <div class="menu displayRow">
                 <ul>
                     <li onclick=" modal.openModal('{{route('expLog',$userToView)}}',null,null) "><h1>Punti Esperienza</h1></li>
-                    <li onclick=" modal.openModal('{{route('expLog',$userToView)}}',null,null) "><h1>Danni</h1></li>
+                    <li onclick=" modal.openModal('{{route('medicalRecordsLog',$userToView)}}',null,null) "><h1>Danni</h1></li>
                     <li onclick=" modal.openModal('{{route('moneyLog',$userToView)}}',null,null) "><h1>Transazioni</h1></li>
                     @if($userView->hasRole(\Config::get('roles.ROLE_GESTORE')))
                     <li><h1>Accessi</h1></li>

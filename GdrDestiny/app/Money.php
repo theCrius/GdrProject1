@@ -2,12 +2,14 @@
 
 namespace App;
 
-use App\Classes\MoneyHandle;
+use App\Classes\GetStaticallyNameTable;
+use App\Classes\Handle;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Money extends Model
 {
-    use MoneyHandle;
+    use Handle , GetStaticallyNameTable;
     
     protected $fillable=[
 

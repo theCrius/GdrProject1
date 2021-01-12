@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exp;
 use Illuminate\Http\Request;
 use \App\User;
 
@@ -117,7 +118,7 @@ class UserskillController extends Controller
    public function incrementLevelOfSkill($idUser,$idSkill,Request $request){
         $updateLevel=\App\Userskill::where('id_user',$idUser)->where('id_skill',$idSkill)->with('skill')->get()[0];
         $user=\Auth::user();
-        $userExp=ExpController::getSumOfExp($idUser);
+        $userExp=Exp::getSum($idUser);
 
         //the quantity of exp to buy a level, change the number after the ()
         $expToUseToBuyLevel=($updateLevel->livello + 1) * 20;
@@ -140,7 +141,7 @@ class UserskillController extends Controller
         //save the change
         $updateLevel->save();
         
-        ExpController::removeExp($expToUseToBuyLevel,null,$idUser,'Upgrade livello ('. $updateLevel->livello . ') : '. $updateLevel->skill->name );
+        Exp::remove($expToUseToBuyLevel,null,$idUser,'Upgrade livello ('. $updateLevel->livello . ') : '. $updateLevel->skill->name );
         
         $whatshowsInModal=[
             'routeName' => 'showSkills',

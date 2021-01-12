@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Http\Controllers\ExpController;
+use App\Exp;
 use App\Money;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -44,8 +44,8 @@ class DeletingInfo
     public function handle($event)
     {
         try{
-            $exp = ExpController::getSumOfExp($event->user->id);
-            $money = Money::Calculate($event->user);
+            $exp = Exp::getSum($event->user->id);
+            $money = Money::getSum($event->user);
             $event->user->notify(new DeleteUser($event->user->name,route('registrati1',$this->token)));
             
             $event->user->delete();

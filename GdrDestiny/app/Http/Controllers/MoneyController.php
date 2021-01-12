@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\MoneyHandle;
 use App\Events\ShowLog;
 use Illuminate\Http\Request;
 
 class MoneyController extends Controller
 {
-    use MoneyHandle;
 
     public function showLog($idUser){
 
@@ -18,7 +16,7 @@ class MoneyController extends Controller
         $moneyGiven=ShowLog::dispatch($userMoney->moneyGiven,['userTo','userFrom'],'name');
 
         
-        return view('internoLand.schedaUser.log',[
+        return view('internoLand.schedaUser.log.moneyOrExp',[
             'transactions' =>  array_merge($moneyGotted[0],$moneyGiven[0]),
             'userToView' => $userMoney
         ]);
