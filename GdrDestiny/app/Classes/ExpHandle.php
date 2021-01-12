@@ -10,12 +10,12 @@ trait ExpHandle{
             
             foreach($expsOfUser['expsGotted'] as $expOfUserGotted){
 
-                $exps+=$expOfUserGotted['exp_dati'];
+                $exps +=$expOfUserGotted['quantita'];
 
             }
             foreach($expsOfUser['expsGiven'] as $expOfUserGiven){
 
-                $exps-=abs($expOfUserGiven['exp_dati']);
+                $exps -=$expOfUserGiven['quantita'];
 
             }
             
@@ -25,7 +25,7 @@ trait ExpHandle{
         public static function addExp($expToAdd,$idUserFrom=null,$idUserTo,$motivazione){
             try{
                 \App\Exp::insert([
-                    'exp_dati' => $expToAdd,
+                    'quantita' => $expToAdd,
                     'id_user_from' => $idUserFrom,
                     'id_user_to' => $idUserTo,
                     'motivazione' => $motivazione,
@@ -40,7 +40,7 @@ trait ExpHandle{
         public static function removeExp($expToAdd,$idUserFrom=null,$idUserTo,$motivazione){
             try{
                 \App\Exp::insert([
-                    'exp_dati' => -$expToAdd,
+                    'quantita' => -$expToAdd,
                     'id_user_from' => $idUserFrom,
                     'id_user_to' => $idUserTo,
                     'motivazione' => $motivazione,

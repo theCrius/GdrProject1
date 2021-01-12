@@ -2205,8 +2205,12 @@ html {
   font-size: 1.7vh;
 }
 
-.containerTable .log th:first-child, .containerTable .log th:nth-child(3) {
+.containerTable .log th:first-child {
   width: 13%;
+}
+
+.containerTable .log th:nth-child(3) {
+  width: 15%;
 }
 
 .containerTable .log th:nth-child(4) {

@@ -49,7 +49,7 @@ class UserspecializationController extends Controller
         $user=\Auth::user();
         
         if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
-        if(( count($this->returnSpecsOfUser($idUser)) + count($idSpecs) )> 10 ) $messageToShow='Hai scelto troppe specializzazioni';
+        if(( count($this->returnSpecsOfUser($idUser)) + count($idSpecs) ) > 10 ) $messageToShow='Hai scelto troppe specializzazioni';
         if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
 
         try{
@@ -62,7 +62,7 @@ class UserspecializationController extends Controller
                     'id_user' => $idUser
                 ]);
 
-                ExpController::removeExp(100,1,$idUser,'Acquisto Spec ' . \App\Specialization::find($idSpecDecrypt)->name);
+                ExpController::removeExp(100,null,$idUser,'Acquisto Spec ' . \App\Specialization::find($idSpecDecrypt)->name);
         
 
             }

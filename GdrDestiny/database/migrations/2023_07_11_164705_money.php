@@ -16,8 +16,8 @@ class Money extends Migration
         Schema::create('money', function (Blueprint $table) {
             
             $table->bigIncrements('id');
-            $table->string('motivo');
-            $table->integer('soldi')->nullable();
+            $table->string('motivazione');
+            $table->integer('quantita')->nullable();
             $table->foreignId('id_user_from')->nullable();
             $table->foreignId('id_user_to');
     

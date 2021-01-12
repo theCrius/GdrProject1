@@ -35,7 +35,7 @@ class ConvertForeignToValue
             ];
 
             foreach($event->namesRelationship as $nameRelation){
-
+             
                 $arrayToReturn[$key][$nameRelation]=$value[$nameRelation][$event->valueToGet];
                     
 

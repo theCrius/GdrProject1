@@ -15,7 +15,7 @@ class Exps extends Migration
     {
         Schema::create('exps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('exp_dati', 8,3);
+            $table->float('quantita', 8,3);
             $table->foreignId('id_user_to');
             $table->foreignId('id_user_from')->nullable();
             $table->string('motivazione');

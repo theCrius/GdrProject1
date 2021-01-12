@@ -10,7 +10,7 @@ trait MoneyHandle{
 
         foreach( $user->moneyGotted as $transaction){
             
-            $costo_totale += $transaction->soldi;
+            $costo_totale += $transaction->quantita;
 
         }
 

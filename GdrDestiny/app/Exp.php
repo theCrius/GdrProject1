@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Exp extends Model
 {
     protected $fillable=[
-        'exp_dati' , 'id_user_to' , 'id_user_from' , 'motivazione'
+        'quantita' , 'id_user_to' , 'id_user_from' , 'motivazione'
     ];
 
     public function userTo(){

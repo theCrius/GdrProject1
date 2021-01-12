@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes\ExpHandle;
 use App\Events\ShowLog;
+use App\Exp;
 use App\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Catch_;
@@ -21,10 +22,10 @@ class ExpController extends Controller
         $expsGiven=ShowLog::dispatch($userExps->expsGiven,['userTo','userFrom'],'name');
 
         
-        return view('internoLand.schedaUser.log.exp',[
+        return view('internoLand.schedaUser.log',[
             
-            'expTransactions' =>  array_merge($expsGotted[0],$expsGiven[0]),
-
+            'transactions' =>  array_merge($expsGotted[0],$expsGiven[0]),
+            'userToView' => $userExps
         ]);
 
     }
