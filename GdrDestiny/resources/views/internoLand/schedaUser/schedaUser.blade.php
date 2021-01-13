@@ -76,7 +76,6 @@
             <div class="menu displayRow">
                 <ul>
                     <li onclick=" modal.openModal('{{route('expLog',$userToView)}}',null,null) "><h1>Punti Esperienza</h1></li>
-                    <li onclick=" modal.openModal('{{route('medicalRecordsLog',$userToView)}}',null,null) "><h1>Danni</h1></li>
                     <li onclick=" modal.openModal('{{route('moneyLog',$userToView)}}',null,null) "><h1>Transazioni</h1></li>
                     @if($userView->hasRole(\Config::get('roles.ROLE_GESTORE')))
                     <li><h1>Accessi</h1></li>

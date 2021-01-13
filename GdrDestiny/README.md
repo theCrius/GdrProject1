@@ -1,2 +1,2 @@
 # MarkDown To-Do
-- [ ] Fare danni 
+- [ ] Fare evento loggato e connetere alla tbella (da crreare)

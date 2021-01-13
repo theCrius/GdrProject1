@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Events\BuyingObjects;
 use App\Events\UpdateDataUserPt1;
 use App\Events\ChangeUser;
+use App\Events\Logged;
 use App\Events\ShowLog;
 use App\Listeners\ConvertForeignToValue;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
 use App\Listeners\DeletingInfo;
+use App\Listeners\RegisterLogging;
 use App\Listeners\TakingMoneyFromUser;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -38,6 +40,7 @@ class EventServiceProvider extends ServiceProvider
         ShowLog::class =>[
             ConvertForeignToValue::class
         ],
+      
     ];
 
     /**

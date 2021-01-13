@@ -160,7 +160,6 @@ class RegisterController extends Controller
             'id_emisfero' => \htmlspecialchars(preg_replace("/[^0-". $limitEmisfero ."\-\']/", '1', $data['emisfero'])),
             'sesso' => $data['sesso'] === 'f' || $data['sesso'] === 'm' ? $data['sesso'] : 'm',
             'password' => Hash::make($password),
-            'indirizzo_ip' => \Request::ip(),
             'last_activity' => now()
 
             
