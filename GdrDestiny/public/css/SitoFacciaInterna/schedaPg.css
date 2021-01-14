@@ -2199,7 +2199,6 @@ html {
 .containerTable .log tr {
   height: 6vh;
   text-align: center;
-  overflow: scroll;
 }
 
 .containerTable .log tr p {
@@ -2207,7 +2206,7 @@ html {
 }
 
 .containerTable .log td {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .containerTable .log th:first-child {

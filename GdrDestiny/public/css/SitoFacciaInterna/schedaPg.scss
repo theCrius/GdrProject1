@@ -1620,10 +1620,9 @@ html{
             p{
                 font-size: 1.7vh;
             }
-            overflow: scroll;
         }
         td{
-            overflow: scroll;
+            overflow: auto;
         }
         th:first-child{
             width: 13%;
