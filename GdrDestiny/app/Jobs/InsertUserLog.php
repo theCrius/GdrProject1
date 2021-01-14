@@ -13,6 +13,10 @@ class InsertUserLog implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $idUser;
+    protected $ip;
+    
+
     /**
      * Create a new job instance.
      *
@@ -22,7 +26,8 @@ class InsertUserLog implements ShouldQueue
     {
         $this->idUser = $idUser;
         $this->ip = $ip;
-        dd($this);
+    
+        
     }
 
     /**
@@ -32,10 +37,11 @@ class InsertUserLog implements ShouldQueue
      */
     public function handle()
     {
-        
+       
         Userloggedlog::create([
             'id_user' => $this->idUser,
             'ip' => $this->ip
         ]);
+
     }
 }

@@ -98,8 +98,11 @@ Route::prefix('/user/{idUser}/log')->group(function () {
 
     Route::get('exp','ExpController@showLog')->name('expLog');
     Route::get('money','MoneyController@showLog')->name('moneyLog');
-    Route::get('medicalrecords','UserController@showMedicalRecordsAll')->name('medicalRecordsLog');
+    Route::prefix('admin')->middleware('checkIfAdminOrOwner')->group(function(){
 
+        Route::get('logged','UserloggedLogController@show')->name('userloggedLog');
+        Route::get('messages','MessageController@show')->name('usermessagesLog');
+    });
 });
 
 

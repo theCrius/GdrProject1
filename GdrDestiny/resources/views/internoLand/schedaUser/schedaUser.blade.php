@@ -78,8 +78,8 @@
                     <li onclick=" modal.openModal('{{route('expLog',$userToView)}}',null,null) "><h1>Punti Esperienza</h1></li>
                     <li onclick=" modal.openModal('{{route('moneyLog',$userToView)}}',null,null) "><h1>Transazioni</h1></li>
                     @if($userView->hasRole(\Config::get('roles.ROLE_GESTORE')))
-                    <li><h1>Accessi</h1></li>
-                    <li><h1>Messaggi</h1></li>
+                    <li onclick="modal.openModal('{{route('userloggedLog',$userToView)}}',null,null) "><h1>Accessi</h1></li>
+                    <li onclick="modal.openModal('{{route('usermessagesLog',$userToView)}}',null,null) "><h1>Messaggi</h1></li>
                     @endif
                 </ul>
             </div>

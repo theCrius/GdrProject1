@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ShowLog;
 use App\Message;
+use App\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class MessageController extends Controller
 {
@@ -25,6 +28,8 @@ class MessageController extends Controller
             $text= \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->text));
             $titleMessage =\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->objectEmail));
             
+            if( strlen($text) > Config::get('gdrConsts.messages.max_length_messages') ) throw new \Exception(Config::get('gdrConsts.messages.error'));
+            
             \App\Message::insert([
 
                 'id_user_from' => $idUser,
@@ -37,7 +42,7 @@ class MessageController extends Controller
 
         }catch(Exception $e){
 
-            return $this->returnBackWithError($request,'Qualcosa è andato storto');
+            return $this->returnBackWithError($request,$e->getMessage());
 
         }
 
@@ -56,9 +61,18 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show($idUser)
     {
-        //
+        $userMessages = User::findOrFail($idUser);
+
+        $messagesGotted=ShowLog::dispatch($userMessages->messagesGotted,['userTo','userFrom'],'name');
+        $messagesGiven=ShowLog::dispatch($userMessages->messagesGiven,['userTo','userFrom'],'name');
+        
+        return view('internoLand.schedaUser.log.messagesLog',[
+            
+            'messages' => array_merge($messagesGiven[0],$messagesGotted[0]),
+            
+            ]);
     }
 
     /**

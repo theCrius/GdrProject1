@@ -31,7 +31,7 @@ class ConvertForeignToValue
         foreach($event->values as $key => $value){
 
             $arrayToReturn[$key]=[
-                'exp' => $value,
+                \Str::singular( $value->getTable() ) => $value,
             ];
 
             foreach($event->namesRelationship as $nameRelation){

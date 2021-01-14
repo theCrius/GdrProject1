@@ -15,7 +15,7 @@ class AdminOrOwner
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$fileJs)
+    public function handle($request, Closure $next,$fileJs=null)
     {
         if ( $request->user()->adminOrOwner(\App\User::findOrFail($request->idUser) ) ) return $next($request);
 

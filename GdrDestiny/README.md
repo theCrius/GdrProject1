@@ -1,2 +1,3 @@
 # MarkDown To-Do
-- [ ] Fare evento loggato e connetere alla tbella (da crreare)
+- [ ] Fare grafica messaggi
+- [ ] Pensare a puntini ... e poi passa sopra il mouse e vede il emssagio intero

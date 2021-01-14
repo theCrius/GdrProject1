@@ -88,8 +88,17 @@ class User extends Authenticatable
     public function moneyGiven(){
         return $this->hasMany('App\Money','id_user_from');
     }
-
-
+    //retrieve the logs of user's login
+    public function logs(){
+        return $this->hasMany('App\Userloggedlog','id_user');
+    }
+    public function messagesGotted(){
+        return $this->hasMany('App\Message','id_user_to');
+    }
+    public function messagesGiven(){
+        return $this->hasMany('App\Message','id_user_from');
+    }
+   
     
 
 

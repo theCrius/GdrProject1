@@ -1527,7 +1527,6 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'id_razza' => 1,
                 'id_emisfero' => 1,
                 'sesso' => 'f',
-                'indirizzo_ip' => 'fsdfsd',
                 'last_activity' => now(),
 
 
@@ -1541,7 +1540,6 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'id_razza' => 1,
                 'id_emisfero' => 1,
                 'sesso' => 'f',
-                'indirizzo_ip' => 'fsdasddasasdfsd',
                 'last_activity' => now(),
 
 

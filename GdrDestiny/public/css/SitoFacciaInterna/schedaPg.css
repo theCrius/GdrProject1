@@ -2188,6 +2188,7 @@ html {
   color: white;
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
 }
 
 .containerTable .log h1 {
@@ -2203,6 +2204,10 @@ html {
 
 .containerTable .log tr p {
   font-size: 1.7vh;
+}
+
+.containerTable .log td {
+  overflow: scroll;
 }
 
 .containerTable .log th:first-child {

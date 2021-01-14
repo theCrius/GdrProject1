@@ -22,10 +22,8 @@
              
                 @if( !$transaction['userFrom'])
                     Sistema
-                @elseif($transaction['userFrom'] === $userToView->name )
-
-                 @else 
-                 {{ $transaction['userFrom'] }}
+                @elseif($transaction['userFrom'] != $userToView->name )
+                    {{ $transaction['userFrom'] }}
                 @endif    
             </p></td>
             <td><p>
