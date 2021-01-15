@@ -20,7 +20,7 @@
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
             
-        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this,'bottom')" @endif>
+        <div class="boxContent toLeft" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this,{ 'Closer' : 'bottom' })" @endif>
                 <div class="descrizione">
                     @if( !empty($objectsEquippedToMecha[ $partsOfMecha[$i] ]))
                         <h4> {{ $objectsEquippedToMecha[ $partsOfMecha[$i] ]['name'] }}</h4>
@@ -115,7 +115,7 @@
                 <h6>{{ $partsOfMecha[$i] }}</h6>
             </div>
            
-        <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this,'bottom')" @endif>
+        <div class="boxContent toRight" @if( !empty( $partsHurted[ $partsOfMecha[$i] ] ) ) onmouseout="box.leaveBox()" onmouseover="box.showBox('Danni {{ $partsOfMecha[$i] }}',{{ json_encode($partsHurted[ $partsOfMecha[$i] ]) }},this,{ 'Closer' : 'bottom' })" @endif>
                 <div class="image">
                     @if( empty( $partsHurted[ $partsOfMecha[$i] ][ 'object' ] ) )
                         

@@ -1610,6 +1610,7 @@ html{
         border-collapse: collapse;
         width: 100%;
         table-layout: fixed;
+        
         h1{
             font-size: 2.5vh;
             font-family: fontH;
@@ -1622,7 +1623,8 @@ html{
             }
         }
         td{
-            overflow: auto;
+            text-overflow: ellipsis;
+            overflow: hidden; 
         }
         th:first-child{
             width: 13%;
@@ -1645,25 +1647,29 @@ html{
     
 }
 
-/* LOG medicalRecords */
+/* LOG messages */
 
-.childs{
+.messageChilds{
     
-    th:nth-child(3){
-        width: 25% !important;
-    }
-    th:nth-child(5){
-        width: 17% ;
-    }
-    th:first-child{
-        width: 15% !important;
-    }
+    th:nth-child(1){
+        width : 12% !important;
+    } 
     th:nth-child(2){
-        width: 13%;
-    }
+        width : 12% !important;
+    } 
+    th:nth-child(3){
+        width : 14% !important;
+    } 
     th:nth-child(4){
-        width: 11%;
-    }
+        width : 25% !important;
+    } 
+    th:nth-child(5){
+        width : 7% !important;
+    } 
+}
+.showMessage{
+    width: 38vw;
+    height: 22vw;
 }
 @media screen and (max-width: 900px) {
     .left input , .right input{

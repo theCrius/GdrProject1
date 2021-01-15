@@ -38,7 +38,7 @@
             <div class="mappaDiv">
                 @yield('content')
                 <img src="/img/imgHomeInterna/home/messaggioff.png" id='messaggi' alt="messaggi" >
-                <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,'right')">
+                <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,{ 'Closer' : 'right' })">
             </div>
 
         </div>

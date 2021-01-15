@@ -2206,7 +2206,8 @@ html {
 }
 
 .containerTable .log td {
-  overflow: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .containerTable .log th:first-child {
@@ -2232,25 +2233,30 @@ html {
   background-color: #006680;
 }
 
-/* LOG medicalRecords */
-.childs th:nth-child(3) {
+/* LOG messages */
+.messageChilds th:nth-child(1) {
+  width: 12% !important;
+}
+
+.messageChilds th:nth-child(2) {
+  width: 12% !important;
+}
+
+.messageChilds th:nth-child(3) {
+  width: 14% !important;
+}
+
+.messageChilds th:nth-child(4) {
   width: 25% !important;
 }
 
-.childs th:nth-child(5) {
-  width: 17%;
+.messageChilds th:nth-child(5) {
+  width: 7% !important;
 }
 
-.childs th:first-child {
-  width: 15% !important;
-}
-
-.childs th:nth-child(2) {
-  width: 13%;
-}
-
-.childs th:nth-child(4) {
-  width: 11%;
+.showMessage {
+  width: 38vw;
+  height: 22vw;
 }
 
 @media screen and (max-width: 900px) {

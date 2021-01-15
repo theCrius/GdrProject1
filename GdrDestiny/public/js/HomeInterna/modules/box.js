@@ -1,7 +1,8 @@
 
 class Box
 {
-  
+    coordinateBox
+    coordinateElement   
 
     constructor(positionToAppendBox=null,nameClass='off',closeManullay=false){
 
@@ -10,6 +11,7 @@ class Box
         this.contentBox
         this.nameClass=nameClass
         this.closeManullay=closeManullay
+        
         
         if(!positionToAppendBox) positionToAppendBox = document.body;
         this.createBox(positionToAppendBox)
@@ -99,27 +101,16 @@ class Box
 
     }
 
-    moveBox(element,move){
-        let coordinateElement=element.getBoundingClientRect()
-        let coordinateBox=this.boxCreated.getBoundingClientRect()
-            
-                if ((move == 'left') || (move == 'right')){
+    // howMove object --> first lette uppercase 
+    moveBox(element,howMove){
+        this.coordinateElement=element.getBoundingClientRect()
+        this.coordinateBox=this.boxCreated.getBoundingClientRect()
 
-                    move = ( move == 'left' ) ? 'right' : 'left'
-
-                    this.boxCreated.style[move]=coordinateElement[move] + coordinateElement.width;
-                    this.boxCreated.style['top']=coordinateElement['top'] + Math.abs( coordinateElement.height - coordinateBox.height )/2
-
-                    
-                }else{
-
-                    move = ( move == 'bottom' ) ? 'top' : 'bottom'
-                    
-                    this.boxCreated.style['left']= Math.abs(coordinateElement['left'] - Math.abs(  coordinateBox.width - coordinateElement.width )/2 );
-                    this.boxCreated.style['right']=Math.abs(coordinateElement['right'] - Math.abs(  coordinateBox.width - coordinateElement.width )/2 );
-                    this.boxCreated.style[move]=coordinateElement[move] + coordinateElement.height * 1.2;
-                    
-                }
+        let closerOrOn = Object.getOwnPropertyNames(howMove)[0]
+        let functionToCallToMove = 'move' + closerOrOn
+       
+        this[functionToCallToMove](howMove[closerOrOn])
+                
             
 
         
@@ -127,7 +118,7 @@ class Box
 
     }
 
-    showBox(title,text,elementCloser,move){
+    showBox(title,text,elementCloser,howMove){
        
         this.editContent(title,text)
         if( this.nameClass == 'off'){
@@ -137,7 +128,7 @@ class Box
             this.boxCreated.className='box ' + this.nameClass
         }
         
-        if(move) this.moveBox(elementCloser,move)
+        if(howMove) this.moveBox(elementCloser,howMove)
 
 
     }
@@ -156,7 +147,38 @@ class Box
         elementCloser.addEventListener('mouseover', () => box.showBox(title,text,elementCloser) )
 
     }
+    moveCloser(move){
+        
+        
+        if ((move == 'left') || (move == 'right')){
 
+            move = ( move == 'left' ) ? 'right' : 'left'
+
+            this.boxCreated.style[move]=this.coordinateElement[move] + this.coordinateElement.width;
+            this.boxCreated.style['top']=this.coordinateElement['top'] + Math.abs( this.coordinateElement.height - this.coordinateBox.height )/2
+
+            
+        }else{
+            
+            move = ( move === 'bottom' ) ? 'top' : 'bottom'
+            
+            this.boxCreated.style['left']= Math.abs(this.coordinateElement['left'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
+            this.boxCreated.style['right']=Math.abs(this.coordinateElement['right'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
+            this.boxCreated.style[move]=this.coordinateElement[move] + this.coordinateElement.height * 1.2;
+            
+        }
+
+    
+    }
+    moveOn(move=null){
+
+        
+        this.boxCreated.style['left']= Math.abs(this.coordinateElement['left'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
+        this.boxCreated.style['right']=Math.abs(this.coordinateElement['right'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
+        this.boxCreated.style['bottom'] = this.coordinateElement['bottom']
+        this.boxCreated.style['top'] = this.coordinateElement['top']
+        
+    }
 
 
 
