@@ -121,9 +121,6 @@ class checkDataForm{
         let listOfClasses = event.target.classList
         
         if( listOfClasses.contains('errorInput') ) listOfClasses.remove("errorInput",'oko') 
-        
-
-        
 
         
         for (const object of this.allObjects) {
@@ -133,7 +130,7 @@ class checkDataForm{
 
         }
         
-        this.button.disabled 
+        this.button.disabled = false
 
     }
 

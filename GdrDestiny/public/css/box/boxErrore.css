@@ -21,6 +21,8 @@
   -webkit-box-flex: 0.07;
       -ms-flex: 0.07;
           flex: 0.07;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .errore .titleBox .closeManually .close {

@@ -1,8 +1,8 @@
 @extends('../layouts.appModalInterno')
 
 @section('content')
-<div class="containerTable childs">
-    <table class='log'>
+<div class="containerTable">
+    <table class='log  loggedChilds'>
         <thead>
         <tr>
             <th><h1>Data</h1></th>

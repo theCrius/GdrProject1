@@ -2,12 +2,14 @@
 
 namespace App\Console;
 
+use App\Classes\Schedule as ClassesSchedule;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\DB;
 
 class Kernel extends ConsoleKernel
 {
+    use ClassesSchedule;
     /**
      * The Artisan commands provided by your application.
      *
@@ -29,6 +31,12 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             DB::table('userloggedlogs')->delete();
         })->monthly();
+
+        $this->deleteMessageUnread($schedule);
+        $this->deleteMessageRead($schedule);
+        $this->deleteuserLoggedLog($schedule);
+
+
     }
 
     /**

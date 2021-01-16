@@ -11,6 +11,7 @@
         }
         .closeManually{
             flex: 0.07;
+            align-self: flex-start;
             .close{
                 cursor: pointer;
             }

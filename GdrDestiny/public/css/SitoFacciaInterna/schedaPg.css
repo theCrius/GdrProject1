@@ -2202,12 +2202,9 @@ html {
 }
 
 .containerTable .log tr p {
-  font-size: 1.7vh;
-}
-
-.containerTable .log td {
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 1.7vh;
 }
 
 .containerTable .log th:first-child {
@@ -2233,6 +2230,11 @@ html {
   background-color: #006680;
 }
 
+/* LOG loggeds */
+.loggedChilds th {
+  width: 50% !important;
+}
+
 /* LOG messages */
 .messageChilds th:nth-child(1) {
   width: 12% !important;
@@ -2255,8 +2257,14 @@ html {
 }
 
 .showMessage {
-  width: 38vw;
-  height: 22vw;
+  width: 30vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.showMessage .contentBox {
+  font-size: 1.5vh;
 }
 
 @media screen and (max-width: 900px) {

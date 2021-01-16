@@ -19,9 +19,10 @@
                
                 <td ><p>{{ $message['userTo'] }}</p></td>
                 <td><p>{{ $message['userFrom'] }}</p></td>
-                <td><p> {{ $message['message']['title']}}</p></td>
-                <td onmouseleave="boxMessageLog.leaveBox()" onmouseover="boxMessageLog.showBox('Messaggio','{{ $message['message']['message'] }}',this,{ 'On' : null })" ><p>{{ $message['message']['message'] }}</p></td>
+                <td ><p> {{ $message['message']['title']}}</p></td>
+           <td onmouseout="boxMessageLog.leaveBox()" onmouseover="boxMessageLog.showBox('{{ $message['message']['title'] ? $message['message']['title'] : 'Messaggio' }}','{{ $message['message']['message'] }}',this,{ 'Closer' : 'bottom' })" ><p>{{ $message['message']['message'] }}</p></td>
                 <td><p>{{ $message['message']['letto'] }}</p></td>
+           
             </tr>
            @endforeach
        

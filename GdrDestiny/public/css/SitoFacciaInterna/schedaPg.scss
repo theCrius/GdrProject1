@@ -1619,12 +1619,10 @@ html{
             height: 6vh;
             text-align: center;
             p{
+                text-overflow: ellipsis;
+                overflow: hidden;
                 font-size: 1.7vh;
             }
-        }
-        td{
-            text-overflow: ellipsis;
-            overflow: hidden; 
         }
         th:first-child{
             width: 13%;
@@ -1645,6 +1643,12 @@ html{
         }
     }
     
+}
+/* LOG loggeds */ 
+.loggedChilds{
+    th{
+        width: 50% !important;
+    }
 }
 
 /* LOG messages */
@@ -1668,8 +1672,11 @@ html{
     } 
 }
 .showMessage{
-    width: 38vw;
-    height: 22vw;
+    width: 30vw;
+    height: fit-content;
+    .contentBox{
+        font-size: 1.5vh;
+    }
 }
 @media screen and (max-width: 900px) {
     .left input , .right input{

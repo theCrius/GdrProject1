@@ -164,7 +164,10 @@ class Box
             
             this.boxCreated.style['left']= Math.abs(this.coordinateElement['left'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
             this.boxCreated.style['right']=Math.abs(this.coordinateElement['right'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
-            this.boxCreated.style[move]=this.coordinateElement[move] + this.coordinateElement.height * 1.2;
+
+            this.checkIfBoxGoesGoOutOfScreen(move)
+        
+            
             
         }
 
@@ -176,8 +179,25 @@ class Box
         this.boxCreated.style['left']= Math.abs(this.coordinateElement['left'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
         this.boxCreated.style['right']=Math.abs(this.coordinateElement['right'] - Math.abs(  this.coordinateBox.width - this.coordinateElement.width )/2 );
         this.boxCreated.style['bottom'] = this.coordinateElement['bottom']
-        this.boxCreated.style['top'] = this.coordinateElement['top']
+        this.boxCreated.style['top'] = this.coordinateElement['top'] - this.coordinateBox.height / 2
         
+    }
+
+    checkIfBoxGoesGoOutOfScreen(move){
+
+        let totalHeightBox = this.coordinateElement[move] + ( this.coordinateElement.height * 1.2 )+ this.coordinateBox.height 
+        
+        
+
+        if(  totalHeightBox > window.innerHeight ){
+            
+            ( move === 'bottom' ) ? 'top' : 'bottom'
+       
+            return    this.boxCreated.style[move]=this.coordinateElement[move] - this.coordinateElement.height * 0.2 - this.coordinateBox.height;
+        
+        }
+
+        return    this.boxCreated.style[move]=this.coordinateElement[move] + this.coordinateElement.height * 1.2;
     }
 
 

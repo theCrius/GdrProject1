@@ -71,6 +71,7 @@ class MessageController extends Controller
         return view('internoLand.schedaUser.log.messagesLog',[
             
             'messages' => array_merge($messagesGiven[0],$messagesGotted[0]),
+            'userToView' => $userMessages
             
             ]);
     }
