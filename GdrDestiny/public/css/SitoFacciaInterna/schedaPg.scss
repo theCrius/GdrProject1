@@ -8,37 +8,6 @@ html{
     font-size: 62.5%;
 }
 
-/* scrollbar */ 
-/* width */
-::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: transparent; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #d5edfa; 
-  }
-  
-  /* PLACEHOLDER STYLE */
-  ::placeholder {
-    color:#b7ebf5;
-    opacity: 1; /* Firefox */
-  }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:#b7ebf5;
-  }
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color:#b7ebf5;
-  }
-
 
 
 *{
@@ -1689,8 +1658,5 @@ html{
     }
   }
 
-@font-face {
-    font-family: fontH;
-    src : url(../../font/FullStopLucca-Bold.ttf);
-}
+
 

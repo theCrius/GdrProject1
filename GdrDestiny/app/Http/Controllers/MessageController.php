@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\ShowLog;
+use App\Events\showMessages;
 use App\Message;
 use App\User;
 use Exception;
@@ -28,7 +29,8 @@ class MessageController extends Controller
             $text= \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->text));
             $titleMessage =\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->objectEmail));
             
-            if( strlen($text) > Config::get('gdrConsts.messages.max_length_messages') ) throw new \Exception(Config::get('gdrConsts.messages.error'));
+            if( strlen($text) > Config::get('gdrConsts.messages.max_length_message') ) throw new \Exception(Config::get('gdrConsts.messages.error.message'));
+            if( strlen($titleMessage) > Config::get('gdrConsts.messages.max_length_title') ) throw new \Exception(Config::get('gdrConsts.messages.error.title'));
             
             \App\Message::insert([
 
@@ -61,7 +63,7 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show($idUser)
+    public function showLog($idUser)
     {
         $userMessages = User::findOrFail($idUser);
 
@@ -74,6 +76,18 @@ class MessageController extends Controller
             'userToView' => $userMessages
             
             ]);
+    }
+
+    public function show($idUser){
+
+        $userMessages = User::findOrFail($idUser);
+        $messagesGotted= showMessages::dispatch($userMessages->messagesGotted,['userTo','userFrom'],'name');
+
+        return json_encode($messagesGotted[0]);
+
+        
+
+
     }
 
     /**

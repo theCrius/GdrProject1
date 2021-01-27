@@ -1,4 +1,35 @@
 
+/* scrollbar */ 
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #d5edfa; 
+  }
+  
+  /* PLACEHOLDER STYLE */
+  ::placeholder {
+    color:#b7ebf5;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:#b7ebf5;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:#b7ebf5;
+  }
+
 
 *{
     margin:0;
@@ -58,7 +89,9 @@ html , body{
 }
 .contenitoreMappa{
     height: 77vh;
-    }
+    display: flex;
+    flex-direction: row;
+}
 .mappaDiv{
     position: relative;
     height: inherit;
@@ -66,13 +99,7 @@ html , body{
     margin: auto;
 }
 
-#messaggi{
-    position: absolute;
-    height: 20vh;
-    right: 7vh;
-    top: 6vh;
-    
-}
+
 #meteo{
     height: 20vh;
     position: absolute;
@@ -146,4 +173,9 @@ html , body{
     }
 
 
+}
+
+@font-face {
+    font-family: fontH;
+    src : url(../../font/FullStopLucca-Bold.ttf);
 }

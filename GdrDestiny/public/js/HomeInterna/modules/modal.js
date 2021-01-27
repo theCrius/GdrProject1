@@ -1,6 +1,7 @@
 import { Box } from './box.js'
+import { XMLHttp } from './XMLHttp.js'
 
-class Finestra{
+class Finestra {
 
 
     constructor(){
@@ -54,49 +55,7 @@ class Finestra{
         
     }
 
-    connectionToPage(url){
-       
-        let http=new XMLHttpRequest()
-
-        return new Promise((resolve,reject) => {
-
-            http.onreadystatechange=function() {
-                http.onload = function () {
-                    if (this.status >= 200 && this.status < 300 && http.response) {
-                      resolve(http.response);
-                    }else{
-                      reject({
-                        status: this.status,
-                        statusText: http.statusText
-                        
-                      });
-                    }
-                  };
-                  http.onerror = function () {
-                    reject({
-                      status: this.status,
-                      statusText: http.statusText
-                    });
-                  };
-                  
-                
-            }
-            
-            http.open('GET',url,true)  
-            http.send()
-            
-
-        })
-        
-         
-
-
-        
-
-        
-       
-
-    }
+    
 
     openModal(url,errors,scriptNameToAdd){
 
@@ -106,7 +65,7 @@ class Finestra{
         let dealErrorBox=this.dealError;
         let sendScriptNameToCall=this.addScriptToFile
      
-       this.connectionToPage(url).then(function(data){
+       XMLHttp.connectionToPage(url).then(function(data){
          
          modalContent.innerHTML= data; //print the data in the modal
         $(".modal_body").draggable({ //the user can move the modal

@@ -1,0 +1,235 @@
+#messaggi {
+  position: absolute;
+  height: 20vh;
+  right: 7vh;
+  top: 6vh;
+}
+
+#messaggi:hover {
+  -webkit-transform: rotate(228deg);
+          transform: rotate(228deg);
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+}
+
+#message {
+  width: 50%;
+  position: fixed;
+  right: 0;
+  max-height: 76%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  visibility: hidden;
+  -webkit-backdrop-filter: blur(9px);
+          backdrop-filter: blur(9px);
+}
+
+#message table {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  max-height: inherit;
+  table-layout: fixed;
+  table-layout: fixed;
+  color: #eeeff0;
+}
+
+#message table tr {
+  height: 6vh;
+  cursor: pointer;
+}
+
+#message table h1 {
+  font-size: 2.5vh;
+  font-family: fontH;
+}
+
+#message table p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 1.7vh;
+}
+
+#message table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #013445;
+  cursor: default;
+}
+
+#message table th:nth-child(2) {
+  width: 60%;
+}
+
+#message table th:nth-child(4) {
+  width: 4%;
+}
+
+#message .buttons {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0.5vh;
+}
+
+#message .buttons button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 5vh;
+  background-color: #013445;
+  color: #eeeff0;
+  padding: 1vh;
+  font-size: 1.6vh;
+  border: none;
+  cursor: pointer;
+}
+
+#message .buttons button:hover {
+  background-color: #eeeff0;
+  color: #013445;
+}
+
+.onBoxRight {
+  -webkit-animation: opened;
+          animation: opened;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  visibility: visible !important;
+}
+
+.offBoxRight {
+  -webkit-animation-name: closed;
+          animation-name: closed;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes opened {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  30% {
+    width: 20%;
+    opacity: 0.1;
+  }
+  50% {
+    width: 30%;
+    opacity: 0.8;
+  }
+  70% {
+    width: 40%;
+    opacity: 0.9;
+  }
+  90% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes opened {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  30% {
+    width: 20%;
+    opacity: 0.1;
+  }
+  50% {
+    width: 30%;
+    opacity: 0.8;
+  }
+  70% {
+    width: 40%;
+    opacity: 0.9;
+  }
+  90% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes closed {
+  100% {
+    display: none;
+    opacity: 0;
+  }
+  70% {
+    width: 20%;
+    opacity: 0.1;
+    visibility: visible;
+  }
+  50% {
+    width: 30%;
+    opacity: 0.8;
+    visibility: visible;
+  }
+  30% {
+    width: 40%;
+    opacity: 0.9;
+    visibility: visible;
+  }
+  0% {
+    width: 50%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes closed {
+  100% {
+    display: none;
+    opacity: 0;
+  }
+  70% {
+    width: 20%;
+    opacity: 0.1;
+    visibility: visible;
+  }
+  50% {
+    width: 30%;
+    opacity: 0.8;
+    visibility: visible;
+  }
+  30% {
+    width: 40%;
+    opacity: 0.9;
+    visibility: visible;
+  }
+  0% {
+    width: 50%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  #message {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=message.css.map */

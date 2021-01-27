@@ -7,6 +7,7 @@ use App\Events\UpdateDataUserPt1;
 use App\Events\ChangeUser;
 use App\Events\Logged;
 use App\Events\ShowLog;
+use App\Events\showMessages;
 use App\Listeners\ConvertForeignToValue;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
 use App\Listeners\DeletingInfo;
@@ -38,6 +39,9 @@ class EventServiceProvider extends ServiceProvider
             TakingMoneyFromUser::class            
         ],
         ShowLog::class =>[
+            ConvertForeignToValue::class
+        ],
+        showMessages::class => [
             ConvertForeignToValue::class
         ],
       

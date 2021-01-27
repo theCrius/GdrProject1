@@ -101,7 +101,7 @@ Route::prefix('/user/{idUser}/log')->group(function () {
     Route::prefix('admin')->middleware('checkIfAdminOrOwner')->group(function(){
 
         Route::get('logged','UserloggedLogController@show')->name('userloggedLog');
-        Route::get('messages','MessageController@show')->name('usermessagesLog');
+        Route::get('messages','MessageController@showLog')->name('usermessagesLog');
     });
 });
 

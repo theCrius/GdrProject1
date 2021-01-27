@@ -6,17 +6,16 @@
     <link rel="stylesheet" href="/css/SitoFacciaInterna/home.css">
     <link rel="stylesheet" href="/css/box/boxErrore.css">
     <link rel="stylesheet" href="/css/modal/modalInterna.css">
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+    <link rel="stylesheet" href="/css/SitoFacciaInterna/message.css">
     
     <link rel="stylesheet" href="/css/box/box.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 </head>
 <!-- per modificare link dei bottoni modificare anche il file home.js -->
 
 <body>
-    <section>
+    <section id='app'>
         <div class="menuTop">
             <ul class='listMenu'>
                 <div class="buttonLeft">
@@ -37,10 +36,11 @@
         <div class="contenitoreMappa">
             <div class="mappaDiv">
                 @yield('content')
-                <img src="/img/imgHomeInterna/home/messaggioff.png" id='messaggi' alt="messaggi" >
+            <img src="/img/imgHomeInterna/home/messaggioff.png" id='messaggi'  alt="messaggi" onclick="openOrClose('#message','onBoxRight','offBoxRight')">
                 <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,{ 'Closer' : 'right' })">
+            
             </div>
-
+            <message  class_to_close='offBoxRight' route='{{ route('showMessages',\Auth::id()) }}'> </message>
         </div>
     </section>
         @if($errors)
@@ -54,8 +54,12 @@
             
         @endif
   
-   <script type='module' src="/js/HomeInterna/main.js"></script>
-
+  
+    <script type='module' src="/js/HomeInterna/main.js"></script>
+   <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+   
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 
 

@@ -21,10 +21,10 @@ class ConvertForeignToValue
     /**
      * Handle the event.
      *
-     * @param  ShowLog  $event
+     * 
      * @return void
      */
-    public function handle(ShowLog $event)
+    public function handle($event)
     {
         $arrayToReturn = [];
        

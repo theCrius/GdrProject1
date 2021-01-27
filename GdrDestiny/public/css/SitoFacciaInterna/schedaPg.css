@@ -7,54 +7,6 @@ html {
   font-size: 62.5%;
 }
 
-/* scrollbar */
-/* width */
-::-webkit-scrollbar {
-  width: 3px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #d5edfa;
-}
-
-/* PLACEHOLDER STYLE */
-::-webkit-input-placeholder {
-  color: #b7ebf5;
-  opacity: 1;
-  /* Firefox */
-}
-:-ms-input-placeholder {
-  color: #b7ebf5;
-  opacity: 1;
-  /* Firefox */
-}
-::-ms-input-placeholder {
-  color: #b7ebf5;
-  opacity: 1;
-  /* Firefox */
-}
-::placeholder {
-  color: #b7ebf5;
-  opacity: 1;
-  /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #b7ebf5;
-}
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #b7ebf5;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -2276,10 +2228,5 @@ html {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
   }
-}
-
-@font-face {
-  font-family: fontH;
-  src: url(../../font/FullStopLucca-Bold.ttf);
 }
 /*# sourceMappingURL=schedaPg.css.map */
