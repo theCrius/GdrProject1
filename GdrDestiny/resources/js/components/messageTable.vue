@@ -1,0 +1,125 @@
+<template>
+    <div :class="'messages ' + class_to_close">
+    <transition name='slide-fade'>
+
+                    <messageSingle v-show='messageToOpen' v-bind:message="this.messageToOpen"  > </messageSingle>
+    </transition>
+    <div  id="message">
+                   
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><h1>Nome Pg</h1></th>
+                                <th><h1>Anteprima messaggio</h1></th>
+                                <th><h1>Check</h1></th>
+
+                                <th @click="close">&times</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="message in messages" :class="{'notRead' : ( message.message.letto == 'no') }" @click='openMessage(message)'>
+                                <td> {{ message.userFrom}} </td>
+                                <td><p> {{ message.message.title }}</p> </td>
+                                <td> Si/no</td>
+                                <td><p class='newMessage' v-show="message.message.letto === 'no'">new</p></td>
+
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    <div class='buttons'>
+                    <button>Nuovo Messaggio</button>
+                    <button>Cancella</button>
+                    </div>
+                </div>
+
+        </div>
+</template>
+<script>
+import messageSingle from "./messageSingle.vue"
+import { openOrClose } from "./../../../public/js/HomeInterna/functions/openOrClose.js"
+export default{
+
+    data(){
+        return {
+            messages : [],
+            show : false,
+            messageToOpen : null
+        }
+    },
+    components : {
+
+        messageSingle,
+
+    },
+
+    mounted() {
+
+        this.getMessages()
+             
+
+    },
+
+    methods : {
+        getMessages : function(){
+            axios
+                .get(this.route_show_messages)
+                .then(response => this.messages = response.data)
+                .catch(error => console.log(error))
+            
+            
+        },
+
+        updateStatusMessage : function(message){
+            axios
+                .put(
+                    this.route_to_update_status + message.message.id,
+                    {'data' : 'si'}
+                )
+                .then(this.getMessages())
+                .catch(error => console.log(error))
+
+            
+            
+        },
+
+        close : function(){
+
+            openOrClose('.messages','onBoxRight',this.class_to_close,)
+            
+          
+            
+
+        },
+    
+        openMessage : function(message){
+            
+            this.messageToOpen = message
+            if(message.message.letto == 'no') this.updateStatusMessage(message)
+
+        }
+        
+    },
+
+    props : {
+        'route_to_update_status' : String,
+        'route_show_messages' : String,
+        'opened' : String,
+        'class_to_close' : String,
+    }
+
+}
+</script>
+<style>
+    .slide-fade-enter-active {
+    transition: all .3s ease;
+    }
+    .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
+    }
+</style>

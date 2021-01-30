@@ -32,7 +32,7 @@ class MessageController extends Controller
             if( strlen($text) > Config::get('gdrConsts.messages.max_length_message') ) throw new \Exception(Config::get('gdrConsts.messages.error.message'));
             if( strlen($titleMessage) > Config::get('gdrConsts.messages.max_length_title') ) throw new \Exception(Config::get('gdrConsts.messages.error.title'));
             
-            \App\Message::insert([
+            \App\Message::create([
 
                 'id_user_from' => $idUser,
                 'id_user_to' => $idUserTo,
@@ -81,8 +81,9 @@ class MessageController extends Controller
     public function show($idUser){
 
         $userMessages = User::findOrFail($idUser);
+        
         $messagesGotted= showMessages::dispatch($userMessages->messagesGotted,['userTo','userFrom'],'name');
-
+        
         return json_encode($messagesGotted[0]);
 
         
@@ -108,9 +109,24 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Message $message)
+    public function update(Request $request, $idMessage)
     {
-        //
+    
+        try{
+
+            $message = Message::findOrFail($idMessage);
+
+            $message->letto = $request->data;
+    
+            $message->save();
+            
+        }catch(Exception $e){
+            return $e->getMessage();
+        } 
+
+        return $request->data;
+        
+        
     }
 
     /**

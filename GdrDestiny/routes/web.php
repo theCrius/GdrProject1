@@ -105,6 +105,7 @@ Route::prefix('/user/{idUser}/log')->group(function () {
     });
 });
 
+Route::put('/message/update/{idMessage}','MessageController@update')->name('updateMessage');
 
 //show profile
 Route::get('/user/{idUser}','UserController@show')->name('userProfile');
