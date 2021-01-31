@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/user/{idUser}/messages','MessageController@show')->name('showMessages');
+Route::get('/user/{idUser}/newMessages','MessageController@showNewMessages')->name('showNewMessages');

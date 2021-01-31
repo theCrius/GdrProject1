@@ -3,7 +3,7 @@
     
         <h1>{{ message.message.title }}</h1>
         <div class='textMessage'>
-        <p>{{ message.message.message }}</p>
+        <p id='content'>{{ message.message.message }}</p>
         <p>{{message.message.created_at}} , <i> {{ message.userFrom }}</i></p>
         </div>
         

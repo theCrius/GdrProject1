@@ -1,4 +1,4 @@
-@import "~animate.css/animate";
+@import './../../../node_modules/animate.css/animate';
 /* scrollbar */ 
 /* width */
 ::-webkit-scrollbar {
@@ -151,7 +151,7 @@ html , body{
 
 }
 
-@media only screen and (max-width: 620px){
+@media only screen and (max-width: 840px){
     .menuTop{
     .buttonLeft, .buttonRight , ul{
         width: 63%;

@@ -36,7 +36,7 @@
         <div class="contenitoreMappa">
             <div class="mappaDiv">
                 @yield('content')
-            <img src="/img/imgHomeInterna/home/messaggioff.png" id='messaggi'  alt="messaggi" onclick="openOrClose('.messages','onBoxRight','offBoxRight')">
+                <message-logo route="{{ route('showNewMessages',\Auth::id() ) }}" onclick="openOrClose('.messages','onBoxRight','offBoxRight')"></message-logo>
                 <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,{ 'Closer' : 'right' })">
             
             </div>

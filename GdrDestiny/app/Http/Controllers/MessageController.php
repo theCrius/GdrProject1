@@ -91,6 +91,16 @@ class MessageController extends Controller
 
     }
 
+    public function showNewMessages($idUser){
+
+        $userMessages = User::findOrFail($idUser);
+
+        $messagesGotted = $userMessages->messagesGotted->where('letto','no');
+
+        return json_encode($messagesGotted);
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
