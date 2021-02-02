@@ -123,12 +123,13 @@
     h1{
         text-align: center;
         margin-top: 1vh;
-        flex: 0.2;
+        flex: 0.1;
         
     }
     .textMessage{
         margin-top: 1vh;
         flex: 1;
+        position: relative;
         p{
             margin: 1vh;
         }
@@ -136,6 +137,10 @@
             overflow-y: auto;
             overflow-wrap: break-word;
             max-height: 30vw;
+        }
+        #date{
+            position: absolute;
+            bottom: 0;
         }
         
     }

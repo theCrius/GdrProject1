@@ -93,7 +93,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Userloggedlog','id_user');
     }
     public function messagesGotted(){
-        return $this->hasMany('App\Message','id_user_to');
+        return $this->hasMany('App\Message','id_user_to')->orderBy('created_at','desc');
     }
     public function messagesGiven(){
         return $this->hasMany('App\Message','id_user_from');

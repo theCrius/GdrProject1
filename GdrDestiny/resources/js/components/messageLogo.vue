@@ -8,26 +8,33 @@
 export default {
     data(){
         return{
-            messaggiStatus : 'messaggioff.png'
+            messaggiStatus : 'messaggioff.png',
         }
 
     },
     props : {
-        route
+        route : String,
     },
 
     mounted() {
-        this.checkNewMessages()
+        // ogni 30s c'è il check
+        setInterval(this.checkNewMessages, 30000)
     },
 
     methods: {
         checkNewMessages(){
 
             axios
-                .get(route)
-                .then(response => console.log(response.data))
+                .get(this.route)
+                .then(response => this.changeMessaggiStatus(response.data))
                 .catch(error => console.log(error))
 
+
+        },
+
+        changeMessaggiStatus(data){
+            
+            return this.messaggiStatus = ( ( data.length == 0) ?  'messaggioff.png' : 'messaggion.png' )
 
         }
     },
