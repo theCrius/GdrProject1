@@ -4994,7 +4994,8 @@ __webpack_require__.r(__webpack_exports__);
     route: String
   },
   mounted: function mounted() {
-    // ogni 30s c'è il check
+    this.checkNewMessages(); // ogni 30s c'è il check
+
     setInterval(this.checkNewMessages, 30000);
   },
   methods: {
@@ -5058,7 +5059,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _messageSingle_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./messageSingle.vue */ "./resources/js/components/messageSingle.vue");
-/* harmony import */ var _public_js_HomeInterna_functions_openOrClose_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../public/js/HomeInterna/functions/openOrClose.js */ "./public/js/HomeInterna/functions/openOrClose.js");
+/* harmony import */ var _newMessage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newMessage.vue */ "./resources/js/components/newMessage.vue");
+/* harmony import */ var _public_js_HomeInterna_functions_openOrClose_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../public/js/HomeInterna/functions/openOrClose.js */ "./public/js/HomeInterna/functions/openOrClose.js");
 //
 //
 //
@@ -5096,6 +5098,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5103,11 +5107,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       messages: [],
       show: false,
-      messageToOpen: null
+      messageToOpen: null,
+      messagesToDelete: [],
+      newMessage: false
     };
   },
   components: {
-    messageSingle: _messageSingle_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    messageSingle: _messageSingle_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    newMessage: _newMessage_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: function mounted() {
     this.getMessages();
@@ -5130,19 +5137,81 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     close: function close() {
-      Object(_public_js_HomeInterna_functions_openOrClose_js__WEBPACK_IMPORTED_MODULE_1__["openOrClose"])('.messages', 'onBoxRight', this.class_to_close);
+      Object(_public_js_HomeInterna_functions_openOrClose_js__WEBPACK_IMPORTED_MODULE_2__["openOrClose"])('.messages', 'onBoxRight', this.class_to_close);
     },
     openMessage: function openMessage(message) {
       this.messageToOpen = message;
       if (message.message.letto == 'no') this.updateStatusMessage(message);
+    },
+    deleteMessages: function deleteMessages() {
+      var messagesToDelete = Array.from(this.messagesToDelete);
+      axios.post(this.route_to_delete_messages, {
+        'messages': messagesToDelete
+      }).then(this.getMessages())["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    showNewMessage: function showNewMessage() {
+      this.newMessage = true;
     }
   },
   props: {
     'route_to_update_status': String,
     'route_show_messages': String,
+    'route_to_delete_messages': String,
     'opened': String,
     'class_to_close': String
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/newMessage.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/newMessage.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _public_js_HomeInterna_functions_openOrClose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../public/js/HomeInterna/functions/openOrClose.js */ "./public/js/HomeInterna/functions/openOrClose.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -41493,68 +41562,173 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { attrs: { id: "message" } }, [
-        _c("table", [
-          _c("thead", [
-            _c("tr", [
-              _vm._m(0),
+      _c(
+        "div",
+        { attrs: { id: "message" } },
+        [
+          _c(
+            "table",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.newMessage,
+                  expression: "!newMessage"
+                }
+              ]
+            },
+            [
+              _c("thead", [
+                _c("tr", [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("th", { on: { click: _vm.close } }, [_vm._v("×")])
+                ])
+              ]),
               _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _c("th", { on: { click: _vm.close } }, [_vm._v("×")])
-            ])
-          ]),
+              _c(
+                "tbody",
+                _vm._l(_vm.messages, function(message) {
+                  return _c(
+                    "tr",
+                    { class: { notRead: message.message.letto == "no" } },
+                    [
+                      _c(
+                        "td",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.openMessage(message)
+                            }
+                          }
+                        },
+                        [_vm._v(" " + _vm._s(message.userFrom) + " ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.openMessage(message)
+                            }
+                          }
+                        },
+                        [_c("p", [_vm._v(" " + _vm._s(message.message.title))])]
+                      ),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.messagesToDelete,
+                              expression: "messagesToDelete"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: message.message.id,
+                            checked: Array.isArray(_vm.messagesToDelete)
+                              ? _vm._i(
+                                  _vm.messagesToDelete,
+                                  message.message.id
+                                ) > -1
+                              : _vm.messagesToDelete
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.messagesToDelete,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = message.message.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.messagesToDelete = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.messagesToDelete = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.messagesToDelete = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "p",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: message.message.letto === "no",
+                                expression: "message.message.letto === 'no'"
+                              }
+                            ],
+                            staticClass: "newMessage"
+                          },
+                          [_vm._v("new")]
+                        )
+                      ])
+                    ]
+                  )
+                }),
+                0
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("newMessage", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.newMessage,
+                expression: "newMessage"
+              }
+            ]
+          }),
           _vm._v(" "),
           _c(
-            "tbody",
-            _vm._l(_vm.messages, function(message) {
-              return _c(
-                "tr",
+            "div",
+            {
+              directives: [
                 {
-                  class: { notRead: message.message.letto == "no" },
-                  on: {
-                    click: function($event) {
-                      return _vm.openMessage(message)
-                    }
-                  }
-                },
-                [
-                  _c("td", [_vm._v(" " + _vm._s(message.userFrom) + " ")]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("p", [_vm._v(" " + _vm._s(message.message.title))])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(" Si/no")]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "p",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: message.message.letto === "no",
-                            expression: "message.message.letto === 'no'"
-                          }
-                        ],
-                        staticClass: "newMessage"
-                      },
-                      [_vm._v("new")]
-                    )
-                  ])
-                ]
-              )
-            }),
-            0
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.newMessage,
+                  expression: "!newMessage"
+                }
+              ],
+              staticClass: "buttons"
+            },
+            [
+              _c("button", { on: { click: _vm.showNewMessage } }, [
+                _vm._v("Nuovo Messaggio")
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.deleteMessages } }, [
+                _vm._v("Cancella")
+              ])
+            ]
           )
-        ]),
-        _vm._v(" "),
-        _vm._m(3)
-      ])
+        ],
+        1
+      )
     ],
     1
   )
@@ -41577,15 +41751,93 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("th", [_c("h1", [_vm._v("Check")])])
-  },
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/newMessage.vue?vue&type=template&id=9d67815c&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/newMessage.vue?vue&type=template&id=9d67815c& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "buttons" }, [
-      _c("button", [_vm._v("Nuovo Messaggio")]),
-      _vm._v(" "),
-      _c("button", [_vm._v("Cancella")])
+    return _c("div", { attrs: { id: "newMessage" } }, [
+      _c("form", { attrs: { action: "", method: "post", id: "formMessage" } }, [
+        _c("div", { staticClass: "campi" }, [
+          _c("div", { staticClass: "left" }, [
+            _c("div", { staticClass: "name" }, [
+              _c("input", {
+                attrs: {
+                  type: "text",
+                  name: "name",
+                  id: "",
+                  placeholder: "Nome dell'utente ",
+                  "data-users": "okok",
+                  value: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "emailOggetto" }, [
+              _c("input", {
+                attrs: {
+                  type: "text",
+                  name: "objectEmail",
+                  id: "",
+                  placeholder: "Oggetto del messaggio"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right" }, [
+            _c("textarea", {
+              attrs: {
+                name: "text",
+                id: "",
+                cols: "30",
+                rows: "10",
+                placeholder: "Testo da inviare"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "buttons" }, [
+          _c("button", { attrs: { id: "invia" } }, [_vm._v("Invia")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              attrs: {
+                id: "annulla",
+                onclick: "openOrClose('#sendMessage2','on','leaveBox')"
+              }
+            },
+            [_vm._v("Chiudi")]
+          )
+        ])
+      ])
     ])
   }
 ]
@@ -54090,6 +54342,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messageTable_vue_vue_type_template_id_292be75c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_messageTable_vue_vue_type_template_id_292be75c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/newMessage.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/newMessage.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _newMessage_vue_vue_type_template_id_9d67815c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./newMessage.vue?vue&type=template&id=9d67815c& */ "./resources/js/components/newMessage.vue?vue&type=template&id=9d67815c&");
+/* harmony import */ var _newMessage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newMessage.vue?vue&type=script&lang=js& */ "./resources/js/components/newMessage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _newMessage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _newMessage_vue_vue_type_template_id_9d67815c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _newMessage_vue_vue_type_template_id_9d67815c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/newMessage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/newMessage.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/newMessage.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_newMessage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./newMessage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/newMessage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_newMessage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/newMessage.vue?vue&type=template&id=9d67815c&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/newMessage.vue?vue&type=template&id=9d67815c& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_newMessage_vue_vue_type_template_id_9d67815c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./newMessage.vue?vue&type=template&id=9d67815c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/newMessage.vue?vue&type=template&id=9d67815c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_newMessage_vue_vue_type_template_id_9d67815c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_newMessage_vue_vue_type_template_id_9d67815c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -145,7 +145,93 @@
         
     }
 }
+#newMessage{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    form{
+        height: inherit;
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        .campi{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        .right, .left{
+            flex:1;
+        }
+        .left{
+            display: flex;
+            flex-direction: column;
+            div{
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            input{
+                height: 6vh;
+                margin: 1vw;
+                width: 100%;
+                border: 2px solid #00838f;
+                background-color: #013445;
+                color:#b7ebf5;
 
+                padding: 1vh;
+                font-size: 1.3vh;
+                &:focus{
+                    background-color: #00838f;
+                }
+
+                
+            }
+        }
+        .right{
+            display: flex;
+
+            align-items: center;
+            justify-content: flex-start;
+            textarea{
+                height: 18vh;
+                flex: 0.95;
+                padding: 1vh;
+                font-size: 1.3vh;
+                border: 2px solid #00838f;
+                background-color: #013445;
+                color:#b7ebf5;
+            }
+        }
+    }
+    .buttons{
+        flex: 0.25;
+        display: flex;
+        width: 100%;
+        margin: auto;
+        #invia{
+            flex: 1;
+            border-right: none;
+        }
+        #annulla{
+            flex: 0.4;
+        }
+        button{
+            height: 5vh;
+            background-color: #013445;
+            border: 2px solid #00838f;
+            padding: 1vh;
+            font-size: 1.6vh;
+            color:#b7ebf5;
+            cursor: pointer;
+            &:hover{
+                color: #013445;
+                background-color: #00838f;
+            }
+        }
+
+    }
+}
+}
 @media only screen and (max-width: 840px){
     .messages{
         width: 100%;

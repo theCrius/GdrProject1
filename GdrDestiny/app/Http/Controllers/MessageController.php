@@ -145,8 +145,8 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Request $request)
     {
-        //
+        Message::whereIn('id',$request->messages)->delete();
     }
 }

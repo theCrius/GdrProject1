@@ -6,7 +6,7 @@
     </transition>
     <div  id="message">
                    
-                    <table>
+                    <table v-show="!newMessage">
                         <thead>
                             <tr>
                                 <th><h1>Nome Pg</h1></th>
@@ -17,19 +17,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="message in messages" :class="{'notRead' : ( message.message.letto == 'no') }" @click='openMessage(message)'>
-                                <td> {{ message.userFrom}} </td>
-                                <td><p> {{ message.message.title }}</p> </td>
-                                <td> Si/no</td>
+                            <tr v-for="message in messages" :class="{'notRead' : ( message.message.letto == 'no') }">
+                                <td  @click='openMessage(message)'> {{ message.userFrom}} </td>
+                                <td  @click='openMessage(message)'><p> {{ message.message.title }}</p> </td>
+                                <td><input type="checkbox" v-model='messagesToDelete'  :value='message.message.id' ></td>
                                 <td><p class='newMessage' v-show="message.message.letto === 'no'">new</p></td>
 
                             </tr>
                         </tbody>
                         
                     </table>
-                    <div class='buttons'>
-                    <button>Nuovo Messaggio</button>
-                    <button>Cancella</button>
+                    <newMessage v-show="newMessage"></newMessage>
+                    <div class='buttons' v-show="!newMessage" >
+                    <button @click="showNewMessage">Nuovo Messaggio</button>
+                    <button @click='deleteMessages'>Cancella</button>
                     </div>
                 </div>
 
@@ -37,19 +38,24 @@
 </template>
 <script>
 import messageSingle from "./messageSingle.vue"
+import newMessage from "./newMessage.vue"
 import { openOrClose } from "./../../../public/js/HomeInterna/functions/openOrClose.js"
+
 export default{
 
     data(){
         return {
             messages : [],
             show : false,
-            messageToOpen : null
+            messageToOpen : null,
+            messagesToDelete : [],
+            newMessage : false,
         }
     },
     components : {
 
         messageSingle,
+        newMessage
 
     },
 
@@ -95,7 +101,26 @@ export default{
         openMessage : function(message){
             
             this.messageToOpen = message
+
             if(message.message.letto == 'no') this.updateStatusMessage(message)
+
+        },
+        deleteMessages : function(){
+
+            let messagesToDelete = Array.from(this.messagesToDelete)
+            axios
+                .post( 
+                    this.route_to_delete_messages ,
+                    { 'messages' : messagesToDelete }
+                )
+                .then( this.getMessages() )
+                .catch(error => console.log(error))
+
+
+        },
+        showNewMessage :  function(){
+
+            this.newMessage = true
 
         }
         
@@ -104,6 +129,7 @@ export default{
     props : {
         'route_to_update_status' : String,
         'route_show_messages' : String,
+        'route_to_delete_messages' : String,
         'opened' : String,
         'class_to_close' : String,
     }

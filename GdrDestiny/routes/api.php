@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/user/messages/delete','MessageController@destroy')->name('deleteMessages');
 Route::get('/user/{idUser}/messages','MessageController@show')->name('showMessages');
 Route::get('/user/{idUser}/newMessages','MessageController@showNewMessages')->name('showNewMessages');

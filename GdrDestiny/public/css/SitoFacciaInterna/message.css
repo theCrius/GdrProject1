@@ -186,6 +186,146 @@
   bottom: 0;
 }
 
+#newMessage {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#newMessage form {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#newMessage form .campi {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#newMessage form .campi .right, #newMessage form .campi .left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#newMessage form .campi .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#newMessage form .campi .left div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#newMessage form .campi .left input {
+  height: 6vh;
+  margin: 1vw;
+  width: 100%;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+  padding: 1vh;
+  font-size: 1.3vh;
+}
+
+#newMessage form .campi .left input:focus {
+  background-color: #00838f;
+}
+
+#newMessage form .campi .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#newMessage form .campi .right textarea {
+  height: 18vh;
+  -webkit-box-flex: 0.95;
+      -ms-flex: 0.95;
+          flex: 0.95;
+  padding: 1vh;
+  font-size: 1.3vh;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+}
+
+#newMessage form .buttons {
+  -webkit-box-flex: 0.25;
+      -ms-flex: 0.25;
+          flex: 0.25;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+#newMessage form .buttons #invia {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-right: none;
+}
+
+#newMessage form .buttons #annulla {
+  -webkit-box-flex: 0.4;
+      -ms-flex: 0.4;
+          flex: 0.4;
+}
+
+#newMessage form .buttons button {
+  height: 5vh;
+  background-color: #013445;
+  border: 2px solid #00838f;
+  padding: 1vh;
+  font-size: 1.6vh;
+  color: #b7ebf5;
+  cursor: pointer;
+}
+
+#newMessage form .buttons button:hover {
+  color: #013445;
+  background-color: #00838f;
+}
+
 @media only screen and (max-width: 840px) {
   .messages {
     width: 100%;

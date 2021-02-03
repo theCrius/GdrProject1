@@ -17,6 +17,9 @@ export default {
     },
 
     mounted() {
+
+        this.checkNewMessages()
+        
         // ogni 30s c'è il check
         setInterval(this.checkNewMessages, 30000)
     },
