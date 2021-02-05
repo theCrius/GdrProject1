@@ -27,7 +27,9 @@
                         </tbody>
                         
                     </table>
-                    <newMessage v-show="newMessage"></newMessage>
+                    <transition name='slide-fade'>
+                        <newMessage :csrf='csrf' :routeNewMessage="route_to_post_message" v-show="newMessage"></newMessage>
+                    </transition>
                     <div class='buttons' v-show="!newMessage" >
                     <button @click="showNewMessage">Nuovo Messaggio</button>
                     <button @click='deleteMessages'>Cancella</button>
@@ -130,7 +132,9 @@ export default{
         'route_to_update_status' : String,
         'route_show_messages' : String,
         'route_to_delete_messages' : String,
+        'route_to_post_message' : String,
         'opened' : String,
+        'csrf' : String,
         'class_to_close' : String,
     }
 
@@ -141,7 +145,7 @@ export default{
     transition: all .3s ease;
     }
     .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
     .slide-fade-enter, .slide-fade-leave-to
     /* .slide-fade-leave-active below version 2.1.8 */ {

@@ -50,7 +50,7 @@
             <div class="left">
 
                 <div class="name">
-                <input type="text" name="name" id="" placeholder="Nome dell'utente " data-users="{{ json_encode($users) }}" value="{{$userToView->name}}">
+                <input type="text" name="name" id="name" placeholder="Nome dell'utente " data-users="{{ json_encode($users) }}" value="{{$userToView->name}}">
                 </div>
 
                 <div class="emailOggetto">

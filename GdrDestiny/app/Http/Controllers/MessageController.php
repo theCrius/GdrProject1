@@ -24,7 +24,7 @@ class MessageController extends Controller
     {
 
         try{
-
+            
             $idUserTo=\App\User::select('id')->where('name',\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->name)))->get()[0]->id;
             $text= \htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->text));
             $titleMessage =\htmlspecialchars(preg_replace("/[^A-Za-z0-9\-\']/", '', $request->objectEmail));
@@ -54,6 +54,7 @@ class MessageController extends Controller
             'parametrs' => $idUser,
             'scriptName' => 'schedaPg/userProfile.js'
         ];
+        
         return $this->returnBack($request,null,$whatshowsInModal1);
     }
 

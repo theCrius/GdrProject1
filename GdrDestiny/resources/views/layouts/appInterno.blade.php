@@ -1,5 +1,7 @@
 <html lang="en">
-
+@php
+    $userLogged = \Auth::id()    
+@endphp
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +28,7 @@
                 <li id='ghost'><img src="/img/imgHomeInterna/home/ghost.png" alt=""></li>
                 <div class="buttonRight">
                 <!-- variable modal js is wrote in main js file -->
-                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',\Auth::id())}}',null,'schedaPg/userProfile.js')"></a></li>
+                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',$userLogged)}}',null,'schedaPg/userProfile.js')"></a></li>
                     <li><a href="#"><img data-number=5 src="/img/imgHomeInterna/home/rymzody.png" alt=""></a></li>
                     <li><a href="{{ route('logout') }}"><img data-number=6
                                 src="/img/imgHomeInterna/home/logouttuttodx.png" alt=""></a></li>
@@ -36,11 +38,11 @@
         <div class="contenitoreMappa">
             <div class="mappaDiv">
                 @yield('content')
-                <message-logo route="{{ route('showNewMessages',\Auth::id() ) }}" onclick="openOrClose('.messages','onBoxRight','offBoxRight')"></message-logo>
+                <message-logo route="{{ route('showNewMessages',$userLogged ) }}" onclick="openOrClose('.messages','onBoxRight','offBoxRight')"></message-logo>
                 <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,{ 'Closer' : 'right' })">
             
             </div>
-        <message-table  class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='message/update/' route_show_messages="{{ route('showMessages',\Auth::id()) }}"> </message-table>
+        <message-table csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='message/update/' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
         </div>
     </section>
         @if($errors)

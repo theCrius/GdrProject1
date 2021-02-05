@@ -3,12 +3,12 @@ import { checkDataForm } from "../modules/checkDataForm.js";
 window.checkMessage= function(){
     
     let checkSubmitMessage = new checkDataForm(document.querySelector('#formMessage'),'yes');
-
+    
     let checkIfUserToSendMessageExist={
 
         'name' : function (event,classCheck) {
 
-        let users = JSON.parse(document.querySelector('.name').children[0].dataset.users)
+        let users = JSON.parse(document.querySelector('#name').dataset.users)
 
             for (const name of users) {
 
@@ -24,7 +24,7 @@ window.checkMessage= function(){
             
         }
     }
-
+    
     checkSubmitMessage.functionsToAdd( checkIfUserToSendMessageExist )
 
 }

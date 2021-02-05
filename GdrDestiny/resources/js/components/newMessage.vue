@@ -1,12 +1,12 @@
 <template>
     <div id="newMessage">
-        <form action="" method="post" id='formMessage'>
-
+        <form :action="routeNewMessage" method="POST" >
+            <input type="hidden" name="_token" :value="csrf">
             <div class="campi">
             <div class="left">
 
                 <div class="name">
-                <input type="text" name="name" id="" placeholder="Nome dell'utente " data-users="okok" value="">
+                <input type="text" name="name" id="" placeholder="Nome dell'utente "  value="">
                 </div>
 
                 <div class="emailOggetto">
@@ -22,7 +22,7 @@
         </div>
             <div class="buttons">
                 <button id='invia'>Invia</button>
-                <button id='annulla' onclick="openOrClose('#sendMessage2','on','leaveBox')">Chiudi</button>
+                <button id='annulla' @click="close">Chiudi</button>
             </div>
             </form>
         </div>
@@ -30,7 +30,6 @@
 </template>
 <script>
 
-import { openOrClose } from "./../../../public/js/HomeInterna/functions/openOrClose.js"
 
 export default {
     data(){
@@ -38,8 +37,19 @@ export default {
 
         }
     },
+
+    props : {
+        'routeNewMessage' : String,
+        'csrf' : String 
+    },
+
     methods: {
-        
+        close : function(){
+            event.preventDefault();
+            
+            this.$parent.newMessage = false;
+
+        }
     },
 }
 </script>
