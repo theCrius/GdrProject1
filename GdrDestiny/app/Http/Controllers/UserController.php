@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function __construct(){
 
-        return $this->middleware('auth');
+        //return $this->middleware('auth');
 
     }
 
@@ -133,6 +133,13 @@ class UserController extends Controller
         return view('internoLand.schedaUser.log.medicalRecords',[
 
         ]);
+
+   }
+
+   //get all users registered
+   public function allUsers(){
+
+        return json_encode( User::select('name')->get() );
 
    }
 

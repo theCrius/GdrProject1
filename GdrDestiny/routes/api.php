@@ -23,3 +23,4 @@ Route::post('/user/messages/delete','MessageController@destroy')->name('deleteMe
 Route::get('/user/{idUser}/messages','MessageController@show')->name('showMessages');
 Route::get('/user/{idUser}/newMessages','MessageController@showNewMessages')->name('showNewMessages');
 
+Route::get('/user/all','UserController@allUsers')->name('allUsers');

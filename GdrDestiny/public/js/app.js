@@ -5162,6 +5162,7 @@ __webpack_require__.r(__webpack_exports__);
     'route_show_messages': String,
     'route_to_delete_messages': String,
     'route_to_post_message': String,
+    'route_to_get_all_users': String,
     'opened': String,
     'csrf': String,
     'class_to_close': String
@@ -5179,6 +5180,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -5211,16 +5218,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      all_users: {},
+      name: ''
+    };
   },
   props: {
     'routeNewMessage': String,
     'csrf': String
   },
+  mounted: function mounted() {
+    this.getAllUsersRegistered();
+  },
   methods: {
     close: function close() {
       event.preventDefault();
       this.$parent.newMessage = false;
+    },
+    getAllUsersRegistered: function getAllUsersRegistered() {
+      var _this = this;
+
+      axios.get(this.$parent.route_to_get_all_users).then(function (response) {
+        return _this.all_users = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    checkName: function checkName() {
+      var _iterator = _createForOfIteratorHelper(this.all_users),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var name = _step.value;
+          if (name.name == this.name) return;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      console.log(this);
     }
   }
 });
@@ -41803,7 +41842,43 @@ var render = function() {
         domProps: { value: _vm.csrf }
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "campi" }, [
+        _c("div", { staticClass: "left" }, [
+          _c("div", { staticClass: "name" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.name,
+                  expression: "name"
+                }
+              ],
+              attrs: {
+                type: "text",
+                name: "name",
+                id: "",
+                placeholder: "Nome dell'utente ",
+                value: ""
+              },
+              domProps: { value: _vm.name },
+              on: {
+                blur: _vm.checkName,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.name = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "buttons" }, [
         _c("button", { attrs: { id: "invia" } }, [_vm._v("Invia")]),
@@ -41820,43 +41895,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "campi" }, [
-      _c("div", { staticClass: "left" }, [
-        _c("div", { staticClass: "name" }, [
-          _c("input", {
-            attrs: {
-              type: "text",
-              name: "name",
-              id: "",
-              placeholder: "Nome dell'utente ",
-              value: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "emailOggetto" }, [
-          _c("input", {
-            attrs: {
-              type: "text",
-              name: "objectEmail",
-              id: "",
-              placeholder: "Oggetto del messaggio"
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "right" }, [
-        _c("textarea", {
-          attrs: {
-            name: "text",
-            id: "",
-            cols: "30",
-            rows: "10",
-            placeholder: "Testo da inviare"
-          }
-        })
-      ])
+    return _c("div", { staticClass: "emailOggetto" }, [
+      _c("input", {
+        attrs: {
+          type: "text",
+          name: "objectEmail",
+          id: "",
+          placeholder: "Oggetto del messaggio"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right" }, [
+      _c("textarea", {
+        attrs: {
+          name: "text",
+          id: "",
+          cols: "30",
+          rows: "10",
+          placeholder: "Testo da inviare"
+        }
+      })
     ])
   }
 ]

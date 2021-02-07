@@ -79,6 +79,7 @@ export default{
         },
 
         updateStatusMessage : function(message){
+
             axios
                 .put(
                     this.route_to_update_status + message.message.id,
@@ -133,6 +134,7 @@ export default{
         'route_show_messages' : String,
         'route_to_delete_messages' : String,
         'route_to_post_message' : String,
+        'route_to_get_all_users' : String,
         'opened' : String,
         'csrf' : String,
         'class_to_close' : String,

@@ -42,7 +42,7 @@
                 <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,{ 'Closer' : 'right' })">
             
             </div>
-        <message-table csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='message/update/' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
+        <message-table route_to_get_all_users="{{ route('allUsers') }}" csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='message/update/' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
         </div>
     </section>
         @if($errors)

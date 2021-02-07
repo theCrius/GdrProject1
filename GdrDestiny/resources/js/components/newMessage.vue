@@ -6,7 +6,7 @@
             <div class="left">
 
                 <div class="name">
-                <input type="text" name="name" id="" placeholder="Nome dell'utente "  value="">
+                    <input type="text" @blur='checkName' name="name" id="" v-model='name' placeholder="Nome dell'utente "  value="">
                 </div>
 
                 <div class="emailOggetto">
@@ -34,6 +34,8 @@
 export default {
     data(){
         return {
+            all_users : {},
+            name : '',
 
         }
     },
@@ -42,14 +44,43 @@ export default {
         'routeNewMessage' : String,
         'csrf' : String 
     },
-
+    mounted() {
+        this.getAllUsersRegistered()
+        
+    },
     methods: {
+
         close : function(){
             event.preventDefault();
             
             this.$parent.newMessage = false;
 
+        },
+
+        getAllUsersRegistered : function (){
+
+            axios
+                .get(this.$parent.route_to_get_all_users)
+                .then(response => this.all_users = response.data)
+                .catch(error => console.log(error))
+            
+
+        },
+        checkName : function(){
+
+            for( let name of this.all_users){
+                
+                if(name.name == this.name) return
+
+            }
+            console.log(this)
+
+
+            
+
         }
+
+        
     },
 }
 </script>
