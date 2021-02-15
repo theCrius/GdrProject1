@@ -3,7 +3,7 @@
 <div class="abilitaAdd">
     <div class="title"><img src="/img/imgHomeInterna/home/schedaPg/abilità/addAbilità/scegliabilità.png" alt=""></div>
 
-    <form action="{{route('storeSkills',$idUser)}}" method='POST'>
+    <form action="{{route('storeSkills',$idUser)}}" method='POST' id='addMultipleData'>
         @csrf
 
         <div class="containerAbilita">

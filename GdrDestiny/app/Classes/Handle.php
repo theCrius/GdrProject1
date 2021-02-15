@@ -9,7 +9,7 @@ trait Handle{
 
         $nameModel = self::tableName();
      
-        $totalSum=0;
+        $totalSum= 0 ;
         $given = $nameModel . 'Given';
         $gotted = $nameModel . 'Gotted';
 

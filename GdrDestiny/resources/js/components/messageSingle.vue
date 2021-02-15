@@ -1,10 +1,10 @@
 <template>
-    <div id='singleMessage'>
+    <div id='singleMessage'  v-if='this.$parent.messageToOpen'>
     
-        <h1>{{ message.message.title }}</h1>
+        <h1>{{ this.$parent.messageToOpen.message.title }}</h1>
         <div class='textMessage'>
-        <p id='content'>{{ message.message.message }}</p>
-        <p id='date'>{{message.message.created_at}} , <i> {{ message.userFrom }}</i></p>
+        <p id='content'>{{ this.$parent.messageToOpen.message.message }}</p>
+        <p id='date'>{{this.$parent.messageToOpen.message.created_at}} , <i> {{ this.$parent.messageToOpen.userFrom }}</i></p>
         </div>
         
 
@@ -21,9 +21,8 @@ export default{
         }
     },
 
-    props : {
-        'message' : Object,
-    }
+    
+
 
 
 }

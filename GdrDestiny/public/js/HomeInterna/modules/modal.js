@@ -44,9 +44,17 @@ class Finestra {
     } 
 
     addEventCloseButton(){
-        function closeModal(event,divModal){
+        function closeModal(event,divModal)
+        {
+        
             modalToHidden.className+=' off'
             modalToHidden.innerHTML=''
+
+            //delete every error catched in modal
+            var url= document.location.href;
+            window.history.pushState({}, "", url.split("?")[0]);
+            
+        
         }
         let modalToHidden=document.querySelector('.modal')
    

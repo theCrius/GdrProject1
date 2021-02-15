@@ -73,7 +73,7 @@ export default {
                 if(name.name == this.name) return
 
             }
-            console.log(this)
+            
 
 
             

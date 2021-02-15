@@ -6,7 +6,7 @@
     <div class='centerToAbsolutePosition'><img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/sceglispec.png" alt="" class='titleHeight'></div>
     </div>
 
-    <form action="{{route('storeSpecs',$idUser)}}" method='POST'>
+    <form action="{{route('storeSpecs',$idUser)}}" method='POST' id='addMultipleData'>
         @csrf
     <div class="containerWithBackground">
         <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/riqspec.png" alt="" id='sfondoTitle'>

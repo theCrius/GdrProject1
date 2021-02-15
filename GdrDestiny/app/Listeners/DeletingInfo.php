@@ -44,18 +44,23 @@ class DeletingInfo
     public function handle($event)
     {
         try{
+            
             $exp = Exp::getSum($event->user->id);
-            $money = Money::getSum($event->user);
+            
+            $money = Money::getSum($event->user->id);
+           
             $event->user->notify(new DeleteUser($event->user->name,route('registrati1',$this->token)));
             
             $event->user->delete();
 
             
             
+            
             $this->resetPg($exp,$money);
 
         }catch(\Exception $e){
 
+            
             return $e->getMessage();
 
         }

@@ -13,7 +13,7 @@ class postMultipleData{
 
     addEventForm(){
 
-        this.formWhereAreDatas=document.querySelector('form');
+        this.formWhereAreDatas=document.querySelector('#addMultipleData');
 
 
         if( !this.formWhereAreDatas ) throw new Error('form non trovato')

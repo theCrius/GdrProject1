@@ -2,7 +2,7 @@
     <div :class="'messages ' + class_to_close">
     <transition name='slide-fade'>
 
-                    <messageSingle v-show='messageToOpen' v-bind:message="this.messageToOpen"  > </messageSingle>
+                    <messageSingle v-show='messageToOpen'   > </messageSingle>
     </transition>
     <div  id="message">
                    
@@ -70,7 +70,8 @@ export default{
 
     methods : {
         getMessages : function(){
-            axios
+            
+                axios
                 .get(this.route_show_messages)
                 .then(response => this.messages = response.data)
                 .catch(error => console.log(error))

@@ -31,7 +31,6 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('ROLE_UTENTE');
             $table->string('immagine_avatar')->default('/img/imgHomeInterna/home/schedaPg/avatar.png');
             $table->string('immagine_miniavatar')->default('/img/imgHomeInterna/home/schedaPg/miniavatar.png');
-            $table->rememberToken();
             $table->dateTime('last_activity');
             $table->string('last_chat')->default('home');
             $table->integer('forza')->default(0);

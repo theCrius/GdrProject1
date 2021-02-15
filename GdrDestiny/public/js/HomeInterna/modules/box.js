@@ -1,11 +1,11 @@
 
 class Box
 {
-    coordinateBox
-    coordinateElement   
+       
 
     constructor(positionToAppendBox=null,nameClass='off',closeManullay=false){
-
+        this.coordinateBox
+        this.coordinateElement
         this.boxCreated
         this.titleBox
         this.contentBox

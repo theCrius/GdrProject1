@@ -5041,9 +5041,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
-  },
-  props: {
-    'message': Object
   }
 });
 
@@ -5258,8 +5255,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       } finally {
         _iterator.f();
       }
-
-      console.log(this);
     }
   }
 });
@@ -41552,20 +41547,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "singleMessage" } }, [
-    _c("h1", [_vm._v(_vm._s(_vm.message.message.title))]),
-    _vm._v(" "),
-    _c("div", { staticClass: "textMessage" }, [
-      _c("p", { attrs: { id: "content" } }, [
-        _vm._v(_vm._s(_vm.message.message.message))
-      ]),
-      _vm._v(" "),
-      _c("p", { attrs: { id: "date" } }, [
-        _vm._v(_vm._s(_vm.message.message.created_at) + " , "),
-        _c("i", [_vm._v(" " + _vm._s(_vm.message.userFrom))])
+  return this.$parent.messageToOpen
+    ? _c("div", { attrs: { id: "singleMessage" } }, [
+        _c("h1", [_vm._v(_vm._s(this.$parent.messageToOpen.message.title))]),
+        _vm._v(" "),
+        _c("div", { staticClass: "textMessage" }, [
+          _c("p", { attrs: { id: "content" } }, [
+            _vm._v(_vm._s(this.$parent.messageToOpen.message.message))
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "date" } }, [
+            _vm._v(
+              _vm._s(this.$parent.messageToOpen.message.created_at) + " , "
+            ),
+            _c("i", [_vm._v(" " + _vm._s(this.$parent.messageToOpen.userFrom))])
+          ])
+        ])
       ])
-    ])
-  ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -41605,8 +41604,7 @@ var render = function() {
                 value: _vm.messageToOpen,
                 expression: "messageToOpen"
               }
-            ],
-            attrs: { message: this.messageToOpen }
+            ]
           })
         ],
         1

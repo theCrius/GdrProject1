@@ -65,7 +65,7 @@ class UserController extends Controller
             'users' => User::select('name')->get(),
             'money' => Money::getSum($idUser),
             'errors' => $request->errors,
-            'userView' => \Auth::user(),
+            'userView' => $request->user(),
             'points' => MedicalrecordController::getPoints($idUser)
 
         ]);
