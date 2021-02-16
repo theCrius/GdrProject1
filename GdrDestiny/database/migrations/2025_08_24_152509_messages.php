@@ -20,6 +20,7 @@ class Messages extends Migration
         $table->text('message');
         $table->string('title');
         $table->enum('letto',['si','no']);
+        $table->enum('deleted',['si','no']);
         $table->timestamps();
 
         $table->foreign('id_user_to')->references('id')->on('users')->onDelete('cascade');

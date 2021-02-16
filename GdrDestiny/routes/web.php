@@ -98,7 +98,7 @@ Route::prefix('/user/{idUser}/log')->group(function () {
 
     Route::get('exp','ExpController@showLog')->name('expLog');
     Route::get('money','MoneyController@showLog')->name('moneyLog');
-    Route::prefix('admin')->middleware('checkIfAdminOrOwner')->group(function(){
+    Route::prefix('admin')->middleware('checkIfAdmin')->group(function(){
 
         Route::get('logged','UserloggedLogController@show')->name('userloggedLog');
         Route::get('messages','MessageController@showLog')->name('usermessagesLog');

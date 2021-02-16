@@ -112,6 +112,7 @@ export default{
         deleteMessages : function(){
 
             let messagesToDelete = Array.from(this.messagesToDelete)
+            
             axios
                 .post( 
                     this.route_to_delete_messages ,

@@ -2,12 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Classes\ErrorHandle;
 use Closure;
 
-class AdminOrOwner
+class CheckIfAdmin
 {
-    use ErrorHandle;
     /**
      * Handle an incoming request.
      *
@@ -15,11 +13,11 @@ class AdminOrOwner
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$fileJs=null)
+    public function handle($request, Closure $next)
     {
-        
-        if ( $request->user()->adminOrOwner(\App\User::findOrFail($request->idUser) ) ) return $next($request);
+        if($request->user()->isAdmin($request->idUser)) return $next($request);
 
         return abort(response()->json('Unauthorized', 403));
+        
     }
 }

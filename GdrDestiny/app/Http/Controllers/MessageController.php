@@ -38,7 +38,8 @@ class MessageController extends Controller
                 'id_user_to' => $idUserTo,
                 'message' => $text,
                 'title' => $titleMessage,
-                'letto' => 'no'
+                'letto' => 'no',
+                'deleted' => 'no',
 
             ]);
 
@@ -68,8 +69,8 @@ class MessageController extends Controller
     {
         $userMessages = User::findOrFail($idUser);
 
-        $messagesGotted=ShowLog::dispatch($userMessages->messagesGotted,['userTo','userFrom'],'name');
-        $messagesGiven=ShowLog::dispatch($userMessages->messagesGiven,['userTo','userFrom'],'name');
+        $messagesGotted=ShowLog::dispatch($userMessages->messagesGotted->where('deleted','no'),['userTo','userFrom'],'name');
+        $messagesGiven=ShowLog::dispatch($userMessages->messagesGiven->where('deleted','no'),['userTo','userFrom'],'name');
         
         return view('internoLand.schedaUser.log.messagesLog',[
             
@@ -83,7 +84,7 @@ class MessageController extends Controller
 
         $userMessages = User::findOrFail($idUser);
         
-        $messagesGotted= showMessages::dispatch($userMessages->messagesGotted,['userTo','userFrom'],'name');
+        $messagesGotted= showMessages::dispatch($userMessages->messagesGotted->where('deleted','no'),['userTo','userFrom'],'name');
         
         return json_encode($messagesGotted[0]);
 
@@ -96,7 +97,7 @@ class MessageController extends Controller
 
         $userMessages = User::findOrFail($idUser);
 
-        $messagesGotted = $userMessages->messagesGotted->where('letto','no');
+        $messagesGotted = $userMessages->messagesGotted->where(['letto','no'],['deleted','no']);
 
         return json_encode($messagesGotted);
 
@@ -148,6 +149,19 @@ class MessageController extends Controller
      */
     public function destroy(Request $request)
     {
-        Message::whereIn('id',$request->messages)->delete();
+        $messagesToDelete = Message::whereIn('id',$request->messages)->get();
+
+        foreach( $messagesToDelete as $message ){
+
+            if( $request->user()->id != $message->id_user_to ) abort(response()->json('Unauthorized', 403));
+            
+            $message->deleted = 'si';
+
+            $message->save();
+
+        }
+
+        
+        
     }
 }

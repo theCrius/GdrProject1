@@ -52,6 +52,11 @@ trait methodRole{
 
     }
 
+    public function isAdmin($userToView){
+
+        return ( $this->hasRole(\Config::get('roles.ROLE_GESTORE') ) );
+
+    }
 
 
 

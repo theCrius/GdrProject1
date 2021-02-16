@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable=[
-        'id_user_to','id_user_from','message','title','letto','id'
+        'id_user_to','id_user_from','message','title','letto','id','deleted'
     ];
     public function userTo(){
         return $this->belongsTo('App\User','id_user_to','id')->select(['name']);
