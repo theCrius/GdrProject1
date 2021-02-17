@@ -64,7 +64,10 @@ export default{
     mounted() {
 
         this.getMessages()
-             
+        this.checkNewMessages()
+
+         // ogni 30s c'è il check
+        setInterval(this.checkNewMessages, 30000)
 
     },
 
@@ -93,6 +96,16 @@ export default{
             
         },
 
+        checkNewMessages : function(){
+
+            axios
+                .get(this.route_to_check_new_messages)
+                .then(response => this.newMessageOccured(response.data))
+                .catch(error => console.log(error))
+
+
+        },
+
         close : function(){
 
             openOrClose('.messages','onBoxRight',this.class_to_close,)
@@ -101,7 +114,17 @@ export default{
             
 
         },
-    
+        newMessageOccured : function(messages){
+
+            this.$parent.newMessages = messages
+            for(let key in messages ){
+
+                this.messages.push(messages[key])
+
+            }
+
+
+        },
         openMessage : function(message){
             
             this.messageToOpen = message
@@ -137,6 +160,7 @@ export default{
         'route_to_delete_messages' : String,
         'route_to_post_message' : String,
         'route_to_get_all_users' : String,
+        'route_to_check_new_messages' : String,
         'opened' : String,
         'csrf' : String,
         'class_to_close' : String,

@@ -13,33 +13,27 @@ export default {
 
     },
     props : {
-        route : String,
+        new_messages : Array,
     },
 
     mounted() {
 
-        this.checkNewMessages()
         
-        // ogni 30s c'è il check
-        setInterval(this.checkNewMessages, 30000)
+       
     },
 
-    methods: {
-        checkNewMessages(){
-
-            axios
-                .get(this.route)
-                .then(response => this.changeMessaggiStatus(response.data))
-                .catch(error => console.log(error))
-
-
-        },
-
-        changeMessaggiStatus(data){
+    watch: {
+        new_messages : function(){
             
-            return this.messaggiStatus = ( ( data.length == 0) ?  'messaggioff.png' : 'messaggion.png' )
+            return this.messaggiStatus = ( ( this.new_messages.length == 0) ?  'messaggioff.png' : 'messaggion.png' )
 
         }
+    },
+    
+
+    methods: {
+
+    
     },
 
 }

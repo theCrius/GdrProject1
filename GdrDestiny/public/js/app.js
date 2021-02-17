@@ -4991,27 +4991,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    route: String
+    new_messages: Array
   },
-  mounted: function mounted() {
-    this.checkNewMessages(); // ogni 30s c'è il check
-
-    setInterval(this.checkNewMessages, 30000);
-  },
-  methods: {
-    checkNewMessages: function checkNewMessages() {
-      var _this = this;
-
-      axios.get(this.route).then(function (response) {
-        return _this.changeMessaggiStatus(response.data);
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    },
-    changeMessaggiStatus: function changeMessaggiStatus(data) {
-      return this.messaggiStatus = data.length == 0 ? 'messaggioff.png' : 'messaggion.png';
+  mounted: function mounted() {},
+  watch: {
+    new_messages: function new_messages() {
+      return this.messaggiStatus = this.new_messages.length == 0 ? 'messaggioff.png' : 'messaggion.png';
     }
-  }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -5117,6 +5105,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getMessages();
+    this.checkNewMessages(); // ogni 30s c'è il check
+
+    setInterval(this.checkNewMessages, 30000);
   },
   methods: {
     getMessages: function getMessages() {
@@ -5135,8 +5126,24 @@ __webpack_require__.r(__webpack_exports__);
         return console.log(error);
       });
     },
+    checkNewMessages: function checkNewMessages() {
+      var _this2 = this;
+
+      axios.get(this.route_to_check_new_messages).then(function (response) {
+        return _this2.newMessageOccured(response.data);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
     close: function close() {
       Object(_public_js_HomeInterna_functions_openOrClose_js__WEBPACK_IMPORTED_MODULE_2__["openOrClose"])('.messages', 'onBoxRight', this.class_to_close);
+    },
+    newMessageOccured: function newMessageOccured(messages) {
+      this.$parent.newMessages = messages;
+
+      for (var key in messages) {
+        this.messages.push(messages[key]);
+      }
     },
     openMessage: function openMessage(message) {
       this.messageToOpen = message;
@@ -5160,6 +5167,7 @@ __webpack_require__.r(__webpack_exports__);
     'route_to_delete_messages': String,
     'route_to_post_message': String,
     'route_to_get_all_users': String,
+    'route_to_check_new_messages': String,
     'opened': String,
     'csrf': String,
     'class_to_close': String
@@ -5217,7 +5225,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   data: function data() {
     return {
       all_users: {},
-      name: ''
+      name: '',
+      title: '',
+      message: '',
+      errors: {
+        placeholder: {
+          name: 'Inserire nome dell\' utente',
+          title: 'Inserire oggetto',
+          message: 'inserire messaggio'
+        },
+        messages: {
+          name: null,
+          title: null,
+          message: null
+        }
+      },
+      submitDisabled: true
     };
   },
   props: {
@@ -5226,6 +5249,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   mounted: function mounted() {
     this.getAllUsersRegistered();
+  },
+  watch: {
+    errors: {
+      handler: function handler() {
+        for (var key in this.errors.messages) {
+          if (this.errors.messages[key]) return this.submitDisabled = true;
+        }
+
+        return this.submitDisabled = false;
+      },
+      deep: true
+    }
   },
   methods: {
     close: function close() {
@@ -5248,13 +5283,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var name = _step.value;
-          if (name.name == this.name) return;
+
+          if (name.name == this.name) {
+            this.errors.placeholder.name = '';
+            return this.errors.messages.name = false;
+          }
         }
       } catch (err) {
         _iterator.e(err);
       } finally {
         _iterator.f();
       }
+
+      this.errors.messages.name = true;
     }
   }
 });
@@ -41834,93 +41875,131 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "newMessage" } }, [
-    _c("form", { attrs: { action: _vm.routeNewMessage, method: "POST" } }, [
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "campi" }, [
-        _c("div", { staticClass: "left" }, [
-          _c("div", { staticClass: "name" }, [
-            _c("input", {
+    _c(
+      "form",
+      {
+        attrs: {
+          action: _vm.routeNewMessage,
+          id: "messagesRightForm",
+          method: "POST"
+        }
+      },
+      [
+        _c("input", {
+          attrs: { type: "hidden", name: "_token" },
+          domProps: { value: _vm.csrf }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "campi" }, [
+          _c("div", { staticClass: "left" }, [
+            _c("div", { staticClass: "name" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name"
+                  }
+                ],
+                class: { errorInput: _vm.errors.messages.name },
+                attrs: {
+                  type: "text",
+                  name: "name",
+                  id: "",
+                  placeholder: _vm.errors.placeholder.name,
+                  value: ""
+                },
+                domProps: { value: _vm.name },
+                on: {
+                  blur: _vm.checkName,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "emailOggetto" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                class: { errorInput: _vm.errors.messages.title },
+                attrs: {
+                  type: "text",
+                  name: "objectEmail",
+                  id: "",
+                  placeholder: _vm.errors.placeholder.title
+                },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "right" }, [
+            _c("textarea", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.name,
-                  expression: "name"
+                  value: _vm.message,
+                  expression: "message"
                 }
               ],
+              class: { errorInput: _vm.errors.messages.message },
               attrs: {
-                type: "text",
-                name: "name",
+                name: "text",
                 id: "",
-                placeholder: "Nome dell'utente ",
-                value: ""
+                cols: "30",
+                rows: "10",
+                placeholder: _vm.errors.placeholder.message
               },
-              domProps: { value: _vm.name },
+              domProps: { value: _vm.message },
               on: {
-                blur: _vm.checkName,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.name = $event.target.value
+                  _vm.message = $event.target.value
                 }
               }
             })
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
+          ])
         ]),
         _vm._v(" "),
-        _vm._m(1)
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "buttons" }, [
-        _c("button", { attrs: { id: "invia" } }, [_vm._v("Invia")]),
-        _vm._v(" "),
-        _c("button", { attrs: { id: "annulla" }, on: { click: _vm.close } }, [
-          _vm._v("Chiudi")
+        _c("div", { staticClass: "buttons" }, [
+          _c(
+            "button",
+            { attrs: { id: "invia", disabled: _vm.submitDisabled } },
+            [_vm._v("Invia")]
+          ),
+          _vm._v(" "),
+          _c("button", { attrs: { id: "annulla" }, on: { click: _vm.close } }, [
+            _vm._v("Chiudi")
+          ])
         ])
-      ])
-    ])
+      ]
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "emailOggetto" }, [
-      _c("input", {
-        attrs: {
-          type: "text",
-          name: "objectEmail",
-          id: "",
-          placeholder: "Oggetto del messaggio"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right" }, [
-      _c("textarea", {
-        attrs: {
-          name: "text",
-          id: "",
-          cols: "30",
-          rows: "10",
-          placeholder: "Testo da inviare"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54149,7 +54228,12 @@ Vue.component('messageLogo', __webpack_require__(/*! ./components/messageLogo.vu
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: function data() {
+    return {
+      'newMessages': []
+    };
+  }
 });
 
 /***/ }),
@@ -54206,15 +54290,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!*************************************************!*\
   !*** ./resources/js/components/messageLogo.vue ***!
   \*************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _messageLogo_vue_vue_type_template_id_62f2af52___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./messageLogo.vue?vue&type=template&id=62f2af52& */ "./resources/js/components/messageLogo.vue?vue&type=template&id=62f2af52&");
 /* harmony import */ var _messageLogo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./messageLogo.vue?vue&type=script&lang=js& */ "./resources/js/components/messageLogo.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _messageLogo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _messageLogo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -54244,7 +54327,7 @@ component.options.__file = "resources/js/components/messageLogo.vue"
 /*!**************************************************************************!*\
   !*** ./resources/js/components/messageLogo.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

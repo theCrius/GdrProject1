@@ -29,4 +29,9 @@ Vue.component('messageLogo', require('./components/messageLogo.vue').default);
 
 const app = new Vue({
     el: '#app',
+    data() {
+        return {
+            'newMessages' : []
+        }
+    },
 });

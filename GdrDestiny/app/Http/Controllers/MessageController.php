@@ -97,8 +97,8 @@ class MessageController extends Controller
 
         $userMessages = User::findOrFail($idUser);
 
-        $messagesGotted = $userMessages->messagesGotted->where(['letto','no'],['deleted','no']);
-
+        $messagesGotted = $userMessages->messagesGotted->where('letto','no')->where('deleted','no');
+        
         return json_encode($messagesGotted);
 
     }

@@ -1,10 +1,10 @@
 class checkDataForm{
 
-    allObjects
-    oldInput
+
 
     constructor(form,inputsCanBeEmpty){
-
+        this.allObjects
+        this.oldInput
         this.form=form
         this.button=this.form.querySelector('button')
         this.inputsCanBeEmpty = inputsCanBeEmpty
