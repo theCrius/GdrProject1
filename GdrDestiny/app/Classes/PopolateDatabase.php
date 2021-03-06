@@ -1548,6 +1548,82 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
         ]);
     }
 
+    public function addChats(){
+
+        \App\Topmap::insert([
+
+             ['name' => 'mappa_principale']
+
+        ]);
+
+        \App\Middlemap::insert([
+
+            [
+                'name' => 'new_york',
+                'id_topmap' => 1
+            ],
+
+            [
+                'name' => 'zme',
+                'id_topmap' => 1
+            ],
+
+            
+
+        ]);
+
+        \App\Bottommap::insert([
+
+            [
+                'name' => 'ppdc',
+                'id_middlemap' => 1
+            ]
+
+        ]);
+
+    }
+
+
+    public function addSubChats(){
+
+        \App\Chat::insert([
+            
+            [
+                'name' => 'raspotin',
+                'id_topmap' => 1,
+                'visibility' => 'no'
+            ],
+            [
+                'name' => 'ego',
+                'id_topmap' => 1,
+                'visibility' => 'no'
+            ],
+            [
+                'name' => 'charlemagne',
+                'id_topmap' => 1,
+                'visibility' => 'no'
+            ],
+            [
+                'name' => 'tokyo',
+                'id_topmap' => 1,
+                'visibility' => 'yes'
+            ],
+            [
+                'name' => 'mosca',
+                'id_topmap' => 1,
+                'visibility' => 'yes'
+            ],
+            [
+                'name' => 'pechino',
+                'id_topmap' => 1,
+                'visibility' => 'yes'
+            ]
+        
+        ]);
+
+
+    }
+
     public function insertExpTransactions(){
 
         \App\Exp::insert([

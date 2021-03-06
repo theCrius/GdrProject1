@@ -80,7 +80,6 @@ html , body{
 
 }
 
-
 #mappa{
     height: inherit;
     margin: auto;
@@ -130,6 +129,15 @@ html , body{
     .contenitoreMappa{
         height:50vh;
     }
+    #meteo{
+
+        height: 12vh;
+        position: absolute;
+        top: 3.5vh;
+        left: 2.5vh;
+    
+    }
+
     .menuTop{
         .buttonLeft, .buttonRight,ul{
             li{
@@ -165,12 +173,7 @@ html , body{
 .contenitoreMappa{
     height: 51vh;
 }
-    #messaggi{
-        height: 17vh;
-        top:4vh;
-        right: 4vh;
-
-    }
+    
 
 
 }

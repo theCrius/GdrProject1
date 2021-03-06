@@ -5141,7 +5141,11 @@ __webpack_require__.r(__webpack_exports__);
     newMessageOccured: function newMessageOccured(messages) {
       this.$parent.newMessages = messages;
 
-      for (var key in messages) {
+      loop1: for (var key in messages) {
+        loop2: for (var key2 in this.messages) {
+          if (this.messages[key2].message.id === messages[key].message.id) continue loop1;
+        }
+
         this.messages.push(messages[key]);
       }
     },
@@ -5168,6 +5172,7 @@ __webpack_require__.r(__webpack_exports__);
     'route_to_post_message': String,
     'route_to_get_all_users': String,
     'route_to_check_new_messages': String,
+    'route_to_get_consts_value_new_message_checking': String,
     'opened': String,
     'csrf': String,
     'class_to_close': String
@@ -5228,6 +5233,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       name: '',
       title: '',
       message: '',
+      lengthRules: '',
       errors: {
         placeholder: {
           name: 'Inserire nome dell\' utente',
@@ -5249,6 +5255,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   mounted: function mounted() {
     this.getAllUsersRegistered();
+    this.getRules();
   },
   watch: {
     errors: {
@@ -5263,6 +5270,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   methods: {
+    checkLenght: function checkLenght(fieldToCheck) {
+      if (this[fieldToCheck].length <= this.lengthRules['max_length_' + fieldToCheck]) return this.errors.messages[fieldToCheck] = false;
+      this.errors.placeholder[fieldToCheck] = this.lengthRules.error[fieldToCheck];
+      this[fieldToCheck] = '';
+      this.errors.messages[fieldToCheck] = true;
+    },
     close: function close() {
       event.preventDefault();
       this.$parent.newMessage = false;
@@ -5276,6 +5289,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         return console.log(error);
       });
     },
+    getRules: function getRules() {
+      var _this2 = this;
+
+      axios.get(this.$parent.route_to_get_consts_value_new_message_checking).then(function (response) {
+        return _this2.lengthRules = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
     checkName: function checkName() {
       var _iterator = _createForOfIteratorHelper(this.all_users),
           _step;
@@ -5285,7 +5307,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           var name = _step.value;
 
           if (name.name == this.name) {
-            this.errors.placeholder.name = '';
             return this.errors.messages.name = false;
           }
         }
@@ -5295,6 +5316,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         _iterator.f();
       }
 
+      this.errors.placeholder.name = 'Personaggio non trovato';
+      this.name = '';
       this.errors.messages.name = true;
     }
   }
@@ -41942,6 +41965,9 @@ var render = function() {
                 },
                 domProps: { value: _vm.title },
                 on: {
+                  blur: function($event) {
+                    return _vm.checkLenght("title")
+                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -41973,6 +41999,9 @@ var render = function() {
               },
               domProps: { value: _vm.message },
               on: {
+                blur: function($event) {
+                  return _vm.checkLenght("message")
+                },
                 input: function($event) {
                   if ($event.target.composing) {
                     return

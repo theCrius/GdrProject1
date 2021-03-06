@@ -117,9 +117,17 @@ export default{
         newMessageOccured : function(messages){
 
             this.$parent.newMessages = messages
-            for(let key in messages ){
+            
+            loop1 : 
+            for( let key in messages ){
+                loop2 : 
+                for ( let key2 in this.messages ){
+                    
+                    if  ( this.messages[key2].message.id === messages[key].message.id ) continue loop1
 
-                this.messages.push(messages[key])
+                }
+
+                this.messages.push( messages[key] )
 
             }
 
@@ -161,6 +169,7 @@ export default{
         'route_to_post_message' : String,
         'route_to_get_all_users' : String,
         'route_to_check_new_messages' : String,
+        'route_to_get_consts_value_new_message_checking' : String,
         'opened' : String,
         'csrf' : String,
         'class_to_close' : String,

@@ -10,13 +10,13 @@
                 </div>
 
                 <div class="emailOggetto">
-                    <input type="text" name="objectEmail" id="" :class="{ 'errorInput' : errors.messages.title }" v-model='title' :placeholder="errors.placeholder.title">
+                    <input type="text" name="objectEmail" id="" @blur='checkLenght("title")' :class="{ 'errorInput' : errors.messages.title }" v-model='title' :placeholder="errors.placeholder.title">
                 </div>
 
             </div>
             <div class="right">
 
-                <textarea name="text" id="" cols="30" v-model='message' :class="{ 'errorInput' : errors.messages.message }" rows="10" :placeholder="errors.placeholder.message"></textarea>
+                <textarea name="text" id="" cols="30" v-model='message' @blur='checkLenght("message")' :class="{ 'errorInput' : errors.messages.message }" rows="10" :placeholder="errors.placeholder.message"></textarea>
 
             </div>
         </div>
@@ -37,6 +37,7 @@ export default {
             name : '',
             title : '',
             message : '',
+            lengthRules : '',
             errors : {
 
                 placeholder : {
@@ -72,6 +73,7 @@ export default {
     mounted() {
 
         this.getAllUsersRegistered()
+        this.getRules()
         
     },
 
@@ -97,6 +99,16 @@ export default {
         }
     },
     methods: {
+        checkLenght : function(fieldToCheck){
+
+            if ( this[fieldToCheck].length <= this.lengthRules['max_length_' + fieldToCheck] ) return this.errors.messages[fieldToCheck] = false
+        
+            this.errors.placeholder[fieldToCheck] = this.lengthRules.error[fieldToCheck]
+            this.[fieldToCheck] = ''
+            this.errors.messages[fieldToCheck] = true;
+
+
+        },
 
         close : function(){
             event.preventDefault();
@@ -115,19 +127,24 @@ export default {
 
         },
 
+        getRules : function(){
+
+            axios
+                .get(this.$parent.route_to_get_consts_value_new_message_checking)
+                .then(response => this.lengthRules = response.data)
+                .catch(error => console.log(error))
+
+        },
+
          checkName : function(){
 
             for( let name of this.all_users){
                 
-                if(name.name == this.name) { 
-
-                    this.errors.placeholder.name = ''   
-                    return this.errors.messages.name = false
-
-                }
+                if(name.name == this.name) {  return this.errors.messages.name = false  }
 
             }
-
+            this.errors.placeholder.name = 'Personaggio non trovato'
+            this.name=''   
             this.errors.messages.name = true;
 
             

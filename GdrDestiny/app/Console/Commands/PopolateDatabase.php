@@ -68,6 +68,12 @@ class PopolateDatabase extends Command
 
           //mecha ed esoscheletro
           $this->insertDataMecha();
+
+          //mappe
+          $this->addChats();
+
+          //sotto chat in cui scrivere
+          $this->addSubChats();
    
     }
 }

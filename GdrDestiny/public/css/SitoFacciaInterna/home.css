@@ -145,6 +145,12 @@ html, body {
   .contenitoreMappa {
     height: 50vh;
   }
+  #meteo {
+    height: 12vh;
+    position: absolute;
+    top: 3.5vh;
+    left: 2.5vh;
+  }
   .menuTop .buttonLeft li img, .menuTop .buttonRight li img, .menuTop ul li img {
     height: 4vh;
   }
@@ -163,11 +169,6 @@ html, body {
   }
   .contenitoreMappa {
     height: 51vh;
-  }
-  #messaggi {
-    height: 17vh;
-    top: 4vh;
-    right: 4vh;
   }
 }
 

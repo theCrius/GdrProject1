@@ -12,6 +12,12 @@
           transition-duration: 2s;
 }
 
+.errorInput {
+  border: 1px solid white !important;
+  color: white !important;
+  background-color: #9d0d0d !important;
+}
+
 .messages {
   position: fixed;
   width: 80%;
@@ -336,6 +342,15 @@
   }
   .messages #singleMessage {
     max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  #messaggi {
+    position: absolute;
+    height: 13vh;
+    right: 4vh;
+    top: 3vh;
   }
 }
 /*# sourceMappingURL=message.css.map */

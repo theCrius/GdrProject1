@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/box/boxErrore.css">
     <link rel="stylesheet" href="/css/modal/modalInterna.css">
     <link rel="stylesheet" href="/css/SitoFacciaInterna/message.css">
+    <link rel="stylesheet" href="/css/SitoFacciaInterna/map.css">
     
     <link rel="stylesheet" href="/css/box/box.css">
 
@@ -42,7 +43,7 @@
                 <img src="/img/imgHomeInterna/home/meteo.png" id='meteo' alt="" onmouseout="boxMeteo.leaveBox()" onmouseover="boxMeteo.showBox('Meteo','test',this,{ 'Closer' : 'right' })">
             
             </div>
-        <message-table route_to_check_new_messages="{{ route('showNewMessages',$userLogged ) }}" route_to_get_all_users="{{ route('allUsers') }}" csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='message/update/' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
+        <message-table route_to_get_consts_value_new_message_checking="{{ route('gdrConsts.messages') }}" route_to_check_new_messages="{{ route('showNewMessages',$userLogged ) }}" route_to_get_all_users="{{ route('allUsers') }}" csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='message/update/' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
         </div>
     </section>
         @if($errors)

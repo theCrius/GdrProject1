@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Topmap;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,11 +25,14 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+       $map = Topmap::find(1);
        
-        
-        return view('internoLand.home',
+        return view('internoLand.map',
         [
-            'errors' => $request->errors
+            'errors' => $request->errors,
+            'map' => $map,
+            'chats' => $map->chats,
+            'mapchilds' => $map->middlemaps
         ]
     );
     }

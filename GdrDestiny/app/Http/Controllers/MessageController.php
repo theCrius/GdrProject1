@@ -69,8 +69,8 @@ class MessageController extends Controller
     {
         $userMessages = User::findOrFail($idUser);
 
-        $messagesGotted=ShowLog::dispatch($userMessages->messagesGotted->where('deleted','no'),['userTo','userFrom'],'name');
-        $messagesGiven=ShowLog::dispatch($userMessages->messagesGiven->where('deleted','no'),['userTo','userFrom'],'name');
+        $messagesGotted=ShowLog::dispatch($userMessages->messagesGotted,['userTo','userFrom'],'name');
+        $messagesGiven=ShowLog::dispatch($userMessages->messagesGiven,['userTo','userFrom'],'name');
         
         return view('internoLand.schedaUser.log.messagesLog',[
             
@@ -97,9 +97,10 @@ class MessageController extends Controller
 
         $userMessages = User::findOrFail($idUser);
 
-        $messagesGotted = $userMessages->messagesGotted->where('letto','no')->where('deleted','no');
         
-        return json_encode($messagesGotted);
+        $messagesGotted= showMessages::dispatch($userMessages->messagesGotted->where('deleted','no')->where('letto','no'),['userTo','userFrom'],'name');
+        
+        return json_encode($messagesGotted[0]);
 
     }
 
