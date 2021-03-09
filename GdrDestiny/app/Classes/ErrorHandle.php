@@ -4,6 +4,8 @@ namespace App\Classes;
 trait ErrorHandle{
 
         public function returnBackWithError($request,String $message){
+
+            $user = \Auth::user();
             $routeToReturn=$request->session()->get('last-position:View');
         
             
@@ -12,7 +14,7 @@ trait ErrorHandle{
             if(!$routeToReturn){
 
                 $routeToReturn= 'userProfile';
-                $datasToReSendBack[]=\Auth::id();
+                $datasToReSendBack[]=$user->id;
             }
             
             $request->errors=[
@@ -30,8 +32,7 @@ trait ErrorHandle{
         
         
             
-        
-        return redirect()->route(\Auth::user()->last_chat,["errors" => $request->errors]) ;
+            return redirect()->route($user->last_chat['nameRoute'],array_merge($user->last_chat['parametres'],['errors' => $request->errors]));
     }
 
         public function returnBack($request,String $whereToGo=null,Array $WhatShowsInModal=null){
@@ -43,7 +44,8 @@ trait ErrorHandle{
             ];
 
             if(!$whereToGo) $whereToGo = $request->session()->get('last-position:Chat');
-            return redirect()->route(\Auth::user()->last_chat,['errors' => $request->errors]);
+            $user = \Auth::user();
+            return redirect()->route($user->last_chat['nameRoute'],array_merge($user->last_chat['parametres'],['errors' => $request->errors]));
         }
 
 

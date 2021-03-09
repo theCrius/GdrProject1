@@ -11,4 +11,10 @@ class Bottommap extends Model
         'id_middlemap' , 'id_topmap','name'
 
     ];
+
+    public function chats(){
+
+        return $this->hasMany('\App\Chat','id_bottommap','id');
+
+    }
 }

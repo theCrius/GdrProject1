@@ -39,7 +39,13 @@ Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento'
 
 
 //after logging
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'TopmapController@index')->name('home');
+
+//show a single middle map
+Route::get('/home/{idMiddlemap}','MiddlemapController@index')->name('middlemap');
+
+//show a single bottom map
+Route::get('/home/{idMiddlemap}/{idBottommap}','BottommapController@index')->name('bottommap');
 
 //add class by user
 Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');

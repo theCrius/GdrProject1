@@ -3,11 +3,13 @@
 namespace App\Providers;
 
 use App\Events\BuyingObjects;
+use App\Events\ChangeMap;
 use App\Events\UpdateDataUserPt1;
 use App\Events\ChangeUser;
 use App\Events\Logged;
 use App\Events\ShowLog;
 use App\Events\showMessages;
+use App\Listeners\ChangeLastActivity;
 use App\Listeners\ConvertForeignToValue;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
 use App\Listeners\DeletingInfo;
@@ -44,6 +46,9 @@ class EventServiceProvider extends ServiceProvider
         showMessages::class => [
             ConvertForeignToValue::class
         ],
+        ChangeMap::class => [
+            ChangeLastActivity::class
+        ]
       
     ];
 
