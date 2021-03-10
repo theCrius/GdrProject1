@@ -8,7 +8,7 @@ class Chat extends Model
 {
     protected $fillable = [
         
-        'name','id_topmap','id_middlemap','id_bottommap','visibility'
+        'name','id_topmap','id_middlemap','id_bottommap','visibility','descrizione'
 
     ];
 }

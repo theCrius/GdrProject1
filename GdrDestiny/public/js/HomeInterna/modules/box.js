@@ -67,7 +67,7 @@ class Box
 
     changeTitle(title){
 
-             this.titleBoxTitle.append(document.createTextNode(title))
+             this.titleBoxTitle.append(document.createTextNode(title.replace('_',' ')))
     
             }
 

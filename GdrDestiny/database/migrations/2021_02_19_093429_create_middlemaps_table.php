@@ -17,6 +17,7 @@ class CreateMiddlemapsTable extends Migration
             $table->id();
             $table->foreignId('id_topmap');
             $table->string('name');
+            $table->text('descrizione');
             $table->timestamps();
 
             $table->foreign('id_topmap')->references('id')->on('topmaps')->onDelete('cascade');

@@ -22,6 +22,8 @@ window.openVueClass = function (  ){
 //box meteo
 window.boxMeteo= new Box()
 
+window.boxIconMap = new Box()
+
 
 
 

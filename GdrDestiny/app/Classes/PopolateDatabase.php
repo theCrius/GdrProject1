@@ -1560,12 +1560,14 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
             [
                 'name' => 'new_york',
-                'id_topmap' => 1
+                'id_topmap' => 1,
+                'descrizione' => 'città bellissimasdfnjasnfdnasofhiohdfhiouhfaoihdsasdfio'
             ],
 
             [
                 'name' => 'zme',
-                'id_topmap' => 1
+                'id_topmap' => 1,
+                'descrizione' => 'città brutoietjoijoidfsiadhfiohidoshhdfsohdsfhsdfsdf'
             ],
 
             
@@ -1576,7 +1578,8 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
             [
                 'name' => 'ppdc',
-                'id_middlemap' => 1
+                'id_middlemap' => 1,
+                'descrizione' => 'last-fdkhjaejihfhdjhasjofdhsao'
             ]
 
         ]);
@@ -1591,31 +1594,37 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             [
                 'name' => 'raspotin',
                 'id_topmap' => 1,
+                'descrizione' => 'sdjhsadasdasdjjasdjasdjldasjasdkj2io2',
                 'visibility' => 'no'
             ],
             [
                 'name' => 'ego',
                 'id_topmap' => 1,
+                'descrizione' => '11111asdjldasjasdkj2io2',
                 'visibility' => 'no'
             ],
             [
                 'name' => 'charlemagne',
                 'id_topmap' => 1,
+                'descrizione' => '22222jasdjasdjldasjasdkj2io2',
                 'visibility' => 'no'
             ],
             [
                 'name' => 'tokyo',
                 'id_topmap' => 1,
+                'descrizione' => '333333asdjasdjldasjasdkj2io2',
                 'visibility' => 'yes'
             ],
             [
                 'name' => 'mosca',
                 'id_topmap' => 1,
+                'descrizione' => '444444jasdjasdjldasjasdkj2io2',
                 'visibility' => 'yes'
             ],
             [
                 'name' => 'pechino',
                 'id_topmap' => 1,
+                'descrizione' => 'sdjhsadasdasdjjasdjasdjldasjasdkj2io2',
                 'visibility' => 'yes'
             ]
         

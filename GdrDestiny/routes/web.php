@@ -38,6 +38,11 @@ Route::get('ambientazione','GuidaController@indexAmbientazione')->name('ambienta
 Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento');
 
 
+//only if the user is logged
+Route::middleware('auth')->group(function(){
+
+
+
 //after logging
 Route::get('/home', 'TopmapController@index')->name('home');
 
@@ -115,3 +120,5 @@ Route::put('/message/update/{idMessage}','MessageController@update')->name('upda
 
 //show profile
 Route::get('/user/{idUser}','UserController@show')->name('userProfile');
+
+});

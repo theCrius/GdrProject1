@@ -17,6 +17,7 @@ class CreateBottommapsTable extends Migration
             $table->id();
             $table->foreignId('id_middlemap');
             $table->string('name');
+            $table->text('descrizione');
             $table->timestamps();
 
            

@@ -20,6 +20,7 @@ class CreateChatsTable extends Migration
             $table->foreignId('id_topmap')->nullable();
             $table->foreignId('id_middlemap')->nullable();
             $table->foreignId('id_bottommap')->nullable();
+            $table->text('descrizione');
             $table->enum('visibility',['yes','no']);
 
             $table->foreign('id_topmap')->references('id')->on('topmaps')->onDelete('cascade');
