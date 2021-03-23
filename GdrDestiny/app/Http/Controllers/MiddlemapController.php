@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\ChangeMap;
 use App\Middlemap;
+use Exception;
 use Illuminate\Http\Request;
 
 class MiddlemapController extends Controller
@@ -80,9 +81,21 @@ class MiddlemapController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $idTopmap){
+
+        try{
+            
+            $map = Middlemap::findOrFail($idTopmap);
+            $map->meteo = $request->meteo;
+            $map->save();
+
+
+        }catch(Exception $e){
+
+            return response()->json($e->getMessage(),404);
+        
+        }
+        
     }
 
     /**

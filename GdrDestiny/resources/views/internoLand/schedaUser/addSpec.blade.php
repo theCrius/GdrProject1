@@ -48,7 +48,7 @@
                 <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/specvuota.png" class='sfondoRiquadroSkill'> 
                 <div class="contenitoreText">
                     @if(isset($specs[$i]))
-            <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs[$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
+            <img src="/img/imgHomeInterna/Icone/Specializzazioni/{{$specs[$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
             @endif
                     </div>
                 </div>
@@ -90,7 +90,7 @@
             <img src="/img/imgHomeInterna/home/schedaPg/Specializzazione/specvuota.png" class='sfondoRiquadroSkill'> 
             <div class="contenitoreText">
                 @if(isset($specs[$i]))
-            <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs[$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
+            <img src="/img/imgHomeInterna/Icone/Specializzazioni/{{$specs[$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
             @endif
                 </div>
             </div>

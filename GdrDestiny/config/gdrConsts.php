@@ -8,6 +8,12 @@ return [
             'message' => 'Lunghezza del titolo massima raggiunta',
             'title' => 'Lunghezza del titolo massima raggiunta',
     ],
+
+    'meteo' => [
+
+        'each_x_hour_updates' => 4,
+        
+    ]
     ]
 
 

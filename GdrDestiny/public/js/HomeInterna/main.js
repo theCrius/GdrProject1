@@ -22,7 +22,7 @@ window.openVueClass = function (  ){
 //box meteo
 window.boxMeteo= new Box()
 
-window.boxIconMap = new Box()
+window.boxIconMap = new Box(null,"opacity08")
 
 
 

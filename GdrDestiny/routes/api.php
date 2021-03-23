@@ -32,5 +32,22 @@ Route::name('gdrConsts.')->prefix('/consts')->group(function () {
 
 });
 
+//to update the meteo
+Route::name('meteo.update.')->prefix('/meteo/update')->group(function(){
+
+    Route::put('/topmap/{idTopmap}','TopmapController@update')->name('topmap');
+    Route::put('/middlemap/{idMiddlemap}','MiddlemapController@update')->name('middlemap');
+    Route::put('/bottommap/{idBottommap}','BottommapController@update')->name('bottommap');
+
+});
+
+Route::name('meteo.get.')->prefix('/meteo/get')->group(function(){
+
+    Route::get('/topmap/{idTopmap}','TopmapController@showMeteo')->name('topmap');
+    Route::get('/middlemap/{idMiddlemap}','MiddlemapController@showMeteo')->name('middlemap');
+    Route::get('/bottommap/{idBottommap}','BottommapController@showMeteo')->name('bottommap');
+
+
+});
 Route::get('/user/all','UserController@allUsers')->name('allUsers');
 

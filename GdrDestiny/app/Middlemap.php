@@ -8,7 +8,7 @@ class Middlemap extends Model
 {
     protected $fillable = [
 
-        'id_topmap', 'name','descrizione'
+        'id_topmap', 'name','descrizione','meteo'
 
     ];
 

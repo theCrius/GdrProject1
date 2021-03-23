@@ -9,6 +9,9 @@
     height: 9vh !important;
 
 }
+.chat{
+    height: 6vh !important;
+}
 #subIcons{
 
     img {
@@ -48,7 +51,14 @@
     right: 20%;
 
 }
-
+#returnBackMap{
+    position: absolute;
+    bottom: 12%;
+    left: 4%;
+    img { 
+        height: 4.5vh;
+    }
+}
 
 #Chat-1{
 
@@ -56,4 +66,11 @@
     left: 50%;
 
 }
-
+#Chat-2{
+    bottom: 31%;
+    right: 11%;
+}
+#Chat-3{
+    bottom: 31%;
+    left: 11%;
+}

@@ -21,6 +21,8 @@ window.Vue = require('vue');
 
 Vue.component('messageTable', require('./components/messageTable.vue').default);
 Vue.component('messageLogo', require('./components/messageLogo.vue').default);
+Vue.component('meteo', require('./components/meteo.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

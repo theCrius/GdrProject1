@@ -18,7 +18,7 @@
            <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
   
        @endif
-            <img src="/img/imgHomeInterna/home/Icone/Objects/gun2.png" alt="" >
+            <img src="/img/imgHomeInterna/Icone/Objects/gun2.png" alt="" >
             <div class="BoxContent topTransition">
                 
                 <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
@@ -51,7 +51,7 @@
   
        @endif
 
-                <img src="/img/imgHomeInterna/home/Icone/Objects/{{ $objectsEquipped[$id]['object']->name }}.png" alt="" >
+                <img src="/img/imgHomeInterna/Icone/Objects/{{ $objectsEquipped[$id]['object']->name }}.png" alt="" >
                 <div class="BoxContent topTransition">
                     
                     <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
@@ -92,7 +92,7 @@
            <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
   
        @endif
-                <img src="/img/imgHomeInterna/home/Icone/Objects/{{ $objectsEquipped[$id]['object']->name }}.png" alt="" >
+                <img src="/img/imgHomeInterna/Icone/Objects/{{ $objectsEquipped[$id]['object']->name }}.png" alt="" >
                 <div class="BoxContent topTransition">
                     
                     <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>
@@ -125,7 +125,7 @@
            <a href="{{ route('equipsOrUnequips',['idUser' => $userToView->id,'idObject' => $objectsEquipped[$i]['id']]) }}">
   
        @endif
-            <img src="/img/imgHomeInterna/home/Icone/Objects/{{ $objectsEquipped[$id]['object']->name }}.png" alt="" >
+            <img src="/img/imgHomeInterna/Icone/Objects/{{ $objectsEquipped[$id]['object']->name }}.png" alt="" >
             <div class="BoxContent topTransition">
                 
                 <div><h4>{{ $objectsEquipped[$i]['object']->name }}</h4></div>

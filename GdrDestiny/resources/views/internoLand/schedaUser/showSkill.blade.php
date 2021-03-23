@@ -9,7 +9,7 @@
             <div class="titleShowCenter">
                 <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitarazza.png" alt="" class='titleAbilita'>
                 @if(empty($skills['breed']))
-                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd'
+                <img src="/img/imgHomeInterna/Icone/piusottile.png" class='icon' id='iconAdd'
                     title='Aggiungi Abilita' alt=""
                     onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'breed'])}}',null,'/schedaPg/addSkill.js')">
                     
@@ -59,7 +59,7 @@
     <div class='titleShowCenter hemispereTitle'>
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaclasse.png" alt="" class='titleAbilita'>
         @if(empty($skills['classe']) && ( $id_user === $userView->id || $userView->hasRole(null,[3,5])) )
-        <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
+        <img src="/img/imgHomeInterna/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
             alt="" onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'classe'])}}',null,'/schedaPg/addSkill.js')">
     </div>
     @else
@@ -106,7 +106,7 @@
     <div class='titleShowCenter'>
     <img src="/img/imgHomeInterna/home/schedaPg/abilità/abilitaemisfero.png" alt="" class='titleAbilita emisfero'>
         @if(empty($skills['hemispere']) && ( $id_user === $userView->id || $userView->hasRole(null,[3,5])) )
-        <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
+        <img src="/img/imgHomeInterna/Icone/piusottile.png" class='icon' id='iconAdd' title='Aggiungi Abilita'
             alt=""
             onclick="modal.openModal('{{route('addSkills',['idUser' => $id_user,'skillFrom' => 'hemispere'])}}',null,'/schedaPg/addSkill.js')">
     </div>
@@ -157,7 +157,7 @@
         <div class='titleShowCenter'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
                 @if($skills['breed'] && ( $id_user === $userView->id || $userView->hasRole(null,[3,5])) )
-                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
+                <img src="/img/imgHomeInterna/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
                     alt=""
                     onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'breed'])}}',null,'/schedaPg/addSpec.js')">
                 @endif
@@ -169,7 +169,7 @@
                         <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png" class='sfondoRiquadroSkill'> 
                         <div class="contenitoreText">
                             @if(isset($specs['breed'][$i]))
-                    <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs['breed'][$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
+                    <img src="/img/imgHomeInterna/Icone/Specializzazioni/{{$specs['breed'][$i]->url_image}}" class='sfondoRiquadroSkill' id='iconeSpecs'> 
                     @endif
                             </div>
                         </div>
@@ -185,7 +185,7 @@
         <div class='titleShowCenter'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
                 @if($skills['classe'] && ( $id_user === $userView->id || $userView->hasRole(null,[3,5]))  )
-                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
+                <img src="/img/imgHomeInterna/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
                     alt=""
                     onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'classe'])}}',null,'/schedaPg/addSpec.js')">
                 @endif
@@ -198,7 +198,7 @@
                         <img src="/img/imgHomeInterna/home/schedaPg/abilità/framespecs.png" class='sfondoRiquadroSkill'> 
                         <div class="contenitoreText">
                             @if(isset($specs['classe'][$i]))
-                    <img src="/img/imgHomeInterna/home/Icone/Specializzazioni/{{$specs['classe'][$i]}}" class='sfondoRiquadroSkill' id='iconeSpecsShow'> 
+                    <img src="/img/imgHomeInterna/Icone/Specializzazioni/{{$specs['classe'][$i]}}" class='sfondoRiquadroSkill' id='iconeSpecsShow'> 
                     @endif
                             </div>
                         </div>
@@ -212,7 +212,7 @@
         <div class='titleShowCenter'>
             <img src="/img/imgHomeInterna/home/schedaPg/abilità/specializzazioni.png" alt="" class='titleSpec'>
                 @if($skills['hemispere'] && ( $id_user === $userView->id || $userView->hasRole(null,[3,5]))  )
-                <img src="/img/imgHomeInterna/home/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
+                <img src="/img/imgHomeInterna/Icone/piusottile.png" class='icon addSpec' id='iconAdd'  title='Aggiungi Abilita'
                     alt=""
                     onclick="modal.openModal('{{route('addSpecs',['idUser' => $id_user,'specFrom' => 'hemispere'])}}',null,'/schedaPg/addSpec.js')">
                 @endif
