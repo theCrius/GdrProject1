@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Meteo;
 use App\Events\ChangeMap;
 use App\Middlemap;
 use Exception;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 
 class MiddlemapController extends Controller
 {
+    use Meteo;
     
     /**
      * Display a listing of the resource.
@@ -29,6 +31,14 @@ class MiddlemapController extends Controller
             'mapchilds' => $map->bottommaps
         ]
     );
+    }
+
+
+
+    public function showMeteo($idMiddlemap){
+
+        return $this->show_meteo_info('Middlemap',$idMiddlemap);
+
     }
 
     /**
@@ -81,20 +91,9 @@ class MiddlemapController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idTopmap){
-
-        try{
-            
-            $map = Middlemap::findOrFail($idTopmap);
-            $map->meteo = $request->meteo;
-            $map->save();
-
-
-        }catch(Exception $e){
-
-            return response()->json($e->getMessage(),404);
+    public function update(Request $request, $idMiddlemap){
         
-        }
+        return $this->update_meteo('Middlemap',$idMiddlemap,$request->meteo);
         
     }
 

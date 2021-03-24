@@ -18,7 +18,7 @@ class CreateBottommapsTable extends Migration
             $table->foreignId('id_middlemap');
             $table->string('name');
             $table->text('descrizione');
-            $table->string('meteo')->nullable();
+            $table->json('meteo')->nullable();
             $table->timestamps();
 
            

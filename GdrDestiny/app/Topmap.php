@@ -8,7 +8,7 @@ class Topmap extends Model
 {
     protected $fillable = [
 
-        'name','meteo'
+        'name'
 
     ];
 

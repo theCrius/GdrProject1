@@ -11,6 +11,10 @@ class Middlemap extends Model
         'id_topmap', 'name','descrizione','meteo'
 
     ];
+    
+    protected $cast = [
+        'meteo' => 'array'
+    ];
 
     public function bottommaps(){
 

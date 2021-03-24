@@ -11,4 +11,10 @@ class gdrConstsController extends Controller
         return json_encode(\Config::get('gdrConsts.messages'));
 
     }
+
+    public function showConstsMeteo(){
+
+        return json_encode(\Config::get('gdrConsts.meteo'));
+
+    }
 }

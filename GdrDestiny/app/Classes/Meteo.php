@@ -1,13 +1,38 @@
 <?php
     namespace App\Classes;
-    trait Meteo{
+
+    use Exception;
+
+trait Meteo{
         
         // to show meteo of a map
         public function show_meteo_info($nameClass,$id){
-            dd($nameClass::find($id)->meteo);
-            return response()->json( $nameClass::find($id) );
+            
+            $nameClass = "App\\" . $nameClass;
 
-        } 
+            return response()->json( $nameClass::select('name','meteo','updated_at')->find($id) );
+
+        }
+
+        public function update_meteo($nameClass , $id , $datas)
+        {   
+            $nameClass = "App\\" . $nameClass;
+                
+                try{
+                    
+                    $map = $nameClass::findOrFail($id);
+                    $map->meteo = $datas;
+                    $map->save();
+        
+        
+                }catch(Exception $e){
+                    
+                    return response()->json($e->getMessage());
+                
+                }
+                
+        
+        }
 
     }
 

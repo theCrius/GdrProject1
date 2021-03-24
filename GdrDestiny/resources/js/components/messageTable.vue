@@ -86,8 +86,11 @@ export default{
 
             axios
                 .put(
-                    this.route_to_update_status + message.message.id,
-                    {'data' : 'si'}
+                    this.route_to_update_status,
+                    {
+                        'data' : 'si',
+                        'id' : message.message.id
+                    }
                 )
                 .then(this.getMessages())
                 .catch(error => console.log(error))

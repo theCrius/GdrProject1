@@ -122,22 +122,23 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idMessage)
+    public function update(Request $request)
     {
-    
+        
         try{
 
-            $message = Message::findOrFail($idMessage);
+            $message = Message::findOrFail($request->id);
 
             $message->letto = $request->data;
     
             $message->save();
             
         }catch(Exception $e){
-            return $e->getMessage();
+
+            return response()->json($e->getMessage());
         } 
 
-        return $request->data;
+        
         
         
     }

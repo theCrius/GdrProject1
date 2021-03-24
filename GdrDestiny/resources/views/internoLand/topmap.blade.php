@@ -3,7 +3,6 @@
 
 <img src="/img/imgHomeInterna/maps/{{ $map->name }}.png" alt="" id='mappa' >
 <div id='subIcons'>
-    <meteo name_map="{{$map->name}}" route_info_meteo_map="{{route('meteo.get.topmap',$map->id)}}"></meteo>
     @foreach ($mapchilds as $submap)
 
 <a href="{{ route('middlemap',$submap->id) }}"><img src="/img/imgHomeInterna/Icone/map_&_chat/iconasottochat{{$submap->name}}.png" class='map' alt="" id='Map-{{$submap->id}}' onmouseout="boxIconMap.leaveBox()" onmouseover="boxIconMap.showBox('{{$submap->name}}',{{ json_encode($submap->descrizione) }},this,{ 'Closer' : 'bottom' })"></a>

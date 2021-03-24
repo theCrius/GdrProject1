@@ -12,6 +12,10 @@ class Bottommap extends Model
 
     ];
 
+    protected $cast = [
+        'meteo' => 'array'
+    ];
+
     public function chats(){
 
         return $this->hasMany('\App\Chat','id_bottommap','id');

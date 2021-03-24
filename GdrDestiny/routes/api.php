@@ -24,26 +24,27 @@ Route::post('/user/messages/delete','MessageController@destroy')->name('deleteMe
 Route::get('/user/{idUser}/messages','MessageController@show')->name('showMessages');
 Route::get('/user/{idUser}/newMessages','MessageController@showNewMessages')->name('showNewMessages');
 
+Route::put('/message/update','MessageController@update')->name('updateMessage');
 
 //get constants from gdrConst file
 Route::name('gdrConsts.')->prefix('/consts')->group(function () {
     
-    Route::get('messages','gdrConstsController@showConstsMessages')->name('messages'); 
+    Route::get('messages','gdrConstsController@showConstsMessages')->name('messages');
+    Route::get('meteo','gdrConstsController@showConstsMeteo')->name('meteo');
 
 });
 
 //to update the meteo
 Route::name('meteo.update.')->prefix('/meteo/update')->group(function(){
 
-    Route::put('/topmap/{idTopmap}','TopmapController@update')->name('topmap');
     Route::put('/middlemap/{idMiddlemap}','MiddlemapController@update')->name('middlemap');
     Route::put('/bottommap/{idBottommap}','BottommapController@update')->name('bottommap');
 
 });
 
+//to get info meteo
 Route::name('meteo.get.')->prefix('/meteo/get')->group(function(){
 
-    Route::get('/topmap/{idTopmap}','TopmapController@showMeteo')->name('topmap');
     Route::get('/middlemap/{idMiddlemap}','MiddlemapController@showMeteo')->name('middlemap');
     Route::get('/bottommap/{idBottommap}','BottommapController@showMeteo')->name('bottommap');
 

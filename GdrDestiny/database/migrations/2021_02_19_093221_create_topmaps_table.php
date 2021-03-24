@@ -16,7 +16,6 @@ class CreateTopmapsTable extends Migration
         Schema::create('topmaps', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('meteo')->nullable();
             $table->timestamps();
         });
     }

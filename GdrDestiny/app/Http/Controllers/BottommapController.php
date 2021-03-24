@@ -84,21 +84,16 @@ class BottommapController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idTopmap){
+    public function update(Request $request, $idBottommap){
 
-        try{
-            
-            $map = Bottommap::findOrFail($idTopmap);
-            $map->meteo = $request->meteo;
-            $map->save();
-
-
-        }catch(Exception $e){
-
-            return response()->json($e->getMessage(),404);
+        return $this->update_meteo('Bottommap',$idBottommap,$request->meteo);
         
-        }
-        
+    }
+
+    public function showMeteo($idBottommap){
+
+        return $this->show_meteo_info('Bottommap',$idBottommap);
+
     }
  
 
