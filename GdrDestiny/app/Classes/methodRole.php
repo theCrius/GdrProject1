@@ -45,14 +45,14 @@ trait methodRole{
     }
 
     //Can do it if you are an admin or the owner
-    public function adminOrOwner($userToView){
+    public function gestoreOrOwner($userToView){
 
         return  ($this->id == $userToView->id) || $this->hasRole(\Config::get('roles.ROLE_GESTORE',[4,5]));
 
 
     }
 
-    public function isAdmin($userToView){
+    public function isGestore($userToView){
 
         return ( $this->hasRole(\Config::get('roles.ROLE_GESTORE') ) );
 

@@ -126,7 +126,7 @@ class MessageController extends Controller
     {
         
         try{
-
+            
             $message = Message::findOrFail($request->id);
 
             $message->letto = $request->data;

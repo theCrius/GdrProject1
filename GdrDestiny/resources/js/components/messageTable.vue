@@ -134,6 +134,8 @@ export default{
 
             }
 
+            
+
 
         },
         openMessage : function(message){

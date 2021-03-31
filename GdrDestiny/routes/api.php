@@ -23,8 +23,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/user/messages/delete','MessageController@destroy')->name('deleteMessages');
 Route::get('/user/{idUser}/messages','MessageController@show')->name('showMessages');
 Route::get('/user/{idUser}/newMessages','MessageController@showNewMessages')->name('showNewMessages');
-
 Route::put('/message/update','MessageController@update')->name('updateMessage');
+
+
 
 //get constants from gdrConst file
 Route::name('gdrConsts.')->prefix('/consts')->group(function () {
@@ -50,5 +51,6 @@ Route::name('meteo.get.')->prefix('/meteo/get')->group(function(){
 
 
 });
+
 Route::get('/user/all','UserController@allUsers')->name('allUsers');
 

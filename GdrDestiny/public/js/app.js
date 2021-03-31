@@ -4991,7 +4991,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    new_messages: Array
+    new_messages: Object
   },
   mounted: function mounted() {},
   watch: {

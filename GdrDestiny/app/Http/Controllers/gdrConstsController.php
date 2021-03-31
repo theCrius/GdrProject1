@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class gdrConstsController extends Controller
 {
     public function showConstsMessages(){
-
+        dd(request()->user());
         return json_encode(\Config::get('gdrConsts.messages'));
 
     }

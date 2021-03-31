@@ -1,6 +1,6 @@
 @extends('../layouts.appModalInterno')
 @section('header')
-@if($userView->adminOrOwner($userToView))
+@if($userView->gestoreOrOwner($userToView))
 <div class='editProfile'><img src="/img/imgHomeInterna/home/schedaPg/modifica.png" alt="" onclick="modal.openModal('{{route('showOptionEditsUser',$userToView)}}',null,'schedaPg/editUser/showOptionEditsUser.js')"></div>
 @endif
 <ul id='icone'>

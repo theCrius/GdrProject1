@@ -57,8 +57,8 @@ Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');
 Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClass');
 
 //add skills
-Route::post('/user/{idUser}/StoreSkills','UserskillController@storeSkills')->name('storeSkills');
-Route::get('/user/{idUser}/{skillFrom}/AddSkills','UserskillController@addSkills')->name('addSkills');
+Route::post('/user/{idUser}/StoreSkills','UserskillController@storeSkills')->name('storeSkills')->middleware("checkIfGestoreOrOwner");
+Route::get('/user/{idUser}/{skillFrom}/AddSkills','UserskillController@addSkills')->name('addSkills')->middleware("checkIfGestoreOrOwner");
 
 //add specs
 Route::post('/user/{idUser}/StoreSpecs','UserspecializationController@storeSpecs')->name('storeSpecs');
@@ -109,10 +109,11 @@ Route::prefix('/user/{idUser}/log')->group(function () {
 
     Route::get('exp','ExpController@showLog')->name('expLog');
     Route::get('money','MoneyController@showLog')->name('moneyLog');
-    Route::prefix('admin')->middleware('checkIfAdmin')->group(function(){
+    Route::prefix('admin')->middleware('checkIfGestore')->group(function(){
 
         Route::get('logged','UserloggedLogController@show')->name('userloggedLog');
         Route::get('messages','MessageController@showLog')->name('usermessagesLog');
+
     });
 });
 

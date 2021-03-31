@@ -13,7 +13,7 @@ export default {
 
     },
     props : {
-        new_messages : Array,
+        new_messages : Object,
     },
 
     mounted() {

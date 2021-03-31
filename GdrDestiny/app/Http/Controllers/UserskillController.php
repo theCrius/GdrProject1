@@ -45,8 +45,6 @@ class UserskillController extends Controller
     //limite massimo di skill ottenibili per razza, classe ed emisfero
     if(count($idSkillsGotByUser) === 3) $messageToShow='Hai già scelto le tue abilita, mi dispiace';
     
-    //controllo permessi
-    if((! \Auth::user()->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) && \Auth::user()->id !== $idUser) $messageToShow='Non hai le giuste autorizzazioni, riprova';
     
     //se ci sono errori blocca tutto
     if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
@@ -85,7 +83,6 @@ class UserskillController extends Controller
        
         if( !$idSkills || count($idSkills) != 3) $messageToShow='devi scegliere 3 skill';
         
-        if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
         if(isset($messageToShow)) return $this->returnBackWithError($request,$messageToShow);
         try{
             foreach($idSkills as $idSkill){
@@ -127,8 +124,7 @@ class UserskillController extends Controller
         //check if the user has the the exp necessary to buy the level
         if($expToUseToBuyLevel > $userExp) $messageToShow='Hai bisogno di ' . ($expToUseToBuyLevel - $userExp) . ' exp';
 
-        if($user->id != $idUser || $user->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5])) $messageToShow='Mi dispiace ma non hai le giuste autorizzazioni';
-
+       
       
 
         
