@@ -14,7 +14,7 @@ window.box.addP = function (multipleP){
 
             
             let newP=document.createElement('p')
-            newP.textContent= '[' + ( singleP.name ?? '' ) + ' -' + singleP.hurt + ' ] :' + singleP.descrizione
+            newP.textContent= '[' + ( singleP.name || '' ) + ' -' + singleP.hurt + ' ] :' + singleP.descrizione
 
             let newPAssignedBy=document.createElement('p')
             newPAssignedBy.textContent= 'by ' + singleP.assignedBy
