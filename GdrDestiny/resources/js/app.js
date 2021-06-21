@@ -23,6 +23,7 @@ window.moment = require('moment');
 Vue.component('messageTable', require('./components/messageTable.vue').default);
 Vue.component('messageLogo', require('./components/messageLogo.vue').default);
 Vue.component('meteo', require('./components/meteo.vue').default);
+Vue.component('presenti', require('./components/presenti.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

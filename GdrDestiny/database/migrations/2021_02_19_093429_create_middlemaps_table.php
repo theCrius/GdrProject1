@@ -18,7 +18,6 @@ class CreateMiddlemapsTable extends Migration
             $table->foreignId('id_topmap');
             $table->string('name');
             $table->text('descrizione');
-            $table->json('meteo')->nullable();
             $table->timestamps();
 
             $table->foreign('id_topmap')->references('id')->on('topmaps')->onDelete('cascade');

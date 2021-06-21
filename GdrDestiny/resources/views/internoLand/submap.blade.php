@@ -5,11 +5,9 @@
 
 
     @if( $map->id_middlemap ) 
-<meteo name_map="{{$map->name}}" route_to_get_consts_about_when_updates_meteo="{{ route('gdrConsts.meteo' )}}" route_to_update_meteo_map="{{ route('meteo.update.bottommap',$map->id) }}" route_info_meteo_map="{{ route('meteo.get.bottommap',$map->id) }}"></meteo>
     <a href="{{route("middlemap",$map->id_middlemap)}}" id='returnBackMap'>
 
     @else  
-    <meteo name_map="{{$map->name}}" route_to_get_consts_about_when_updates_meteo="{{ route('gdrConsts.meteo' )}}" route_to_update_meteo_map="{{ route('meteo.update.middlemap',$map->id) }}"  route_info_meteo_map="{{ route('meteo.get.middlemap',$map->id) }}"></meteo>
     <a href="{{route("home")}}" id='returnBackMap'>
     
     @endif

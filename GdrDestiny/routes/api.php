@@ -52,5 +52,7 @@ Route::name('meteo.get.')->prefix('/meteo/get')->group(function(){
 
 });
 
+Route::get('/usersonline','UserController@index');
+
 Route::get('/user/all','UserController@allUsers')->name('allUsers');
 

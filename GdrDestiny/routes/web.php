@@ -39,86 +39,86 @@ Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento'
 
 
 //only if the user is logged
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth','onlineToken'])->group(function(){
 
 
 
-//after logging
-Route::get('/home', 'TopmapController@index')->name('home');
+        //after logging
+        Route::get('/home', 'TopmapController@index')->name('home');
 
-//show a single middle map
-Route::get('/home/{idMiddlemap}','MiddlemapController@index')->name('middlemap');
+        //show a single middle map
+        Route::get('/home/{idMiddlemap}','MiddlemapController@index')->name('middlemap');
 
-//show a single bottom map
-Route::get('/home/{idMiddlemap}/{idBottommap}','BottommapController@index')->name('bottommap');
+        //show a single bottom map
+        Route::get('/home/{idMiddlemap}/{idBottommap}','BottommapController@index')->name('bottommap');
 
-//add class by user
-Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');
-Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClass');
+        //add class by user
+        Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');
+        Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClass');
 
-//add skills
-Route::post('/user/{idUser}/StoreSkills','UserskillController@storeSkills')->name('storeSkills')->middleware("checkIfGestoreOrOwner");
-Route::get('/user/{idUser}/{skillFrom}/AddSkills','UserskillController@addSkills')->name('addSkills')->middleware("checkIfGestoreOrOwner");
+        //add skills
+        Route::post('/user/{idUser}/StoreSkills','UserskillController@storeSkills')->name('storeSkills')->middleware("checkIfGestoreOrOwner");
+        Route::get('/user/{idUser}/{skillFrom}/AddSkills','UserskillController@addSkills')->name('addSkills')->middleware("checkIfGestoreOrOwner");
 
-//add specs
-Route::post('/user/{idUser}/StoreSpecs','UserspecializationController@storeSpecs')->name('storeSpecs');
-Route::get('/user/{idUser}/{specFrom}/AddSpecs','UserspecializationController@addSpecs')->name('addSpecs');
+        //add specs
+        Route::post('/user/{idUser}/StoreSpecs','UserspecializationController@storeSpecs')->name('storeSpecs');
+        Route::get('/user/{idUser}/{specFrom}/AddSpecs','UserspecializationController@addSpecs')->name('addSpecs');
 
-//show skill
-Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
-
-
-//Modify the level of skill
-Route::get('/user/{idUser}/{idSkill}/UpdateSkillLevel','UserskillController@incrementLevelOfSkill')->name('updateSkillLevel');
-
-//get background
-Route::get('/user/{idUser}/background','ChiamateAjaxController@showBackground')->name('showBackground');
-
-//modify the background
-Route::put('/user/{idUser}/background/update', 'ChiamateAjaxController@updateBackground')->name('updateBackground');
-Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
-
-//Show medical record
-Route::get('/user/{idUser}/cartellaClinica','MedicalrecordController@show')->name('showMedicalRecord');
-
-//Show objects(equipped and owned)
-Route::get('/user/{idUser}/oggettiEquipaggiati','UserobjectController@showObjectEquipped')->name('objectEquipped');
-Route::get('/user/{idUser}/oggettiPosseduti','UserobjectController@showObjectOwned')->name('objectOwned');
-
-//Equips the object or remove
-Route::get('/user/{idUser}/{idObject}/equipsOrUnequips','UserobjectController@equipsOrUnequips')->name('equipsOrUnequips');
-
-//Mecha 
-Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha');
-
-//Messages
-Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('storeMessage');
+        //show skill
+        Route::get('/user/{idUser}/Abilita','SkillController@show')->name('showSkills');
 
 
-//Modify Profile
-Route::get('/user/{idUser}/modifica','UserController@showOptionEditsUser')->name('showOptionEditsUser');
+        //Modify the level of skill
+        Route::get('/user/{idUser}/{idSkill}/UpdateSkillLevel','UserskillController@incrementLevelOfSkill')->name('updateSkillLevel');
 
-Route::get('/user/{idUser}/modificaGeneralità','UserController@editUser1')->name('editUser1');
-Route::put('/user/{idUser}/modificaGeneralità','UserController@updateUser1')->name('updateUser1');
+        //get background
+        Route::get('/user/{idUser}/background','ChiamateAjaxController@showBackground')->name('showBackground');
 
-Route::get('/user/{idUser}/cambioPg','UserController@destroy')->name('deleteUser');
+        //modify the background
+        Route::put('/user/{idUser}/background/update', 'ChiamateAjaxController@updateBackground')->name('updateBackground');
+        Route::get('/user/{idUser}/background/modify', 'ChiamateAjaxController@editBackground')->name('modifyBackground');
+
+        //Show medical record
+        Route::get('/user/{idUser}/cartellaClinica','MedicalrecordController@show')->name('showMedicalRecord');
+
+        //Show objects(equipped and owned)
+        Route::get('/user/{idUser}/oggettiEquipaggiati','UserobjectController@showObjectEquipped')->name('objectEquipped');
+        Route::get('/user/{idUser}/oggettiPosseduti','UserobjectController@showObjectOwned')->name('objectOwned');
+
+        //Equips the object or remove
+        Route::get('/user/{idUser}/{idObject}/equipsOrUnequips','UserobjectController@equipsOrUnequips')->name('equipsOrUnequips');
+
+        //Mecha 
+        Route::get('/user/{idUser}/Mecha','UsermechaController@show')->name('showMecha');
+
+        //Messages
+        Route::post('/user/{idUser}/InviaMessaggio','MessageController@store')->name('storeMessage');
 
 
-//log routes
-Route::prefix('/user/{idUser}/log')->group(function () {
+        //Modify Profile
+        Route::get('/user/{idUser}/modifica','UserController@showOptionEditsUser')->name('showOptionEditsUser');
 
-    Route::get('exp','ExpController@showLog')->name('expLog');
-    Route::get('money','MoneyController@showLog')->name('moneyLog');
-    Route::prefix('admin')->middleware('checkIfGestore')->group(function(){
+        Route::get('/user/{idUser}/modificaGeneralità','UserController@editUser1')->name('editUser1');
+        Route::put('/user/{idUser}/modificaGeneralità','UserController@updateUser1')->name('updateUser1');
 
-        Route::get('logged','UserloggedLogController@show')->name('userloggedLog');
-        Route::get('messages','MessageController@showLog')->name('usermessagesLog');
-
-    });
-});
+        Route::get('/user/{idUser}/cambioPg','UserController@destroy')->name('deleteUser');
 
 
-//show profile
-Route::get('/user/{idUser}','UserController@show')->name('userProfile');
+        //log routes
+        Route::prefix('/user/{idUser}/log')->group(function () {
+
+            Route::get('exp','ExpController@showLog')->name('expLog');
+            Route::get('money','MoneyController@showLog')->name('moneyLog');
+            Route::prefix('admin')->middleware('checkIfGestore')->group(function(){
+
+                Route::get('logged','UserloggedLogController@show')->name('userloggedLog');
+                Route::get('messages','MessageController@showLog')->name('usermessagesLog');
+
+            });
+        });
+
+
+        //show profile
+        Route::get('/user/{idUser}','UserController@show')->name('userProfile');
 
 });
