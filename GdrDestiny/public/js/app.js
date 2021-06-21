@@ -4996,7 +4996,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   watch: {
     new_messages: function new_messages() {
-      return this.messaggiStatus = this.new_messages.length == 0 ? 'messaggioff.png' : 'messaggion.png';
+      this.messaggiStatus = this.new_messages.length == 0 ? 'messaggioff.png' : 'messaggion.png';
+      this.vibrateActive = this.new_messages.length == 0 ? false : true;
     }
   },
   methods: {}
@@ -63245,6 +63246,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("img", {
+      class: { vibrate: _vm.new_messages.length },
       attrs: {
         src: "/img/imgHomeInterna/home/" + _vm.messaggiStatus,
         id: "messaggi",

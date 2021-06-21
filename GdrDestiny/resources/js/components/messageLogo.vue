@@ -1,6 +1,6 @@
 <template>
     <div>
-       <img :src="'/img/imgHomeInterna/home/' + messaggiStatus" id='messaggi'  alt="messaggi">
+       <img :src="'/img/imgHomeInterna/home/' + messaggiStatus" id='messaggi' :class="{'vibrate' : new_messages.length }"  alt="messaggi">
     </div>
 </template>
 
@@ -25,7 +25,9 @@ export default {
     watch: {
         new_messages : function(){
             
-            return this.messaggiStatus = ( ( this.new_messages.length == 0) ?  'messaggioff.png' : 'messaggion.png' )
+             this.messaggiStatus = ( ( this.new_messages.length == 0) ?  'messaggioff.png' : 'messaggion.png' )
+
+             this.vibrateActive = ( ( this.new_messages.length == 0) ?  false : true )
 
         }
     },

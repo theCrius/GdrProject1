@@ -3,13 +3,14 @@
   height: 20vh;
   right: 7vh;
   top: 6vh;
+  cursor: pointer;
 }
 
-#messaggi:hover {
-  -webkit-transform: rotate(228deg);
-          transform: rotate(228deg);
-  -webkit-transition-duration: 2s;
-          transition-duration: 2s;
+.vibrate {
+  -webkit-animation: vibrate 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+          animation: vibrate 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 .errorInput {
@@ -351,6 +352,36 @@
     height: 13vh;
     right: 4vh;
     top: 3vh;
+  }
+}
+
+@-webkit-keyframes vibrate {
+  0.50%, 10%, 20%, 30%, 40%, 50% {
+    -webkit-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+  }
+  5%, 15%, 25%, 35%, 45% {
+    -webkit-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+  }
+}
+
+@keyframes vibrate {
+  0.50%, 10%, 20%, 30%, 40%, 50% {
+    -webkit-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
+  }
+  5%, 15%, 25%, 35%, 45% {
+    -webkit-transform: translate3d(-3px, 0, 0);
+            transform: translate3d(-3px, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(3px, 0, 0);
+            transform: translate3d(3px, 0, 0);
   }
 }
 /*# sourceMappingURL=message.css.map */

@@ -80,7 +80,7 @@ class UserController extends Controller
     public function showOptionEditsUser($idUser, Request $request)
     {
         $user= User::find($idUser);
-        if( !$user->adminOrOwner(\Auth::user())) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
+        if( !$user->gestoreOrOwner(\Auth::user())) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
         
         $this->saveDataPreSubmit($request);
 
