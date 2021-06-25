@@ -38,9 +38,9 @@ window.axios = require('axios');
  
  window.Echo = new Echo({
      broadcaster: 'pusher',
-     key: 'dkjhewfjiidfshihdfs3773',
+     key: 'OAObZwqnTmIPGK8ErSYP2pbKyYv',
      wsHost: window.location.hostname,
-     wsPort: 6004,
+     wsPort: 6001,
      forceTLS: false,
      disableStats: true,
  });

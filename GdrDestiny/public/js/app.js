@@ -5270,8 +5270,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.getUserOnline();
-    console.log(this.users);
+    Echo.channel('onlineStatus').listen('.user.online', this.getUserOnline);
   },
   methods: {
     getUserOnline: function getUserOnline() {
@@ -82244,7 +82243,7 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: 'dkjhewfjiidfshihdfs3773',
+  key: 'OAObZwqnTmIPGK8ErSYP2pbKyYv',
   wsHost: window.location.hostname,
   wsPort: 6001,
   forceTLS: false,
@@ -82703,8 +82702,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/brunobryan/Desktop/Programmazione/GdrProject1/GdrDestiny/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/brunobryan/Desktop/Programmazione/GdrProject1/GdrDestiny/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/GdrProject1/GdrDestiny/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/GdrProject1/GdrDestiny/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

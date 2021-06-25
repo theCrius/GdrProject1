@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
+
+use App\Events\OnlineStatus;
 use Closure;
 
 class LastUserActivity
@@ -16,12 +18,14 @@ class LastUserActivity
     {
         if ( \Auth::check() ) {
 
-            $expiresAt = now()->addMinutes(15);
+            $expiresAt = now()->addMinutes(env("AUTOLOGOUT_TIME"));
             $idUsersOnline = \Cache::get('users-online') ?? [];
             $user = \Auth::user() ; 
-            if( in_array( [ 'name' => $user->name , 'luogo' => $user->last_chat ]  , $idUsersOnline) ) return $next($request);
-            array_push( $idUsersOnline,  [ 'name' => $user->name , 'luogo' => $user->last_chat ] );
-            \Cache::put('users-online', $idUsersOnline , $expiresAt);
+            if( \Cache::tags(['users-online'])->get($user->id) ) return $next($request);
+
+            \Cache::tags(['users-online'])->put($user->name,$user->id, $expiresAt);
+
+            event(new OnlineStatus);
         }
         return $next($request);
     }

@@ -18,8 +18,8 @@ export default {
     },
     mounted(){
 
-        this.getUserOnline()
-        console.log(this.users)
+        Echo.channel('onlineStatus')
+            .listen('.user.online', this.getUserOnline)
     },
 
     methods : {
