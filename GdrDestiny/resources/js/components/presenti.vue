@@ -2,7 +2,7 @@
     <div>
         <h1> Presenti </h1>
         <ul>
-            <li v-for="user in users" :key="user.id"></li>
+            <li v-for="user in usersOnline" :key="user.id"></li>
         </ul>
     </div>
     
@@ -12,14 +12,17 @@ export default {
     data(){
         return {
 
-            users : [],
+            usersOnline : [],
         
         }
     },
     mounted(){
 
         Echo.channel('onlineStatus')
-            .listen('.user.online', this.getUserOnline)
+            .listen('.user.online', (data) => this.usersOnline = data.usersOnline )
+
+        this.getUserOnline()
+
     },
 
     methods : {
@@ -29,8 +32,9 @@ export default {
             
             axios
                 .get('/api/usersonline')
-                .then( results => this.users = results )
+                .then( results => this.usersOnline = results.data )
                 .catch( error => console.log(error) )
+            
         },
         
     }

@@ -5266,18 +5266,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      users: []
+      usersOnline: []
     };
   },
   mounted: function mounted() {
-    Echo.channel('onlineStatus').listen('.user.online', this.getUserOnline);
+    var _this = this;
+
+    Echo.channel('onlineStatus').listen('.user.online', function (data) {
+      return _this.usersOnline = data.usersOnline;
+    });
+    this.getUserOnline();
   },
   methods: {
     getUserOnline: function getUserOnline() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/usersonline').then(function (results) {
-        return _this.users = results;
+        return _this2.usersOnline = results.data;
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -69755,7 +69760,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.users, function(user) {
+      _vm._l(_vm.usersOnline, function(user) {
         return _c("li", { key: user.id })
       }),
       0
@@ -82702,8 +82707,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/GdrProject1/GdrDestiny/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/GdrProject1/GdrDestiny/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/brunobryan/Desktop/Programmazione/GdrProject1/GdrDestiny/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/brunobryan/Desktop/Programmazione/GdrProject1/GdrDestiny/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -39,9 +39,10 @@ Route::get('regolamento','GuidaController@indexRegolamento')->name('regolamento'
 
 
 //only if the user is logged
-Route::middleware(['auth','onlineToken'])->group(function(){
+Route::middleware(['auth'])->group(function(){
 
 
+    Route::prefix('/')->group( function(){
 
         //after logging
         Route::get('/home', 'TopmapController@index')->name('home');
@@ -52,6 +53,7 @@ Route::middleware(['auth','onlineToken'])->group(function(){
         //show a single bottom map
         Route::get('/home/{idMiddlemap}/{idBottommap}','BottommapController@index')->name('bottommap');
 
+    });
         //add class by user
         Route::get('/user/AddClass','UserclasseController@addClass')->name('addClass');
         Route::post('/user/AddClass','UserclasseController@storeClass')->name('storeClass');

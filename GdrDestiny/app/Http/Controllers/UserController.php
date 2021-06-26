@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json( \Cache::tags('users-online')->get('users-online') );
+        return  \Cache::get('users-online');
     }
 
     /**

@@ -48,7 +48,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         ChangeMap::class => [
             ChangeLastActivity::class
-        ]
+        ],
       
     ];
 

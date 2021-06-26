@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\OnlineStatus;
 use App\Http\Controllers\Controller;
 use App\Jobs\InsertUserLog;
 use App\Providers\RouteServiceProvider;
@@ -40,6 +41,39 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         
     }
+      /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {   
+        \Auth::logoutOtherDevices(request('password'));
+        event( new OnlineStatus($user ,'login') );
+    }
+
+    public function logout(Request $request)
+    {
+
+        event( new OnlineStatus(\Auth::user(),'logout') );
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        if ($response = $this->loggedOut($request)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/');
+    }
+
 
 
     public function username(){

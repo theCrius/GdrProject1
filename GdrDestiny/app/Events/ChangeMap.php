@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ChangeMap
+class ChangeMap 
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $user, $infoMaps;
@@ -27,6 +27,8 @@ class ChangeMap
             'nameRoute' => $nameRouteMap,
             'parametres' => $parametres
         ];
+
+
     }
 
     /**

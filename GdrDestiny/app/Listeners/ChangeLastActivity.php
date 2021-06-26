@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\ChangeMap;
+use App\Events\OnlineStatus;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -28,5 +29,6 @@ class ChangeLastActivity
     {
         $event->user->last_chat = $event->infoMaps;
         $event->user->save();
+        event( new OnlineStatus($event->user,'refresh') );
     }
 }
