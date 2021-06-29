@@ -1,0 +1,20 @@
+@keyframes hiddenBox {
+    0.50%, 10%, 20%, 30%, 40%, 50%
+    {
+      opacity: 0.7;
+    }
+    60%
+    {
+      opacity: 0.4;
+    }
+    80%
+    {
+        opacity: 0.2;
+    }
+    100%
+    {
+        visibility: none;
+        opacity: 1;
+
+    }
+}

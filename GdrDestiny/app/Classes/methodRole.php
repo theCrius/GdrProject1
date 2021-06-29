@@ -23,10 +23,10 @@ trait methodRole{
                 'minimo' => $power[0],
                 'massimo' => $power[1]
             ];
-             return $nameRole === $role['name'] && $powerRole > $powerRange['minimo'] && $powerRange['massimo'] > $powerRole; 
+             return $nameRole === $roleOfUser['name'] && $powerRole > $powerRange['minimo'] && $powerRange['massimo'] > $powerRole; 
         }
 
-        return $nameRole === $role['name'];
+        return $nameRole === $roleOfUser['name'];
         
         
     }

@@ -1,6 +1,6 @@
 <html lang="en">
 @php
-    $userLogged = \Auth::id()    
+    $userLogged = \Auth::user();
 @endphp
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/box/boxErrore.css">
     <link rel="stylesheet" href="/css/modal/modalInterna.css">
     <link rel="stylesheet" href="/css/SitoFacciaInterna/message.css">
+    <link rel="stylesheet" href="/css/SitoFacciaInterna/presenti.css">
     <link rel="stylesheet" href="/css/SitoFacciaInterna/map.css">
     
     <link rel="stylesheet" href="/css/box/box.css">
@@ -23,13 +24,13 @@
             <ul class='listMenu'>
                 <div class="buttonLeft">
                     <li><a href="#"><img data-number=1 src="/img/imgHomeInterna/home/archivi.png" alt=""></a></li>
-                    <li><a href="#"><img data-number=2 src="/img/imgHomeInterna/home/presenti.png" alt=""></a></li>
+                    <li><a href="#"><img data-number=2 src="/img/imgHomeInterna/home/presenti.png" onclick="openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')" alt=""></a></li>
                     <li><a href="#"><img data-number=3 src="/img/imgHomeInterna/home/rimnet.png" alt=""></a></li>
                 </div>
                 <li id='ghost'><img src="/img/imgHomeInterna/home/ghost.png" alt=""></li>
                 <div class="buttonRight">
                 <!-- variable modal js is wrote in main js file -->
-                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',$userLogged)}}',null,'schedaPg/userProfile.js')"></a></li>
+                    <li><a href="#"><img data-number=4 src="/img/imgHomeInterna/home/schedapg.png" alt="" onclick="modal.openModal('{{route('userProfile',$userLogged->id)}}',null,'schedaPg/userProfile.js')"></a></li>
                     <li><a href="#"><img data-number=5 src="/img/imgHomeInterna/home/rymzody.png" alt=""></a></li>
                     <li><a href="{{ route('logout') }}"><img data-number=6
                                 src="/img/imgHomeInterna/home/logouttuttodx.png" alt=""></a></li>
@@ -42,8 +43,8 @@
                 <message-logo :new_messages='newMessages' onclick="openOrClose('.messages','onBoxRight','offBoxRight')"></message-logo>
                
             </div>
-        <message-table route_to_get_consts_value_new_message_checking="{{ route('gdrConsts.messages') }}" route_to_check_new_messages="{{ route('showNewMessages',$userLogged ) }}" route_to_get_all_users="{{ route('allUsers') }}" csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='{{ route('updateMessage') }}' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
-        <presenti></presenti>
+        <message-table route_to_get_consts_value_new_message_checking="{{ route('gdrConsts.messages') }}" route_to_check_new_messages="{{ route('showNewMessages',$userLogged->id ) }}" route_to_get_all_users="{{ route('allUsers') }}" csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='{{ route('updateMessage') }}' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
+        <presenti :current_map = "{{json_encode(['nameRoute' => Route::currentRouteName(),'parametres' => array_values(Route::current()->parameters)])}}"></presenti>
         </div>
     </section>
         @if($errors)

@@ -1,0 +1,79 @@
+@import 'animation';
+
+.boxPresenti{
+    visibility: hidden;
+    background-color: #013445;
+    max-height: 50%;
+    width: 25%;
+    position: fixed;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 0px 25px 25px 0px;
+
+    display: flex;
+    h1{
+        font-size: 2.5vh;
+        font-family: fontH;
+        color: white;
+        text-align: center;
+    }
+
+
+    flex-direction: column;
+    
+
+}
+#iconPresenti{
+    cursor: pointer;
+    height: 2vh;
+    margin-bottom: 0.5vh;
+    margin-right: 4%;
+    align-self: flex-end;
+}
+#presenti{
+    li:nth-child(odd) {
+        background-color: #013445;
+        color: white;
+    }
+    li:nth-child(even) {
+        background-color: #0d4557;
+        color: white;
+    }
+    li{
+        display: flex;
+        flex-direction: row;
+
+        
+        p {
+            padding: 1vh;
+            cursor: pointer;
+            flex: 1;
+        }
+    }
+}
+
+.presentiTitle{
+    display: flex;
+    flex-direction: row;
+
+    #mainTitle{
+        text-align: center;
+        flex: 1.5;
+    }
+    #closePresenti{
+        flex: 0.2;
+    }
+}
+
+.onBoxLeft{
+    animation: fadeInLeft;
+    animation-duration: 1s;
+    visibility: visible;
+}
+
+.offBoxLeft{
+    animation: fadeOutBottomLeft , hiddenBox;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}

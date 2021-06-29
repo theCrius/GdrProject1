@@ -5,14 +5,18 @@ trait CheckStatusUser
 {
 
 
-    public function ifUserIsOnline( $usersonline )
+    public function ifUserIsOnline( $usersonline , $user = null)
     {
-        foreach($usersonline as $key => $user)
+        $result = null;
+        if ( !$user ) $user = $this->user;
+
+        foreach($usersonline as $key => $useronline)
         {
-            if( $user['id'] === $this->user->id ) return $key;
+            if( $useronline['name'] === $user->name ) $result = $key;
+            $this->checkLastUpate($useronline);
         }
 
-        return -1;
+        return $result ?? -1;
 
     }
 
@@ -22,7 +26,7 @@ trait CheckStatusUser
 
         if ( $this->ifUserIsOnline($idUsersOnline) != -1 ) return ;
 
-        array_push( $idUsersOnline , [ 'id' => $this->user->id, 'last_chat' => $this->user->last_chat ]) ; // creo un nuovo array con le vecchie e nuove informazioni
+        array_push( $idUsersOnline , [ 'name' => $this->user->name, 'last_chat' => $this->user->last_chat , 'id' => $this->user->id , 'last_update' => now()]) ; // creo un nuovo array con le vecchie e nuove informazioni
 
         \Cache::put('users-online',$idUsersOnline);
 
@@ -33,10 +37,10 @@ trait CheckStatusUser
 
     }
 
-    public function setStatusOffline()
+    public function setStatusOffline($user)
     {
         $idUsersOnline = \Cache::get('users-online') ?? [];
-        $index_user = $this->ifUserIsOnline( $idUsersOnline );
+        $index_user = $this->ifUserIsOnline( $idUsersOnline , $user );
 
         
         
@@ -54,12 +58,22 @@ trait CheckStatusUser
         $idUsersOnline = \Cache::get('users-online') ?? [];
         
         $index_user = $this->ifUserIsOnline($idUsersOnline);
+        
+        if( $index_user == -1){ return $this->setStatusOnline(); }
 
-        $idUsersOnline[$index_user] = [ 'id' => $this->user->id ,'last_chat' => $this->user->last_chat];
+        $idUsersOnline[$index_user] = [ 'name' => $this->user->name ,'last_chat' => $this->user->last_chat, 'id' => $this->user->id, 'last_update' => now()];
 
         \Cache::put('users-online' , $idUsersOnline );
         
         return $idUsersOnline;
+    
+    
+    }
+
+
+    public function checkLastUpate($user)
+    {
+        if ( $user['last_update'] > $user['last_update']->addMinutes(env( 'SESSION_LIFETIME' )) ) $this->setStatusOffline($user);
     }
 }
 

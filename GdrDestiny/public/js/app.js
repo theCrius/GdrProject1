@@ -5266,26 +5266,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      usersOnline: []
+      usersOnline: [],
+      usersOnlineInMap: []
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     Echo.channel('onlineStatus').listen('.user.online', function (data) {
-      return _this.usersOnline = data.usersOnline;
+      return _this.updateUsers(data.usersOnline);
     });
     this.getUserOnline();
+  },
+  props: {
+    'current_map': Object
   },
   methods: {
     getUserOnline: function getUserOnline() {
       var _this2 = this;
 
       axios.get('/api/usersonline').then(function (results) {
-        return _this2.usersOnline = results.data;
+        return _this2.updateUsers(results.data);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    updateUsers: function updateUsers(usersOnline) {
+      this.usersOnline = usersOnline;
+      this.usersOnlineInMap = [];
+
+      loop1: for (var keyFirstLoop in this.usersOnline) {
+        if (!this.checkIfUserIsInChat(this.usersOnline[keyFirstLoop])) continue;
+
+        for (var keySecondLoop in this.usersOnlineInMap) {
+          if (this.usersOnlineInMap[keySecondLoop].name == this.usersOnline[keyFirstLoop].name) continue loop1;
+        }
+
+        this.usersOnlineInMap.push(this.usersOnline[keyFirstLoop]);
+      }
+    },
+    checkIfUserIsInChat: function checkIfUserIsInChat(user) {
+      var sameNameRoute = user.last_chat.nameRoute == this.current_map.nameRoute;
+      return sameNameRoute && this.haveSameParametres(user.last_chat.parametres);
+    },
+    haveSameParametres: function haveSameParametres(parametres) {
+      var parametresChecked = 0;
+
+      for (var key in parametres) {
+        for (var _key in this.current_map.parametres) {
+          if (parametres[_key] == this.current_map.parametres[_key]) parametresChecked += 1;
+        }
+      }
+
+      return parametresChecked === parametres.length;
+    },
+    openModal: function openModal(idUser) {
+      return modal.openModal("/user/" + idUser, null, 'schedaPg/userProfile.js');
     }
   }
 });
@@ -69755,19 +69791,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(" Presenti ")]),
+  return _c("div", { staticClass: "boxPresenti" }, [
+    _vm._m(0),
     _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.usersOnline, function(user) {
-        return _c("li", { key: user.id })
+      { attrs: { id: "presenti" } },
+      _vm._l(_vm.usersOnlineInMap, function(user) {
+        return _c("li", { key: user.id }, [
+          _c(
+            "p",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.openModal(user.id)
+                }
+              }
+            },
+            [_vm._v(_vm._s(user.name))]
+          ),
+          _vm._v(" "),
+          _vm.usersOnlineInMap[Object.keys(_vm.usersOnlineInMap).length - 1] ==
+          user
+            ? _c("img", {
+                attrs: {
+                  src: "/img/imgHomeInterna/Icone/Presenti/open.png",
+                  id: "iconPresenti"
+                }
+              })
+            : _vm._e()
+        ])
       }),
       0
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "presentiTitle" }, [
+      _c("h1", { attrs: { id: "mainTitle" } }, [_vm._v(" Presenti ")]),
+      _c(
+        "h1",
+        {
+          staticClass: "icon",
+          attrs: {
+            onclick: "openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')",
+            id: "closePresenti"
+          }
+        },
+        [_vm._v("×")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

@@ -23,6 +23,11 @@ class ChangeMap
     public function __construct($user,$nameRouteMap,$parametres)
     {
         $this->user = $user;
+
+        //bug, da come valore uno e poi abbiamo errori con vuejs
+        if($nameRouteMap === 'home') $parametres = [];
+
+
         $this->infoMaps=[
             'nameRoute' => $nameRouteMap,
             'parametres' => $parametres
