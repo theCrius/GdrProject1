@@ -15,7 +15,7 @@
                 <img src="/img/imgHomeEsterna/circonferenza.png" alt="">
             </div>
             <div class="loginButton">
-                <img id='loginText' src="/img/imgHomeEsterna/login.png" alt="" onclick="poupUp.createWindowPoupUp('{{ route('login') }}')">
+                <a href="{{route('login')}}" id='loginText'><img  src="/img/imgHomeEsterna/login.png" alt=""></a> 
             </div>
             <img id='PersonaggioCentrale' src="/img/imgHomeEsterna/centralpg.png" alt="">
 

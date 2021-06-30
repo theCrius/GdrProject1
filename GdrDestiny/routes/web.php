@@ -123,4 +123,6 @@ Route::middleware(['auth'])->group(function(){
         //show profile
         Route::get('/user/{idUser}','UserController@show')->name('userProfile');
 
+        Route::get('usersonline/modal','UserController@indexPresenti');
+
 });

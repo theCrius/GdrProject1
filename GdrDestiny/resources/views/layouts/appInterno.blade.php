@@ -46,6 +46,9 @@
         <message-table route_to_get_consts_value_new_message_checking="{{ route('gdrConsts.messages') }}" route_to_check_new_messages="{{ route('showNewMessages',$userLogged->id ) }}" route_to_get_all_users="{{ route('allUsers') }}" csrf="{{ csrf_token() }}" route_to_post_message="{{ route('storeMessage',$userLogged) }}" class_to_close='offBoxRight' route_to_delete_messages="{{ route('deleteMessages')}}" route_to_update_status='{{ route('updateMessage') }}' route_show_messages="{{ route('showMessages',$userLogged) }}"> </message-table>
         <presenti :current_map = "{{json_encode(['nameRoute' => Route::currentRouteName(),'parametres' => array_values(Route::current()->parameters)])}}"></presenti>
         </div>
+
+        <modal v-show="componentToOpen"></modal>
+
     </section>
         @if($errors)
       
@@ -56,9 +59,7 @@
         modal.openModal('{{route($errors['routeName'],$errors['parametrs'])}}','{{ isset($errors['parametrs']['errors']['message']) ? \Crypt::decrypt($errors['parametrs']['errors']['message']) : '' }}','{{$errors['scriptName'] ?? ''}}')}, false)
                 </script>
             
-        @endif
-  
-  
+        @endif  
     <script type='module' src="/js/HomeInterna/main.js"></script>
    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
    

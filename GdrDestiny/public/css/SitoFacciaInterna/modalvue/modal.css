@@ -1,0 +1,60 @@
+.modal_vue {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.modal_vue_body {
+  height: 80vh;
+  width: 50%;
+  position: relative;
+}
+
+.modal_vue_body section {
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+}
+
+.modal_vue_body section header {
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+  cursor: move;
+}
+
+.modal_vue_body section main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#sfondo_modal_vue {
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 980px) and (min-height: 700px) {
+  .modal_vue_body {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=modal.css.map */

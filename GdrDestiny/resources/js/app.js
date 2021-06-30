@@ -23,8 +23,9 @@ window.moment = require('moment');
 Vue.component('messageTable', require('./components/messageTable.vue').default);
 Vue.component('messageLogo', require('./components/messageLogo.vue').default);
 Vue.component('meteo', require('./components/meteo.vue').default);
-Vue.component('presenti', require('./components/presenti.vue').default);
-
+Vue.component('presenti', require('./components/presenti/presenti.vue').default);
+Vue.component('presenti_estesi', require('./components/presenti/presenti_estesi.vue').default);
+Vue.component('modal', require('./components/modal.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -35,7 +36,9 @@ const app = new Vue({
     el: '#app',
     data() {
         return {
-            'newMessages' : []
+            'newMessages' : [],
+            'componentToOpen' : '',
+            'usersOnline' : []
         }
     },
 });

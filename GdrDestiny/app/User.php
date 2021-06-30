@@ -2,7 +2,7 @@
 
 namespace App;
 
-
+use App\Classes\MapChatHandler;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,6 +16,7 @@ class User extends Authenticatable
     use Notifiable;
     use methodRole;
     use Objects;
+    use MapChatHandler;
     use HasApiTokens;
 
     /**

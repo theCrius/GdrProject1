@@ -2,7 +2,7 @@
     <div class="boxPresenti">
         <div class="presentiTitle"><h1 id="mainTitle"> Presenti </h1><h1 class="icon" onclick="openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')" id="closePresenti">&times</h1></div>
         <ul id='presenti'>
-            <li v-for="user in usersOnlineInMap" :key="user.id"><p @click="openModal( user.id )">{{ user.name }}</p> <img src="/img/imgHomeInterna/Icone/Presenti/open.png" id="iconPresenti" v-if="usersOnlineInMap[Object.keys(usersOnlineInMap).length - 1] == user "></li>
+            <li v-for="user in usersOnlineInMap" :key="user.id"><p @click="openUserInfo( user.id )">{{ user.name }}</p> <img src="/img/imgHomeInterna/Icone/Presenti/open.png" id="iconPresenti" @click="openModalPresenti()" v-if="usersOnlineInMap[Object.keys(usersOnlineInMap).length - 1] == user "></li>
         </ul>
     </div>
  
@@ -12,7 +12,6 @@ export default {
     data(){
         return {
 
-            usersOnline : [],
             usersOnlineInMap : [],
         
         }
@@ -42,16 +41,16 @@ export default {
         },
 
         updateUsers( usersOnline ){
-            this.usersOnline = usersOnline
+            this.$parent.usersOnline = usersOnline
             this.usersOnlineInMap = []
             loop1: 
-            for (const keyFirstLoop in this.usersOnline) {
+            for (const keyFirstLoop in this.$parent.usersOnline) {
                 
-                    if( !this.checkIfUserIsInChat(this.usersOnline[keyFirstLoop]) ) continue
+                    if( !this.checkIfUserIsInChat(this.$parent.usersOnline[keyFirstLoop]) ) continue
                     for (const keySecondLoop in this.usersOnlineInMap){
-                        if( this.usersOnlineInMap[keySecondLoop].name == this.usersOnline[keyFirstLoop].name ) continue loop1;
+                        if( this.usersOnlineInMap[keySecondLoop].name == this.$parent.usersOnline[keyFirstLoop].name ) continue loop1;
                     }
-                    this.usersOnlineInMap.push( this.usersOnline[keyFirstLoop] )
+                    this.usersOnlineInMap.push( this.$parent.usersOnline[keyFirstLoop] )
             
 
             }
@@ -81,11 +80,20 @@ export default {
             }
             return parametresChecked === parametres.length
         },
-
-        openModal(idUser)
+        openUserInfo(idUser)
         {
-            return modal.openModal("/user/" + idUser ,null,'schedaPg/userProfile.js')
+            this.openModal("/user/" + idUser ,'schedaPg/userProfile.js')
         },
+
+        openModal(url,scriptToAdd=null)
+        {
+            return modal.openModal(url,null,scriptToAdd);
+        },
+
+        openModalPresenti()
+        {
+            this.$parent.componentToOpen = "presenti_estesi"
+        }
 
     
     }

@@ -28,6 +28,23 @@ class UserController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPresenti(Request $request)
+    {
+        $users = \Cache::get('users-online');
+        return view('internoLand.presenti', [
+
+            'usersonline' => $users,
+            'errors' => $request->errors
+
+        ]);
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

@@ -40,6 +40,7 @@ section {
   position: relative;
   bottom: 2vh;
   cursor: pointer;
+  z-index: 1;
 }
 
 .ContainerDestra img, .ContainerSinistra img {

@@ -39,8 +39,8 @@
         </div>
 </template>
 <script>
-import messageSingle from "./subcomponents/message/messageSingle.vue"
-import newMessage from "./subcomponents/message/newMessage.vue"
+import messageSingle from "./messages/messageSingle.vue"
+import newMessage from "./messages/newMessage.vue"
 import { openOrClose } from "./../../../public/js/HomeInterna/functions/openOrClose.js"
 
 export default{
