@@ -2,7 +2,7 @@
     <div class="boxPresenti">
         <div class="presentiTitle"><h1 id="mainTitle" class="title"> Presenti </h1><h1 class="icon" onclick="openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')" id="closePresenti">&times</h1></div>
         <ul id='presenti'>
-            <li v-for="user in usersOnlineInMap" :key="user.id"><p @click="openUserInfo( user.id )">{{ user.infoPg.name }}</p> <img src="/img/imgHomeInterna/Icone/Presenti/open.png" id="iconPresenti" @click="openModalPresenti()" v-if="usersOnlineInMap[Object.keys(usersOnlineInMap).length - 1] == user "></li>
+            <li v-for="user in usersOnlineInMap" :key="user.id"><p @click="openUserInfo( user.infoPg.id )">{{ user.infoPg.name }}</p> <img src="/img/imgHomeInterna/Icone/Presenti/open.png" id="iconPresenti" @click="openModalPresenti()" v-if="usersOnlineInMap[Object.keys(usersOnlineInMap).length - 1] == user "></li>
         </ul>
     </div>
  

@@ -166,7 +166,8 @@ class UserController extends Controller
                 'sesso' => $user->sesso,
                 'razza' => [ 'name' => $user->breed->name , 'immagine' => $user->breed->immagini ],
                 'emisfero' => [ 'name' => $user->hemispere->name , 'immagine' => $user->hemispere->immagini ],
-                'classi' => $user->classes
+                'classi' => $user->classes,
+                'id' => $user->id
             ];
         }
         return json_encode( $usersToSend );

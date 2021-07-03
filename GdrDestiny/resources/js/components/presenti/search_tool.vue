@@ -20,7 +20,7 @@ export default {
 
     watch : {
         'namePg' : function(){
-
+            this.namePg.charAt(0).toUpperCase()
             if ( this.user_is_offline ) return  this.searchUser(this.$parent.$parent.$parent.all_users)
             
             this.searchUser(this.$parent.$parent.$parent.usersOnline)

@@ -29,13 +29,13 @@ trait CheckStatusUser
         array_push( $idUsersOnline ,[ 
             'last_chat' => $this->user->last_chat, 
             'nameMap' => $this->user->getLastMap(),
-            'id' => $this->user->id,
             'infoPg' => [
                 'name' => $this->user->name,
                 'sesso' => $this->user->sesso,
                 'razza' => [ 'name' => $this->user->breed->name , 'immagine' => $this->user->breed->immagini ],
                 'emisfero' => [ 'name' => $this->user->hemispere->name , 'immagine' => $this->user->hemispere->immagini ],
-                'classi' => $this->user->classes
+                'classi' => $this->user->classes,
+                'id' => $this->user->id
             ], 
              'last_update' => now()
         ]);
@@ -75,13 +75,13 @@ trait CheckStatusUser
         $idUsersOnline[$index_user] = [ 
             'last_chat' => $this->user->last_chat, 
             'nameMap' => $this->user->getLastMap(),
-            'id' => $this->user->id,
             'infoPg' => [
                 'name' => $this->user->name,
                 'sesso' => $this->user->sesso,
                 'razza' => [ 'name' => $this->user->breed->name , 'immagine' => $this->user->breed->immagini ],
                 'emisfero' => [ 'name' => $this->user->hemispere->name , 'immagine' => $this->user->hemispere->immagini ],
-                'classi' => $this->user->classes
+                'classi' => $this->user->classes,
+                'id' => $this->user->id
             ], 
              'last_update' => now()
         ];

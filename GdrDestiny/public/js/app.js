@@ -5703,6 +5703,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     'namePg': function namePg() {
+      this.namePg.charAt(0).toUpperCase();
       if (this.user_is_offline) return this.searchUser(this.$parent.$parent.$parent.all_users);
       this.searchUser(this.$parent.$parent.$parent.usersOnline);
     }
@@ -5756,6 +5757,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     user: Object
+  },
+  methods: {
+    openUserInfo: function openUserInfo(idUser) {
+      return modal.openModal("/user/" + idUser, null, 'schedaPg/userProfile.js');
+    }
   }
 });
 
@@ -70319,7 +70325,7 @@ var render = function() {
             {
               on: {
                 click: function($event) {
-                  return _vm.openUserInfo(user.id)
+                  return _vm.openUserInfo(user.infoPg.id)
                 }
               }
             },
@@ -70597,7 +70603,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", [
-    _c("td", [_c("p", [_vm._v(_vm._s(_vm.user.name))])]),
+    _c("td", [
+      _c(
+        "p",
+        {
+          staticClass: "icon",
+          on: {
+            click: function($event) {
+              return _vm.openUserInfo(_vm.user.id)
+            }
+          }
+        },
+        [_vm._v(_vm._s(_vm.user.name))]
+      )
+    ]),
     _vm._v(" "),
     _c("td", [
       _c("img", {
