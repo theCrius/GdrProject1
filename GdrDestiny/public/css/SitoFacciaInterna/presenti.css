@@ -40,6 +40,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   border-radius: 0px 25px 25px 0px;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,13 +48,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.boxPresenti h1 {
-  font-size: 2.5vh;
-  font-family: fontH;
-  color: white;
-  text-align: center;
 }
 
 #iconPresenti {
@@ -131,5 +125,228 @@
           animation-duration: 1s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+/* Presenti Estesi */
+.presenti_tool {
+  padding: 0.8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.presenti_tool #search_tool {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+}
+
+.presenti_tool #useronlineinmap {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.presenti_tool #useronlineinmap table {
+  max-height: 100%;
+  color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.presenti_tool #useronlineinmap table tr {
+  height: 2vh;
+  text-align: center;
+}
+
+.presenti_tool #useronlineinmap table tr h3 {
+  font-size: 1.6vh;
+}
+
+.presenti_tool #useronlineinmap table tr p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 1.5vh;
+}
+
+.presenti_tool #useronlineinmap table td:nth-child(1) {
+  width: 30%;
+}
+
+.presenti_tool #useronlineinmap table td:nth-child(6) {
+  width: 30%;
+}
+
+.presenti_tool #useronlineinmap table td:nth-child(2), .presenti_tool #useronlineinmap table td:nth-child(3), .presenti_tool #useronlineinmap table td:nth-child(4), .presenti_tool #useronlineinmap table td:nth-child(5) {
+  width: 17%;
+}
+
+.icon_presenti {
+  height: 3vh;
+}
+
+#sfondo_modal_vue {
+  height: 100%;
+  width: 100%;
+}
+
+.nameMap {
+  text-align: center;
+  font-family: fontH;
+  background-color: #1f81b0;
+}
+
+.title_image_present {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.title_image_present img {
+  height: 3.5vh;
+  padding-left: 1vh;
+  cursor: pointer;
+  -webkit-animation: rotating 2s  infinite;
+          animation: rotating 2s  infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+/* search_tool */
+#search_tool {
+  background-color: #1f81b0;
+  -webkit-box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
+          box-shadow: 5px  5px 2px #2cc6c8, -5px -5px 2px #2cc6c8, 5px -5px 2px #2cc6c8, -5px  5px 2px #2cc6c8;
+  margin-bottom: 1vh;
+  padding: 1vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#search_tool input {
+  background: #013445;
+  height: 50%;
+  color: white;
+  width: 50%;
+  margin: auto;
+  border: 1px solid #2bc5c7;
+  padding: 1vh;
+}
+
+/* switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35%;
+  height: 50%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1f81b0;
+  -webkit-transition: .4s;
+  border: 1px solid #25a3bb;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "Online";
+  height: 85%;
+  width: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: #013445;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+input:checked + .slider {
+  background-color: #013445;
+}
+
+input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196F3;
+          box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(90%);
+          transform: translateX(90%);
+  content: "Offline";
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#status_on_off {
+  margin-top: 4vh;
+  text-align: center;
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  to {
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  to {
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
 }
 /*# sourceMappingURL=presenti.css.map */

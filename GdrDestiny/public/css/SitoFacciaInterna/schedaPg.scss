@@ -312,7 +312,6 @@ html{
     visibility: hidden;
     height: 30vh;
     width: 58.7vh;
-    background-color: #014358;
     position: absolute;
     right: 9.5vh;
     top: 7vh;
@@ -320,6 +319,7 @@ html{
     z-index: 1;
     transform: scaleY(0);
     transform-origin: top;
+    background-color: #014358;
     box-shadow:  5px  5px 2px #2cc6c8,
     -5px -5px 2px #2cc6c8,
      5px -5px 2px #2cc6c8,

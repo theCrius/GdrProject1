@@ -10,14 +10,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     border-radius: 0px 25px 25px 0px;
-
+    color: white;
     display: flex;
-    h1{
-        font-size: 2.5vh;
-        font-family: fontH;
-        color: white;
-        text-align: center;
-    }
+    
 
 
     flex-direction: column;
@@ -77,3 +72,186 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
+
+
+/* Presenti Estesi */ 
+.presenti_tool{
+
+    padding: 0.8vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    #search_tool{
+        flex: 0.3;
+    }
+    #useronlineinmap{
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        table {
+            max-height: 100%;
+            color: white;
+            border-collapse: collapse;
+            width: 100%;
+            tr{
+                h3{
+                    font-size: 1.6vh;
+                }
+                height: 2vh;
+                text-align: center;
+                    p{
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        font-size: 1.5vh;
+                    }
+        
+            }
+            td:nth-child(1){
+                width: 30%;
+                                
+            }
+            td:nth-child(6){
+                width: 30%;
+            }
+            td:nth-child(2) , td:nth-child(3),td:nth-child(4),td:nth-child(5){
+                width: 17%;
+                                
+            }
+            
+            
+        }
+    }
+
+
+
+}
+.icon_presenti{
+    height: 3vh;
+}
+#sfondo_modal_vue{
+
+    height: 100%;
+    width: 100%;
+}
+.nameMap{
+    text-align: center;
+    font-family: fontH;
+    background-color: #1f81b0;
+    
+}
+.title_image_present{
+    display:flex;
+    flex-direction : row;
+    img {
+        height: 3.5vh;
+        padding-left: 1vh;
+        cursor: pointer;
+        animation: rotating 2s  infinite;
+        animation-direction: alternate;
+        
+    }
+}
+/* search_tool */
+#search_tool{
+    background-color: #1f81b0;
+    box-shadow:  5px  5px 2px #2cc6c8,
+    -5px -5px 2px #2cc6c8,
+     5px -5px 2px #2cc6c8,
+    -5px  5px 2px #2cc6c8;
+    margin-bottom: 1vh;
+    padding: 1vh; 
+    display: flex;
+    align-items: center;
+    input {
+        background: #013445;
+        height: 50%;
+        color: white;
+        width: 50%;
+        margin: auto;
+        border: 1px solid #2bc5c7;
+        padding: 1vh;
+    }
+}
+
+
+/* switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35%;
+    height: 50%;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1f81b0;
+    -webkit-transition: .4s;
+    border: 1px solid #25a3bb;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "Online";
+    height: 85%;
+    width: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: #013445;
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input:checked + .slider {
+    background-color: #013445;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(90%);
+        content: "Offline";
+    
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+  #status_on_off{
+      margin-top: 4vh;
+      text-align: center;
+  }
+@keyframes rotating {
+    from {
+      transform: rotate(-90deg);
+    }
+    to {
+
+      transform: rotate(20deg);
+    }
+  }

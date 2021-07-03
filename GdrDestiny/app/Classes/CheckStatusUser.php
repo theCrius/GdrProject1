@@ -12,7 +12,7 @@ trait CheckStatusUser
 
         foreach($usersonline as $key => $useronline)
         {
-            if( $useronline['name'] === $user['name'] ) $result = $key;
+            if( $useronline['infoPg']['name'] === ( $user['infoPg']['name'] ?? $user->name ) ) $result = $key;
             $this->checkLastUpate($useronline,$key);
         }
 
@@ -26,12 +26,19 @@ trait CheckStatusUser
 
         if ( $this->ifUserIsOnline($idUsersOnline) != -1 ) return ;
 
-        array_push( $idUsersOnline ,['name' => $this->user->name ,
-        'last_chat' => $this->user->last_chat, 
-        'nameMap' => $this->user->getLastMap(),
-        'id' => $this->user->id,
-         'last_update' => now()]) ; // creo un nuovo array con le vecchie e nuove informazioni
-
+        array_push( $idUsersOnline ,[ 
+            'last_chat' => $this->user->last_chat, 
+            'nameMap' => $this->user->getLastMap(),
+            'id' => $this->user->id,
+            'infoPg' => [
+                'name' => $this->user->name,
+                'sesso' => $this->user->sesso,
+                'razza' => [ 'name' => $this->user->breed->name , 'immagine' => $this->user->breed->immagini ],
+                'emisfero' => [ 'name' => $this->user->hemispere->name , 'immagine' => $this->user->hemispere->immagini ],
+                'classi' => $this->user->classes
+            ], 
+             'last_update' => now()
+        ]);
         \Cache::put('users-online',$idUsersOnline);
 
         return $idUsersOnline;
@@ -66,10 +73,16 @@ trait CheckStatusUser
         if( $index_user == -1){ return $this->setStatusOnline(); }
 
         $idUsersOnline[$index_user] = [ 
-            'name' => $this->user->name ,
             'last_chat' => $this->user->last_chat, 
             'nameMap' => $this->user->getLastMap(),
             'id' => $this->user->id,
+            'infoPg' => [
+                'name' => $this->user->name,
+                'sesso' => $this->user->sesso,
+                'razza' => [ 'name' => $this->user->breed->name , 'immagine' => $this->user->breed->immagini ],
+                'emisfero' => [ 'name' => $this->user->hemispere->name , 'immagine' => $this->user->hemispere->immagini ],
+                'classi' => $this->user->classes
+            ], 
              'last_update' => now()
         ];
 

@@ -33,7 +33,6 @@
 export default {
     data(){
         return {
-            all_users : {},
             name : '',
             title : '',
             message : '',
@@ -121,7 +120,7 @@ export default {
 
             axios
                 .get(this.$parent.route_to_get_all_users)
-                .then(response => this.all_users = response.data)
+                .then(response => this.$parent.$parent.all_users = response.data)
                 .catch(error => console.log(error))
             
 
@@ -138,7 +137,7 @@ export default {
 
          checkName : function(){
 
-            for( let name of this.all_users){
+            for( let name of this.$parent.$parent.all_users){
                 
                 if(name.name == this.name) {  return this.errors.messages.name = false  }
 

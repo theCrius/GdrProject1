@@ -20,21 +20,28 @@
         flex-direction: column;
         color: white;
         header{
-            flex: 0.2;
+            flex: 0.139;
             cursor: move;
+            width: 83%;
+            margin: auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
         }
         main{
             flex: 1;
+            width: 83%;
+            margin: auto;
+            display: flex;
+        }
+        footer{
+            flex: 0.139;
+            width: 83%;
+            margin: auto;
         }
     }
 }
 
-
-#sfondo_modal_vue{
-
-    height: 100%;
-    width: 100%;
-}
 
 @media only screen and (max-width: 980px) and (min-height: 700px){
   

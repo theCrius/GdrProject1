@@ -1,8 +1,8 @@
 <template>
     <div class="boxPresenti">
-        <div class="presentiTitle"><h1 id="mainTitle"> Presenti </h1><h1 class="icon" onclick="openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')" id="closePresenti">&times</h1></div>
+        <div class="presentiTitle"><h1 id="mainTitle" class="title"> Presenti </h1><h1 class="icon" onclick="openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')" id="closePresenti">&times</h1></div>
         <ul id='presenti'>
-            <li v-for="user in usersOnlineInMap" :key="user.id"><p @click="openUserInfo( user.id )">{{ user.name }}</p> <img src="/img/imgHomeInterna/Icone/Presenti/open.png" id="iconPresenti" @click="openModalPresenti()" v-if="usersOnlineInMap[Object.keys(usersOnlineInMap).length - 1] == user "></li>
+            <li v-for="user in usersOnlineInMap" :key="user.id"><p @click="openUserInfo( user.id )">{{ user.infoPg.name }}</p> <img src="/img/imgHomeInterna/Icone/Presenti/open.png" id="iconPresenti" @click="openModalPresenti()" v-if="usersOnlineInMap[Object.keys(usersOnlineInMap).length - 1] == user "></li>
         </ul>
     </div>
  
@@ -48,7 +48,7 @@ export default {
                 
                     if( !this.checkIfUserIsInChat(this.$parent.usersOnline[keyFirstLoop]) ) continue
                     for (const keySecondLoop in this.usersOnlineInMap){
-                        if( this.usersOnlineInMap[keySecondLoop].name == this.$parent.usersOnline[keyFirstLoop].name ) continue loop1;
+                        if( this.usersOnlineInMap[keySecondLoop].infoPg.name == this.$parent.usersOnline[keyFirstLoop].infoPg.name ) continue loop1;
                     }
                     this.usersOnlineInMap.push( this.$parent.usersOnline[keyFirstLoop] )
             
@@ -92,7 +92,8 @@ export default {
 
         openModalPresenti()
         {
-            this.$parent.componentToOpen = "presenti_estesi"
+            this.$parent.componentToOpen.main = "presenti_estesi"
+            this.$parent.componentToOpen.header="icon_search_tool"
         }
 
     

@@ -156,7 +156,20 @@ class UserController extends Controller
    //get all users registered
    public function allUsers(){
 
-        return json_encode( User::select('name')->get() );
+        $users = User::all();
+        $usersToSend = [];
+
+        foreach ($users as $user)
+        {
+            $usersToSend[] = [
+                'name' => $user->name,
+                'sesso' => $user->sesso,
+                'razza' => [ 'name' => $user->breed->name , 'immagine' => $user->breed->immagini ],
+                'emisfero' => [ 'name' => $user->hemispere->name , 'immagine' => $user->hemispere->immagini ],
+                'classi' => $user->classes
+            ];
+        }
+        return json_encode( $usersToSend );
 
    }
 

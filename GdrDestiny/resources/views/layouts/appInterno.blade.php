@@ -47,7 +47,7 @@
         <presenti :current_map = "{{json_encode(['nameRoute' => Route::currentRouteName(),'parametres' => array_values(Route::current()->parameters)])}}"></presenti>
         </div>
 
-        <modal v-show="componentToOpen"></modal>
+        <modal v-show="componentToOpen.main"></modal>
 
     </section>
         @if($errors)
