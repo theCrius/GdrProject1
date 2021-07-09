@@ -45,13 +45,15 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('/')->group( function(){
 
         //after logging
-        Route::get('/home', 'TopmapController@index')->name('home');
+        Route::get('/home', 'TopmapController@index')->name('topmap');
 
         //show a single middle map
         Route::get('/home/{idMiddlemap}','MiddlemapController@index')->name('middlemap');
 
         //show a single bottom map
         Route::get('/home/{idMiddlemap}/{idBottommap}','BottommapController@index')->name('bottommap');
+
+        Route::get('/chat/{idChat}','ChatController@show')->name('chat');
 
     });
         //add class by user

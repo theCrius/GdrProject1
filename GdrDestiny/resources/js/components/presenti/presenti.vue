@@ -45,7 +45,7 @@ export default {
             this.usersOnlineInMap = []
             loop1: 
             for (const keyFirstLoop in this.$parent.usersOnline) {
-                
+                    
                     if( !this.checkIfUserIsInChat(this.$parent.usersOnline[keyFirstLoop]) ) continue
                     for (const keySecondLoop in this.usersOnlineInMap){
                         if( this.usersOnlineInMap[keySecondLoop].infoPg.name == this.$parent.usersOnline[keyFirstLoop].infoPg.name ) continue loop1;

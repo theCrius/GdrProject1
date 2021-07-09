@@ -1,0 +1,226 @@
+
+#topChat{
+    flex: 0.35;
+    display: flex;
+    flex-direction: row;
+
+    #topChat-right, #topChat-left{
+        flex: 0.3;
+        position: relative;
+    }
+    #topChat-middle{
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        #placeTitle{
+            margin-bottom: 1vh;
+            position: relative;
+            height: 60%;
+            width: 77%;
+            display: flex;
+           
+            img {
+                height: 9vh;
+        
+            }
+    }
+    }
+}
+#middleChat{
+    flex: 1.2;
+}
+#bottomChat{
+    flex: 0.35;
+    display: flex;
+    #bottomChat-left{
+        flex: 1.2;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        margin-top: 0.5vh;
+        position: relative;
+        #sfondoChatInput{
+            height: 9vh;
+            margin-right: 6.2vh;
+        }
+    }
+    #bottomChat-right{
+        flex: 0.29;
+        position: relative;
+    }
+}
+
+#mainChat{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+}
+#infoChat{
+    display: flex;
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    
+}
+#inputChat{
+    flex: 1;
+    input {
+        height: 9vh;
+        width: 71vh;
+        background-color: transparent;
+        border: none;
+        padding: 1vh;
+        color: white;
+    }
+}
+
+#action_lenght{
+    color: white;
+    flex: 0.5;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: relative;
+
+}
+#bottomChat-left-copy{
+    display: flex;
+    flex-direction: row;
+}
+#box_characters{
+    width: 29%;
+    height: 49%;
+    border: 1px solid #33a6b1;
+    margin-right: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
+}
+#sendAction{
+    height: 6vh;
+}
+#dadi{
+    height: 10vh;
+    position: absolute;
+    top: -18%;
+    right: 15%;
+    }
+
+#descrizioneLuogoChat{
+    height: 11.5vh;
+    position: absolute;
+    bottom: -19%;
+    left: 15%;
+}
+#indietroChat{
+    height: 7vh;
+    position: absolute;
+    left: 15%;
+    top: -5%;
+}
+
+#news{
+    height: 3.5vh !important;
+}
+/* TOOLTIP */ 
+.tooltip{
+    height: fit-content;
+    box-sizing: border-box;
+}
+@media only screen and (max-width: 980px) and (min-height: 700px){
+    #topChat{
+     #topChat-middle{
+         
+         #placeTitle{
+             margin-bottom: 0;
+             img {
+                 height: 5.8vh;
+             }
+     }
+     }
+ 
+ }
+ #bottomChat{
+    #bottomChat-left{
+       position: relative;
+        #sfondoChatInput{
+            height: 5.8vh;
+            margin-right: 4.3vh;
+        }
+    }
+
+}
+#inputChat{
+    input {
+        height: 5.8vh;
+        width: 46vh;
+    }
+}
+#sendAction{
+    height: 4vh;
+}
+#dadi{
+    height: 7vh;
+}
+#descrizioneLuogoChat{
+    height: 7.5vh;
+
+}
+
+#indietroChat{
+    top: -22%;
+    height: 6vh;
+    left : 14%;
+    
+}
+}
+
+
+
+
+@media only screen and (max-width: 840px){
+    #topChat{
+        #topChat-middle{
+            
+            #placeTitle{
+                img {
+                    height: 5.3vh;
+                }
+        }
+        }
+    
+    }
+    #bottomChat{
+        #bottomChat-left{
+           
+            #sfondoChatInput{
+                height: 5.2vh;
+            }
+        }
+    
+    }
+    #inputChat{
+        input {
+            height: 5.2vh;
+            width: 41vh;
+        }
+    }
+    #dadi{
+        height: 6.5vh;
+        top: -22%;
+    }
+    #descrizioneLuogoChat{
+        height: 6.5vh;
+    
+    }
+}

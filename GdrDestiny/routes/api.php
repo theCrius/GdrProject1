@@ -32,6 +32,8 @@ Route::name('gdrConsts.')->prefix('/consts')->group(function () {
     
     Route::get('messages','gdrConstsController@showConstsMessages')->name('messages');
     Route::get('meteo','gdrConstsController@showConstsMeteo')->name('meteo');
+    Route::get('chat','gdrConstsController@showConstsChat')->name('chat');
+    
 
 });
 

@@ -1,0 +1,275 @@
+#topChat {
+  -webkit-box-flex: 0.35;
+      -ms-flex: 0.35;
+          flex: 0.35;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#topChat #topChat-right, #topChat #topChat-left {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  position: relative;
+}
+
+#topChat #topChat-middle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#topChat #topChat-middle #placeTitle {
+  margin-bottom: 1vh;
+  position: relative;
+  height: 60%;
+  width: 77%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#topChat #topChat-middle #placeTitle img {
+  height: 9vh;
+}
+
+#middleChat {
+  -webkit-box-flex: 1.2;
+      -ms-flex: 1.2;
+          flex: 1.2;
+}
+
+#bottomChat {
+  -webkit-box-flex: 0.35;
+      -ms-flex: 0.35;
+          flex: 0.35;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#bottomChat #bottomChat-left {
+  -webkit-box-flex: 1.2;
+      -ms-flex: 1.2;
+          flex: 1.2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 0.5vh;
+  position: relative;
+}
+
+#bottomChat #bottomChat-left #sfondoChatInput {
+  height: 9vh;
+  margin-right: 6.2vh;
+}
+
+#bottomChat #bottomChat-right {
+  -webkit-box-flex: 0.29;
+      -ms-flex: 0.29;
+          flex: 0.29;
+  position: relative;
+}
+
+#mainChat {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+}
+
+#infoChat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#inputChat {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#inputChat input {
+  height: 9vh;
+  width: 71vh;
+  background-color: transparent;
+  border: none;
+  padding: 1vh;
+  color: white;
+}
+
+#action_lenght {
+  color: white;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+}
+
+#bottomChat-left-copy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#box_characters {
+  width: 29%;
+  height: 49%;
+  border: 1px solid #33a6b1;
+  margin-right: 2vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sendAction {
+  height: 6vh;
+}
+
+#dadi {
+  height: 10vh;
+  position: absolute;
+  top: -18%;
+  right: 15%;
+}
+
+#descrizioneLuogoChat {
+  height: 11.5vh;
+  position: absolute;
+  bottom: -19%;
+  left: 15%;
+}
+
+#indietroChat {
+  height: 7vh;
+  position: absolute;
+  left: 15%;
+  top: -5%;
+}
+
+#news {
+  height: 3.5vh !important;
+}
+
+/* TOOLTIP */
+.tooltip {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media only screen and (max-width: 980px) and (min-height: 700px) {
+  #topChat #topChat-middle #placeTitle {
+    margin-bottom: 0;
+  }
+  #topChat #topChat-middle #placeTitle img {
+    height: 5.8vh;
+  }
+  #bottomChat #bottomChat-left {
+    position: relative;
+  }
+  #bottomChat #bottomChat-left #sfondoChatInput {
+    height: 5.8vh;
+    margin-right: 4.3vh;
+  }
+  #inputChat input {
+    height: 5.8vh;
+    width: 46vh;
+  }
+  #sendAction {
+    height: 4vh;
+  }
+  #dadi {
+    height: 7vh;
+  }
+  #descrizioneLuogoChat {
+    height: 7.5vh;
+  }
+  #indietroChat {
+    top: -22%;
+    height: 6vh;
+    left: 14%;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  #topChat #topChat-middle #placeTitle img {
+    height: 5.3vh;
+  }
+  #bottomChat #bottomChat-left #sfondoChatInput {
+    height: 5.2vh;
+  }
+  #inputChat input {
+    height: 5.2vh;
+    width: 41vh;
+  }
+  #dadi {
+    height: 6.5vh;
+    top: -22%;
+  }
+  #descrizioneLuogoChat {
+    height: 6.5vh;
+  }
+}
+/*# sourceMappingURL=chat.css.map */

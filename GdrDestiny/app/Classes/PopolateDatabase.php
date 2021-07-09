@@ -1633,6 +1633,20 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
     }
 
+    public function addNewsToChat()
+    {
+        \App\Chatnews::insert([
+            'id_user' => 1,
+            'id_chat' => 2,
+            'descrizione' => 'palazzo distrutto 2'
+        ]);
+         \App\Chatnews::insert([
+            'id_user' => 1,
+            'id_chat' => 1,
+            'descrizione' => 'palazzo distrutto'
+        ]);
+    }
+
     public function insertExpTransactions(){
 
         \App\Exp::insert([

@@ -8,7 +8,7 @@
     <a href="{{route("middlemap",$map->id_middlemap)}}" id='returnBackMap'>
 
     @else  
-    <a href="{{route("home")}}" id='returnBackMap'>
+    <a href="{{route("topmap")}}" id='returnBackMap'>
     
     @endif
         <img src="/img/imgHomeInterna/Icone/map_&_chat/indietro.png" alt="">

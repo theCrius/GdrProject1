@@ -27,6 +27,8 @@ Vue.component('presenti', require('./components/presenti/presenti.vue').default)
 Vue.component('presenti_estesi', require('./components/presenti/presenti_estesi.vue').default);
 Vue.component('icon_search_tool', require('./components/presenti/icon_search_tool.vue').default);
 Vue.component('modal', require('./components/modal.vue').default);
+Vue.component('bottom-chat', require('./components/chat/bottom-chat.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -38,6 +38,15 @@ h3{
 h1{
     font-size: 2.5vh;
 }
+.error{
+    color: red !important;
+}
+.sameBox{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
 .title{
         font-size: 2.5vh;
         font-family: fontH;
@@ -192,7 +201,7 @@ html , body{
     }
 }
 .contenitoreMappa{
-    height: 51vh;
+    height: 45vh;
 }
     
 

@@ -34,9 +34,11 @@ class OnlineStatus implements ShouldBroadcast
         {
             $this->usersOnline = $this->setStatusOffline();
 
+
         }elseif($status == 'refresh')
         {
             $this->usersOnline = $this->refreshLastChat();
+
 
         }
 

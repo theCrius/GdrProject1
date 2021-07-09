@@ -1,6 +1,6 @@
 <template>
     <div>
-       <img :src="'/img/imgHomeInterna/home/' + messaggiStatus" id='messaggi' :class="{'vibrate' : new_messages.length }"  alt="messaggi">
+       <img :src="'/img/imgHomeInterna/home/' + messaggiStatus" id='messaggi' :class="{'vibrate' : new_messages.length , 'noDisplay' : hiddenOrNot}"  alt="messaggi">
     </div>
 </template>
 
@@ -14,12 +14,23 @@ export default {
     },
     props : {
         new_messages : Object,
+        mapOrChatRoute : String,
     },
 
     mounted() {
 
         
        
+    },
+
+    computed : {
+
+        hiddenOrNot : function(){
+
+            return this.mapOrChatRoute == 'chat'
+
+        }
+
     },
 
     watch: {
@@ -29,13 +40,12 @@ export default {
 
              this.vibrateActive = ( ( this.new_messages.length == 0) ?  false : true )
 
-        }
+        },
     },
     
 
     methods: {
 
-    
     },
 
 }

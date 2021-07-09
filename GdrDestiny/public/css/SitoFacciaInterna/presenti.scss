@@ -103,6 +103,10 @@
                         text-overflow: ellipsis;
                         overflow: hidden;
                         font-size: 1.5vh;
+                        a {
+                            color: white;
+                            text-decoration: none;
+                        }
                     }
         
             }

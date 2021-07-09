@@ -19,7 +19,7 @@
 
                 <template v-for="( users , nameMap) in usersDividedIntoMap">
                 <tr  :key="nameMap" v-if="nameMap">
-                    <td colspan="6" id="" class="nameMap"><h2>{{ nameMap }}</h2></td>
+                    <td colspan="6" id="" class="nameMap"><h2>{{ nameMap.replace('_',' ') }}</h2></td>
                 </tr>
                         <show_searches :user="user" v-for="user  in users" :key="user"></show_searches>
 
@@ -60,17 +60,20 @@ export default{
         divideUsersInMap()
         {
             this.usersDividedIntoMap = {}
-
+            //se l'utente si trova in una chat allora aggiungiamo le informazioni se no lasciamo solo le informazioni dell'utente
             for (const key in this.$parent.$parent.usersOnline) {
+
+            let chatAndUserInfoToSend = this.$parent.$parent.usersOnline[key].infoChat ? { infoPg : this.$parent.$parent.usersOnline[key].infoPg, chat : this.$parent.$parent.usersOnline[key].infoChat.chat } : { infoPg : this.$parent.$parent.usersOnline[key].infoPg }
+
             if ( Object.keys( this.usersDividedIntoMap ).includes( this.$parent.$parent.usersOnline[key].nameMap ) ) 
             {
                if ( !this.usersDividedIntoMap[this.$parent.$parent.usersOnline[key].nameMap].includes ( this.$parent.$parent.usersOnline[key].infoPg ) )
                {
-                   this.usersDividedIntoMap[this.$parent.$parent.usersOnline[key].nameMap].push( this.$parent.$parent.usersOnline[key].infoPg )
+                   this.usersDividedIntoMap[this.$parent.$parent.usersOnline[key].nameMap].push( chatAndUserInfoToSend )
                }
             }else
             {
-                this.usersDividedIntoMap[ this.$parent.$parent.usersOnline[key].nameMap ] = [ this.$parent.$parent.usersOnline[key].infoPg ]
+                this.usersDividedIntoMap[ this.$parent.$parent.usersOnline[key].nameMap ] = [chatAndUserInfoToSend]
             }
         }
         },

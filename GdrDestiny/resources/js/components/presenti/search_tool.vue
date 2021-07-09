@@ -19,16 +19,8 @@ export default {
     },
 
     watch : {
-        'namePg' : function(){
-            this.namePg.charAt(0).toUpperCase()
-            if ( this.user_is_offline ) return  this.searchUser(this.$parent.$parent.$parent.all_users)
-            
-            this.searchUser(this.$parent.$parent.$parent.usersOnline)
-
-
-
-
-        }
+        'namePg' : function(){ this.searchUserTool() },
+        'user_is_offline' : function(){ this.searchUserTool() },
     },
 
 
@@ -41,8 +33,9 @@ export default {
 
                 let letters = 0 ;
                 let usersRegistered = whereTryToSearch[key].infoPg || whereTryToSearch[key]
-
-                if( !usersRegistered.name ) usersRegistered 
+                let chatWhereIsUser = ''
+                console.log(whereTryToSearch[key])
+                if( whereTryToSearch[key].infoChat ) { chatWhereIsUser = whereTryToSearch[key].infoChat.chat }
                 for(  const key2 in usersRegistered.name)
                 {
                     if ( usersRegistered.name[key2] === this.namePg[key2] ) letters += 1;
@@ -50,12 +43,21 @@ export default {
                 if( letters > 3 )
                 {
                     if( this.$parent.usersFound.includes(usersRegistered) ) continue
-                    this.$parent.usersFound.push( usersRegistered )
+                    this.$parent.usersFound.push( {'infoPg' : usersRegistered ,  'chat' : chatWhereIsUser }  )
                 }
                 
 
             }
         },
+
+        searchUserTool(){
+
+            this.namePg = this.namePg.charAt(0).toUpperCase() + this.namePg.toLowerCase().slice(1)
+        
+            if ( this.user_is_offline ) return  this.searchUser(this.$parent.$parent.$parent.all_users)
+            
+            this.searchUser(this.$parent.$parent.$parent.usersOnline)
+        }
         
     }
 

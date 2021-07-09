@@ -13,11 +13,11 @@
     @foreach ($chats as $chat)
         @if($chat->visibility === 'no')
 
-            <a href=""><img src="/img/imgHomeInterna/Icone/map_&_chat/iconachat.png" alt="" id='Chat-{{$chat->id}}' onmouseout="boxIconMap.leaveBox()" onmouseover="boxIconMap.showBox('{{$chat->name}}',{{ json_encode($chat->descrizione) }},this,{ 'Closer' : 'bottom' })" class="chat"></a>
+            <a href="{{ route('chat',$chat->id) }}"><img src="/img/imgHomeInterna/Icone/map_&_chat/iconachat.png" alt="" id='Chat-{{$chat->id}}' onmouseout="boxIconMap.leaveBox()" onmouseover="boxIconMap.showBox('{{$chat->name}}',{{ json_encode($chat->descrizione) }},this,{ 'Closer' : 'bottom' })" class="chat"></a>
 
         @else 
 
-            <a href=""><img src="/img/imgHomeInterna/Icone/map_&_chat/iconainvisibile.png" alt="" id='Chat-hidden-{{$chat->id}}' onmouseout="boxIconMap.leaveBox()" onmouseover="boxIconMap.showBox('{{$chat->name}}',{{ json_encode($chat->descrizione) }},this,{ 'Closer' : 'bottom' })" class="chat"></a>
+            <a href="{{ route('chat',$chat->id) }}"><img src="/img/imgHomeInterna/Icone/map_&_chat/iconainvisibile.png" alt="" id='Chat-hidden-{{$chat->id}}' onmouseout="boxIconMap.leaveBox()" onmouseover="boxIconMap.showBox('{{$chat->name}}',{{ json_encode($chat->descrizione) }},this,{ 'Closer' : 'bottom' })" class="chat"></a>
 
         @endif
         

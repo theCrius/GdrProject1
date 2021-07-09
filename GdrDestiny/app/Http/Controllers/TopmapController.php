@@ -14,7 +14,7 @@ class TopmapController extends Controller
     {
        $map = Topmap::find(1);
 
-       ChangeMap::dispatch(\Auth::user(),'home',[$map->id]);
+       ChangeMap::dispatch(\Auth::user(),'topmap',[$map->id]);
 
         return view('internoLand.topmap',
         [

@@ -15,7 +15,14 @@ return [
         //ogni quante ore si aggiorna il meteo
         'each_hours' => 4,
         
-    ]
+    ],
+
+    'chat' => [
+        'action' => [
+            //massima lunghezza delle azioni
+            'max_length' => 2500 //caratteri
+        ] ,
+    ],
     
 
 

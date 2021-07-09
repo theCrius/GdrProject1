@@ -74,6 +74,9 @@ class PopolateDatabase extends Command
 
           //sotto chat in cui scrivere
           $this->addSubChats();
+    
+          //aggiunge informazioni alle chat
+          $this->addNewsToChat();
    
     }
 }

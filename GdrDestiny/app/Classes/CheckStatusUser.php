@@ -28,6 +28,7 @@ trait CheckStatusUser
 
         array_push( $idUsersOnline ,[ 
             'last_chat' => $this->user->last_chat, 
+            'infoChat' => $this->user->getLastChatInfo(),
             'nameMap' => $this->user->getLastMap(),
             'infoPg' => [
                 'name' => $this->user->name,
@@ -85,6 +86,7 @@ trait CheckStatusUser
             ], 
              'last_update' => now()
         ];
+        if($idUsersOnline[$index_user]['last_chat']['nameRoute'] === 'chat') $idUsersOnline[$index_user]['infoChat'] = $this->user->getLastChatInfo();
 
         \Cache::put('users-online' , $idUsersOnline );
         

@@ -23,6 +23,7 @@ window.openVueClass = function (  ){
 window.boxMeteo= new Box()
 
 window.boxIconMap = new Box(null,"opacity08")
+window.boxWhatIsThis = new Box(null,'tooltip')
 
 $(".modal_vue_body").draggable({ //the user can move the modal
     handle: "#modal_vue_header"

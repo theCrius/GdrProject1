@@ -11,4 +11,26 @@ class Chat extends Model
         'name','id_topmap','id_middlemap','id_bottommap','visibility','descrizione'
 
     ];
+
+    public function news()
+    {
+        return $this->hasMany('\App\Chatnews','id_chat','id')->orderBy('created_at','asc');
+    }
+    public function map()
+    {
+        if( $this->id_topmap )
+        {
+            $classMap = 'topmap';
+
+        }else if($this->id_middlemap )
+        {
+            $classMap = 'middlemap';
+
+        }else if($this->id_bottommap)
+        {
+            $classMap = 'bottommap';
+        }
+        return $this->belongsTo("\App\\" . $classMap,'id_' . $classMap ,'id');
+    }
+    
 }
