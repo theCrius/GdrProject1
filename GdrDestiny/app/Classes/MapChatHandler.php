@@ -19,7 +19,7 @@ trait MapChatHandler
             
         }else if( $this->last_chat['nameRoute'] === 'chat')
         {
-            $nameMap = \App\Chat::findOrFail($this->last_chat['parametres'])[0]->map->name;
+            $nameMap = \App\Chat::where('id',$this->last_chat['parametres'])->get()[0]->map->name;
         }
 
         return $nameMap;
@@ -30,8 +30,7 @@ trait MapChatHandler
     {  
         $parametres = $this->last_chat['parametres'] ? $this->last_chat['parametres'] : 1;
 
-        $chat = \App\Chat::findOrFail($parametres)[0] ;
-
+        $chat = \App\Chat::where('id',$parametres)->get()[0] ;
         return [ 
             'chat' => $chat, 
             'news' => $chat->news

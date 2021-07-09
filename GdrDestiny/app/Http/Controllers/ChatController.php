@@ -47,18 +47,18 @@ class ChatController extends Controller
     public function show($idChat, Request $request)
     {
         $chat = \App\Chat::findOrFail($idChat);
+
         ChangeMap::dispatch(\Auth::user(),'chat',[$chat->id]);
-        $nameRoute = strtolower(class_basename( $chat->map::class ));
-        $parametres = $nameRoute == 'topmap' ? null : $chat->map->id;
+        $nameRoute = strtolower(class_basename(  get_class($chat->map )));
+        $parametres = $nameRoute == 'Topmap' ? null : $chat->map->id;
        
-        $newsRecently
+        
 
         return view('internoLand.chat',[
             'errors' => $request->errors,
             'chat' => $chat,
             'route_to_get_back' => route($nameRoute,$parametres),
-            'newsToShowOnTooltip' => $newsRecently
-
+            'newsToShowOnTooltip' => ''
         ]);
     }
 

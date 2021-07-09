@@ -1,6 +1,6 @@
 @extends('layouts.appInterno')
 @section('content')
-<link rel="stylesheet" href="/css/sitoFacciaInterna/chat.css">
+<link rel="stylesheet" href="/css/SitoFacciaInterna/chat.css">
     <img src="/img/imgHomeInterna/chat/basechat.png" alt="" id='mappa' >
     <div id="mainChat">
         <div id="topChat">

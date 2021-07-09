@@ -30,7 +30,8 @@ class Chat extends Model
         {
             $classMap = 'bottommap';
         }
-        return $this->belongsTo("\App\\" . $classMap,'id_' . $classMap ,'id');
+    
+        return $this->belongsTo("\App\\" . ucfirst($classMap),'id_' . $classMap ,'id');
     }
     
 }
