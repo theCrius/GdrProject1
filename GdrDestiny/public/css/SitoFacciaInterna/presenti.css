@@ -30,6 +30,20 @@
   }
 }
 
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+}
+
 .boxPresenti {
   visibility: hidden;
   background-color: #013445;
@@ -39,7 +53,9 @@
   left: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  border-radius: 0px 25px 25px 0px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,10 +69,9 @@
 #iconPresenti {
   cursor: pointer;
   height: 2vh;
-  margin-bottom: 0.5vh;
-  margin-right: 4%;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  margin: 0.2vh;
 }
 
 #presenti li:nth-child(odd) {
@@ -108,6 +123,8 @@
   -webkit-box-flex: 0.2;
       -ms-flex: 0.2;
           flex: 0.2;
+  text-align: right;
+  margin-right: 0.5vh;
 }
 
 .onBoxLeft {

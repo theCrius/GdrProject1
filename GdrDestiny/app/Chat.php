@@ -8,13 +8,17 @@ class Chat extends Model
 {
     protected $fillable = [
         
-        'name','id_topmap','id_middlemap','id_bottommap','visibility','descrizione'
+        'name','id_topmap','id_middlemap','id_bottommap','visibility','descrizione','immagini'
 
     ];
+    protected $casts = [
+        'immagini' => 'json'
+    ];
+
 
     public function news()
     {
-        return $this->hasMany('\App\Chatnews','id_chat','id')->orderBy('created_at','asc');
+        return $this->hasMany('\App\Chatnews','id_chat','id')->orderBy('created_at','desc')->with('user');
     }
     public function map()
     {

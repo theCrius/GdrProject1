@@ -75,7 +75,6 @@ class SkillController extends Controller
     
    public function show(Request $request,int $id){
        $user=\App\User::where('id',$id)->with('skills')->get()[0];
-       
 
         
        

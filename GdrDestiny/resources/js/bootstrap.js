@@ -43,4 +43,8 @@ window.axios = require('axios');
      wsPort: 6001,
      forceTLS: false,
      disableStats: true,
+     encrypted: true,
+     authEndpoint : "/broadcasting/auth",
+    
+     
  });

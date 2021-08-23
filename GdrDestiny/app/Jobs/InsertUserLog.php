@@ -30,6 +30,8 @@ class InsertUserLog implements ShouldQueue
         
     }
 
+    public $uniqueFor = 3600;
+
     /**
      * Execute the job.
      *

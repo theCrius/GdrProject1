@@ -9,7 +9,9 @@
     left: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    border-radius: 0px 25px 25px 0px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
     color: white;
     display: flex;
     
@@ -22,9 +24,8 @@
 #iconPresenti{
     cursor: pointer;
     height: 2vh;
-    margin-bottom: 0.5vh;
-    margin-right: 4%;
     align-self: flex-end;
+    margin: 0.2vh;
 }
 #presenti{
     li:nth-child(odd) {
@@ -58,6 +59,8 @@
     }
     #closePresenti{
         flex: 0.2;
+        text-align: right;
+        margin-right: 0.5vh;
     }
 }
 

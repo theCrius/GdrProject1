@@ -14,7 +14,7 @@ trait Schedule{
                 Message::where('letto','no')->delete();
                 
             }
-        )->eachEightMonths();
+        )->eachSixMonths();
         
 
     }

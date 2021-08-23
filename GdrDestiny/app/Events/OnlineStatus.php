@@ -10,6 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Classes\CheckStatusUser;
+use App\Jobs\InsertUserLog;
 
 class OnlineStatus implements ShouldBroadcast
 {
@@ -29,6 +30,8 @@ class OnlineStatus implements ShouldBroadcast
         if( $status == 'login')
         {
             $this->usersOnline = $this->setStatusOnline();
+            InsertUserLog::dispatch($this->user->id,\Request::ip());
+            
 
         }elseif($status == 'logout')
         {

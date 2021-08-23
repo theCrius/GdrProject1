@@ -13,6 +13,7 @@
     height: 80vh;
     width: 50%;
     position: relative;
+    z-index: 9999999;
     section{
         position: absolute;
         top: 0;
@@ -33,6 +34,7 @@
             width: 83%;
             margin: auto;
             display: flex;
+            max-height: 64vh;
         }
         footer{
             flex: 0.139;

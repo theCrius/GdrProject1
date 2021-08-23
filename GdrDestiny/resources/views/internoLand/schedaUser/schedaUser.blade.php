@@ -10,18 +10,23 @@
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe1.png" alt=""> 
     @if(!count($userToView->classes))
+        @if( $userToView->id == $userView->id )
        <img src="/img/imgHomeInterna/Icone/piu.png" class='icon' alt="" title='Aggiungi Classe' onclick="modal.openModal('{{route('addClass')}}')">
-    @else
+       @endif
+       @else
         <img src="/img/imgHomeInterna/Icone/Classi/{{$userToView->classes[0]->immagine}}"  title='{{$userToView->classes[0]->name}}' alt="">
     @endif
     </li>
 
     <li> <img src="/img/imgHomeInterna/home/schedaPg/classe2.png" alt="">
-    @if(count($userToView->classes) == 1 || count($userToView->classes) == 0)
-       <img src="/img/imgHomeInterna/Icone/piu.png" class='icon' title='Aggiungi Classe' alt="" onclick="modal.openModal('{{route('addClass')}}')">
+    @if(count($userToView->classes) == 1 || count($userToView->classes) == 0 )
+    @if( $userToView->id == $userView->id )   
+         <img src="/img/imgHomeInterna/Icone/piu.png" class='icon' title='Aggiungi Classe' alt="" onclick="modal.openModal('{{route('addClass')}}')">
+    @endif
     @else
         <img src="/img/imgHomeInterna/Icone/Classi/{{$userToView->classes[1]->immagine}}" title='{{$userToView->classes[1]->name}}' alt="">
     @endif
+    
     </li>
     
     <li><img src="/img/imgHomeInterna/home/schedaPg/caricaoff.png" alt=""></li>
@@ -77,7 +82,7 @@
                 <ul>
                     <li onclick=" modal.openModal('{{route('expLog',$userToView)}}',null,null) "><h1>Punti Esperienza</h1></li>
                     <li onclick=" modal.openModal('{{route('moneyLog',$userToView)}}',null,null) "><h1>Transazioni</h1></li>
-                    @if($userView->hasRole(\Config::get('roles.ROLE_GESTORE')))
+                    @if($userView->modOffAdminOrGestore())
                     <li onclick="modal.openModal('{{route('userloggedLog',$userToView)}}',null,null) "><h1>Accessi</h1></li>
                     <li onclick="modal.openModal('{{route('usermessagesLog',$userToView)}}',null,'schedaPg/messagesLog.js') "><h1>Messaggi</h1></li>
                     @endif
@@ -125,19 +130,21 @@
 @endsection
 
 @section('footer')
-@if($userToView->id === $userView->id)
+@if($userView->gestoreOrOwner($userToView))
 <div class='money'><h3>Soldi:</h3><p>&nbsp&nbsp{{ $money }}</p> </div>
 @endif
 <ul id='iconeFooter'>
 
 <li><img src="/img/imgHomeInterna/home/schedaPg/emisfero.png" alt=""> <img src="/img/imgHomeInterna/Icone/Emisfero/{{ $userToView->hemispere->immagini }}"  title=' {{ $userToView->hemispere->name }} ' alt=""></li>
-
-    <li><img src="/img/imgHomeInterna/home/schedaPg/mechaeso.png" alt="" id='mecha' onclick="modal.openModal('{{route('showMecha',$userToView)}}',null,'schedaPg/showMecha.js')"> </li>
-
+<li>
+@if($userToView->mecha)
+    <img src="/img/imgHomeInterna/home/schedaPg/mechaeso.png" alt="" id='mecha' onclick="modal.openModal('{{route('showMecha',$userToView)}}',null,'schedaPg/showMecha.js')"> 
+@endif
+</li>
     <li> <img src="/img/imgHomeInterna/home/schedaPg/genere.png" alt=""> <img src="/img/imgHomeInterna/Icone/Sesso/{{ $userToView->sesso }}.png" alt=""></li>
 </ul>
 
-@if($userToView->id === $userView->id || $userView->hasRole(null,[1,5]))
+@if($userView->gestoreOrOwner($userToView))
 <div class='expShow'><img src="/img/imgHomeInterna/home/schedaPg/esperienza.png" alt=""> <p> {{$expsUser}} </div>
 @endif
 

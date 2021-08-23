@@ -20,13 +20,32 @@ return [
     'chat' => [
         'action' => [
             //massima lunghezza delle azioni
-            'max_length' => 2500 //caratteri
+            'max_length' => 2500, //caratteri,
+            //dopo quante ore le azioni non vengono più viste in chat
+            'max_hours' => 1,
+            'money_got' => 300,
+            'exp_got' => 5,
         ] ,
+        'symbols' => [
+            'comunicazioni_off' => '$',
+            'sussurri' => '#',
+            'fato' => '&',
+            'action' => '',
+            'dadi' => '',
+        ],
+         //il menu tools in chat, tra parentesi tutti coloro che possono accedervi ( fare riferimento a ./roles.php )
+        'tools' => [
+            'note_chat' => [1,5],
+            'news_chat' => [1,5],
+            'cartella_clinica' => [2,5],
+            'apri_quest' => [3,5],
+            'assegna_oggetti' => [2,5],
+            'cura_pg' => '*'
+        ]
     ],
+   
     
-
-
-
+   
 
 
 ];

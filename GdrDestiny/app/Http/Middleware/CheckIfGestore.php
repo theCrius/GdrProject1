@@ -15,7 +15,7 @@ class CheckIfGestore
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->isGestore($request->idUser)) return $next($request);
+        if($request->user()->isGestore()) return $next($request);
 
         return abort(response()->json('Unauthorized', 403));
         

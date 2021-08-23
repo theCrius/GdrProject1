@@ -1,4 +1,4 @@
-@import url(/var/www/html/GdrProject1/GdrDestiny/node_modules/animate.css/animate.css);
+@import url(/Users/brunobryan/Desktop/Programmazione/GdrProject1/GdrDestiny/node_modules/animate.css/animate.css);
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {
@@ -61,6 +61,11 @@ h1 {
 
 .error {
   color: red !important;
+}
+
+.fullWidthHeight {
+  height: 100%;
+  width: 100%;
 }
 
 .sameBox {

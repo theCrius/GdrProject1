@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ModOffAdminOrGestore;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +68,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkIfGestoreOrOwner' => \App\Http\Middleware\GestoreOrOwner::class,
         'checkIfGestore' => \App\Http\Middleware\CheckIfGestore::class,
+        'checkIfMaster' => \App\Http\Middleware\CheckIfMaster::class,
+        'ModOffAdminOrGestore' => ModOffAdminOrGestore::class,
+
     ];
 }

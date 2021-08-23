@@ -6,7 +6,7 @@
             <div class="left">
 
                 <div class="name">
-                    <input type="text" @blur='checkName' :class="{ 'errorInput' : errors.messages.name }" name="name" id="" v-model='name' :placeholder="errors.placeholder.name"  value="">
+                    <input type="text" @blur='checkName' :class="{ 'errorInput' : errors.messages.name }" name="name" id="" v-model='name' :placeholder="errors.placeholder.name"  value="" >
                 </div>
 
                 <div class="emailOggetto">
@@ -33,7 +33,7 @@
 export default {
     data(){
         return {
-            name : '',
+            name : (this.$parent.messageToOpen && this.$parent.messageToOpen.userFrom) || 'kok',
             title : '',
             message : '',
             lengthRules : '',

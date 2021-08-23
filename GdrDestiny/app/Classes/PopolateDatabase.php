@@ -1595,37 +1595,47 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'name' => 'raspotin',
                 'id_topmap' => 1,
                 'descrizione' => 'sdjhsadasdasdjjasdjasdjldasjasdkj2io2',
-                'visibility' => 'no'
+                'visibility' => 'no',
+                'immagini' => null
             ],
             [
                 'name' => 'ego',
                 'id_topmap' => 1,
                 'descrizione' => '11111asdjldasjasdkj2io2',
-                'visibility' => 'no'
+                'visibility' => 'no',
+                'immagini' => json_encode([ ['name' => 'test1' , 'immagine' => 'test1.jpg'] ])
             ],
             [
                 'name' => 'charlemagne',
                 'id_topmap' => 1,
                 'descrizione' => '22222jasdjasdjldasjasdkj2io2',
-                'visibility' => 'no'
+                'visibility' => 'no',
+                'immagini' => null
+
             ],
             [
                 'name' => 'tokyo',
                 'id_topmap' => 1,
                 'descrizione' => '333333asdjasdjldasjasdkj2io2',
-                'visibility' => 'yes'
+                'visibility' => 'yes',
+                'immagini' => null
+
             ],
             [
                 'name' => 'mosca',
                 'id_topmap' => 1,
                 'descrizione' => '444444jasdjasdjldasjasdkj2io2',
-                'visibility' => 'yes'
+                'visibility' => 'yes',
+                'immagini' => null
+
             ],
             [
                 'name' => 'pechino',
                 'id_topmap' => 1,
                 'descrizione' => 'sdjhsadasdasdjjasdjasdjldasjasdkj2io2',
-                'visibility' => 'yes'
+                'visibility' => 'yes',
+                'immagini' => null
+
             ]
         
         ]);
@@ -1639,15 +1649,15 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             'id_user' => 1,
             'id_chat' => 2,
             'descrizione' => 'palazzo distrutto 2',
-            'created_at' => now()
+            'created_at' => now(),
         ]);
         \App\Chatnews::create([
             'id_user' => 1,
             'id_chat' => 2,
-            'descrizione' => 'palazzo werrwewewewewer 2',
+            'descrizione' => 'palazzo efasdfdsdas dfsadsf',
             'created_at' => now()
         ]);
-         \App\Chatnews::insert([
+         \App\Chatnews::create([
             'id_user' => 1,
             'id_chat' => 1,
             'descrizione' => 'palazzo distrutto'

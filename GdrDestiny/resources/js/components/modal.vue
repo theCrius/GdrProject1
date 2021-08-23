@@ -1,7 +1,7 @@
 <template>
     <div class="modal_vue" >
             <link rel="stylesheet" href="/css/SitoFacciaInterna/modalvue/modal.css">
-            <div class="modal_vue_body">
+            <div class="modal_vue_body" :style="{height : heightModal,width : widthModal}">
                 <img src="/img/imgHomeInterna/sfondo_modal_vue.png" id="sfondo_modal_vue">
                 <section>
                     <header id="modal_vue_header">
@@ -28,7 +28,8 @@
 export default {
     data(){
         return {
-            
+            heightModal : null,
+            widthModal : null
         }
     },
 
@@ -38,14 +39,25 @@ export default {
     methods : {
         getNameModal()
         {
-            return this.$parent.componentToOpen.main.replace('_',' ').toUpperCase()
+            return this.$parent.componentToOpen.main.replaceAll('_',' ').toUpperCase()
         },
         closeModal()
         {
             this.$parent.componentToOpen.main = null ;
             this.$parent.componentToOpen.header = null ;
             this.$parent.componentToOpen.footer = null ;
+            this.editHeight(null)
+            this.editWidth(null)
         },
+        editHeight(newHeight)
+        {
+            this.heightModal = newHeight
+        },
+        editWidth(newWidth)
+        {
+            this.widthModal = newWidth
+        }
+
     }
 }
 </script>

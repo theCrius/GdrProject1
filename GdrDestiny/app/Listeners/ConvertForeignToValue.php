@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\ShowLog;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Log;
 
 class ConvertForeignToValue
 {
@@ -35,9 +36,11 @@ class ConvertForeignToValue
             ];
 
             foreach($event->namesRelationship as $nameRelation){
-             
+                
+                if(!$value[$nameRelation]) continue ;
                 $arrayToReturn[$key][$nameRelation]=$value[$nameRelation][$event->valueToGet];
                     
+                
 
             }
            

@@ -1,4 +1,4 @@
-
+@import "animation";
 #topChat{
     flex: 0.35;
     display: flex;
@@ -29,6 +29,9 @@
 }
 #middleChat{
     flex: 1.2;
+    flex-basis: 0;
+    display: flex;
+    position: relative;
 }
 #bottomChat{
     flex: 0.35;
@@ -137,6 +140,218 @@
     height: fit-content;
     box-sizing: border-box;
 }
+
+/* descrizione_chat */
+#descrizione_main{
+    width: 99%;
+    max-height: 100%;
+    padding-left: 1.5vh;
+    padding-right: 1.5vh;
+    overflow-x: auto;
+    h2{
+        font-family: fontH;
+        margin-top: 1.5vh;
+        margin-bottom: 1vh;
+        text-align: center;
+    }
+    p {
+        font-size: 1.5vh;
+    }
+    .whoMadeIt{
+        text-align: right;
+    }
+    ul{
+        list-style: none;
+    }
+    li{
+        padding-bottom: 1vh;
+    }
+}
+
+#messaggiChat{
+    position: absolute;
+    top: 36%;
+    right: -2%;
+    cursor: pointer;
+    h1{
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        color: white;
+        font-family: fontH;
+    }
+}
+.new_message_chat{
+    color: brown !important;
+}
+
+#moreInfoChat{
+    height: 8vh;
+}
+#contenitoreAzioni{
+    width: 82%;
+    height: 100%;
+    margin: auto;
+    overflow-y: auto;
+    word-wrap: break-word;
+    max-height: 44vh;
+    ul {
+        color: white;
+        padding: 0.5vh;
+        overflow-y: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        li {
+            padding: 0.5vh;
+        }
+
+    }
+}
+
+
+.parlato{
+    color: #abe1f7;
+}
+.infoPgChat{
+    padding-right: 0.5vh;
+    color: #ffffffd6;
+    font-weight: 1000;
+}
+.alignJustify{
+    text-align: justify
+}
+.parentesi{
+    color: #939db2;
+}
+.dataAzione{
+    text-align: right;
+}
+.fato{
+    border: 2px solid #32b4ca;
+    border-radius: 34px 34px 0px 0px;
+    padding: 1.5vh !important;
+    color: #32b4ca;
+    margin-bottom: 1.5vh;
+
+}
+.display_inline
+{
+    display: inline-block;
+    max-width: 100%;
+}
+.comunicazioni_off{
+    color: #d6d6d6 !important;
+    font-style: italic;
+}
+.sussurri{
+    color: #00ffcc !important;
+}
+.nameFato{
+    margin-right: 9px;
+}
+
+#system_dado{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    label {
+        float: left;
+    }
+    justify-content: center;
+    align-items: center;
+    select{
+        height: 50%;
+        width: 70%;
+        border: 2px solid #00838f;
+        background-color: #013445;
+        color: #b7ebf5;
+    }
+}
+.sub_system{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#button_send{
+    height: 80%;
+    width: 70%;
+    border: 2px solid #00838f;
+        background-color: #013445;
+        color: #b7ebf5;
+        &:hover{
+            background-color: #eeeff0;
+            color: #013445;
+        }
+        cursor: pointer;
+}
+.absoluteContainerIcon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#tools-icon{
+    height: 6vh;
+    position: absolute;
+    top: 40%;
+    left: 3.4%;
+    animation: spin 2s cubic-bezier(0, 0, 0.26, 0.82) infinite;
+}
+#tools-menu{
+    width: 23%;
+    height: fit-content;
+    position: fixed;
+    left: 0;
+    background-color: #013445;
+    z-index: 1;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    header {
+        flex: 0.2;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items:center;
+        h1{
+            margin:0 1vh 0 1vh ;
+            color: white;
+        }
+    }
+    main {
+        flex: 1;
+        ul{
+            text-transform: capitalize;
+            li:nth-child(odd) {
+                background-color: #013445;
+                color: white;
+            }
+            li:nth-child(even) {
+                background-color: #0d4557;
+                color: white;
+            }
+            li{
+                display: flex;
+                flex-direction: row;
+        
+                
+                p {
+                    padding: 1vh;
+                    cursor: pointer;
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+.openToolsMenu{
+    animation: slideInLeft;
+    animation-duration: 1s;
+}
 @media only screen and (max-width: 980px) and (min-height: 700px){
     #topChat{
      #topChat-middle{
@@ -171,6 +386,7 @@
 }
 #dadi{
     height: 7vh;
+    cursor: pointer;
 }
 #descrizioneLuogoChat{
     height: 7.5vh;
@@ -183,10 +399,21 @@
     left : 14%;
     
 }
+#messaggiChat{
+    top: 29%;
+    right: -3%;
 }
-
-
-
+#moreInfoChat{
+    height: 5vh;
+}
+#contenitoreAzioni{
+        max-height: 30vh;
+}
+#tools-icon{
+    height: 5vh;
+    left: 2.7%;
+}
+}
 
 @media only screen and (max-width: 840px){
     #topChat{
@@ -221,6 +448,10 @@
     }
     #descrizioneLuogoChat{
         height: 6.5vh;
+    
+    }
+    #contenitoreAzioni{
+            max-height: 28vh;
     
     }
 }

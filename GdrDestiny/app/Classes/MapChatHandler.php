@@ -30,10 +30,9 @@ trait MapChatHandler
     {  
         $parametres = $this->last_chat['parametres'] ? $this->last_chat['parametres'] : 1;
 
-        $chat = \App\Chat::where('id',$parametres)->get()[0] ;
+        $chat = \App\Chat::where('id',$parametres)->with('news')->get()[0] ;
         return [ 
-            'chat' => $chat, 
-            'news' => $chat->news
+            'chat' => $chat,
         ];
     }
 }

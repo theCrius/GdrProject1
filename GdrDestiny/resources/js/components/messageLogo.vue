@@ -13,7 +13,7 @@ export default {
 
     },
     props : {
-        new_messages : Object,
+        new_messages : Array,
         mapOrChatRoute : String,
     },
 

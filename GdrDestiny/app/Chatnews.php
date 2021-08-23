@@ -10,6 +10,12 @@ class Chatnews extends Model
         'id_user','id_chat','descrizione'
     ];
     protected $table='chatnews';
+
+
+    public function user()
+    {
+        return $this->belongsTo('\App\User','id_user','id')->select('id','name');
+    }
     
     
     

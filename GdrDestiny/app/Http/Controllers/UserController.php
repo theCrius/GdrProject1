@@ -82,7 +82,7 @@ class UserController extends Controller
             'users' => User::select('name')->get(),
             'money' => Money::getSum($idUser),
             'errors' => $request->errors,
-            'userView' => $request->user(),
+            'userView' => \Auth::user(),
             'points' => MedicalrecordController::getPoints($idUser)
 
         ]);
@@ -97,7 +97,8 @@ class UserController extends Controller
     public function showOptionEditsUser($idUser, Request $request)
     {
         $user= User::find($idUser);
-        if( !$user->gestoreOrOwner(\Auth::user())) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
+        
+        if( !\Auth::user()->gestoreOrOwner($user)) return $this->returnBackWithError($request, 'Non puoi modificare le impostazione di questo utente' );
         
         $this->saveDataPreSubmit($request);
 
@@ -172,6 +173,11 @@ class UserController extends Controller
         }
         return json_encode( $usersToSend );
 
+   }
+   public function skillsAndSpecs(Request $request)
+   {
+       $user = $request->user();
+       return response()->json(['skills' => $user->skills, 'specs' => $user->specs]);
    }
 
     /**

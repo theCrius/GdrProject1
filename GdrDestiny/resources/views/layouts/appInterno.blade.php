@@ -50,6 +50,7 @@
         </div>
 
         <modal v-show="componentToOpen.main"></modal>
+        
 
     </section>
         @if($errors)
