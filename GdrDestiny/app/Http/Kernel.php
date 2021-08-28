@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\ModOffAdminOrGestore;
+use App\Http\Middleware\modOnMasterAdminOrGestore;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -70,6 +71,7 @@ class Kernel extends HttpKernel
         'checkIfGestore' => \App\Http\Middleware\CheckIfGestore::class,
         'checkIfMaster' => \App\Http\Middleware\CheckIfMaster::class,
         'ModOffAdminOrGestore' => ModOffAdminOrGestore::class,
+        'modOnMasterAdminOrGestore' => modOnMasterAdminOrGestore::class,
 
     ];
 }

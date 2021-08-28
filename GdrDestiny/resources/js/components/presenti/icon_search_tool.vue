@@ -1,6 +1,6 @@
 <template>
     <div>
-    <img src="/img/imgHomeInterna/Icone/Presenti/search_tool.png" @click="openSearchTool()">
+    <img src="/img/imgHomeInterna/Icone/Presenti/search_tool.png" @click="openSearchTool()" id="iconPresentiSearch">
     </div>
 </template>
 <script>

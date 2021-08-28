@@ -28,6 +28,10 @@
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
+            .boxTop{
+                display:flex;
+                flex-direction : row;
+            }
         }
         main{
             flex: 1;
@@ -35,6 +39,7 @@
             margin: auto;
             display: flex;
             max-height: 64vh;
+            overflow: auto;
         }
         footer{
             flex: 0.139;

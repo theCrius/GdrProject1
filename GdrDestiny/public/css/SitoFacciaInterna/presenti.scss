@@ -146,10 +146,8 @@
     background-color: #1f81b0;
     
 }
-.title_image_present{
-    display:flex;
-    flex-direction : row;
-    img {
+
+ #iconPresentiSearch{
         height: 3.5vh;
         padding-left: 1vh;
         cursor: pointer;
@@ -157,7 +155,7 @@
         animation-direction: alternate;
         
     }
-}
+
 /* search_tool */
 #search_tool{
     background-color: #1f81b0;

@@ -57,10 +57,13 @@ Route::name('meteo.get.')->prefix('/meteo/get')->group(function(){
 //action route
 Route::get('/action/{idChat}/last','ActionController@show')->name('action.show');
 Route::post('/action/{idChat}/store', 'ActionController@store')->name('action.store');
- 
+
+// add one news in chat
+Route::post("/chat/{chat}/news/add","ChatNewsController@create");
+Route::delete('/news/{news}',"ChatNewsController@destroy");
 
 //system of user online
-Route::get('/usersonline','UserController@index');
+Route::get('/usersonline','UserController@index')->middleware('modOnMasterAdminOrGestore');
 
 //get specs and skills for chat
 Route::get('/user/skills/specs', 'UserController@skillsAndSpecs');

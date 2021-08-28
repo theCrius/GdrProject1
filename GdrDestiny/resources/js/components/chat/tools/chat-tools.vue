@@ -19,7 +19,7 @@ export default {
 
     },
     methods : {
-
+        
     },
     props : {
         tools : Array

@@ -53,6 +53,16 @@
           justify-content: space-between;
 }
 
+.modal_vue_body section header .boxTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 .modal_vue_body section main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -63,6 +73,7 @@
   display: -ms-flexbox;
   display: flex;
   max-height: 64vh;
+  overflow: auto;
 }
 
 .modal_vue_body section footer {

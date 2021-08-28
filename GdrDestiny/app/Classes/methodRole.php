@@ -67,6 +67,10 @@ trait methodRole{
        return $this->hasRole(\Config::get('roles.ROLE_MODERATORE_OFF')) || $this->hasRole(\Config::get('roles.ROLE_ADMIN'),[4,5]);
    }
 
+   public function modOnMasterAdminOrGestore()
+   {
+       return $this->hasRole(\Config::get('roles.ROLE_MODERATORE_ON')) || $this->hasRole(\Config::get('roles.ROLE_MASTER',[3,5]));
+   }
    
 
 

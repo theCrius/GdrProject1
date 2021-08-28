@@ -17,22 +17,9 @@ window.moment = require('moment');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-Vue.component('messageTable', require('./components/messageTable.vue').default);
-Vue.component('messageLogo', require('./components/messageLogo.vue').default);
-Vue.component('meteo', require('./components/meteo.vue').default);
-Vue.component('presenti', require('./components/presenti/presenti.vue').default);
-Vue.component('presenti_estesi', require('./components/presenti/presenti_estesi.vue').default);
-Vue.component('icon_search_tool', require('./components/presenti/icon_search_tool.vue').default);
-Vue.component('modal', require('./components/modal.vue').default);
-Vue.component('bottom-chat', require('./components/chat/bottom-chat.vue').default);
-Vue.component('descrizione_chat', require('./components/chat/descrizione_chat.vue').default);
-Vue.component('message-icon-chat', require('./components/messages/message-icon-chat.vue').default);
-Vue.component('simboli_chat', require('./components/chat/simboli_chat.vue').default);
-Vue.component('middle-chat', require('./components/chat/middle-chat.vue').default);
-Vue.component('dadi_e_skill', require('./components/dadi_e_skill.vue').default);
-Vue.component('chat-tools', require('./components/chat/tools/chat-tools.vue').default);
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
 
 
 

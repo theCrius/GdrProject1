@@ -227,17 +227,7 @@
   background-color: #1f81b0;
 }
 
-.title_image_present {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.title_image_present img {
+#iconPresentiSearch {
   height: 3.5vh;
   padding-left: 1vh;
   cursor: pointer;

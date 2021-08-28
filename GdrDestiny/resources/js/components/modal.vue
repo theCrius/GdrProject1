@@ -5,7 +5,7 @@
                 <img src="/img/imgHomeInterna/sfondo_modal_vue.png" id="sfondo_modal_vue">
                 <section>
                     <header id="modal_vue_header">
-                    <div class="title_image_present">
+                    <div class="boxTop">
                         <h1 class="title">{{ this.getNameModal() }}</h1>
                             <component v-bind:is="this.$parent.componentToOpen.header" ></component>
                     </div>

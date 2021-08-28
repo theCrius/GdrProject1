@@ -5451,6 +5451,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      placeholder: "Descrizione della news",
+      news: ''
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      axios.post('/api/chat/' + this.$parent.$parent.$parent.usersOnlineInMap[0].infoChat.chat.id + '/news/add', {
+        description: this.news
+      }).then(function (response) {
+        return _this.newsInserted(response.data);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    newsInserted: function newsInserted(newsToPrint) {
+      this.news = '';
+      console.log(newsToPrint);
+      this.$parent.$parent.$parent.usersOnlineInMap[0].infoChat.chat.news.unshift(newsToPrint);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  methods: {
+    openBox: function openBox() {
+      if (this.$parent.$parent.componentToOpen.addNews) return this.$parent.$parent.componentToOpen.addNews = false;
+      return Vue.set(this.$parent.$parent.componentToOpen, 'addNews', true);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _add_news_chat_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add_news_chat.vue */ "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    add_news_chat: _add_news_chat_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      news: []
+    };
+  },
+  methods: {
+    getOldNews: function getOldNews() {
+      this.news = this.$parent.$parent.usersOnlineInMap[0].infoChat.chat.news;
+    },
+    dateNews: function dateNews(dateToPrint) {
+      return moment(dateToPrint).format('LL');
+    },
+    deleteNewsFromList: function deleteNewsFromList($newsToDelete) {
+      for (var key in this.$parent.$parent.usersOnlineInMap[0].infoChat.chat.news) {
+        if ($newsToDelete.id == this.$parent.$parent.usersOnlineInMap[0].infoChat.chat.news[key].id) return this.$parent.$parent.usersOnlineInMap[0].infoChat.chat.news.splice(key, 1);
+      }
+    },
+    deleteNews: function deleteNews(id) {
+      var _this = this;
+
+      axios["delete"]('/api/news/' + id).then(function (response) {
+        return _this.deleteNewsFromList(response.data);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.$parent.editHeight('60vh');
+    this.$parent.editWidth('60vh');
+    this.getOldNews();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/tools_icon.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/tools_icon.vue?vue&type=script&lang=js& ***!
@@ -5504,6 +5642,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     close: function close() {
       this.$parent.is_open = false;
+    },
+    openModal: function openModal(name) {
+      var topComponent = null;
+      if (name == 'news_chat') topComponent = 'icon_news_chat';
+      this.$parent.$parent.openModalVue(topComponent, name);
     }
   }
 });
@@ -71126,6 +71269,180 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=template&id=6add6977&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=template&id=6add6977& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "news_to_write" } }, [
+    _c("textarea", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.news,
+          expression: "news"
+        }
+      ],
+      attrs: { id: "description_news", placeholder: _vm.placeholder },
+      domProps: { value: _vm.news },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.news = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "icon",
+        attrs: { id: "submit_news", disabled: _vm.news.length == 0 },
+        on: {
+          click: function($event) {
+            return _vm.submit()
+          }
+        }
+      },
+      [_vm._v("Aggiungi News")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=template&id=87366606&":
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=template&id=87366606& ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("img", {
+      staticClass: "icon",
+      attrs: {
+        src: "/img/imgHomeInterna/Icone/piusottile.png",
+        id: "iconAddNews"
+      },
+      on: {
+        click: function($event) {
+          return _vm.openBox()
+        }
+      }
+    })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=template&id=27609115&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=template&id=27609115& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "note_chat" } },
+    [
+      _c("link", {
+        attrs: {
+          rel: "stylesheet",
+          href: "/css/SitoFacciaInterna/tools/news_chat.css"
+        }
+      }),
+      _vm._v(" "),
+      _c("add_news_chat", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: this.$parent.$parent.componentToOpen.addNews,
+            expression: "this.$parent.$parent.componentToOpen.addNews"
+          }
+        ]
+      }),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "news_written" } }, [
+        _c(
+          "ul",
+          _vm._l(_vm.news, function(singleNews) {
+            return _c(
+              "li",
+              {
+                key: singleNews.id,
+                on: {
+                  click: function($event) {
+                    return _vm.deleteNews(singleNews.id)
+                  }
+                }
+              },
+              [
+                _c("p", [_vm._v(_vm._s(singleNews.descrizione))]),
+                _vm._v(" "),
+                _c("p", { staticClass: "dateNews" }, [
+                  _vm._v(
+                    _vm._s(singleNews.user.name) +
+                      " il " +
+                      _vm._s(_vm.dateNews(singleNews.created_at))
+                  )
+                ])
+              ]
+            )
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/tools_icon.vue?vue&type=template&id=82b61ca6&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chat/tools/tools_icon.vue?vue&type=template&id=82b61ca6& ***!
@@ -71202,9 +71519,18 @@ var render = function() {
       _c(
         "ul",
         _vm._l(this.$parent.tools, function(tool, key) {
-          return _c("li", { key: key }, [
-            _c("p", [_vm._v(" " + _vm._s(tool.replace("_", " ")))])
-          ])
+          return _c(
+            "li",
+            {
+              key: key,
+              on: {
+                click: function($event) {
+                  return _vm.openModal(tool)
+                }
+              }
+            },
+            [_c("p", [_vm._v(_vm._s(tool.replace("_", " ")))])]
+          )
         }),
         0
       )
@@ -71978,7 +72304,7 @@ var render = function() {
           _c("header", { attrs: { id: "modal_vue_header" } }, [
             _c(
               "div",
-              { staticClass: "title_image_present" },
+              { staticClass: "boxTop" },
               [
                 _c("h1", { staticClass: "title" }, [
                   _vm._v(_vm._s(this.getNameModal()))
@@ -72039,7 +72365,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("img", {
-      attrs: { src: "/img/imgHomeInterna/Icone/Presenti/search_tool.png" },
+      attrs: {
+        src: "/img/imgHomeInterna/Icone/Presenti/search_tool.png",
+        id: "iconPresentiSearch"
+      },
       on: {
         click: function($event) {
           return _vm.openSearchTool()
@@ -84686,6 +85015,63 @@ function openOrClose(nameClass, classOpenBox, classLeaveBox) {
 
 /***/ }),
 
+/***/ "./resources/js sync recursive \\.vue$/":
+/*!***********************************!*\
+  !*** ./resources/js sync \.vue$/ ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./components/chat/bottom-chat.vue": "./resources/js/components/chat/bottom-chat.vue",
+	"./components/chat/descrizione_chat.vue": "./resources/js/components/chat/descrizione_chat.vue",
+	"./components/chat/input_text_chat.vue": "./resources/js/components/chat/input_text_chat.vue",
+	"./components/chat/middle-chat.vue": "./resources/js/components/chat/middle-chat.vue",
+	"./components/chat/name_user_in_chat.vue": "./resources/js/components/chat/name_user_in_chat.vue",
+	"./components/chat/simboli_chat.vue": "./resources/js/components/chat/simboli_chat.vue",
+	"./components/chat/tools/chat-tools.vue": "./resources/js/components/chat/tools/chat-tools.vue",
+	"./components/chat/tools/subtools/news_chat/add_news_chat.vue": "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue",
+	"./components/chat/tools/subtools/news_chat/icon_news_chat.vue": "./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue",
+	"./components/chat/tools/subtools/news_chat/news_chat.vue": "./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue",
+	"./components/chat/tools/tools_icon.vue": "./resources/js/components/chat/tools/tools_icon.vue",
+	"./components/chat/tools/tools_menu.vue": "./resources/js/components/chat/tools/tools_menu.vue",
+	"./components/dadi_e_skill.vue": "./resources/js/components/dadi_e_skill.vue",
+	"./components/messageLogo.vue": "./resources/js/components/messageLogo.vue",
+	"./components/messageTable.vue": "./resources/js/components/messageTable.vue",
+	"./components/messages/message-icon-chat.vue": "./resources/js/components/messages/message-icon-chat.vue",
+	"./components/messages/messageSingle.vue": "./resources/js/components/messages/messageSingle.vue",
+	"./components/messages/newMessage.vue": "./resources/js/components/messages/newMessage.vue",
+	"./components/meteo.vue": "./resources/js/components/meteo.vue",
+	"./components/modal.vue": "./resources/js/components/modal.vue",
+	"./components/presenti/icon_search_tool.vue": "./resources/js/components/presenti/icon_search_tool.vue",
+	"./components/presenti/presenti.vue": "./resources/js/components/presenti/presenti.vue",
+	"./components/presenti/presenti_estesi.vue": "./resources/js/components/presenti/presenti_estesi.vue",
+	"./components/presenti/search_tool.vue": "./resources/js/components/presenti/search_tool.vue",
+	"./components/presenti/show_searches.vue": "./resources/js/components/presenti/show_searches.vue"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/js sync recursive \\.vue$/";
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -84709,23 +85095,12 @@ window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('messageTable', __webpack_require__(/*! ./components/messageTable.vue */ "./resources/js/components/messageTable.vue")["default"]);
-Vue.component('messageLogo', __webpack_require__(/*! ./components/messageLogo.vue */ "./resources/js/components/messageLogo.vue")["default"]);
-Vue.component('meteo', __webpack_require__(/*! ./components/meteo.vue */ "./resources/js/components/meteo.vue")["default"]);
-Vue.component('presenti', __webpack_require__(/*! ./components/presenti/presenti.vue */ "./resources/js/components/presenti/presenti.vue")["default"]);
-Vue.component('presenti_estesi', __webpack_require__(/*! ./components/presenti/presenti_estesi.vue */ "./resources/js/components/presenti/presenti_estesi.vue")["default"]);
-Vue.component('icon_search_tool', __webpack_require__(/*! ./components/presenti/icon_search_tool.vue */ "./resources/js/components/presenti/icon_search_tool.vue")["default"]);
-Vue.component('modal', __webpack_require__(/*! ./components/modal.vue */ "./resources/js/components/modal.vue")["default"]);
-Vue.component('bottom-chat', __webpack_require__(/*! ./components/chat/bottom-chat.vue */ "./resources/js/components/chat/bottom-chat.vue")["default"]);
-Vue.component('descrizione_chat', __webpack_require__(/*! ./components/chat/descrizione_chat.vue */ "./resources/js/components/chat/descrizione_chat.vue")["default"]);
-Vue.component('message-icon-chat', __webpack_require__(/*! ./components/messages/message-icon-chat.vue */ "./resources/js/components/messages/message-icon-chat.vue")["default"]);
-Vue.component('simboli_chat', __webpack_require__(/*! ./components/chat/simboli_chat.vue */ "./resources/js/components/chat/simboli_chat.vue")["default"]);
-Vue.component('middle-chat', __webpack_require__(/*! ./components/chat/middle-chat.vue */ "./resources/js/components/chat/middle-chat.vue")["default"]);
-Vue.component('dadi_e_skill', __webpack_require__(/*! ./components/dadi_e_skill.vue */ "./resources/js/components/dadi_e_skill.vue")["default"]);
-Vue.component('chat-tools', __webpack_require__(/*! ./components/chat/tools/chat-tools.vue */ "./resources/js/components/chat/tools/chat-tools.vue")["default"]);
+var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
+
+files.keys().map(function (key) {
+  return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -85313,6 +85688,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_chat_tools_vue_vue_type_template_id_90f45014___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_chat_tools_vue_vue_type_template_id_90f45014___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _add_news_chat_vue_vue_type_template_id_6add6977___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add_news_chat.vue?vue&type=template&id=6add6977& */ "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=template&id=6add6977&");
+/* harmony import */ var _add_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add_news_chat.vue?vue&type=script&lang=js& */ "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _add_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _add_news_chat_vue_vue_type_template_id_6add6977___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _add_news_chat_vue_vue_type_template_id_6add6977___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_add_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./add_news_chat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_add_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=template&id=6add6977&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=template&id=6add6977& ***!
+  \****************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_news_chat_vue_vue_type_template_id_6add6977___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./add_news_chat.vue?vue&type=template&id=6add6977& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/add_news_chat.vue?vue&type=template&id=6add6977&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_news_chat_vue_vue_type_template_id_6add6977___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_news_chat_vue_vue_type_template_id_6add6977___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _icon_news_chat_vue_vue_type_template_id_87366606___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon_news_chat.vue?vue&type=template&id=87366606& */ "./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=template&id=87366606&");
+/* harmony import */ var _icon_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon_news_chat.vue?vue&type=script&lang=js& */ "./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _icon_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _icon_news_chat_vue_vue_type_template_id_87366606___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _icon_news_chat_vue_vue_type_template_id_87366606___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_icon_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./icon_news_chat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_icon_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=template&id=87366606&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=template&id=87366606& ***!
+  \*****************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_icon_news_chat_vue_vue_type_template_id_87366606___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./icon_news_chat.vue?vue&type=template&id=87366606& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/icon_news_chat.vue?vue&type=template&id=87366606&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_icon_news_chat_vue_vue_type_template_id_87366606___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_icon_news_chat_vue_vue_type_template_id_87366606___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _news_chat_vue_vue_type_template_id_27609115___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./news_chat.vue?vue&type=template&id=27609115& */ "./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=template&id=27609115&");
+/* harmony import */ var _news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./news_chat.vue?vue&type=script&lang=js& */ "./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _news_chat_vue_vue_type_template_id_27609115___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _news_chat_vue_vue_type_template_id_27609115___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chat/tools/subtools/news_chat/news_chat.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./news_chat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_news_chat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=template&id=27609115&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=template&id=27609115& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_news_chat_vue_vue_type_template_id_27609115___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./news_chat.vue?vue&type=template&id=27609115& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chat/tools/subtools/news_chat/news_chat.vue?vue&type=template&id=27609115&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_news_chat_vue_vue_type_template_id_27609115___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_news_chat_vue_vue_type_template_id_27609115___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
