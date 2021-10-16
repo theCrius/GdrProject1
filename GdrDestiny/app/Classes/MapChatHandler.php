@@ -1,6 +1,8 @@
 <?php 
 namespace App\Classes;
 
+use Illuminate\Support\Facades\Storage;
+
 trait MapChatHandler
 {
     public function getLastMap()
@@ -30,7 +32,14 @@ trait MapChatHandler
     {  
         $parametres = $this->last_chat['parametres'] ? $this->last_chat['parametres'] : 1;
 
-        $chat = \App\Chat::where('id',$parametres)->with('news')->get()[0] ;
+        $chat = \App\Chat::where('id',$parametres)->with('news','quest')->get()[0] ;
+        $images =  [];
+        for( $i = 0 ; $i < \Config::get('gdrConsts.chat.max_images'); $i++ )
+        {
+            
+            $images[$i]= empty(Storage::files('public/homeinterna/images/chats/' . $chat->id . '/' . $i)) ? null : basename(Storage::files('public/homeinterna/images/chats/' . $chat->id . '/' . $i)[0]) ;
+        }
+        $chat->immagini = $images;
         return [ 
             'chat' => $chat,
         ];

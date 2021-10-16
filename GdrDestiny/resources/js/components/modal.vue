@@ -1,11 +1,12 @@
 <template>
     <div class="modal_vue" >
             <link rel="stylesheet" href="/css/SitoFacciaInterna/modalvue/modal.css">
-            <div class="modal_vue_body" :style="{height : heightModal,width : widthModal}">
-                <img src="/img/imgHomeInterna/sfondo_modal_vue.png" id="sfondo_modal_vue">
+            <div class="modal_vue_body" :style="{height : this.$parent.componentToOpen.height,width : this.$parent.componentToOpen.width}">
+                <!-- .image is a variable that is created if it is necessary -->
+                <img :src=" $parent.componentToOpen.image" id="sfondo_modal_vue">
                 <section>
                     <header id="modal_vue_header">
-                    <div class="boxTop">
+                    <div class="boxTop" v-if="titleModalIsDisplayed">
                         <h1 class="title">{{ this.getNameModal() }}</h1>
                             <component v-bind:is="this.$parent.componentToOpen.header" ></component>
                     </div>
@@ -28,8 +29,7 @@
 export default {
     data(){
         return {
-            heightModal : null,
-            widthModal : null
+            'titleModalIsDisplayed' : true
         }
     },
 
@@ -46,17 +46,12 @@ export default {
             this.$parent.componentToOpen.main = null ;
             this.$parent.componentToOpen.header = null ;
             this.$parent.componentToOpen.footer = null ;
-            this.editHeight(null)
-            this.editWidth(null)
-        },
-        editHeight(newHeight)
-        {
-            this.heightModal = newHeight
-        },
-        editWidth(newWidth)
-        {
-            this.widthModal = newWidth
-        }
+            this.$parent.componentToOpen.height = null
+            this.$parent.componentToOpen.width = null
+            this.$parent.componentToOpen.image = '/img/imgHomeInterna/sfondo_modal_vue.png'
+            this.titleModalIsDisplayed = true
+},
+        
 
     }
 }

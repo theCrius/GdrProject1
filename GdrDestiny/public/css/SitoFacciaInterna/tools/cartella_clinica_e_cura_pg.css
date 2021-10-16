@@ -1,0 +1,207 @@
+#main_cartella_clinica {
+  width: 90%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#selects {
+  padding-top: 1vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 15%;
+}
+
+#selects select {
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+  height: 75%;
+  width: 100%;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  text-transform: capitalize;
+}
+
+#selects label {
+  margin-top: 1.5vh;
+}
+
+#selects div {
+  height: 100%;
+  width: 100%;
+}
+
+#selects #first-div {
+  margin-right: 1vh;
+}
+
+#hurts_show {
+  height: 59%;
+  overflow-X: hidden;
+  overflow-y: auto;
+  width: 99%;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  margin-top: 0.5vh;
+}
+
+#hurts_show .danno {
+  text-align: right;
+}
+
+#hurts_show .whoAdnWhen {
+  text-align: right;
+}
+
+#hurts_show li {
+  padding: 0.8vh;
+}
+
+#hurts_show li p::first-letter {
+  text-transform: capitalize;
+}
+
+#hurts_show li p {
+  word-break: break-all;
+}
+
+.delete li:hover {
+  border: 1px solid white !important;
+  color: white !important;
+  background-color: #9d0d0d !important;
+  cursor: url("/img/imgHomeInterna/Icone/delete.png"), auto;
+}
+
+#inputsAndButton {
+  height: 29%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#inputsAndButton #inputs {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#inputsAndButton #inputs input, #inputsAndButton #inputs select {
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+  margin-top: 0.5vh;
+  padding: 0.5vh;
+}
+
+#inputsAndButton #inputs #descrizioneClinica {
+  width: 70%;
+  margin-right: 0.5vh;
+}
+
+#inputsAndButton #inputs #dannoClinica {
+  width: 30%;
+  margin-left: 0.5vh;
+}
+
+#button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  padding-top: 0.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#button button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+}
+
+#cura_pg_statistiche {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 11%;
+  width: 100%;
+  padding-top: 0.5vh;
+}
+
+#cura_pg_statistiche button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+}
+
+#button_cura {
+  height: 11%;
+  padding-top: 0.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#button_cura button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  height: 80%;
+  border: 2px solid #00838f;
+  background-color: #013445;
+  color: #b7ebf5;
+}
+
+#completed_cure {
+  width: 99.5%;
+}
+/*# sourceMappingURL=cartella_clinica_e_cura_pg.css.map */

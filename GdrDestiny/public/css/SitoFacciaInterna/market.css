@@ -1,0 +1,213 @@
+.modal_vue_body {
+  width: 70% !important;
+}
+
+#modal_vue_header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#market_index {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#title_market {
+  -webkit-box-flex: 0.15;
+      -ms-flex: 0.15;
+          flex: 0.15;
+}
+
+#body_market {
+  -webkit-box-flex: 0.85;
+      -ms-flex: 0.85;
+          flex: 0.85;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: hidden;
+}
+
+#body_left_market {
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#body_right_market {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  position: relative;
+}
+
+#body_right_market img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+}
+
+main {
+  width: 86% !important;
+}
+
+#body_right_titles_market {
+  width: 83%;
+  height: 83%;
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  padding-left: 0.5vh;
+}
+
+#body_right_titles_market h1 {
+  text-align: center;
+  color: #00ffff;
+}
+
+#body_right_titles_market ul {
+  max-height: 94%;
+  overflow-y: auto;
+  color: #ffffff;
+  padding-top: 0.3vh;
+  text-transform: capitalize;
+  padding-left: 0.5vh;
+}
+
+#body_right_titles_market ul li p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 4;
+  width: 100%;
+  white-space: nowrap;
+  height: 3.5vh;
+}
+
+.body_left_object_market {
+  height: 35%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.body_left_object_image_market {
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  position: relative;
+}
+
+.body_left_object_image_market .body_left_object_image_background_market {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.body_left_object_image_market div {
+  height: 100%;
+  width: 100%;
+  padding: 0.5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body_left_object_image_market div img {
+  width: 77%;
+  height: 67%;
+  margin-right: 0.3vh;
+}
+
+.body_left_object_description_market {
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
+  position: relative;
+}
+
+.body_left_object_description_market img {
+  height: 85%;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+.body_left_object_description_market .body_left_object_description_box_market {
+  height: 80%;
+  width: 98%;
+  padding: 0.8vh;
+  position: absolute;
+  top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.body_left_object_description_name_market {
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+}
+
+.body_left_object_description_descrizione_market {
+  -webkit-box-flex: 0.6;
+      -ms-flex: 0.6;
+          flex: 0.6;
+  overflow-y: auto;
+  overflow-x: none;
+}
+
+.body_left_object_description_descrizione_secondaria_market {
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  overflow-y: auto;
+  overflow-x: none;
+}
+
+@media only screen and (max-width: 980px) and (min-height: 700px) {
+  .modal_vue_body {
+    width: 90% !important;
+  }
+}
+/*# sourceMappingURL=market.css.map */

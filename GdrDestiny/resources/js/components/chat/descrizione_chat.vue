@@ -1,9 +1,8 @@
 <template>
     <div id="descrizione_main">
         <div id="immagini">
-            <template v-for="immagine in infoChat.immagini">
-            <h2 :key="immagine.id">{{ immagine.name }}</h2>
-            <img :src="'/img/imgHomeInterna/chat/immagini_descrizione/' + immagine.immagine" alt="" :key="immagine.id">
+            <template v-for="(immagine,key) in infoChat.immagini">
+            <img :src="'/storage/homeinterna/images/chats/' + infoChat.id + '/' + key + '/' + immagine" alt="" :key="immagine">
             </template>
         </div>
         <div id="Descrizione">

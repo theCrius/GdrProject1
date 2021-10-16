@@ -44,6 +44,24 @@
   }
 }
 
+@-webkit-keyframes changeColor {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #ff0000;
+  }
+}
+
+@keyframes changeColor {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #ff0000;
+  }
+}
+
 .boxPresenti {
   visibility: hidden;
   background-color: #013445;
@@ -333,6 +351,19 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.quest_on {
+  -webkit-animation-name: changeColor;
+          animation-name: changeColor;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
 
 #status_on_off {

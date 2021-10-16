@@ -21,3 +21,13 @@
 @keyframes spin { 
   100% { transform:rotate(-90deg); } 
 }
+
+@keyframes changeColor{
+  from {
+    color: #FFFFFF;
+ }
+ 
+ to {
+    color: #ff0000;
+ }
+}

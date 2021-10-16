@@ -24,7 +24,9 @@ export default {
         {
             let topComponent = null
             if(name == 'news_chat') topComponent = 'icon_news_chat'
-            this.$parent.$parent.openModalVue(topComponent,name)
+            if( name == 'quest') return this.$parent.$parent.openModalVue(topComponent,name,null,"50vh","39vh")
+            if( name == 'news_chat' || name == "note_chat") return this.$parent.$parent.openModalVue(topComponent,name,null,"60vh","60vh")
+            this.$parent.$parent.openModalVue(topComponent,name,null)
         }
     }
 }

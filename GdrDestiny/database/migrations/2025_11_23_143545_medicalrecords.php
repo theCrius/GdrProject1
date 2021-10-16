@@ -15,7 +15,7 @@ class Medicalrecords extends Migration
     {
         Schema::create('medicalrecords', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('id_user_from');
+            $table->foreignId('id_user_from')->nullable();
             $table->foreignId('id_user_to');
             $table->enum('hurtposition',['top','bottom','middle','sanitamentale']);
             $table->string('descrizione');

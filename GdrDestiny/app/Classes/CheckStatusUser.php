@@ -1,6 +1,8 @@
 <?php
 namespace App\Classes;
 
+use Carbon\Carbon;
+
 trait CheckStatusUser
 {
 
@@ -36,7 +38,8 @@ trait CheckStatusUser
                 'razza' => [ 'name' => $this->user->breed->name , 'immagine' => $this->user->breed->immagini ],
                 'emisfero' => [ 'name' => $this->user->hemispere->name , 'immagine' => $this->user->hemispere->immagini ],
                 'classi' => $this->user->classes,
-                'id' => $this->user->id
+                'id' => $this->user->id,
+                'daysInCure' => $this->user->isInCure->first() ? Carbon::now()->diffInDays(Carbon::parse($this->user->isInCure->first()->finish_cure)) : false,
             ], 
              'last_update' => now()
         ]);
@@ -82,7 +85,9 @@ trait CheckStatusUser
                 'razza' => [ 'name' => $this->user->breed->name , 'immagine' => $this->user->breed->immagini ],
                 'emisfero' => [ 'name' => $this->user->hemispere->name , 'immagine' => $this->user->hemispere->immagini ],
                 'classi' => $this->user->classes,
-                'id' => $this->user->id
+                'id' => $this->user->id,
+                'daysInCure' => $this->user->isInCure->first() ? Carbon::now()->diffInDays(Carbon::parse($this->user->isInCure->first()->finish_cure)) : false,
+
             ], 
              'last_update' => now()
         ];

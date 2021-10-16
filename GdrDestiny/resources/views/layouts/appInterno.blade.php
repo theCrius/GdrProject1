@@ -26,7 +26,7 @@
                 <div class="buttonLeft">
                     <li><a href="#"><img data-number=1 src="/img/imgHomeInterna/home/archivi.png" alt=""></a></li>
                     <li><a href="#"><img data-number=2 src="/img/imgHomeInterna/home/presenti.png" onclick="openOrClose('.boxPresenti','onBoxLeft','offBoxLeft')" alt=""></a></li>
-                    <li><a href="#"><img data-number=3 src="/img/imgHomeInterna/home/rimnet.png" alt=""></a></li>
+                    <li><a href="#"><img data-number=3 src="/img/imgHomeInterna/home/rimnet.png" alt="" @click="openModalVue(null,'market')"></a></li>
                 </div>
                 
                 <li id='ghost'><img src="/img/imgHomeInterna/home/ghost.png" alt=""></li>

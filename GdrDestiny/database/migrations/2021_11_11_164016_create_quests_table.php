@@ -19,8 +19,11 @@ class CreateQuestsTable extends Migration
             $table->foreignId('id_user')->nullable();
             $table->timestamp('started');
             $table->timestamp('finished')->nullable();
+            $table->foreignId('id_chat');
             
             $table->foreign('id_user')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('id_chat')->references('id')->on('chats')->onDelete('cascade');
+
         });
     }
 

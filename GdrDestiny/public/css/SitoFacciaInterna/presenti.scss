@@ -246,7 +246,14 @@
   }
 
 
-
+.quest_on
+{
+    animation-name: changeColor;
+   animation-duration:2s;
+   animation-iteration-count:infinite;
+   animation-timing-function:ease-in-out;
+   animation-direction:alternate;
+}
   #status_on_off{
       margin-top: 4vh;
       text-align: center;

@@ -2,7 +2,10 @@
 
 namespace App\Classes;
 
-trait PopolateDatabase{
+use App\Userspecialization;
+
+trait PopolateDatabase
+{
 
     public function insertBreeds(){
         $umani=\App\Breed::insert([[
@@ -90,12 +93,20 @@ trait PopolateDatabase{
     }
     public function insertSellingObjectCategories(){
         $add_categories=\App\Sellingobjectcategory::insert([
-           [ 'name' => 'armi bianche' ],
-           [ 'name' => 'pistole' ],
-           [ 'name' => 'bombe' ],
-           [ 'name' => 'normali' ],
-
-        ]);
+            [ 'name' =>    'aste'],
+            [ 'name' =>    'armi da fuoco'],
+            [ 'name' =>    'armi bianche'],
+            [ 'name' =>    'animali'],
+            [ 'name' =>    'equipaggiamenti generici'],
+            [ 'name' =>    'equipaggiamenti mecha'],
+            [ 'name' =>    'esoscheletri'],
+            [ 'name' =>    'kit'],
+            [ 'name' =>    'mechna'],
+            [ 'name' =>    'mezzi di trasporto'],
+            [ 'name' =>    'mod per esoscheletri'],
+            [ 'name' =>    'vestiti ed uniformi'],
+            [ 'name' =>    'vendo usato']
+            ]);
     }
 
     public function insertSpecialitazions(){
@@ -1330,20 +1341,9 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
 
           ]);
 
-     }
+        }
 
      public function insertMercato(){
-         \App\Sellingobjectcategory::insert([
-             [
-                 'name' => 'armi bianche'
-             ],
-             [
-                 'name' => 'armi per sparare'
-             ],
-             [
-                 'name' => 'mecha object'
-             ],
-         ]);
          
         \App\Sellingobject::insert([
             [
@@ -1526,19 +1526,21 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'password' => \Hash::make('brunleon'),
                 'id_razza' => 1,
                 'id_emisfero' => 1,
+                'role' => 'ROLE_GESTORE',
                 'sesso' => 'f',
                 'last_activity' => now(),
 
 
             ],
             [
-                'name' => 'Brsaddasyan',
+                'name' => 'Bryan2',
                 'surname' => 'Bldfsadsast',
                 'email' => 'ichigoplayer18@gmaisdfsdel122e.com',
                 'nazionalità' => 'Afghanistan (Repubblica Islamica dell’Afghanistan), AF',
                 'password' => \Hash::make('brunleon'),
                 'id_razza' => 1,
                 'id_emisfero' => 1,
+                'role' => 'ROLE_UTENTE',
                 'sesso' => 'f',
                 'last_activity' => now(),
 
@@ -1546,8 +1548,16 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
             ],
             
         ]);
+    
+        
     }
-
+    public function addSpecs()
+    {
+        Userspecialization::create([
+            'id_user' => 1,
+            'id_specialization' => 30 
+        ]);
+    }
     public function addChats(){
 
         \App\Topmap::insert([
@@ -1596,21 +1606,18 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'id_topmap' => 1,
                 'descrizione' => 'sdjhsadasdasdjjasdjasdjldasjasdkj2io2',
                 'visibility' => 'no',
-                'immagini' => null
             ],
             [
                 'name' => 'ego',
                 'id_topmap' => 1,
                 'descrizione' => '11111asdjldasjasdkj2io2',
                 'visibility' => 'no',
-                'immagini' => json_encode([ ['name' => 'test1' , 'immagine' => 'test1.jpg'] ])
             ],
             [
                 'name' => 'charlemagne',
                 'id_topmap' => 1,
                 'descrizione' => '22222jasdjasdjldasjasdkj2io2',
                 'visibility' => 'no',
-                'immagini' => null
 
             ],
             [
@@ -1618,7 +1625,6 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'id_topmap' => 1,
                 'descrizione' => '333333asdjasdjldasjasdkj2io2',
                 'visibility' => 'yes',
-                'immagini' => null
 
             ],
             [
@@ -1626,7 +1632,6 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'id_topmap' => 1,
                 'descrizione' => '444444jasdjasdjldasjasdkj2io2',
                 'visibility' => 'yes',
-                'immagini' => null
 
             ],
             [
@@ -1634,7 +1639,7 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
                 'id_topmap' => 1,
                 'descrizione' => 'sdjhsadasdasdjjasdjasdjldasjasdkj2io2',
                 'visibility' => 'yes',
-                'immagini' => null
+                
 
             ]
         
@@ -1689,7 +1694,6 @@ Siete sempre i primi a sapere dove un\'esponente di questa particolare razza è 
         ]);
 
     }
-
 }
 
 

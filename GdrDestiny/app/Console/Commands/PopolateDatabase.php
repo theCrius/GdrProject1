@@ -77,6 +77,9 @@ class PopolateDatabase extends Command
     
           //aggiunge informazioni alle chat
           $this->addNewsToChat();
+
+          //aggiungere specializzazioni
+          $this->addSpecs();
    
     }
 }

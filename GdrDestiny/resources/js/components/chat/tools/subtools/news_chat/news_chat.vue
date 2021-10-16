@@ -46,8 +46,6 @@ export default {
         }
     },
     mounted(){
-        this.$parent.editHeight('60vh')
-        this.$parent.editWidth('60vh')
         this.getOldNews()
     }
     

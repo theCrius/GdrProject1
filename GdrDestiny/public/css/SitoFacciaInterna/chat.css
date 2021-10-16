@@ -44,6 +44,24 @@
   }
 }
 
+@-webkit-keyframes changeColor {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #ff0000;
+  }
+}
+
+@keyframes changeColor {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #ff0000;
+  }
+}
+
 #topChat {
   -webkit-box-flex: 0.35;
       -ms-flex: 0.35;

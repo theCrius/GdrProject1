@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\CheckCureUser;
 use App\Events\OnlineStatus;
 use App\Http\Controllers\Controller;
 use App\Jobs\InsertUserLog;

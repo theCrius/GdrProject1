@@ -6,11 +6,13 @@ use App\Events\BuyingObjects;
 use App\Events\ChangeMap;
 use App\Events\UpdateDataUserPt1;
 use App\Events\ChangeUser;
+use App\Events\CheckCureUser;
 use App\Events\Logged;
 use App\Events\ShowLog;
 use App\Events\showMessages;
 use App\Listeners\ChangeLastActivity;
 use App\Listeners\ConvertForeignToValue;
+use App\Listeners\DeleteHurts;
 use App\Listeners\SendUpdataDataToCheckAndToDb;
 use App\Listeners\DeletingInfo;
 use App\Listeners\RegisterLogging;
@@ -48,6 +50,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ChangeMap::class => [
             ChangeLastActivity::class
+        ],
+        CheckCureUser::class => [
+            DeleteHurts::class
         ],
       
     ];

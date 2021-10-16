@@ -102,6 +102,10 @@ class User extends Authenticatable
     public function messagesGiven(){
         return $this->hasMany('App\Message','id_user_from')->orderBy('created_at','desc');
     }
+    public function isInCure()
+    {
+        return $this->hasMany('App\Userisincure','patient')->where('finish_cure','>',now());
+    }
    
     
 

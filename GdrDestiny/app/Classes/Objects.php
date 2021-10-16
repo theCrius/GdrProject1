@@ -1,5 +1,8 @@
 <?php
 namespace App\Classes;
+
+use Illuminate\Support\Facades\Storage;
+
 trait Objects{
 
     //return an instance of objects that are equipped(yes) or simply owned by user
@@ -31,6 +34,17 @@ trait Objects{
     }
         return $objectsEquipped;
 
+    }
+
+    //return all objects with their link images
+    static function objectsWithTheirImages($objects)
+    {
+        foreach($objects as $object)
+        {
+            $object['image'] = '/storage/homeinterna/images/market/objects/' . $object->id . '.png';
+        }
+
+        return $objects;
     }
 
     

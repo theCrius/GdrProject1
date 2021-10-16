@@ -37,19 +37,28 @@ const app = new Vue({
             'componentToOpen' : {
                 'main' : '',
                 'footer' : '',
-                'header' : ''
-            },
+                'header' : '',
+                'width' : null,
+                'height' : null,
+                'image' : '/img/imgHomeInterna/sfondo_modal_vue.png'
+            }, 
             'usersOnline' : [],
             'all_users' : {},
             'usersOnlineInMap' : [],
         }
     },
     methods : {
-        openModalVue(header=null,main=null,footer=null)
+        openModalVue(header=null,main=null,footer=null, width=null, height=null )
         {
             if( header ) this.componentToOpen.header = header
             if( main ) this.componentToOpen.main = main
             if( footer ) this.componentToOpen.footer = footer
+            
+            if( width && height )
+            { 
+                this.componentToOpen.height = height 
+                this.componentToOpen.width = width
+            }
         },
     }
 });

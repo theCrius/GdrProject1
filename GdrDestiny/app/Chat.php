@@ -8,12 +8,13 @@ class Chat extends Model
 {
     protected $fillable = [
         
-        'name','id_topmap','id_middlemap','id_bottommap','visibility','descrizione','immagini'
+        'name','id_topmap','id_middlemap','id_bottommap','visibility','descrizione'
 
     ];
     protected $casts = [
         'immagini' => 'json'
     ];
+    public $timestamps = false;
 
 
     public function news()
@@ -36,6 +37,11 @@ class Chat extends Model
         }
     
         return $this->belongsTo("\App\\" . ucfirst($classMap),'id_' . $classMap ,'id');
+    }
+
+    public function quest()
+    {
+        return $this->hasMany('\App\Quest','id_chat')->where('finished' , null);
     }
     
 }

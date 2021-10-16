@@ -13,4 +13,8 @@ class Medicalrecord extends Model
     public function userWhoAddHurt(){
         return $this->belongsTo('\App\User','id_user_from','id');
     }
+    public function userHurted()
+    {
+        return $this->belongsTo('\App\User','id_user_to','id');
+    }
 }

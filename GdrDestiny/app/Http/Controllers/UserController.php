@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Chat;
 use App\Events\ChangeUser;
 use App\Events\UpdateDataUserPt1;
 use App\Exp;
 use Illuminate\Http\Request;
 use App\User;
 use App\Money;
+use Illuminate\Support\Facades\Config;
 
 class UserController extends Controller
 {
@@ -43,15 +45,66 @@ class UserController extends Controller
         ]);
     }
 
-
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showHurts($user,$hurtposition=null)
     {
-        //
+        $userFound = User::find($user);
+        $medicalRecords = $userFound->medicalrecords();
+        if( $hurtposition ) $medicalRecords = $medicalRecords->where('hurtposition',strip_tags($hurtposition));
+
+        if($userFound->isInCure->first())
+        {
+            $cureOfPg = $userFound->isInCure->first();
+            $idOfMedicalRecordCured = [];
+            foreach( $cureOfPg->medicalrecordsToDelete as $medicalrecord )
+            {
+                $idOfMedicalRecordCured[]= $medicalrecord['id'];
+            }
+            $medicalRecords = $medicalRecords->whereNotIn('id',$idOfMedicalRecordCured);
+        }
+        
+        return $medicalRecords->with('userWhoAddHurt')->get();        
+    }
+
+    //display all skills about medicine
+    public function skillCuraPg(Request $request)
+    {
+        $user = $request->user();
+        $skillToReturn = [];
+        $specsToReturn = [];
+        $skills = $user->skills()->whereIn('name',array_keys(Config::get('gdrConsts.medicalStuffs.skills')))->get();
+
+        foreach($skills as $skill)
+        {
+            $skillToReturn[] = array_merge(Config::get('gdrConsts.medicalStuffs.skills')[$skill->name], [ 'id' => $skill->id , 'name'  => $skill->name,'livello' => $skill->pivot->livello]);
+        }
+        $specs = $user->specs()->whereIn('name',array_keys(Config::get('gdrConsts.medicalStuffs.specs')))->get();
+
+        foreach($specs as $spec)
+        {
+            $specsToReturn[]=  array_merge(Config::get('gdrConsts.medicalStuffs.specs')[$spec->name],['id' => $spec->id , 'name'  => $spec->name]);
+        }
+        return [
+            'skills' => $skillToReturn,
+            'specs' => $specsToReturn
+        ];
+
+            
+    }
+
+    /**
+     * Show the value of a caratteristica of player
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCaratteristica($caratteristica, Request $request)
+    {
+        $user = $request->user();
+        return $user[$caratteristica] + $user->breed[$caratteristica];
     }
 
     /**

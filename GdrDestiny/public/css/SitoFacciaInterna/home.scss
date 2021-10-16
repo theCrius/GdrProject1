@@ -4,7 +4,9 @@
 ::-webkit-scrollbar {
     width: 3px;
   }
-
+  :disabled{
+        opacity: 0.5;
+    }
   
   /* Track */
   ::-webkit-scrollbar-track {

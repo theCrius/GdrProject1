@@ -29,7 +29,6 @@ export default {
         newsInserted(newsToPrint)
         {
             this.news = ''
-            console.log(newsToPrint);
             this.$parent.$parent.$parent.usersOnlineInMap[0].infoChat.chat.news.unshift(newsToPrint)
         }
     }

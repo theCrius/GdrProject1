@@ -1,0 +1,160 @@
+
+
+
+.modal_vue_body{
+        width: 70% !important;
+}
+#modal_vue_header{
+        align-items: center;
+        justify-content: flex-end;
+}
+#market_index{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#title_market{
+    flex: 0.15;
+}
+#body_market{
+    flex: 0.85;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+#body_left_market{
+    flex : 0.7;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#body_right_market{
+    flex: 0.3;
+    position: relative;
+    img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+    }
+}
+main{
+    width: 86% !important;
+}
+#body_right_titles_market{
+    width: 83%;
+    height: 83%;
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    padding-left: 0.5vh;
+    h1{
+        text-align: center;
+        color: #00ffff;
+    }
+    ul{
+        max-height: 94%;
+        overflow-y: auto;
+        color: #ffffff;
+        padding-top: 0.3vh;
+        text-transform: capitalize;
+        padding-left: 0.5vh;
+        li {
+            p{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-clamp: 4;
+                width: 100%;
+                white-space: nowrap;
+                height: 3.5vh;
+            }
+        }
+    }
+    
+}
+.body_left_object_market{
+    height: 35%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+.body_left_object_image_market
+{
+    flex: 0.3;
+    position: relative;
+    .body_left_object_image_background_market{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        
+    }
+    div{
+        height:100%;
+        width: 100%;
+        padding: 0.5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 77%;
+            height: 67%;
+            margin-right: 0.3vh;
+        }
+
+    }
+}
+
+.body_left_object_description_market{
+    flex: 0.7;
+    position: relative;
+    img{
+        height: 85%;
+        width: 100%;
+        position: absolute;
+        top: 10%;
+
+    }
+    .body_left_object_description_box_market{
+        height: 80%;
+        width: 98%;
+        padding: 0.8vh;
+        position: absolute;
+        top: 10%;
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+.body_left_object_description_name_market{
+    flex: 0.2;
+}
+.body_left_object_description_descrizione_market{
+    flex: 0.6;
+    overflow-y: auto;
+    overflow-x: none;
+
+}
+.body_left_object_description_descrizione_secondaria_market{
+    flex: 0.2;
+    display: flex;
+    justify-content: space-around;
+    overflow-y: auto;
+    overflow-x: none;
+
+}
+@media only screen and (max-width: 980px) and (min-height: 700px){
+  
+
+    .modal_vue_body{
+        width: 90% !important;
+    }
+    
+        
+              
+           
+
+
+}

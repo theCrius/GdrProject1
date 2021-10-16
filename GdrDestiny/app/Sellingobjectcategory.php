@@ -11,4 +11,9 @@ class Sellingobjectcategory extends Model
     ];
     protected $table='sellingobjectcategorys';
     
+    public function getSellingObjects()
+    {
+        return $this->hasMany('App\Sellingobject','id_category','id');
+    }
+    
 }

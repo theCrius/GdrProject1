@@ -23,7 +23,7 @@ class CreateSellingobjects extends Migration
             $table->integer('usura');
             $table->timestamps();
 
-            $table->foreign('id_category')->references('id')->on('sellingobjectcategorys')->ondelete('cascade');
+            $table->foreign('id_category')->references('id')->on('sellingobjectcategorys')->ondelete('set null');
         });
     }
 

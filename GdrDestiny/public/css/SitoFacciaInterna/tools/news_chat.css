@@ -44,6 +44,24 @@
   }
 }
 
+@-webkit-keyframes changeColor {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #ff0000;
+  }
+}
+
+@keyframes changeColor {
+  from {
+    color: #FFFFFF;
+  }
+  to {
+    color: #ff0000;
+  }
+}
+
 #news_written {
   display: -webkit-box;
   display: -ms-flexbox;

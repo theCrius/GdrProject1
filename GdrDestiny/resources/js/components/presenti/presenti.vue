@@ -58,8 +58,7 @@ export default {
         },
         checkIfUserIsInChat(user)
         {
-                    console.log(user)
-                   console.log(user.last_chat.nameRoute,this.current_map.nameRoute)
+                    
                     let sameNameRoute = user.last_chat.nameRoute == this.current_map.nameRoute
                     return sameNameRoute && this.haveSameParametres(user.last_chat.parametres)
 
@@ -72,7 +71,6 @@ export default {
         haveSameParametres(parametres)
         {
             let parametresChecked = 0
-            console.log( parametres, this.current_map.parametres)
             for (const key in parametres) {
                 for (const key in this.current_map.parametres) {
                     if( parametres[key] == this.current_map.parametres[key]) parametresChecked += 1

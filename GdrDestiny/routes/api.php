@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Medicalrecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -59,14 +60,40 @@ Route::get('/action/{idChat}/last','ActionController@show')->name('action.show')
 Route::post('/action/{idChat}/store', 'ActionController@store')->name('action.store');
 
 // add one news in chat
-Route::post("/chat/{chat}/news/add","ChatNewsController@create");
-Route::delete('/news/{news}',"ChatNewsController@destroy");
+Route::post("/chat/{chat}/news/add","ChatNewsController@create")->middleware('modOnMasterAdminOrGestore');
+Route::delete('/news/{news}',"ChatNewsController@destroy")->middleware('modOnMasterAdminOrGestore');
+
+//edit note of chat
+Route::post('/chat/{chat}/update','ChatController@update')->middleware('modOnMasterAdminOrGestore');
 
 //system of user online
-Route::get('/usersonline','UserController@index')->middleware('modOnMasterAdminOrGestore');
+Route::get('/usersonline','UserController@index');
 
 //get specs and skills for chat
 Route::get('/user/skills/specs', 'UserController@skillsAndSpecs');
+//get the hurts of a particolar user and hurtposition
+Route::get('/user/{user}/hurts/{hurtposition?}','UserController@showHurts');
+//create a new medicalrecord 
+Route::post('/user/{user}/medicalrecords/add','MedicalrecordController@store')->middleware('modOnMasterAdminOrGestore');;
+//to delete a medical record
+Route::delete('/medicalrecord/{medicalrecord}','MedicalrecordController@destroy')->middleware('modOnMasterAdminOrGestore');
 
+//to open a quest
+Route::post('/chat/{chat}/quest/store','QuestController@store')->middleware('checkIfMaster');
+//close a quest
+Route::put('/chat/{chat}/quest/{quest}','QuestController@update')->middleware('checkIfMaster');
+
+Route::get('/skill/curaPg','UserController@skillCuraPg');
+//get all users
 Route::get('/user/all','UserController@allUsers')->name('allUsers');
 
+Route::get('/user/{caratteristica}/getCaratteristica', 'UserController@getCaratteristica');
+
+//gett all users that have been hurted and they aren't in cure
+Route::get('/usershurtedAndNotInCure','UserisincureController@index');
+//user gets back his point of life
+Route::post('/user/{idUser}/cura','UserisincureController@store');
+//show all categories of selling object
+Route::get('/objects/categories','SellingobjectcategoryController@index');
+// show all objects about one category
+Route::get('/category/{idCategory}/objects','SellingObjectController@index');
