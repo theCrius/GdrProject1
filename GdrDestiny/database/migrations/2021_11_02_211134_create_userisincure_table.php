@@ -17,8 +17,8 @@ class CreateUserisincureTable extends Migration
             $table->id();
             $table->foreignId('doctor');
             $table->foreignId('patient');
-            $table->timestamp('start_cure');
-            $table->timestamp('finish_cure');
+            $table->timestamp('start_cure')->useCurrent();
+            $table->timestamp('finish_cure')->nullable()->default(null);
             $table->integer('point_recupered_at_day');
             $table->boolean('sanitamentale')->default(false);
             $table->json('medicalrecordsToDelete');
